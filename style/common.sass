@@ -43,7 +43,6 @@ body
     position: relative
     float: left
     padding-left: 10em
-
     a
       font-size: 1.2rem
       text-decoration: none
@@ -52,21 +51,11 @@ body
       border-bottom: 1px solid white
       padding-bottom: 5px
       margin-bottom: 1em
-
 
   #signup
-    position: relative
+    @extend #links
     float: right
     padding-right: 10em
-
-    a
-      font-size: 1.2rem
-      text-decoration: none
-      color: white
-      margin-right: 20px
-      border-bottom: 1px solid white
-      padding-bottom: 5px
-      margin-bottom: 1em
 
   .footer
     flex-shrink: 0
@@ -79,3 +68,16 @@ body
 
     p:last-child
       float: right
+
+  .button
+    background-color: #363636 /* Green */
+    border: none
+    color: white
+    padding: 15px 32px
+    text-align: center
+    text-decoration: none
+    display: block
+    font-size: 16px
+    border-radius: 0.25rem
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3)
+    cursor: pointer

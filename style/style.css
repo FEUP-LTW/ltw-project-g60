@@ -36,12 +36,12 @@ body .header h2 {
   text-align: center;
   font-size: 200%;
 }
-body #links {
+body #links, body #signup {
   position: relative;
   float: left;
   padding-left: 10em;
 }
-body #links a {
+body #links a, body #signup a {
   font-size: 1.2rem;
   text-decoration: none;
   color: white;
@@ -51,18 +51,8 @@ body #links a {
   margin-bottom: 1em;
 }
 body #signup {
-  position: relative;
   float: right;
   padding-right: 10em;
-}
-body #signup a {
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: white;
-  margin-right: 20px;
-  border-bottom: 1px solid white;
-  padding-bottom: 5px;
-  margin-bottom: 1em;
 }
 body .footer {
   flex-shrink: 0;
@@ -75,6 +65,19 @@ body .footer p:first-child {
 }
 body .footer p:last-child {
   float: right;
+}
+body .button {
+  background-color: #363636;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 body {
@@ -129,19 +132,6 @@ body #shuffle-button {
   display: flex;
   justify-content: center;
   margin-top: 2em;
-}
-body .button {
-  background-color: #363636;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  font-size: 16px;
-  border-radius: 0.25rem;
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
-  cursor: pointer;
 }
 
 #login h2, #register h2 {
