@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
+    <title>Pets</title>
+</head>
+<body>
+    <header>
+        <h1>Adoption Center</h1>
+        <a href="#">Pets</a>
+        <a href="#">Shelters</a>
+        <a href="#">Login</a>
+        <a href="#">Register</a>
+    </header>
+    <section class="search">
+        <form action="" method="POST">
+            <input type="text" autocomplete="off" name="search" id="search" placeholder="search for a pet..">
+            <button type="submit">submit</button>
+            <select name="category">
+                <option value="" disabled selected hidden>Category</option>
+                <option value="">option 1</option>
+            </select>
+            <select name="gender">
+                <option value="" disabled selected hidden>Gender</option>
+                <option value="">option 1</option>
+            </select>
+            <select name="color">
+                <option value="" disabled selected hidden>Color</option>
+                <option value="">option 1</option>
+            </select>
+            <select name="age">
+                <option value="" disabled selected hidden>Color</option>
+                <option value="">option 1</option>
+            </select>
+            <label>Favorites
+                <input type="checkbox" name="favorites">
+            </label>
+        </form>
+    </section>
+    <section class="pet_list">
+        <article>
+            <a href="#"><img src="https://picsum.photos/200" alt="pet photo"></a>
+            <h1>Pet Name</h1>
+            <div class="details">
+                <i class="fas fa-mars"></i>
+                <span>color</span>
+                <span>size</span>
+                <span>species</span>
+                <span>age</span>
+            </div>
+            <div class="proposals">
+                <p>Propostas, formato desconhecido</p>
+            </div>
+            <div class="links">
+                <a href="#">Add to Favorites</a>
+                <a href="#">View Owner</a>
+                <a href="#">Details</a>
+            </div>
+        </article>
+
+        <article>
+            <a href="#"><img src="https://picsum.photos/200" alt="pet photo"></a>
+            <h1>Pet Name</h1>
+            <div class="details">
+                <i class="fas fa-venus"></i>
+                <span>color</span>
+                <span>size</span>
+                <span>species</span>
+                <span>age</span>
+            </div>
+            <div class="proposals">
+                <p>Propostas, formato desconhecido</p>
+            </div>
+            <div class="links">
+                <a href="#">Add to Favorites</a>
+                <a href="#">View Owner</a>
+                <a href="#">Details</a>
+            </div>
+        </article>
+    </section>
+    <footer>
+        <p>copyrights</p>
+        <p>LTW 2020</p>
+    </footer>
+</body>
+</html>
