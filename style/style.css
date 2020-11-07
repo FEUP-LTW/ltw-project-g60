@@ -11,26 +11,7 @@ html, body {
   height: 100%;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-}
-body .content {
-  flex: 1 0 auto;
-}
-body .footer {
-  flex-shrink: 0;
-  background-color: #363636;
-  color: white;
-  padding: 3px 1em;
-}
-body .footer p:first-child {
-  float: left;
-}
-body .footer p:last-child {
-  float: right;
-}
-body #main-header {
+body .header {
   margin: 0 auto;
   background-color: grey;
   background-image: url("https://dogworldkennelclub.co.uk/wp-content/uploads/2017/11/banner-dog-field-2000x580.jpg");
@@ -41,14 +22,14 @@ body #main-header {
   color: white;
   padding-bottom: 1em;
 }
-body #main-header h1 {
+body .header h1 {
   margin: 0 auto;
   padding-top: 1em;
   text-align: center;
   font-size: 450%;
   letter-spacing: 10px;
 }
-body #main-header h2 {
+body .header h2 {
   text-align: center;
   font-size: 200%;
 }
@@ -79,6 +60,26 @@ body #signup a {
   border-bottom: 1px solid white;
   padding-bottom: 5px;
   margin-bottom: 1em;
+}
+body .footer {
+  flex-shrink: 0;
+  background-color: #363636;
+  color: white;
+  padding: 3px 1em;
+}
+body .footer p:first-child {
+  float: left;
+}
+body .footer p:last-child {
+  float: right;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+body .content {
+  flex: 1 0 auto;
 }
 body #homepage-cards {
   margin: 1em auto 0;
