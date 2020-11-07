@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link href="style/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="header">
         <h1>Adoption Center</h1>
         <h2>A center to adopt</h2>
         <nav id="links">
@@ -14,24 +16,26 @@
             <a href="#">Shelters</a>
         </nav>
         <nav id="signup">
-            <a href="#">Login</a>
-            <a href="#">Register</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
         </nav>
     </header>
-    <h2>Register</h2>
-    <form action="" method="post">
-        <label>Email
-            <input type="email" name="email" placeholder="email@example.com">
-        </label>
-        <label>Password
-            <input type="password" name="password">
-        </label>
-        <label>Confirm Password
-            <input type="password" name="password">
-        </label>
-        <input hidden type="submit">
-    </form>
-    <footer>
+    <div class="content">
+        <h2>Register</h2>
+        <form action="" method="post">
+            <label>Email
+                <input type="email" name="email" placeholder="email@example.com">
+            </label>
+            <label>Password
+                <input type="password" name="password">
+            </label>
+            <label>Confirm Password
+                <input type="password" name="password">
+            </label>
+            <input hidden type="submit">
+        </form>
+    </div>
+    <footer class="footer">
         <p>copyrights</p>
         <p>LTW 2020</p>
     </footer>
