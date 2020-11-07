@@ -22,6 +22,9 @@ body .header {
   color: white;
   padding-bottom: 1em;
 }
+body .header a {
+  color: white;
+}
 body .header h1 {
   margin: 0 auto;
   padding-top: 1em;
@@ -139,6 +142,57 @@ body .button {
   border-radius: 0.25rem;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
   cursor: pointer;
+}
+
+#login h2 {
+  background-color: #363636;
+  text-align: center;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 150%;
+  color: white;
+}
+#login form {
+  width: 30em;
+  background-color: #bababa;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: 0.3s;
+  color: #363636;
+  margin: 2em auto;
+  padding: 1em;
+}
+#login label {
+  padding: 1em;
+  display: block;
+}
+#login input[type=email], #login input[type=password] {
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  border-top: none;
+  border-bottom: 1px solid #DDD;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+  display: block;
+  padding: 0 10px;
+  background-color: white;
+  color: black;
+  -moz-appearance: none;
+  appearance: none;
+  margin-top: 1em;
+  width: 90%;
+  font-size: 0.9em;
+}
+#login input[type=submit] {
+  width: auto;
+  background-color: #363636;
+  color: white;
+  border: none;
+  margin: 1em 1em 1em auto;
+}
+#login input:focus {
+  outline: none;
+  border-bottom: 1px solid #046dd5;
 }
 
 /*# sourceMappingURL=style.css.map */

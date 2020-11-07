@@ -9,7 +9,9 @@
 </head>
 <body>
     <header class="header">
-        <h1>Adoption Center</h1>
+        <a href="homepage.html">
+            <h1>Adoption Center</h1>
+        </a>
         <h2>A center to adopt</h2>
         <nav id="links">
             <a href="#">Pets</a>
@@ -21,16 +23,18 @@
         </nav>
     </header>
     <div class="content">
-        <h2>Login</h2>
-        <form action="" method="post">
-            <label>Email
-                <input type="email" name="email" placeholder="email@example.com">
-            </label>
-            <label>Password
-                <input type="password" name="password">
-            </label>
-            <input hidden type="submit">
-        </form>
+        <section id="login">
+            <h2>Login</h2>
+            <form action="" method="post">
+                <label>Email
+                    <input type="email" name="email" placeholder="email@example.com">
+                </label>
+                <label>Password
+                    <input type="password" name="password" placeholder="your password here">
+                </label>
+                <input hidden type="submit" class="button" value="Login">
+            </form>
+        </section>
     </div>
     <footer class="footer">
         <p>LTW Project - G60</p>
