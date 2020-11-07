@@ -144,7 +144,7 @@ body .button {
   cursor: pointer;
 }
 
-#login h2 {
+#login h2, #register h2 {
   background-color: #363636;
   text-align: center;
   width: 100%;
@@ -152,7 +152,7 @@ body .button {
   font-size: 150%;
   color: white;
 }
-#login form {
+#login form, #register form {
   width: 30em;
   background-color: #bababa;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -162,11 +162,11 @@ body .button {
   margin: 2em auto;
   padding: 1em;
 }
-#login label {
+#login label, #register label {
   padding: 1em;
   display: block;
 }
-#login input[type=email], #login input[type=password] {
+#login input[type=email], #login input[type=password], #register input[type=email], #register input[type=password] {
   height: 34px;
   border-radius: 10px;
   border: 1px solid transparent;
@@ -183,14 +183,14 @@ body .button {
   width: 90%;
   font-size: 0.9em;
 }
-#login input[type=submit] {
+#login input[type=submit], #register input[type=submit] {
   width: auto;
   background-color: #363636;
   color: white;
   border: none;
   margin: 1em 1em 1em auto;
 }
-#login input:focus {
+#login input:focus, #register input:focus {
   outline: none;
   border-bottom: 1px solid #046dd5;
 }
