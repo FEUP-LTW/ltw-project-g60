@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
     <link href="style/style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header id="main-header">
+    <header id="main-header" class="header">
         <h1>Adoption Center</h1>
         <h2>A center to adopt</h2>
         <nav id="links">
@@ -21,41 +20,47 @@
             <a href="#">Register</a>
         </nav>
     </header>
-    <section id="body">
-        <a href="#">
-            <article>
-                <h2>Featured Pet</h2>
-                <img src="https://picsum.photos/200" alt="puppy photo">
-                <footer>
-                    <p>information</p>
-                </footer>
-            </article>
-        </a>
-
-        <a href="#">
-            <article>
-                <h2>Featured Shelter</h2>
-                <img src="https://picsum.photos/200" alt="puppy photo">
-                <footer>
-                    <p>information</p>
-                </footer>
-            </article>
-        </a>
-
-        <a href="#">
-            <article>
-                <h2>Featured Pet</h2>
-                <img src="https://picsum.photos/200" alt="puppy photo">
-                <footer>
-                    <p>information</p>
-                </footer>
-            </article>
-        </a>
-
-        <a id="buttom" href="#">Adopt your future pet</a>
-    </section>
-    <footer>
-        <p>copyrights</p>
+    <div class="content">
+        <div class="cards" id="homepage-cards">
+            <div class="card">
+                <a href="#">
+                    <div class="card-title">Featured Pet</div>
+                    <img src="https://picsum.photos/200" alt="puppy photo" style="width:100%">
+                    <div class="container">
+                        <h4><b>Pet Name</b></h4>
+                        <p>Information</p>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="#">
+                    <div class="card-title">Featured Shelter</div>
+                    <img src="https://picsum.photos/200" alt="puppy photo" style="width:100%">
+                    <div class="container">
+                        <h4><b>Shelter Name</b></h4>
+                        <p>Information</p>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="#">
+                    <div class="card-title">Featured Pet</div>
+                    <img src="https://picsum.photos/200" alt="puppy photo" style="width:100%">
+                    <div class="container">
+                        <h4><b>Pet Name</b></h4>
+                        <p>Information</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div id="shuffle-button">
+            <a href="#" >
+                <div class="button">Adopt your future Pet</div>
+            </a>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>LTW Project - G60</p>
         <p>LTW 2020</p>
     </footer>
 </body>
