@@ -4,35 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link href="style/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Adoption Center</h1>
+    <header class="header">
+        <a href="homepage.html">
+            <h1>Adoption Center</h1>
+        </a>
         <h2>A center to adopt</h2>
         <nav id="links">
             <a href="#">Pets</a>
             <a href="#">Shelters</a>
         </nav>
         <nav id="signup">
-            <a href="#">Login</a>
-            <a href="#">Register</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
         </nav>
     </header>
-    <h2>Register</h2>
-    <form action="" method="post">
-        <label>Email
-            <input type="email" name="email" placeholder="email@example.com">
-        </label>
-        <label>Password
-            <input type="password" name="password">
-        </label>
-        <label>Confirm Password
-            <input type="password" name="password">
-        </label>
-        <input hidden type="submit">
-    </form>
-    <footer>
-        <p>copyrights</p>
+    <div class="content">
+        <section id="register">
+            <h2>Register</h2>
+            <form action="" method="post">
+                <label>Email
+                    <input type="email" name="email" placeholder="email@example.com">
+                </label>
+                <label>Password
+                    <input type="password" name="password" placeholder="min. 8 characters">
+                </label>
+                <label>Confirm Password
+                    <input type="password" name="password" placeholder="confirm your password">
+                </label>
+                <input type="submit" class="button" value="Register">
+            </form>
+        </section>
+    </div>
+    <footer class="footer">
+        <p>LTW Project - G60</p>
         <p>LTW 2020</p>
     </footer>
 </body>

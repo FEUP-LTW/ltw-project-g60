@@ -11,12 +11,48 @@ html, body {
   height: 100%;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
+body .header {
+  margin: 0 auto;
+  background-color: grey;
+  background-image: url("https://dogworldkennelclub.co.uk/wp-content/uploads/2017/11/banner-dog-field-2000x580.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 15em;
+  color: white;
+  padding-bottom: 1em;
 }
-body .content {
-  flex: 1 0 auto;
+body .header a {
+  color: white;
+}
+body .header h1 {
+  margin: 0 auto;
+  padding-top: 1em;
+  text-align: center;
+  font-size: 450%;
+  letter-spacing: 10px;
+}
+body .header h2 {
+  text-align: center;
+  font-size: 200%;
+}
+body #links, body #signup {
+  position: relative;
+  float: left;
+  padding-left: 10em;
+}
+body #links a, body #signup a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+  border-bottom: 1px solid white;
+  padding-bottom: 5px;
+  margin-bottom: 1em;
+}
+body #signup {
+  float: right;
+  padding-right: 10em;
 }
 body .footer {
   flex-shrink: 0;
@@ -30,55 +66,26 @@ body .footer p:first-child {
 body .footer p:last-child {
   float: right;
 }
-body #main-header {
-  margin: 0 auto;
-  background-color: grey;
-  background-image: url("https://dogworldkennelclub.co.uk/wp-content/uploads/2017/11/banner-dog-field-2000x580.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 15em;
+body .button {
+  background-color: #363636;
+  border: none;
   color: white;
-  padding-bottom: 1em;
-}
-body #main-header h1 {
-  margin: 0 auto;
-  padding-top: 1em;
+  padding: 15px 32px;
   text-align: center;
-  font-size: 450%;
-  letter-spacing: 10px;
-}
-body #main-header h2 {
-  text-align: center;
-  font-size: 200%;
-}
-body #links {
-  position: relative;
-  float: left;
-  padding-left: 10em;
-}
-body #links a {
-  font-size: 1.2rem;
   text-decoration: none;
-  color: white;
-  margin-right: 20px;
-  border-bottom: 1px solid white;
-  padding-bottom: 5px;
-  margin-bottom: 1em;
+  display: block;
+  font-size: 16px;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
-body #signup {
-  position: relative;
-  float: right;
-  padding-right: 10em;
+
+body {
+  display: flex;
+  flex-direction: column;
 }
-body #signup a {
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: white;
-  margin-right: 20px;
-  border-bottom: 1px solid white;
-  padding-bottom: 5px;
-  margin-bottom: 1em;
+body .content {
+  flex: 1 0 auto;
 }
 body #homepage-cards {
   margin: 1em auto 0;
@@ -126,18 +133,56 @@ body #shuffle-button {
   justify-content: center;
   margin-top: 2em;
 }
-body .button {
+
+#login h2, #register h2 {
   background-color: #363636;
-  border: none;
-  color: white;
-  padding: 15px 32px;
   text-align: center;
-  text-decoration: none;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 150%;
+  color: white;
+}
+#login form, #register form {
+  width: 30em;
+  background-color: #bababa;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: 0.3s;
+  color: #363636;
+  margin: 2em auto;
+  padding: 1em;
+}
+#login label, #register label {
+  padding: 1em;
   display: block;
-  font-size: 16px;
-  border-radius: 0.25rem;
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
-  cursor: pointer;
+}
+#login input[type=email], #login input[type=password], #register input[type=email], #register input[type=password] {
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  border-top: none;
+  border-bottom: 1px solid #DDD;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+  display: block;
+  padding: 0 10px;
+  background-color: white;
+  color: black;
+  -moz-appearance: none;
+  appearance: none;
+  margin-top: 1em;
+  width: 90%;
+  font-size: 0.9em;
+}
+#login input[type=submit], #register input[type=submit] {
+  width: auto;
+  background-color: #363636;
+  color: white;
+  border: none;
+  margin: 1em 1em 1em auto;
+}
+#login input:focus, #register input:focus {
+  outline: none;
+  border-bottom: 1px solid #046dd5;
 }
 
 /*# sourceMappingURL=style.css.map */
