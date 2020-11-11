@@ -216,4 +216,86 @@ body #shuffle-button {
   border-bottom: 1px solid #046dd5;
 }
 
+.search {
+  background-image: url("https://dogworldkennelclub.co.uk/wp-content/uploads/2017/11/banner-dog-field-2000x580.jpg");
+  width: 100%;
+  margin: 0 auto;
+}
+.search form {
+  display: grid;
+  height: 12em;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+}
+.search form #search-wrap {
+  width: 100%;
+  grid-row: 1;
+  grid-column: 3/6;
+}
+.search form #search-wrap #search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+.search form #search-wrap #search input {
+  width: 100%;
+  background-color: white;
+  border-right: none;
+  padding: 0 1em;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #363636;
+}
+.search form #search-wrap #search button {
+  width: 40px;
+  height: 36px;
+  background: #363636;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+.search form select[name=category] {
+  grid-row: 2;
+  grid-column: 2;
+}
+.search form select[name=gender] {
+  grid-row: 2;
+  grid-column: 3;
+}
+.search form select[name=color] {
+  grid-row: 2;
+  grid-column: 4;
+}
+.search form select[name=age] {
+  grid-row: 2;
+  grid-column: 5;
+}
+.search form label {
+  grid-row: 2;
+  grid-column: 6;
+}
+.search form select {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #363636;
+  padding: 1em;
+  background-color: #363636;
+  border-radius: 7px;
+  color: white;
+}
+.search form label {
+  width: 80%;
+  margin: 0 auto;
+}
+.search form #favorites {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
 /*# sourceMappingURL=style.css.map */

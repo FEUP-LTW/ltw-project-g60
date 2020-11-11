@@ -1,0 +1,74 @@
+@use 'common'
+
+.search
+  background-image: common.$background-image
+  width: 100%
+  margin: 0 auto
+  form
+    display: grid
+    height: 12em
+    grid-template-columns: repeat(7, 1fr)
+    grid-template-rows: 1fr 1fr
+    justify-content: center
+    align-items: center
+
+    #search-wrap
+      width: 100%
+      grid-row: 1
+      grid-column: 3 / 6
+      #search
+        width: 100%
+        position: relative
+        display: flex
+        input
+          width: 100%
+          background-color: white
+          border-right: none
+          padding: 0 1em
+          height: 36px
+          border-radius: 5px 0 0 5px
+          outline: none
+          color: common.$dark-grey
+        button
+          width: 40px
+          height: 36px
+          background: common.$dark-grey
+          text-align: center
+          color: #fff
+          border-radius: 0 5px 5px 0
+          cursor: pointer
+          font-size: 20px
+
+    select[name="category"]
+      grid-row: 2
+      grid-column: 2
+    select[name="gender"]
+      grid-row: 2
+      grid-column: 3
+    select[name="color"]
+      grid-row: 2
+      grid-column: 4
+    select[name="age"]
+      grid-row: 2
+      grid-column: 5
+    label
+      grid-row: 2
+      grid-column: 6
+
+    select
+      width: 80%
+      margin: 0 auto
+      border: 1px solid common.$dark-grey
+      padding: 1em
+      background-color: common.$dark-grey
+      border-radius: 7px
+      color: white
+    label
+      width: 80%
+      margin: 0 auto
+
+    #favorites
+      opacity: 0
+      width: 0
+      height: 0
+
