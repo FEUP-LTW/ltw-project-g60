@@ -13,71 +13,89 @@ $dark-grey: #363636
 html, body
   height: 100%
 
-body
-  .header
-    margin: 0 auto
-    background-color: grey
-    background-image: url("https://dogworldkennelclub.co.uk/wp-content/uploads/2017/11/banner-dog-field-2000x580.jpg")
-    background-repeat: no-repeat
-    background-size: cover
-    width: 100%
-    height: 15em
+.header
+  margin: 0 auto
+  background-color: grey
+  background-image: url("https://dogworldkennelclub.co.uk/wp-content/uploads/2017/11/banner-dog-field-2000x580.jpg")
+  background-repeat: no-repeat
+  background-size: cover
+  width: 100%
+  height: 15em
+  color: white
+  padding-bottom: 1em
+  a
     color: white
-    padding-bottom: 1em
+  h1
+    margin: 0 auto
+    padding-top: 1em
+    text-align: center
+    font-size: 450%
+    letter-spacing: 10px
+  h2
+    text-align: center
+    font-size: 200%
 
+.small-header
+  margin: 0 auto
+  background-color: $dark-grey
+  width: 100%
+  color: white
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 5px 0
+  h1
+    margin-left: 20px
+  a
+    color: white
+  nav // links on the header (small factor)
+    margin-right: 20px
     a
-      color: white
-
-    h1
-      margin: 0 auto
-      padding-top: 1em
-      text-align: center
-      font-size: 450%
-      letter-spacing: 10px
-
-    h2
-      text-align: center
-      font-size: 200%
-
-  #links
-    position: relative
-    float: left
-    padding-left: 10em
-    a
-      font-size: 1.2rem
       text-decoration: none
       color: white
       margin-right: 20px
       border-bottom: 1px solid white
-      padding-bottom: 5px
-      margin-bottom: 1em
+      padding-bottom: 2px
 
-  #signup
-    @extend #links
-    float: right
-    padding-right: 10em
-
-  .footer
-    flex-shrink: 0
-    background-color: #363636
-    color: white
-    padding: 3px 1em
-
-    p:first-child
-      float: left
-
-    p:last-child
-      float: right
-
-  .button
-    background-color: #363636 /* Green */
-    border: none
-    color: white
-    padding: 15px 32px
-    text-align: center
+#links
+  position: relative
+  float: left
+  padding-left: 10em
+  a
+    font-size: 1.2rem
     text-decoration: none
-    display: block
-    font-size: 16px
-    border-radius: 0.25rem
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3)
-    cursor: pointer
+    color: white
+    margin-right: 20px
+    border-bottom: 1px solid white
+    padding-bottom: 5px
+    margin-bottom: 1em
+
+#signup
+  @extend #links
+  float: right
+  padding-right: 10em
+
+.footer
+  flex-shrink: 0
+  background-color: #363636
+  color: white
+  padding: 3px 1em
+
+  p:first-child
+    float: left
+
+  p:last-child
+    float: right
+
+.button
+  background-color: #363636 /* Green */
+  border: none
+  color: white
+  padding: 15px 32px
+  text-align: center
+  text-decoration: none
+  display: block
+  font-size: 16px
+  border-radius: 0.25rem
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3)
+  cursor: pointer

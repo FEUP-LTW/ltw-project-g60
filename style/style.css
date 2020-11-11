@@ -11,7 +11,7 @@ html, body {
   height: 100%;
 }
 
-body .header {
+.header {
   margin: 0 auto;
   background-color: grey;
   background-image: url("https://dogworldkennelclub.co.uk/wp-content/uploads/2017/11/banner-dog-field-2000x580.jpg");
@@ -22,26 +22,54 @@ body .header {
   color: white;
   padding-bottom: 1em;
 }
-body .header a {
+.header a {
   color: white;
 }
-body .header h1 {
+.header h1 {
   margin: 0 auto;
   padding-top: 1em;
   text-align: center;
   font-size: 450%;
   letter-spacing: 10px;
 }
-body .header h2 {
+.header h2 {
   text-align: center;
   font-size: 200%;
 }
-body #links, body #signup {
+
+.small-header {
+  margin: 0 auto;
+  background-color: #363636;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+.small-header h1 {
+  margin-left: 20px;
+}
+.small-header a {
+  color: white;
+}
+.small-header nav {
+  margin-right: 20px;
+}
+.small-header nav a {
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+  border-bottom: 1px solid white;
+  padding-bottom: 2px;
+}
+
+#links, #signup {
   position: relative;
   float: left;
   padding-left: 10em;
 }
-body #links a, body #signup a {
+#links a, #signup a {
   font-size: 1.2rem;
   text-decoration: none;
   color: white;
@@ -50,23 +78,26 @@ body #links a, body #signup a {
   padding-bottom: 5px;
   margin-bottom: 1em;
 }
-body #signup {
+
+#signup {
   float: right;
   padding-right: 10em;
 }
-body .footer {
+
+.footer {
   flex-shrink: 0;
   background-color: #363636;
   color: white;
   padding: 3px 1em;
 }
-body .footer p:first-child {
+.footer p:first-child {
   float: left;
 }
-body .footer p:last-child {
+.footer p:last-child {
   float: right;
 }
-body .button {
+
+.button {
   background-color: #363636;
   border: none;
   color: white;
