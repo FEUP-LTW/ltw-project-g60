@@ -3,39 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
-    <title>User's Profile</title>
+    <title>Shelter's Profile</title>
 </head>
 <body>
-    <header>
-        <h1>Adoption Center</h1>
-        <a href="#">Pets</a>
-        <a href="#">Shelters</a>
-        <a href="#">Login</a>
-        <a href="#">Register</a>
-    </header>
-    <section class="banner">
-        <img src="https://picsum.photos/400/200" alt="pet's image">
-        <h2>User name</h2>
+    <section class="navigation_bar">
+        <a href="homepage.html">
+           Adoption Center
+        </a>
+        <nav id="links">
+            <a href="#">Pets</a>
+            <a href="#">Shelters</a>
+        </nav>
+        <nav id="signup">
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+        </nav>
+    </section>
+    <section class="banner" style="background-image: url('https://images.unsplash.com/photo-1570021974424-60e83dfee639?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80');">
+        <a>Sheltername</a>
     </section>
 
-    <section>
-        <img src="https://picsum.photos/200/200" alt="user photo">
-        <a href="#"><i class="far fa-file"></i>About Me</a>
-        <!-- Estando a checkbox ativada ou não mostra os favoritos, evita dar reload á pagina-->
-        <a href="#"><i class="fas fa-map-marker-alt"></i></i>Contacts</a>
-        <a href="#"><i class="fas fa-mobile-alt"></i>Contacts</a>
+    <section class="profile">
+        <div class="profile_pic">
+            <img src="https://picsum.photos/200/200" alt="user photo">
+        </div>
+        <div id="about_me">
+            <a href="#"><i class="far fa-file"></i>About Us</a>
+        </div>
+         <!--Estando a checkbox ativada ou não mostra os favoritos, evita dar reload á pagina-->
+        <div id="location">
+            <a href="#"><i class="fas fa-map-marker-alt"></i></i>Location</a>
+        </div>
+        <div id="contact">
+            <a href="#"><i class="fas fa-mobile-alt"></i>Contacts</a>
+        </div>
+        <div class="shelter_adopted">
+                <div class="title">Adopted</div>
+            <div class="adopted-card">
+                <a href="#">
+                    <img src="https://picsum.photos/200" alt="puppy photo" >
+                    <div class="container-dog">
+                        <h4><b>Pet Name</b></h4>
+                        <p>The Affenpinscher: loyal, curious, and famously amusing; this almost-human toy dog is fearless out of all proportion to his size. As with all great comedians, it’s the Affenpinscher’s apparent seriousness of purpose that makes his antics all the more amusing.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="adopted-card">
+                <a href="#">
+                    <img src="https://picsum.photos/200" alt="puppy photo" >
+                    <div class="container-dog">
+                        <h4><b>Pet Name</b></h4>
+                        <p>The Affenpinscher: loyal, curious, and famously amusing; this almost-human toy dog is fearless out of all proportion to his size. As with all great comedians, it’s the Affenpinscher’s apparent seriousness of purpose that makes his antics all the more amusing.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="adopted-card">
+                <a href="#">
+                    <img src="https://picsum.photos/200" alt="puppy photo" >
+                    <div class="container-dog">
+                        <h4><b>Pet Name</b></h4>
+                        <p>Information</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <section class="shelter_adoption">
+            <div class="title">For adoption</div>
+            <div class="adoption-card">
+                <a href="#">
+                    <img src="https://picsum.photos/200" alt="puppy photo">
+                    <div class="container-dog">
+                        <h4><b>Pet Name</b></h4>
+                        <p>Information</p>
+                    </div>
+                </a>
+            </div>
+        </section>
     </section>
 
-    <section class="shelter_adoption">
-        <a href=""><img src="https://picsum.photos/60/60" alt="">Nome de para adotar</a>
-    </section>
 
-    <section class="shelter_adopted">
-        <a href=""><img src="https://picsum.photos/60/60" alt="">Nome de Adotado</a>
-    </section>
-
-    <footer>
+    <footer class="footer">
         <p>copyrights</p>
         <p>LTW 2020</p>
     </footer>
