@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+.header {
+  margin: 0 auto;
+  background-color: grey;
+  background-image: url("https://dogworldkennelclub.co.uk/wp-content/uploads/2017/11/banner-dog-field-2000x580.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 15em;
+  color: white;
+  padding-bottom: 1em;
+}
+.header a {
+  color: white;
+}
+.header h1 {
+  margin: 0 auto;
+  padding-top: 1em;
+  text-align: center;
+  font-size: 450%;
+  letter-spacing: 10px;
+}
+.header h2 {
+  text-align: center;
+  font-size: 200%;
+}
+
+.small-header {
+  margin: 0 auto;
+  background-color: #363636;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+.small-header h1 {
+  margin-left: 20px;
+}
+.small-header a {
+  color: white;
+}
+.small-header nav {
+  margin-right: 20px;
+}
+.small-header nav a {
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+  border-bottom: 1px solid white;
+  padding-bottom: 2px;
+}
+
+#links, #signup {
+  position: relative;
+  float: left;
+  padding-left: 10em;
+}
+#links a, #signup a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+  border-bottom: 1px solid white;
+  padding-bottom: 5px;
+  margin-bottom: 1em;
+}
+
+#signup {
+  float: right;
+  padding-right: 10em;
+}
+
+.footer {
+  flex-shrink: 0;
+  background-color: #363636;
+  color: white;
+  padding: 3px 1em;
+}
+.footer p:first-child {
+  float: left;
+}
+.footer p:last-child {
+  float: right;
+}
+
+.button {
+  background-color: #363636;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.search {
+  background-image: url("https://dogworldkennelclub.co.uk/wp-content/uploads/2017/11/banner-dog-field-2000x580.jpg");
+  height: 40em;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/*# sourceMappingURL=pets_list.css.map */
