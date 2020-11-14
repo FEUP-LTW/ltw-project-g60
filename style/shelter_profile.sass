@@ -1,0 +1,134 @@
+@use 'common'
+
+body
+  height: auto
+
+  a
+    color: white
+    text-decoration: none
+
+  .banner
+    position: relative
+    margin: 0 auto
+    background-repeat: no-repeat
+    background-size: cover
+    background-position-y: -200px
+    width: 100%
+    height: 15vw
+
+    a
+      font-size: 250%
+      color: white
+      position: absolute
+      bottom: 0
+      right: 0
+      margin-right: 30px
+      margin-bottom: 10px
+      text-shadow: 5px 3px 5px #000000
+
+  .profile
+    margin-top: 10px
+    grid-template-rows: 10vw auto
+    grid-template-columns: 19% 15% 15% 15% 36%
+    background-color: white
+    display: grid
+    grid-template-areas: "profile about location contact adopted" "adopt adopt adopt adopt adopted"
+
+    img
+      width: 50%
+      border-radius: 15px
+      float: left
+      margin-right: 10px
+
+    .title
+      padding: 18px 0px 0px 25px
+      font-size: 25px
+      font-weight: bold
+      color: white
+
+    .profile_pic
+      grid-area: profile
+
+      img
+        top: 13vw
+        width: 15%
+        position: absolute
+        left: 25px
+        z-index: 1
+        border-radius: 15px
+
+    #about_me, #location, #contact
+      display: flex
+      border-radius: 15px
+      background-color: grey
+      margin: 8% 12%
+      justify-content: center
+
+      a
+        padding: 10%
+        font-size: 1.5vw
+        i
+          display: flex
+          font-size: 3.5vw
+          justify-content: center
+
+    #about_me
+      grid-area: about
+
+    #location
+      grid-area: location
+
+    #contact
+      grid-area: contact
+
+    #about_me:hover, #location:hover, #contact:hover
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+      cursor: pointer
+
+    .container-dog
+      padding: 0
+      width: 100%
+      text-align: justify
+
+    h4
+      font-size: 130%
+      margin-bottom: 10px
+
+    p
+      color: white
+
+    .shelter_adopted
+      grid-area: adopted
+      border-radius: 15px
+      background-color: grey
+      margin: 3% 3%
+
+      .adopted-card
+        display: flex
+        padding: 5%
+        background-color: #363636
+        border-radius: 15px
+        width: 80%
+        margin: 5%
+
+      .adopted-card:hover
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+        cursor: pointer
+
+    .shelter_adoption
+      grid-area: adopt
+      border-radius: 15px
+      background-color: grey
+      margin: 3% 3%
+
+      .adoption-card
+        display: flex
+        padding: 3%
+        background-color: #363636
+        border-radius: 15px
+        width: 88%
+        margin: 15px 3%
+
+      .adoption-card:hover
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+        cursor: pointer
