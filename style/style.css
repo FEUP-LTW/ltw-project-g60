@@ -628,13 +628,22 @@ body .profile .shelter_adoption .adoption-card:hover {
   grid-column: 1;
   border-radius: 10px 0 0 10px;
   justify-self: end;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://picsum.photos/200");
+  background-size: cover;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
 }
 #pet-profile .pet-bio #owner-info {
   grid-column: 3;
   position: relative;
 }
-#pet-profile .pet-bio #owner-info img {
+#pet-profile .pet-bio #owner-info .img {
   border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://picsum.photos/200");
+  background-size: cover;
 }
 #pet-profile .pet-bio #owner-info p {
   padding: 5px;
@@ -650,14 +659,15 @@ body .profile .shelter_adoption .adoption-card:hover {
 }
 #pet-profile .pet-bio .pet-info {
   grid-column: 2;
-  height: 200px;
+  height: 100%;
   margin-left: -10px;
   display: grid;
   background-color: #363636;
   color: white;
   border-radius: 0 10px 10px 0;
-  grid-template-rows: 2fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
   grid-template-areas: "description" "details" "name";
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
 }
 #pet-profile .pet-bio .pet-info #title {
   grid-area: name;
@@ -686,11 +696,82 @@ body .profile .shelter_adoption .adoption-card:hover {
   grid-area: description;
   padding: 1em;
 }
+#pet-profile #options {
+  margin-top: 1em;
+  padding: 1em;
+  background-color: #bababa;
+  border-radius: 10px;
+}
+#pet-profile #options .buttons {
+  text-align: center;
+}
+#pet-profile #options .buttons a {
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 10px;
+  width: 30%;
+}
 #pet-profile #proposals {
   margin-top: 1em;
   padding: 1em;
   background-color: #bababa;
   border-radius: 10px;
+}
+#pet-profile #proposals h2 {
+  margin-bottom: 1em;
+}
+#pet-profile #proposals .grid-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+#pet-profile #proposals .grid-list .adoption-proposal {
+  padding: 1em;
+  background-color: #363636;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 4fr 1fr;
+  grid-column-gap: 1em;
+}
+#pet-profile #proposals .grid-list .adoption-proposal .img {
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  background-image: url("https://picsum.photos/200");
+  background-size: cover;
+  grid-row: 1;
+  grid-column: 1;
+}
+#pet-profile #proposals .grid-list .adoption-proposal h3 {
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+  background-color: #a1a1a1;
+  color: black;
+  grid-row: 2;
+  grid-column: 1;
+}
+#pet-profile #proposals .grid-list .adoption-proposal .user-details {
+  border-radius: 10px;
+  background-color: #a1a1a1;
+  color: black;
+  padding: 1em;
+  margin-right: 15px;
+  margin-bottom: 0px;
+  height: auto;
+  grid-row: 1/3;
+  grid-column: 2;
+  display: grid;
+  grid-template-rows: 2fr 1fr 2fr;
+}
+#pet-profile #proposals .grid-list .adoption-proposal .user-details .button {
+  font-size: 1.2rem;
+  align-self: flex-end;
+}
+#pet-profile #proposals .grid-list .adoption-proposal .user-details small {
+  text-align: right;
 }
 
 /*# sourceMappingURL=style.css.map */
