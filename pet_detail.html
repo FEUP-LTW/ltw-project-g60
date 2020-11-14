@@ -3,39 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
+    <link href="style/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <title>PetName's Page</title>
 </head>
 <body>
-    <header>
-        <h1>Adoption Center</h1>
-        <a href="#">Pets</a>
+<section class="navigation_bar">
+    <a href="homepage.html">Adoption Center</a>
+    <nav id="links">
+        <a href="pets_list.html">Pets</a>
         <a href="#">Shelters</a>
-        <a href="#">Login</a>
-        <a href="#">Register</a>
-    </header>
-    <section class="pet_info">
-        <img src="https://picsum.photos/200" alt="pet's image">
-        <h2>PetName</h2>
-        <span>State</span>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto quae, ex doloribus iure perspiciatis explicabo culpa in omnis exercitationem sed, amet soluta, maiores ducimus?</p>
-    </section>
-    <section class="owner_info">
-        <img src="https://picsum.photos/200" alt="pet's image">
-        <p>Owner name</p>
-    </section>
-    <section class="proposals">
+    </nav>
+    <nav id="signup">
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+    </nav>
+</section>
+<div class="page-content" id="pet-profile">
+    <div class="pet-bio">
+        <img id="pet-image" src="https://picsum.photos/200" alt="pet's image">
+        <section class="pet-info">
+            <div id="title">
+                <h2>PetName</h2>
+                <span>state</span>
+            </div>
+            <div id="pet-details">
+                <i class="fas fa-mars"></i>
+                <span>color</span>
+                <span>size</span>
+                <span>species</span>
+                <span>age</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto quae, ex doloribus iure perspiciatis explicabo culpa in omnis exercitationem sed, amet soluta, maiores ducimus?</p>    </section>
+        <a id="owner-info" href="user_profile.html">
+            <img src="https://picsum.photos/200" alt="pet's image">
+            <p>Owner name</p>
+        </a>
+    </div>
+    <section id="proposals">
+        <h2>Proposals</h2>
         <article>
             <p>Ainda não está bem definido</p>
         </article>
     </section>
-    <section class="previous_prop">
-        <article>
-            <p>Ainda não está bem definido também</p>
-        </article>
-    </section>
-    <footer>
-        <p>copyrights</p>
-        <p>LTW 2020</p>
-    </footer>
+</div>
+<footer class="footer">
+    <p>copyrights</p>
+    <p>LTW 2020</p>
+</footer>
 </body>
 </html>

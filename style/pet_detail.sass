@@ -1,0 +1,63 @@
+@use 'common'
+@use 'animations'
+
+#pet-profile
+  .pet-bio
+    display: grid
+    grid-template-columns: 200px 3fr 200px
+    grid-gap: 10px
+    #pet-image
+      grid-column: 1
+      border-radius: 10px 0 0 10px
+      justify-self: end
+    #owner-info
+      grid-column: 3
+      position: relative
+      img
+        border-radius: 10px
+      p
+        padding: 5px
+        border-radius: 5px
+        background-color: common.$dark-grey
+        position: absolute
+        bottom: 8px
+        left: 8px
+        color: white
+    #owner-info:hover
+      @include animations.animation("scale05 0.2s forwards")
+    .pet-info
+      grid-column: 2
+      height: 200px /* to match the image */
+      margin-left: -10px
+      display: grid
+      background-color: common.$dark-grey
+      color: white
+      border-radius: 0 10px 10px 0
+      grid-template-rows: 2fr 1fr 1fr
+      grid-template-areas: "description" "details" "name"
+      #title
+        grid-area: name
+        padding: 1em
+        span, h2
+          display: inline-block
+          margin-right: 1em
+        h2
+          font-size: 150%
+        span
+          background-color: red
+          border-radius: 20px
+          padding: 0 10px
+      #pet-details
+        grid-area: details
+        padding: 1em
+      #pet-details>*
+        margin-right: 40px
+      p
+        grid-area: description
+        padding: 1em
+
+  #proposals
+    margin-top: 1em
+    padding: 1em
+    background-color: #bababa
+    border-radius: 10px
