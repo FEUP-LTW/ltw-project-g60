@@ -147,32 +147,6 @@ html, body {
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
   cursor: pointer;
 }
-body .navigation_bar {
-  background-color: #363636;
-  width: 100%;
-}
-body .navigation_bar a {
-  color: white;
-  padding: 10px;
-  font-size: 1.2rem;
-  float: left;
-}
-body .navigation_bar #links, body .navigation_bar #signup {
-  padding: 10px;
-  margin-left: 10%;
-}
-body .navigation_bar #links a, body .navigation_bar #signup a {
-  padding: 0px;
-  margin-bottom: 0px;
-}
-body .navigation_bar #signup {
-  padding: 10px;
-}
-body .navigation_bar #signup a {
-  padding: 0px;
-  float: right;
-  margin-bottom: 0px;
-}
 
 .button:hover {
   -webkit-animation: scale05 0.2s forwards;
@@ -212,6 +186,47 @@ hr {
   border-top: 1px solid #ccc;
   margin: 1em 0;
   padding: 0;
+}
+
+.button {
+  background-color: #363636;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.navigation_bar {
+  background-color: #363636;
+  width: 100%;
+}
+.navigation_bar a {
+  color: white;
+  padding: 10px;
+  font-size: 1.2rem;
+  float: left;
+}
+.navigation_bar #links, .navigation_bar #signup {
+  padding: 10px;
+  margin-left: 10%;
+}
+.navigation_bar #links a, .navigation_bar #signup a {
+  padding: 0px;
+  margin-bottom: 0px;
+}
+.navigation_bar #signup {
+  padding: 10px;
+}
+.navigation_bar #signup a {
+  padding: 0px;
+  float: right;
+  margin-bottom: 0px;
 }
 
 body {
@@ -319,6 +334,7 @@ body #shuffle-button {
   outline: none;
   border-bottom: 1px solid #046dd5;
 }
+
 .search {
   background-image: url("https://dogworldkennelclub.co.uk/wp-content/uploads/2017/11/banner-dog-field-2000x580.jpg");
   width: 100%;
@@ -468,7 +484,8 @@ body #shuffle-button {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s;
   -webkit-animation: scale05 0.5s forwards;
-=======
+}
+
 body {
   height: auto;
 }
