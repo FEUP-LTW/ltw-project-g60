@@ -1,4 +1,5 @@
 @use 'common'
+@use 'animations'
 
 .search
   background-image: common.$background-image
@@ -38,6 +39,8 @@
           border-radius: 0 5px 5px 0
           cursor: pointer
           font-size: 20px
+        button:hover
+          @include animations.animation("scale05 0.2s forwards")
 
     select[name="category"]
       grid-row: 2
@@ -58,17 +61,73 @@
     select
       width: 80%
       margin: 0 auto
-      border: 1px solid common.$dark-grey
+      border: 3px solid common.$dark-grey
       padding: 1em
       background-color: common.$dark-grey
       border-radius: 7px
       color: white
     label
-      width: 80%
+      width: 65%
       margin: 0 auto
+      padding: 1em
+      background-color: common.$dark-grey
+      border-radius: 7px
+      color: white
 
     #favorites
       opacity: 0
       width: 0
       height: 0
+
+.pets-list
+  padding: 1em
+  width: 80%
+  margin: 0 auto
+
+  hr
+    margin: 0 auto
+    width: 80%
+
+  .pet-card
+    padding: 1em
+    margin: 0 auto
+    display: grid
+    grid-template-columns: 1fr 3fr 1fr
+    grid-column-gap: 1em
+    grid-template-rows: 1fr
+    grid-template-areas: "image info links"
+    @include animations.animation('fadeIn  2s forwards')
+
+    .pet-image
+      grid-area: image
+      img
+        border-radius: 10px
+      img:hover
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
+        transition: box-shadow 0.3s
+    .pet-information
+      grid-area: info
+      h1
+        font-size: 250%
+      .pet-details>*
+        margin-right: 40px
+      .pet-proposals
+        margin-top: 3em
+        font-size: 1.2rem
+    .pet-links
+      grid-area: links
+      grid-template-rows: repeat(3, 1fr)
+      display: grid
+      text-align: center
+      margin: auto
+      a
+        margin: 5px auto
+        padding: 10px
+        width: 100%
+        transition-property: padding-bottom
+        transition-duration: 0.5s
+      a:hover
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
+        transition: box-shadow 0.3s
+        @include animations.animation("scale05 0.5s forwards")
 

@@ -1,3 +1,5 @@
+@use 'animations'
+
 $font-stack: 'Open Sans', sans-serif
 $white: #faf0e6
 $dark-grey: #363636
@@ -35,28 +37,6 @@ html, body
   h2
     text-align: center
     font-size: 200%
-
-.small-header
-  margin: 0 auto
-  background-color: $dark-grey
-  width: 100%
-  color: white
-  display: flex
-  justify-content: space-between
-  align-items: center
-  padding: 5px 0
-  h1
-    margin-left: 20px
-  a
-    color: white
-  nav // links on the header (small factor)
-    margin-right: 20px
-    a
-      text-decoration: none
-      color: white
-      margin-right: 20px
-      border-bottom: 1px solid white
-      padding-bottom: 2px
 
 #links
   position: relative
@@ -100,3 +80,34 @@ html, body
   border-radius: 0.25rem
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3)
   cursor: pointer
+.button:hover
+  @include animations.animation("scale05 0.2s forwards")
+
+.navigation_bar
+  background-color: #363636
+  width: 100%
+  a
+    color: white
+    padding: 10px
+    font-size: 150%
+    float: left
+  #links
+    padding: 10px
+    margin-left: 10%
+    a
+      padding: 0 0 5px
+      margin-bottom: 0
+  #signup
+    padding: 10px
+    a
+      padding: 0 0 5px
+      float: right
+      margin-bottom: 0
+
+hr
+  display: block
+  height: 1px
+  border: 0
+  border-top: 1px solid #ccc
+  margin: 1em 0
+  padding: 0
