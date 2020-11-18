@@ -512,6 +512,7 @@ body .banner a {
 }
 body .profile {
   margin-top: 10px;
+  margin-bottom: 27px;
   grid-template-rows: 10vw auto;
   grid-template-columns: 19% 15% 15% 15% 36%;
   background-color: white;
@@ -569,6 +570,7 @@ body .profile #contact {
 body .profile #about_me:hover, body .profile #location:hover, body .profile #contact:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  -webkit-animation: scale05 0.2s forwards;
 }
 body .profile .container-dog {
   padding: 0;
@@ -586,7 +588,7 @@ body .profile .shelter_adopted {
   grid-area: adopted;
   border-radius: 15px;
   background-color: grey;
-  margin: 3% 3%;
+  margin: 3% 3% 5% 3%;
 }
 body .profile .shelter_adopted .adopted-card {
   display: flex;
@@ -599,6 +601,7 @@ body .profile .shelter_adopted .adopted-card {
 body .profile .shelter_adopted .adopted-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  -webkit-animation: scale05 0.2s forwards;
 }
 body .profile .shelter_adoption {
   grid-area: adopt;
@@ -617,6 +620,7 @@ body .profile .shelter_adoption .adoption-card {
 body .profile .shelter_adoption .adoption-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  -webkit-animation: scale05 0.2s forwards;
 }
 
 #pet-profile .pet-bio {
