@@ -1,0 +1,85 @@
+@use 'common'
+@use 'animations'
+
+body
+  height: auto
+
+  .user_profile
+    margin-top: 10px
+    margin-bottom: 27px
+    grid-template-rows: 10vw auto
+    grid-template-columns: 19% 15% 15% 15% 36%
+    background-color: white
+    display: grid
+    grid-template-areas: "profile about favorites contact colaborations" "adopt adopt adopt adopt colaborations"
+
+    img
+      width: 50%
+      border-radius: 15px
+      float: left
+      margin-right: 10px
+
+    .title
+      padding: 18px 0px 0px 25px
+      font-size: 25px
+      font-weight: bold
+      color: white
+
+    .profile_pic
+      grid-area: profile
+
+      img
+        top: 13vw
+        width: 15%
+        position: absolute
+        left: 25px
+        z-index: 1
+        border-radius: 15px
+
+    #about_me, #favorites, #contact
+      display: flex
+      border-radius: 15px
+      background-color: grey
+      margin: 8% 12%
+      justify-content: center
+
+      a
+        padding: 10%
+        font-size: 1.5vw
+        i
+          display: flex
+          font-size: 3.5vw
+          justify-content: center
+
+    #about_me
+      grid-area: about
+
+    #favorites
+      grid-area: location
+
+    #contact
+      grid-area: contact
+
+    .colaborations
+      grid-area: colaborations
+      border-radius: 15px
+      background-color: grey
+      margin: 3% 3%
+
+      #colaboration_imgs
+        padding: 3%
+        display: flex
+        flex-wrap: wrap
+        align-content: flex-start
+        a
+          padding: 1%
+          flex-basis: 14.5%
+          img
+            width: 100%
+          img:hover
+            @include animations.animation("scale05 0.2s forwards")
+
+    #about_me:hover, #favorites:hover, #contact:hover
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+      cursor: pointer
+      @include animations.animation("scale05 0.2s forwards")
