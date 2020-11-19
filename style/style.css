@@ -784,10 +784,10 @@ body {
 body .user_profile {
   margin-top: 10px;
   margin-bottom: 27px;
-  grid-template-rows: 10vw 5vw auto;
   grid-template-columns: 19% 15% 15% 15% 36%;
   background-color: white;
   display: grid;
+  align-items: flex-start;
   grid-template-areas: "profile about favorites contact colaborations" "pets pets pets pets colaborations" "pets pets pets pets activity";
 }
 body .user_profile img {
