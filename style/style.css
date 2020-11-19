@@ -422,16 +422,16 @@ body #shuffle-button {
   height: 0;
 }
 
-.pets-list {
+.pets-list, .shelters-list {
   padding: 1em;
   width: 80%;
   margin: 0 auto;
 }
-.pets-list hr {
+.pets-list hr, .shelters-list hr {
   margin: 0 auto;
   width: 80%;
 }
-.pets-list .pet-card {
+.pets-list .pet-card, .shelters-list .pet-card, .pets-list .shelter-card, .shelters-list .shelter-card {
   padding: 1em;
   margin: 0 auto;
   display: grid;
@@ -441,44 +441,44 @@ body #shuffle-button {
   grid-template-areas: "image info links";
   -webkit-animation: fadeIn  2s forwards;
 }
-.pets-list .pet-card .pet-image {
+.pets-list .pet-card .pet-image, .shelters-list .pet-card .pet-image, .pets-list .shelter-card .pet-image, .shelters-list .shelter-card .pet-image, .pets-list .pet-card .shelter-image, .shelters-list .pet-card .shelter-image, .pets-list .shelter-card .shelter-image, .shelters-list .shelter-card .shelter-image {
   grid-area: image;
 }
-.pets-list .pet-card .pet-image img {
+.pets-list .pet-card .pet-image img, .shelters-list .pet-card .pet-image img, .pets-list .shelter-card .pet-image img, .shelters-list .shelter-card .pet-image img, .pets-list .pet-card .shelter-image img, .shelters-list .pet-card .shelter-image img, .pets-list .shelter-card .shelter-image img, .shelters-list .shelter-card .shelter-image img {
   border-radius: 10px;
 }
-.pets-list .pet-card .pet-image img:hover {
+.pets-list .pet-card .pet-image img:hover, .shelters-list .pet-card .pet-image img:hover, .pets-list .shelter-card .pet-image img:hover, .shelters-list .shelter-card .pet-image img:hover, .pets-list .pet-card .shelter-image img:hover, .shelters-list .pet-card .shelter-image img:hover, .pets-list .shelter-card .shelter-image img:hover, .shelters-list .shelter-card .shelter-image img:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s;
 }
-.pets-list .pet-card .pet-information {
+.pets-list .pet-card .pet-information, .shelters-list .pet-card .pet-information, .pets-list .shelter-card .pet-information, .shelters-list .shelter-card .pet-information {
   grid-area: info;
 }
-.pets-list .pet-card .pet-information h1 {
+.pets-list .pet-card .pet-information h1, .shelters-list .pet-card .pet-information h1, .pets-list .shelter-card .pet-information h1, .shelters-list .shelter-card .pet-information h1 {
   font-size: 250%;
 }
-.pets-list .pet-card .pet-information .pet-details > * {
+.pets-list .pet-card .pet-information .pet-details > *, .shelters-list .pet-card .pet-information .pet-details > *, .pets-list .shelter-card .pet-information .pet-details > *, .shelters-list .shelter-card .pet-information .pet-details > * {
   margin-right: 40px;
 }
-.pets-list .pet-card .pet-information .pet-proposals {
+.pets-list .pet-card .pet-information .pet-proposals, .shelters-list .pet-card .pet-information .pet-proposals, .pets-list .shelter-card .pet-information .pet-proposals, .shelters-list .shelter-card .pet-information .pet-proposals {
   margin-top: 3em;
   font-size: 1.2rem;
 }
-.pets-list .pet-card .pet-links {
+.pets-list .pet-card .pet-links, .shelters-list .pet-card .pet-links, .pets-list .shelter-card .pet-links, .shelters-list .shelter-card .pet-links, .pets-list .pet-card .shelter-link, .shelters-list .pet-card .shelter-link, .pets-list .shelter-card .shelter-link, .shelters-list .shelter-card .shelter-link {
   grid-area: links;
   grid-template-rows: repeat(3, 1fr);
   display: grid;
   text-align: center;
   margin: auto;
 }
-.pets-list .pet-card .pet-links a {
+.pets-list .pet-card .pet-links a, .shelters-list .pet-card .pet-links a, .pets-list .shelter-card .pet-links a, .shelters-list .shelter-card .pet-links a, .pets-list .pet-card .shelter-link a, .shelters-list .pet-card .shelter-link a, .pets-list .shelter-card .shelter-link a, .shelters-list .shelter-card .shelter-link a {
   margin: 5px auto;
   padding: 10px;
   width: 100%;
   transition-property: padding-bottom;
   transition-duration: 0.5s;
 }
-.pets-list .pet-card .pet-links a:hover {
+.pets-list .pet-card .pet-links a:hover, .shelters-list .pet-card .pet-links a:hover, .pets-list .shelter-card .pet-links a:hover, .shelters-list .shelter-card .pet-links a:hover, .pets-list .pet-card .shelter-link a:hover, .shelters-list .pet-card .shelter-link a:hover, .pets-list .shelter-card .shelter-link a:hover, .shelters-list .shelter-card .shelter-link a:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s;
   -webkit-animation: scale05 0.5s forwards;
@@ -758,12 +758,9 @@ body .shelter_profile .shelter_adoption .adoption-card:hover {
   grid-column: 1;
 }
 #pet-profile #proposals .grid-list .adoption-proposal .user-details {
-  border-radius: 10px;
-  background-color: #a1a1a1;
-  color: black;
-  padding: 1em;
+  color: white;
   margin-right: 15px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   height: auto;
   grid-row: 1/3;
   grid-column: 2;
@@ -773,14 +770,14 @@ body .shelter_profile .shelter_adoption .adoption-card:hover {
 #pet-profile #proposals .grid-list .adoption-proposal .user-details .button {
   font-size: 1.2rem;
   align-self: flex-end;
+  color: black;
+  font-weight: bold;
+  background-color: #a1a1a1;
 }
 #pet-profile #proposals .grid-list .adoption-proposal .user-details small {
   text-align: right;
 }
 
-body {
-  height: auto;
-}
 body .user_profile {
   margin-top: 10px;
   margin-bottom: 27px;
@@ -930,6 +927,14 @@ body .user_profile .user_activity .activity-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   -webkit-animation: scale05 0.2s forwards;
+}
+
+.shelters-list {
+  width: 50%;
+}
+
+.shelter-link a {
+  grid-row: 2;
 }
 
 /*# sourceMappingURL=style.css.map */

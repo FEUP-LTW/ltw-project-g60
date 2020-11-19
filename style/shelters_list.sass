@@ -1,0 +1,15 @@
+@use 'common'
+@use 'animations'
+@use 'pets_list'
+
+.shelters-list
+  @extend .pets-list
+  width: 50%
+.shelter-card
+  @extend .pet-card
+.shelter-image
+  @extend .pet-image
+.shelter-link
+  @extend .pet-links
+  a
+    grid-row: 2
