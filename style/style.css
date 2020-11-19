@@ -574,7 +574,7 @@ body .shelter_profile #about_me:hover, body .shelter_profile #location:hover, bo
 }
 body .shelter_profile .container-dog {
   padding: 0;
-  width: 51vw;
+  width: 28vw;
   text-align: justify;
 }
 body .shelter_profile h4 {
@@ -592,11 +592,11 @@ body .shelter_profile .shelter_adopted {
 }
 body .shelter_profile .shelter_adopted .adopted-card {
   display: flex;
-  padding: 5%;
+  padding: 15px;
   background-color: #363636;
   border-radius: 15px;
-  width: 80%;
-  margin: 5%;
+  width: 85%;
+  margin: 15px auto;
 }
 body .shelter_profile .shelter_adopted .adopted-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -611,11 +611,11 @@ body .shelter_profile .shelter_adoption {
 }
 body .shelter_profile .shelter_adoption .adoption-card {
   display: flex;
-  padding: 3%;
+  padding: 15px;
   background-color: #363636;
   border-radius: 15px;
-  width: 88%;
-  margin: 15px 3%;
+  width: 90%;
+  margin: 15px auto;
 }
 body .shelter_profile .shelter_adoption .adoption-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
