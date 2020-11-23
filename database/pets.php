@@ -13,3 +13,15 @@ function getFeaturedPets()
         die;
     }
 }
+
+function getAllPets() {
+    global $db;
+    if ($stmt = $db->prepare('SELECT * FROM Pets')) {
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
+}

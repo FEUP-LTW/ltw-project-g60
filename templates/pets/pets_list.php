@@ -1,0 +1,59 @@
+<section class="search">
+    <form action="./pet_detail.html" method="GET">
+        <div id="search-wrap">
+            <div id="search">
+                <input type="text" autocomplete="off" name="search" placeholder="search for a pet..">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+
+        <select name="category">
+            <option value="" disabled selected>Category</option>
+            <option value="">option 1</option>
+        </select>
+        <select name="gender">
+            <option value="" disabled selected>Gender</option>
+            <option value="">option 1</option>
+        </select>
+        <select name="color">
+            <option value="" disabled selected>Color</option>
+            <option value="">option 1</option>
+        </select>
+        <select name="age">
+            <option value="" disabled selected>Age</option>
+            <option value="">option 1</option>
+        </select>
+        <label>Favorites
+            <input type="checkbox" name="favorites">
+        </label>
+
+    </form>
+</section>
+
+<section class="pets-list">
+    <?php
+        foreach ($pets as $pet) { ?>
+            <article class="pet-card">
+                <a class="pet-image" href="#"><img src="https://picsum.photos/200" alt="pet photo"></a>
+                <div class="pet-information">
+                    <h1><?= $pet['name'] ?></h1>
+                    <div class="pet-details">
+                        <i class="fas fa-mars"></i>
+                        <span><?= $pet['color'] ?></span>
+                        <span><?= $pet['size'] ?></span>
+                        <span><?= $pet['species'] ?></span>
+                        <span>age</span>
+                    </div>
+                    <div class="pet-proposals">
+                        <p><strong>X</strong> Proposals</p>
+                    </div>
+                </div>
+                <div class="pet-links">
+                    <a class="button" href="#">Add to Favorites</a>
+                    <a class="button" href="#">View Owner</a>
+                    <a class="button" href="#">Details</a>
+                </div>
+            </article>
+            <hr>
+        <?php } ?>
+</section>
