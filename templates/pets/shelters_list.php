@@ -1,5 +1,5 @@
 <section class="search">
-    <form action="./shelter_profile.html" method="GET">
+    <form action="shelters_list.php" method="GET">
         <div id="search-wrap">
             <div id="search">
                 <input type="text" autocomplete="off" name="search" placeholder="search for a shelter...">
@@ -11,7 +11,7 @@
 <section class="shelters-list">
     <?php foreach ($shelters as $shelter) { ?>
         <article class="shelter-card">
-            <a class="shelter-image" href="#"><img src="https://picsum.photos/200" alt="shelter photo"></a>
+            <a class="shelter-image" href="shelter_profile.php?id=<?= $shelter['shelter_id'] ?>"><img src="https://picsum.photos/200" alt="shelter photo"></a>
             <div class="pet-information">
                 <h1><?= $shelter['name'] ?></h1>
                 <div class="no-pets pet-proposals">
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="shelter-link">
-                <a class="button" href="shelter_profile.html">View Shelter</a>
+                <a class="button" href="shelter_profile.php?id=<?= $shelter['shelter_id'] ?>">View Shelter</a>
             </div>
         </article>
         <hr>
