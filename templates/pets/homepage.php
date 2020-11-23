@@ -5,7 +5,7 @@
     <h2>A center to adopt</h2>
     <nav id="links">
         <a href="pets_list.php">Pets</a>
-        <a href="shelters_list.html">Shelters</a>
+        <a href="shelters_list.php">Shelters</a>
     </nav>
     <nav id="signup">
         <a href="login.html">Login</a>
