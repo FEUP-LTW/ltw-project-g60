@@ -80,54 +80,54 @@ CREATE TABLE Favorites (
 
 
 -- All passwords are 1234 in SHA-1 format
-INSERT INTO Users (username, password, name) VALUES ("dominic", "7110eda4d09e062aa5e4a390b0a572ac0d2c0220", "Dominic Woods");
-INSERT INTO Users (username, password, name) VALUES ("zachary", "7110eda4d09e062aa5e4a390b0a572ac0d2c0220", "Zachary Young");
-INSERT INTO Users (username, password, name) VALUES ("alicia", "7110eda4d09e062aa5e4a390b0a572ac0d2c0220", "Alicia Hamilton");
-INSERT INTO Users (username, password, name) VALUES ("abril", "7110eda4d09e062aa5e4a390b0a572ac0d2c0220", "Abril Cooley");
+INSERT INTO Users (username, password, name) VALUES ('dominic', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Dominic Woods');
+INSERT INTO Users (username, password, name) VALUES ('zachary', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Zachary Young');
+INSERT INTO Users (username, password, name) VALUES ('alicia', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Alicia Hamilton');
+INSERT INTO Users (username, password, name) VALUES ('abril', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Abril Cooley');
 
 
-INSERT INTO Shelters (username, password, name) VALUES ("shelter_ze", "7110eda4d09e062aa5e4a390b0a572ac0d2c0220", "Zé's Shelter");
-INSERT INTO Shelters (username, password, name) VALUES ("gaia_shelter", "7110eda4d09e062aa5e4a390b0a572ac0d2c0220", "V.N. de Gaia Shelter");
+INSERT INTO Shelters (username, password, name) VALUES ('shelter_ze', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Zés Shelter');
+INSERT INTO Shelters (username, password, name) VALUES ('gaia_shelter', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'V.N. de Gaia Shelter');
 
 INSERT INTO Pets (name, species, size, color, location, state) VALUES (
-  "Maria", 
-  "labradoodle", 
+  'Maria', 
+  'labradoodle', 
   1.1,
-  "blue",
-  "V.N. de Gaia",
-  "prepared"
+  'blue',
+  'V.N. de Gaia',
+  'prepared'
 );
 INSERT INTO Pets (name, species, size, color, location, state) VALUES (
-  "Ponnappa", 
-  "labrador", 
+  'Ponnappa', 
+  'labrador', 
   2.2,
-  "brown",
-  "New York",
-  "prepared for adoption"
+  'brown',
+  'New York',
+  'prepared for adoption'
 );
 INSERT INTO Pets (name, species, size, color, location, state) VALUES (
-  "Stanbridge", 
-  "german shepherd", 
+  'Stanbridge', 
+  'german shepherd', 
   0.5,
-  "green",
-  "Felgueiras",
-  "delivered"
+  'green',
+  'Felgueiras',
+  'delivered'
 );
 INSERT INTO Pets (name, species, size, color, location, state) VALUES (
-  "Tarryn", 
-  "bulldog", 
+  'Tarryn', 
+  'bulldog', 
   0.7,
-  "yellow",
-  "Chaves",
-  "proposal accepted"
+  'yellow',
+  'Chaves',
+  'proposal accepted'
 );
 INSERT INTO Pets (name, species, size, color, location, state) VALUES (
-  "Hayman", 
-  "Beagle", 
+  'Hayman', 
+  'Beagle', 
   0.3,
-  "cyan",
-  "Régua",
-  "delivered"
+  'cyan',
+  'Régua',
+  'delivered'
 );
 
 INSERT INTO Proposals (pet_id) VALUES (1);
