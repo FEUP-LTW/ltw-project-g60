@@ -34,6 +34,9 @@ CREATE TABLE Pets (
   species   VARCHAR,
   size      FLOAT,
   color     VARCHAR,
+  gender    INTEGER, -- (0 for male),
+  info      VARCHAR,
+  age       INTEGER,
   location  VARCHAR,
   state     VARCHAR -- Pets can be in several states (being prepared for adoption, prepared, proposal accepted, delivered, …).
 );
@@ -89,43 +92,58 @@ INSERT INTO Users (username, password, name) VALUES ('abril', '7110eda4d09e062aa
 INSERT INTO Shelters (username, password, name) VALUES ('shelter_ze', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Zés Shelter');
 INSERT INTO Shelters (username, password, name) VALUES ('gaia_shelter', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'V.N. de Gaia Shelter');
 
-INSERT INTO Pets (name, species, size, color, location, state) VALUES (
-  'Maria', 
-  'labradoodle', 
-  1.1,
-  'blue',
-  'V.N. de Gaia',
-  'prepared'
-);
-INSERT INTO Pets (name, species, size, color, location, state) VALUES (
+INSERT INTO Pets(name, species, size, color, gender, info, age, location, state) VALUES (
+             'Maria',
+            'labradoodle',
+            1.1,
+            'blue',
+            1,
+            'Lorem Ipsum Dolor Whatever',
+            0,
+            'V.N. de Gaia',
+            'prepared');
+
+INSERT INTO Pets (name, species, size, color, gender, info, age, location, state) VALUES (
   'Ponnappa', 
   'labrador', 
   2.2,
   'brown',
+  0,
+  'Lorem Ipsum Dolor Whatever',
+  1,
   'New York',
   'prepared for adoption'
 );
-INSERT INTO Pets (name, species, size, color, location, state) VALUES (
+INSERT INTO Pets (name, species, size, color, gender, info, age, location, state) VALUES (
   'Stanbridge', 
   'german shepherd', 
   0.5,
   'green',
+  0,
+  'Lorem Ipsum Dolor Whatever',
+  2,
   'Felgueiras',
   'delivered'
 );
-INSERT INTO Pets (name, species, size, color, location, state) VALUES (
+INSERT INTO Pets (name, species, size, color, gender, info, age, location, state) VALUES (
   'Tarryn', 
   'bulldog', 
   0.7,
   'yellow',
+  1,
+  'Lorem Ipsum Dolor Whatever',
+  3,
   'Chaves',
   'proposal accepted'
 );
-INSERT INTO Pets (name, species, size, color, location, state) VALUES (
+INSERT INTO Pets (name, species, size, color, gender, info, age, location, state) VALUES (
   'Hayman', 
   'Beagle', 
   0.3,
   'cyan',
+  0,
+  'Lorem Ipsum Dolor Whatever',
+  1,
   'Régua',
   'delivered'
 );

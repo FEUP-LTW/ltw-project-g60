@@ -38,14 +38,19 @@
                 <div class="pet-information">
                     <h1><?= $pet['name'] ?></h1>
                     <div class="pet-details">
-                        <i class="fas fa-mars"></i>
+                        <?php
+                            if ($pet['gender'] == 0)
+                                echo '<i class="fas fa-mars"></i>';
+                            else
+                                echo '<i class="fas fa-venus"></i>';
+                        ?>
                         <span><?= $pet['color'] ?></span>
                         <span><?= $pet['size'] ?></span>
                         <span><?= $pet['species'] ?></span>
-                        <span>age</span>
+                        <span><?= $pet['age'] . ' years' ?></span>
                     </div>
                     <div class="pet-proposals">
-                        <p><strong>X</strong> Proposals</p>
+                        <p><strong><?= getNumberOfProposals($pet['pet_id']) ?></strong> Proposals</p>
                     </div>
                 </div>
                 <div class="pet-links">
