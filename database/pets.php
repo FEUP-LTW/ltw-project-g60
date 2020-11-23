@@ -39,6 +39,34 @@ function getNumberOfProposals($petID) {
     }
 }
 
+function getPetOwner($petID) {
+    global $db;
+    if ($stmt = $db->prepare('
+        SELECT * 
+        FROM Pets, Users_Pets
+        WHERE Pets.pet_id = :id
+        AND Pets.pet_id = Users_Pets.pet_id')) {
+        $stmt->bindParam(':id', $petID);
+        $stmt->execute();
+        $pets = $stmt->fetch();
+        if (!empty($pets)) return [$pets['user_id'], "user"];
+
+        $stmt = $db->prepare('
+            SELECT * 
+            FROM Pets, Shelters_Pets 
+            WHERE Pets.pet_id = :id
+            AND Pets.pet_id = Shelters_Pets.pet_id');
+        $stmt->bindParam(':id', $petID);
+        $stmt->execute();
+        $pets = $stmt->fetch();
+        return [$pets['shelter_id'], "shelter"];
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
+}
+
 function getPetByID($petID) {
     global $db;
     if ($stmt = $db->prepare('SELECT * FROM Pets WHERE pet_id = :id')) {

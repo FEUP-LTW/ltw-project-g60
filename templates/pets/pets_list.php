@@ -55,7 +55,13 @@
                 </div>
                 <div class="pet-links">
                     <a class="button" href="#">Add to Favorites</a>
-                    <a class="button" href="#">View Owner</a>
+                    <?php
+                        $owner = getPetOwner($pet['pet_id']);
+                        if ($owner[1] == 'user')
+                            echo '<a class="button" href="user_profile.php?id=' . $owner[0] . '">View Owner</a>';
+                        else
+                            echo '<a class="button" href="shelter_profile.php?id=' . $owner[0] . '">View Owner</a>';
+                    ?>
                     <a class="button" href="pet_detail.php?id=<?= $pet['pet_id'] ?>">Details</a>
                 </div>
             </article>

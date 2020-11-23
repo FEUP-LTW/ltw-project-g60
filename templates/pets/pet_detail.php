@@ -20,10 +20,21 @@
             </div>
             <p><?= $pet['info'] ?></p>
         </section>
-        <a id="owner-info" href="user_profile.html">
-            <div class="img"></div>
-            <p>Owner name</p>
-        </a>
+        <?php
+        $owner = getPetOwner($pet['pet_id']);
+        if ($owner[1] == 'user') {
+            echo '<a id="owner-info" href="user_profile.php?id=' . $owner[0] . '">';
+            echo '<div class="img"></div>
+                  <p>' . getUserByID($owner[0])['name'] . '</p>
+                  </a>';
+        }
+        else {
+            echo '<a id="owner-info" href="shelter_profile.php?id=' . $owner[0] . '">';
+            echo '<div class="img"></div>
+                  <p>' . getShelterByID($owner[0])['name'] . '</p>
+                  </a>';
+        }
+        ?>
     </div>
     <section id="options">
         <h2>Options</h2>
