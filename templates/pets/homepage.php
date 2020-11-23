@@ -15,7 +15,7 @@
 <div class="content">
     <div class="cards" id="homepage-cards">
         <div class="card">
-            <a href="#">
+            <a href="pet_detail.php?id=<?= $pets[0]['pet_id'] ?>">
                 <div class="card-title">Featured Pet</div>
                 <img src="https://picsum.photos/200" alt="puppy photo" style="width:100%; height: auto">
                 <div class="container">
@@ -35,7 +35,7 @@
             </a>
         </div>
         <div class="card">
-            <a href="#">
+            <a href="pet_detail.php?id=<?= $pets[1]['pet_id'] ?>">
                 <div class="card-title">Featured Pet</div>
                 <img src="https://picsum.photos/200" alt="puppy photo" style="width:100%">
                 <div class="container">

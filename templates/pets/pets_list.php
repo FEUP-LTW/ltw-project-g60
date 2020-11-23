@@ -1,5 +1,5 @@
 <section class="search">
-    <form action="./pet_detail.html" method="GET">
+    <form action="./pets_list.php" method="GET">
         <div id="search-wrap">
             <div id="search">
                 <input type="text" autocomplete="off" name="search" placeholder="search for a pet..">
@@ -34,7 +34,7 @@
     <?php
         foreach ($pets as $pet) { ?>
             <article class="pet-card">
-                <a class="pet-image" href="#"><img src="https://picsum.photos/200" alt="pet photo"></a>
+                <a class="pet-image" href="pet_detail.php?id=<?= $pet['pet_id'] ?>"><img src="https://picsum.photos/200" alt="pet photo"></a>
                 <div class="pet-information">
                     <h1><?= $pet['name'] ?></h1>
                     <div class="pet-details">
@@ -56,7 +56,7 @@
                 <div class="pet-links">
                     <a class="button" href="#">Add to Favorites</a>
                     <a class="button" href="#">View Owner</a>
-                    <a class="button" href="#">Details</a>
+                    <a class="button" href="pet_detail.php?id=<?= $pet['pet_id'] ?>">Details</a>
                 </div>
             </article>
             <hr>

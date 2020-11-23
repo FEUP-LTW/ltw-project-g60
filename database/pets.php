@@ -38,3 +38,16 @@ function getNumberOfProposals($petID) {
         die;
     }
 }
+
+function getPetByID($petID) {
+    global $db;
+    if ($stmt = $db->prepare('SELECT * FROM Pets WHERE pet_id = :id')) {
+        $stmt->bindParam(':id', $petID);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
+}
