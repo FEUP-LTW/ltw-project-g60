@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS Favorites;
 DROP TABLE IF EXISTS Collaborators;
 DROP TABLE IF EXISTS Shelters_Pets;
 DROP TABLE IF EXISTS Users_Pets;
-DROP TABLE IF EXISTS Proposals;
+DROP TABLE IF EXISTS ProposalsUser;
 DROP TABLE IF EXISTS Pets;
 DROP TABLE IF EXISTS Shelters;
 DROP TABLE IF EXISTS Users;
@@ -42,10 +42,12 @@ CREATE TABLE Pets (
   state     VARCHAR -- Pets can be in several states (being prepared for adoption, prepared, proposal accepted, delivered, …).
 );
 
-CREATE TABLE Proposals (
-  prop_id   INTEGER PRIMARY KEY,
-  pet_id    INTEGER,
-  CONSTRAINT prop_fk1 FOREIGN KEY (pet_id) REFERENCES Pets(pet_id)
+CREATE TABLE ProposalsUser (
+    prop_id     INTEGER PRIMARY KEY,
+    pet_id      INTEGER,
+    user_id     INTEGER,
+    CONSTRAINT  prop_fk1 FOREIGN KEY (pet_id) REFERENCES Pets(pet_id),
+    CONSTRAINT  prop_fk2 FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
 
 -- Users owners of pets
@@ -178,11 +180,56 @@ insert into Pets (name, species, size, color, gender, info, age, location, state
 insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Monkey, vervet', 'tellus in', 0.6, 'Goldenrod', 1, 'diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat', 1, 'Giemdiem', 'prepared');
 
 
-INSERT INTO Proposals (pet_id) VALUES (1);
-INSERT INTO Proposals (pet_id) VALUES (2);
-INSERT INTO Proposals (pet_id) VALUES (4);
-INSERT INTO Proposals (pet_id) VALUES (5);
-INSERT INTO Proposals (pet_id) VALUES (3);
+insert into ProposalsUser (pet_id, user_id) values (23, 2);
+insert into ProposalsUser (pet_id, user_id) values (18, 4);
+insert into ProposalsUser (pet_id, user_id) values (3, 3);
+insert into ProposalsUser (pet_id, user_id) values (25, 2);
+insert into ProposalsUser (pet_id, user_id) values (13, 4);
+insert into ProposalsUser (pet_id, user_id) values (2, 1);
+insert into ProposalsUser (pet_id, user_id) values (18, 1);
+insert into ProposalsUser (pet_id, user_id) values (18, 1);
+insert into ProposalsUser (pet_id, user_id) values (16, 2);
+insert into ProposalsUser (pet_id, user_id) values (8, 2);
+insert into ProposalsUser (pet_id, user_id) values (4, 2);
+insert into ProposalsUser (pet_id, user_id) values (20, 1);
+insert into ProposalsUser (pet_id, user_id) values (15, 2);
+insert into ProposalsUser (pet_id, user_id) values (25, 1);
+insert into ProposalsUser (pet_id, user_id) values (13, 1);
+insert into ProposalsUser (pet_id, user_id) values (8, 4);
+insert into ProposalsUser (pet_id, user_id) values (9, 2);
+insert into ProposalsUser (pet_id, user_id) values (21, 4);
+insert into ProposalsUser (pet_id, user_id) values (21, 4);
+insert into ProposalsUser (pet_id, user_id) values (14, 4);
+insert into ProposalsUser (pet_id, user_id) values (8, 4);
+insert into ProposalsUser (pet_id, user_id) values (14, 3);
+insert into ProposalsUser (pet_id, user_id) values (19, 1);
+insert into ProposalsUser (pet_id, user_id) values (8, 3);
+insert into ProposalsUser (pet_id, user_id) values (4, 4);
+insert into ProposalsUser (pet_id, user_id) values (6, 1);
+insert into ProposalsUser (pet_id, user_id) values (9, 2);
+insert into ProposalsUser (pet_id, user_id) values (1, 1);
+insert into ProposalsUser (pet_id, user_id) values (11, 3);
+insert into ProposalsUser (pet_id, user_id) values (8, 1);
+insert into ProposalsUser (pet_id, user_id) values (16, 4);
+insert into ProposalsUser (pet_id, user_id) values (18, 3);
+insert into ProposalsUser (pet_id, user_id) values (2, 4);
+insert into ProposalsUser (pet_id, user_id) values (2, 2);
+insert into ProposalsUser (pet_id, user_id) values (4, 4);
+insert into ProposalsUser (pet_id, user_id) values (4, 1);
+insert into ProposalsUser (pet_id, user_id) values (21, 1);
+insert into ProposalsUser (pet_id, user_id) values (12, 1);
+insert into ProposalsUser (pet_id, user_id) values (22, 4);
+insert into ProposalsUser (pet_id, user_id) values (17, 3);
+insert into ProposalsUser (pet_id, user_id) values (23, 4);
+insert into ProposalsUser (pet_id, user_id) values (12, 3);
+insert into ProposalsUser (pet_id, user_id) values (7, 1);
+insert into ProposalsUser (pet_id, user_id) values (16, 3);
+insert into ProposalsUser (pet_id, user_id) values (9, 3);
+insert into ProposalsUser (pet_id, user_id) values (10, 2);
+insert into ProposalsUser (pet_id, user_id) values (17, 1);
+insert into ProposalsUser (pet_id, user_id) values (23, 2);
+insert into ProposalsUser (pet_id, user_id) values (7, 2);
+insert into ProposalsUser (pet_id, user_id) values (15, 3);
 
 INSERT INTO Users_Pets (user_id, pet_id) VALUES (1,2);
 INSERT INTO Users_Pets (user_id, pet_id) VALUES (3,1);

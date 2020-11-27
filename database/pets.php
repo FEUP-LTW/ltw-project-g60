@@ -28,7 +28,7 @@ function getAllPets() {
 
 function getNumberOfProposals($petID) {
     global $db;
-    if ($stmt = $db->prepare('SELECT * FROM Proposals WHERE pet_id = :id')) {
+    if ($stmt = $db->prepare('SELECT * FROM ProposalsUser WHERE pet_id = :id')) {
         $stmt->bindParam(':id', $petID);
         $stmt->execute();
         return count($stmt->fetchAll());
