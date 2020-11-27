@@ -270,6 +270,7 @@ insert into Users_Pets (user_id, pet_id) values (2, 12);
 insert into Users_Pets (user_id, pet_id) values (4, 13);
 insert into Users_Pets (user_id, pet_id) values (4, 14);
 insert into Users_Pets (user_id, pet_id) values (3, 15);
+insert into Users_Pets (user_id, pet_id) values (2, 16);
 insert into Users_Pets (user_id, pet_id) values (2, 17);
 insert into Users_Pets (user_id, pet_id) values (4, 18);
 
