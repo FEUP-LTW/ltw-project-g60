@@ -46,6 +46,17 @@
     <section id="proposals">
         <h2>Proposals</h2>
         <div class="grid-list">
+            <?php foreach ($proposals as $proposal) { ?>
+                <article class="adoption-proposal">
+                    <div class="img"></div>
+                    <h3><?= $proposal['name'] ?></h3>
+                    <div class="user-details">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?</p>
+                        <small>2020-11-14 22:31</small>
+                        <a href="user_profile.html" class="button">View User</a>
+                    </div>
+                </article>
+            <?php } ?>
             <article class="adoption-proposal">
                 <div class="img"></div>
                 <h3>Owner name</h3>

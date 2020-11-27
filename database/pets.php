@@ -39,6 +39,24 @@ function getNumberOfProposals($petID) {
     }
 }
 
+function getPetProposals($petID) {
+    global $db;
+    if ($stmt = $db->prepare('
+            SELECT * 
+            FROM ProposalsUser, Users
+            WHERE pet_id = :id
+            AND Users.user_id = ProposalsUser.user_id')
+    ) {
+        $stmt->bindParam(':id', $petID);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
+}
+
 function getPetOwner($petID) {
     global $db;
     if ($stmt = $db->prepare('
