@@ -3,6 +3,7 @@
 session_start();
 include_once('database/connection.php');
 include_once('database/shelters.php');
+include_once('database/users.php');
 
 $shelter = getShelterByID($_GET['id']);
 $pets = getShelterPets($_GET['id']);

@@ -2,6 +2,7 @@
 session_start();
 include_once('database/connection.php');
 include_once('database/pets.php');
+include_once('database/users.php');
 
 $pets = getAllPets();
 

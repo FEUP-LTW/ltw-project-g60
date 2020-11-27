@@ -13,6 +13,19 @@ function getUserByID($id) {
     }
 }
 
+function getUserByUsername($username) {
+    global $db;
+    if ($stmt = $db->prepare('SELECT * FROM Users WHERE username = :username')) {
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
+}
+
 function getUserPets($id) {
     global $db;
     if ($stmt = $db->prepare('
@@ -45,5 +58,32 @@ function getUserCollaborations($id) {
     else {
         printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
         die;
+    }
+}
+
+function userExists($username, $password)
+{
+    global $db;
+    $shaPassword = sha1($password);
+    $stmt = $db->prepare('SELECT * FROM Users WHERE username = :username AND password = :password');
+    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':password', $shaPassword);
+
+    $stmt->execute();
+    $users = $stmt->fetch();
+
+    if (count($users) < 0) {
+        $shaPassword = sha1($password);
+        $stmt = $db->prepare('SELECT * FROM Shelters WHERE username = :username AND password = :password');
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $shaPassword);
+
+        if (count($users) < 0) {
+            return false;
+        } else {
+            return true;
+        }
+    } else {
+        return true;
     }
 }

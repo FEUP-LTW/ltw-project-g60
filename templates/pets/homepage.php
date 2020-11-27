@@ -1,17 +1,3 @@
-<header id="main-header" class="header">
-    <a href="homepage.php">
-        <h1>Adoption Center</h1>
-    </a>
-    <h2>A center to adopt</h2>
-    <nav id="links">
-        <a href="pets_list.php">Pets</a>
-        <a href="shelters_list.php">Shelters</a>
-    </nav>
-    <nav id="signup">
-        <a href="login.html">Login</a>
-        <a href="register.html">Register</a>
-    </nav>
-</header>
 <div class="content">
     <div class="cards" id="homepage-cards">
         <div class="card">

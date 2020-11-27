@@ -160,33 +160,6 @@ html, body {
   -webkit-animation: scale05 0.2s forwards;
 }
 
-.navigation_bar {
-  background-color: #363636;
-  width: 100%;
-}
-.navigation_bar a {
-  color: white;
-  padding: 10px;
-  font-size: 150%;
-  float: left;
-}
-.navigation_bar #links, .navigation_bar #signup {
-  padding: 10px;
-  margin-left: 10%;
-}
-.navigation_bar #links a, .navigation_bar #signup a {
-  padding: 0 0 5px;
-  margin-bottom: 0;
-}
-.navigation_bar #signup {
-  padding: 10px;
-}
-.navigation_bar #signup a {
-  padding: 0 0 5px;
-  float: right;
-  margin-bottom: 0;
-}
-
 hr {
   display: block;
   height: 1px;
@@ -216,11 +189,11 @@ hr {
 }
 .navigation_bar #signup {
   padding: 10px;
+  float: right;
 }
 .navigation_bar #signup a {
-  padding: 0px;
-  float: right;
-  margin-bottom: 0px;
+  padding: 0;
+  margin-bottom: 0;
 }
 
 .page-content {
@@ -304,7 +277,7 @@ body #shuffle-button {
   padding: 1em;
   display: block;
 }
-#login input[type=email], #login input[type=password], #register input[type=email], #register input[type=password] {
+#login input[type=text], #login input[type=password], #register input[type=text], #register input[type=password] {
   height: 34px;
   border-radius: 10px;
   border: 1px solid transparent;

@@ -5,7 +5,12 @@
         <a href="shelters_list.php">Shelters</a>
     </nav>
     <nav id="signup">
-        <a href="login.html">Login</a>
-        <a href="register.html">Register</a>
+        <?php if (!isset($_SESSION['username'])) { ?>
+            <a href="register.html">Register</a>
+            <a href="login.php">Login</a>
+        <?php } else { ?>
+            <a href=""><?= getUserByUsername($_SESSION['username'])['name'] ?></a>
+            <a href="action_logout.php">Logout</a>
+        <?php } ?>
     </nav>
 </section>

@@ -2,6 +2,7 @@
 session_start();
 include_once('database/connection.php');
 include_once('database/shelters.php');
+include_once('database/users.php');
 
 $shelters = getAllShelters();
 
