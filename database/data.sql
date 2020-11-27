@@ -18,14 +18,16 @@ CREATE TABLE Users (
   user_id     INTEGER PRIMARY KEY,
   username    VARCHAR,
   password    TEXT,
-  name        VARCHAR
+  name        VARCHAR,
+  info        VARCHAR
 );
 
 CREATE TABLE Shelters (
   shelter_id  INTEGER PRIMARY KEY,
   username    VARCHAR,
   password    TEXT,
-  name        VARCHAR
+  name        VARCHAR,
+  info        VARCHAR
 );
 
 -- Pets or Posts with Pets
@@ -94,14 +96,14 @@ CREATE TABLE Pets_Adoption_Shelter(
 );
 
 -- All passwords are 1234 in SHA-1 format
-INSERT INTO Users (username, password, name) VALUES ('dominic', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Dominic Woods');
-INSERT INTO Users (username, password, name) VALUES ('zachary', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Zachary Young');
-INSERT INTO Users (username, password, name) VALUES ('alicia', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Alicia Hamilton');
-INSERT INTO Users (username, password, name) VALUES ('abril', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Abril Cooley');
+INSERT INTO Users (username, password, name, info) VALUES ('dominic', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Dominic Woods', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?');
+INSERT INTO Users (username, password, name, info) VALUES ('zachary', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Zachary Young', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?');
+INSERT INTO Users (username, password, name, info) VALUES ('alicia', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Alicia Hamilton', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?');
+INSERT INTO Users (username, password, name, info) VALUES ('abril', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Abril Cooley', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?');
 
 
-INSERT INTO Shelters (username, password, name) VALUES ('shelter_ze', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Zés Shelter');
-INSERT INTO Shelters (username, password, name) VALUES ('gaia_shelter', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'V.N. de Gaia Shelter');
+INSERT INTO Shelters (username, password, name, info) VALUES ('shelter_ze', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Zés Shelter', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?');
+INSERT INTO Shelters (username, password, name, info) VALUES ('gaia_shelter', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'V.N. de Gaia Shelter', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?');
 
 INSERT INTO Pets(name, species, size, color, gender, info, age, location, state) VALUES (
              'Maria',

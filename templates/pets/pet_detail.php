@@ -51,75 +51,12 @@
                     <div class="img"></div>
                     <h3><?= $proposal['name'] ?></h3>
                     <div class="user-details">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?</p>
-                        <small>2020-11-14 22:31</small>
-                        <a href="user_profile.html" class="button">View User</a>
+                        <p><?= $proposal['info'] ?></p>
+                        <small><?= date("Y-m-d H:i", substr($proposal['date'], 0, 10)) ?></small>
+                        <a href="user_profile.php?id=<?= $proposal['user_id'] ?>" class="button">View User</a>
                     </div>
                 </article>
             <?php } ?>
-            <article class="adoption-proposal">
-                <div class="img"></div>
-                <h3>Owner name</h3>
-                <div class="user-details">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?</p>
-                    <small>2020-11-14 22:31</small>
-                    <a href="user_profile.html" class="button">View User</a>
-                </div>
-            </article>
-            <article class="adoption-proposal">
-                <div class="img"></div>
-                <h3>Owner name</h3>
-                <div class="user-details">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?</p>
-                    <small>2020-11-14 22:31</small>
-                    <a href="user_profile.html" class="button">View User</a>
-                </div>
-            </article>
-            <article class="adoption-proposal">
-                <div class="img"></div>
-                <h3>Owner name</h3>
-                <div class="user-details">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?</p>
-                    <small>2020-11-14 22:31</small>
-                    <a href="user_profile.html" class="button">View User</a>
-                </div>
-            </article>
-            <article class="adoption-proposal">
-                <div class="img"></div>
-                <h3>Owner name</h3>
-                <div class="user-details">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?</p>
-                    <small>2020-11-14 22:31</small>
-                    <a href="user_profile.html" class="button">View User</a>
-                </div>
-            </article>
-            <article class="adoption-proposal">
-                <div class="img"></div>
-                <h3>Owner name</h3>
-                <div class="user-details">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?</p>
-                    <small>2020-11-14 22:31</small>
-                    <a href="user_profile.html" class="button">View User</a>
-                </div>
-            </article>
-            <article class="adoption-proposal">
-                <div class="img"></div>
-                <h3>Owner name</h3>
-                <div class="user-details">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?</p>
-                    <small>2020-11-14 22:31</small>
-                    <a href="user_profile.html" class="button">View User</a>
-                </div>
-            </article>
-            <article class="adoption-proposal">
-                <div class="img"></div>
-                <h3>Owner name</h3>
-                <div class="user-details">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?</p>
-                    <small>2020-11-14 22:31</small>
-                    <a href="user_profile.html" class="button">View User</a>
-                </div>
-            </article>
         </div>
     </section>
 </div>
