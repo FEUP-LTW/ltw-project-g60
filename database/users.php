@@ -87,3 +87,7 @@ function userExists($username, $password)
         return true;
     }
 }
+
+function registerUser($name, $username, $password, $usertype) {
+
+}

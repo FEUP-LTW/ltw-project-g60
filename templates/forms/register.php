@@ -15,6 +15,16 @@
                 <input type="password" name="password" placeholder="confirm your password">
             </label>
             <input type="submit" class="button" value="Register">
+            <div id="shelter-user-option">
+                <label>User
+                    <input type="radio"  name="usertype" value="user" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+                <label>Shelter
+                    <input type="radio"  name="usertype" value="shelter">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
         </form>
     </section>
 </div>

@@ -308,8 +308,8 @@ body #shuffle-button {
 
 #register form {
   display: grid;
-  margin: 20px auto;
-  grid-template-rows: 1fr 1fr 1fr 0.5fr;
+  margin: 30px auto 50px;
+  grid-template-rows: 0.6fr 0.6fr 0.6fr 0.5fr;
   grid-template-columns: 1fr 1fr;
 }
 #register form input[type=text], #register form input[type=password] {
@@ -330,6 +330,60 @@ body #shuffle-button {
 #register form label:nth-of-type(4) {
   grid-column: 2;
   grid-row: 3;
+}
+#register form div {
+  grid-column: 1;
+  grid-row: 4;
+}
+#register form div label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-left: 1em;
+  margin-bottom: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#register form div label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+#register form div label .checkmark {
+  position: absolute;
+  top: 1em;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+#register form div label:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+#register form div label input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+#register form div label .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+#register form div label input:checked ~ .checkmark:after {
+  display: block;
+}
+#register form div label .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
 }
 #register form input:nth-of-type(1) {
   grid-column: 2;
