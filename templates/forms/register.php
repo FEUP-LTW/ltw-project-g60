@@ -1,7 +1,7 @@
 <div class="content">
     <section id="register">
         <h2>Register</h2>
-        <form action="" method="post">
+        <form action="action_register.php" method="post">
             <label>Name
                 <input type="text" name="name" placeholder="Full Name">
             </label>
