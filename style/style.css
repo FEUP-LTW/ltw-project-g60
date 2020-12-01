@@ -493,7 +493,7 @@ body .shelter_profile .title {
   color: white;
 }
 body .shelter_profile img {
-  width: 10vw;
+  width: 8vw;
   border-radius: 15px;
   float: left;
   margin-right: 10px;
@@ -773,7 +773,7 @@ body .user_profile .title {
   color: white;
 }
 body .user_profile img {
-  width: 7vw;
+  width: 8vw;
   border-radius: 15px;
   float: left;
   margin-right: 10px;
