@@ -6,7 +6,7 @@
     </nav>
     <nav id="signup">
         <?php if (!isset($_SESSION['username'])) { ?>
-            <a href="register.html">Register</a>
+            <a href="register.php">Register</a>
             <a href="login.php">Login</a>
         <?php } else { ?>
             <a href=""><?= getUserByUsername($_SESSION['username'])['name'] ?></a>
