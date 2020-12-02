@@ -3,19 +3,7 @@
 
 body
   .user_profile
-    margin-top: 10px
-    margin-bottom: 27px
-    grid-template-columns: 19% 15% 15% 15% 36%
-    background-color: white
-    display: grid
-    align-items: flex-start
-    grid-template-areas: "profile about favorites contact colaborations" "pets pets pets pets colaborations" "pets pets pets pets activity"
-
-    img
-      width: 7vw
-      border-radius: 15px
-      float: left
-      margin-right: 10px
+    display: flex
 
     .title
       padding: 15px 0px 0px 25px
@@ -23,126 +11,145 @@ body
       font-weight: bold
       color: white
 
-    .profile_pic
-      grid-area: profile
-
-      img
-        top: 13vw
-        width: 15%
-        position: absolute
-        left: 25px
-        z-index: 1
-        border-radius: 15px
-
-    #about_me, #favorites, #contact
-      display: flex
+    img
+      width: 8vw
       border-radius: 15px
-      background-color: grey
-      margin: 8% 12%
-      justify-content: center
+      float: left
+      margin-right: 10px
 
-      a
+    .left
+      margin-top: 10px
+      margin-bottom: 27px
+      width: 65%
+      display: grid
+      grid-template-columns: 30% 23% 23% 23%
+      grid-auto-rows: fit-content(0%)
+      grid-template-areas: "profile about favorites contact" "pets pets pets pets"
+
+      .profile_pic
+        grid-area: profile
+
+        img
+          top: 13vw
+          width: 15%
+          position: absolute
+          left: 25px
+          z-index: 1
+          border-radius: 15px
+
+      #about_me, #favorites, #contact
+        display: flex
+        border-radius: 15px
+        background-color: grey
+        margin: 8% 12%
+        justify-content: center
+
+        a
+          padding: 10%
+          font-size: 1.5vw
+          i
+            display: flex
+            font-size: 3.5vw
+            justify-content: center
+
+      #about_me:hover, #favorites:hover, #contact:hover
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+        cursor: pointer
+        @include animations.animation("scale05 0.2s forwards")
+
+      #about_me
+        grid-area: about
+
+      #favorites
+        grid-area: favorites
+
+      #contact
+        grid-area: contact
+
+      #favorites > label
         padding: 10%
-        font-size: 1.5vw
+        font-size: 4vw
+        color: white
         i
           display: flex
           font-size: 3.5vw
           justify-content: center
 
-    #about_me:hover, #favorites:hover, #contact:hover
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
-      cursor: pointer
-      @include animations.animation("scale05 0.2s forwards")
+        span
+          display: flex
+          font-size: 1.5vw
+          justify-content: center
 
-    #about_me
-      grid-area: about
+        input
+          display: none
 
-    #favorites
-      grid-area: favorites
-
-    #contact
-      grid-area: contact
-
-    #favorites > label
-      padding: 10%
-      font-size: 4vw
-      color: white
-      i
-        display: flex
-        font-size: 3.5vw
-        justify-content: center
-
-      span
-        display: flex
-        font-size: 1.5vw
-        justify-content: center
-
-      input
-        display: none
-
-    .colaborations
-      grid-area: colaborations
-      border-radius: 15px
-      background-color: grey
-      margin: 3% 3%
-
-      #colaboration_imgs
-        padding: 10px
-        display: flex
-        flex-wrap: wrap
-        align-content: flex-start
-        a
-          padding: 1%
-          flex-basis: 14.5%
-          img
-            width: 100%
-          img:hover
-            @include animations.animation("scale05 0.2s forwards")
-
-    .user_pets
-      grid-area: pets
-      border-radius: 15px
-      background-color: grey
-      margin: 2% 3% 2% 3%
-
-      .pet
-        display: flex
-        padding: 15px
-        background-color: #363636
+      .user_pets
+        grid-area: pets
         border-radius: 15px
-        width: 90%
-        margin: 15px auto
+        background-color: grey
+        margin: 2% 3% 2% 3%
 
-        .container-dog
-          padding: 0
-          width: 51vw
-          text-align: justify
+        .pet
+          display: flex
+          padding: 15px
+          background-color: #363636
+          border-radius: 15px
+          width: 90%
+          margin: 15px auto
 
-      .pet:hover
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
-        cursor: pointer
-        @include animations.animation("scale05 0.2s forwards")
+          .container-dog
+            width: 54vw
+            text-align: justify
 
-    .user_activity
-      grid-area: activity
-      border-radius: 15px
-      background-color: grey
-      margin: 3% 3%
+        .pet:hover
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+          cursor: pointer
+          @include animations.animation("scale05 0.2s forwards")
 
-      .activity-card
-        display: flex
-        padding: 15px
-        background-color: #363636
+    .right
+      margin-top: 10px
+      margin-bottom: 27px
+      width: 35%
+      display: grid
+      grid-template-columns: 1fr
+      grid-auto-rows: fit-content(0%)
+
+      .colaborations
         border-radius: 15px
-        width: 85%
-        margin: 15px auto
+        background-color: grey
+        margin: 3.5% 3%
 
-        .container-activity
-          padding: 0
-          width: 28vw
-          text-align: justify
+        #colaboration_imgs
+          display: flex
+          padding: 10px
+          flex-wrap: wrap
+          align-content: flex-start
+          a
+            padding: 1%
+            flex-basis: 14.5%
+            img
+              width: 67px
+            img:hover
+              @include animations.animation("scale05 0.2s forwards")
 
-      .activity-card:hover
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
-        cursor: pointer
-        @include animations.animation("scale05 0.2s forwards")
+      .user_activity
+        border-radius: 15px
+        background-color: grey
+        margin: 2% 3% 4% 3%
+
+        .activity-card
+          display: flex
+          padding: 15px
+          background-color: #363636
+          border-radius: 15px
+          width: 85%
+          margin: 15px auto
+
+          .container-activity
+            width: 28vw
+            text-align: justify
+
+        .activity-card:hover
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+          cursor: pointer
+          @include animations.animation("scale05 0.2s forwards")

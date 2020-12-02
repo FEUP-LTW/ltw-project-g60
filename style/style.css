@@ -568,19 +568,7 @@ body .banner a {
   text-shadow: 5px 3px 5px #000000;
 }
 body .shelter_profile {
-  margin-top: 10px;
-  margin-bottom: 27px;
-  grid-template-rows: 10vw auto;
-  grid-template-columns: 19% 15% 15% 15% 36%;
-  background-color: white;
-  display: grid;
-  grid-template-areas: "profile about location contact adopted" "adopt adopt adopt adopt adopted";
-}
-body .shelter_profile img {
-  width: 10vw;
-  border-radius: 15px;
-  float: left;
-  margin-right: 10px;
+  display: flex;
 }
 body .shelter_profile .title {
   padding: 18px 0px 0px 25px;
@@ -588,10 +576,25 @@ body .shelter_profile .title {
   font-weight: bold;
   color: white;
 }
-body .shelter_profile .profile_pic {
+body .shelter_profile img {
+  width: 8vw;
+  border-radius: 15px;
+  float: left;
+  margin-right: 10px;
+}
+body .shelter_profile .left {
+  margin-top: 10px;
+  margin-bottom: 27px;
+  width: 65%;
+  display: grid;
+  grid-template-columns: 30% 23% 23% 23%;
+  grid-auto-rows: fit-content(0%);
+  grid-template-areas: "profile about location contact" "adopt adopt adopt adopt";
+}
+body .shelter_profile .left .profile_pic {
   grid-area: profile;
 }
-body .shelter_profile .profile_pic img {
+body .shelter_profile .left .profile_pic img {
   top: 13vw;
   width: 15%;
   position: absolute;
@@ -599,74 +602,48 @@ body .shelter_profile .profile_pic img {
   z-index: 1;
   border-radius: 15px;
 }
-body .shelter_profile #about_me, body .shelter_profile #location, body .shelter_profile #contact {
+body .shelter_profile .left #about_me, body .shelter_profile .left #location, body .shelter_profile .left #contact {
   display: flex;
   border-radius: 15px;
   background-color: grey;
   margin: 8% 12%;
   justify-content: center;
 }
-body .shelter_profile #about_me a, body .shelter_profile #location a, body .shelter_profile #contact a {
+body .shelter_profile .left #about_me a, body .shelter_profile .left #location a, body .shelter_profile .left #contact a {
   padding: 10%;
   font-size: 1.5vw;
 }
-body .shelter_profile #about_me a i, body .shelter_profile #location a i, body .shelter_profile #contact a i {
+body .shelter_profile .left #about_me a i, body .shelter_profile .left #location a i, body .shelter_profile .left #contact a i {
   display: flex;
   font-size: 3.5vw;
   justify-content: center;
 }
-body .shelter_profile #about_me {
+body .shelter_profile .left #about_me {
   grid-area: about;
 }
-body .shelter_profile #location {
+body .shelter_profile .left #location {
   grid-area: location;
 }
-body .shelter_profile #contact {
+body .shelter_profile .left #contact {
   grid-area: contact;
 }
-body .shelter_profile #about_me:hover, body .shelter_profile #location:hover, body .shelter_profile #contact:hover {
+body .shelter_profile .left #about_me:hover, body .shelter_profile .left #location:hover, body .shelter_profile .left #contact:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   -webkit-animation: scale05 0.2s forwards;
 }
-body .shelter_profile .container-dog {
+body .shelter_profile .left .container-dog {
   padding: 0;
   width: 28vw;
   text-align: justify;
 }
-body .shelter_profile h4 {
-  font-size: 130%;
-  margin-bottom: 10px;
-}
-body .shelter_profile p {
-  color: white;
-}
-body .shelter_profile .shelter_adopted {
-  grid-area: adopted;
-  border-radius: 15px;
-  background-color: grey;
-  margin: 3% 3% 5% 3%;
-}
-body .shelter_profile .shelter_adopted .adopted-card {
-  display: flex;
-  padding: 15px;
-  background-color: #363636;
-  border-radius: 15px;
-  width: 85%;
-  margin: 15px auto;
-}
-body .shelter_profile .shelter_adopted .adopted-card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  -webkit-animation: scale05 0.2s forwards;
-}
-body .shelter_profile .shelter_adoption {
+body .shelter_profile .left .shelter_adoption {
   grid-area: adopt;
   border-radius: 15px;
   background-color: grey;
   margin: 3% 3%;
 }
-body .shelter_profile .shelter_adoption .adoption-card {
+body .shelter_profile .left .shelter_adoption .adoption-card {
   display: flex;
   padding: 15px;
   background-color: #363636;
@@ -674,7 +651,42 @@ body .shelter_profile .shelter_adoption .adoption-card {
   width: 90%;
   margin: 15px auto;
 }
-body .shelter_profile .shelter_adoption .adoption-card:hover {
+body .shelter_profile .left .shelter_adoption .adoption-card .container-dog {
+  padding: 0;
+  width: 54vw;
+  text-align: justify;
+}
+body .shelter_profile .left .shelter_adoption .adoption-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  -webkit-animation: scale05 0.2s forwards;
+}
+body .shelter_profile .right {
+  margin-top: 10px;
+  margin-bottom: 27px;
+  width: 35%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: fit-content(0%);
+}
+body .shelter_profile .right .shelter_adopted {
+  border-radius: 15px;
+  background-color: grey;
+  margin: 3.5% 3% 4% 3%;
+}
+body .shelter_profile .right .shelter_adopted .adopted-card {
+  display: flex;
+  padding: 15px;
+  background-color: #363636;
+  border-radius: 15px;
+  width: 85%;
+  margin: 15px auto;
+}
+body .shelter_profile .right .shelter_adopted .adopted-card .container-dog {
+  width: 27vw;
+  text-align: justify;
+}
+body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   -webkit-animation: scale05 0.2s forwards;
@@ -836,19 +848,7 @@ body .shelter_profile .shelter_adoption .adoption-card:hover {
 }
 
 body .user_profile {
-  margin-top: 10px;
-  margin-bottom: 27px;
-  grid-template-columns: 19% 15% 15% 15% 36%;
-  background-color: white;
-  display: grid;
-  align-items: flex-start;
-  grid-template-areas: "profile about favorites contact colaborations" "pets pets pets pets colaborations" "pets pets pets pets activity";
-}
-body .user_profile img {
-  width: 7vw;
-  border-radius: 15px;
-  float: left;
-  margin-right: 10px;
+  display: flex;
 }
 body .user_profile .title {
   padding: 15px 0px 0px 25px;
@@ -856,10 +856,25 @@ body .user_profile .title {
   font-weight: bold;
   color: white;
 }
-body .user_profile .profile_pic {
+body .user_profile img {
+  width: 8vw;
+  border-radius: 15px;
+  float: left;
+  margin-right: 10px;
+}
+body .user_profile .left {
+  margin-top: 10px;
+  margin-bottom: 27px;
+  width: 65%;
+  display: grid;
+  grid-template-columns: 30% 23% 23% 23%;
+  grid-auto-rows: fit-content(0%);
+  grid-template-areas: "profile about favorites contact" "pets pets pets pets";
+}
+body .user_profile .left .profile_pic {
   grid-area: profile;
 }
-body .user_profile .profile_pic img {
+body .user_profile .left .profile_pic img {
   top: 13vw;
   width: 15%;
   position: absolute;
@@ -867,83 +882,61 @@ body .user_profile .profile_pic img {
   z-index: 1;
   border-radius: 15px;
 }
-body .user_profile #about_me, body .user_profile #favorites, body .user_profile #contact {
+body .user_profile .left #about_me, body .user_profile .left #favorites, body .user_profile .left #contact {
   display: flex;
   border-radius: 15px;
   background-color: grey;
   margin: 8% 12%;
   justify-content: center;
 }
-body .user_profile #about_me a, body .user_profile #favorites a, body .user_profile #contact a {
+body .user_profile .left #about_me a, body .user_profile .left #favorites a, body .user_profile .left #contact a {
   padding: 10%;
   font-size: 1.5vw;
 }
-body .user_profile #about_me a i, body .user_profile #favorites a i, body .user_profile #contact a i {
+body .user_profile .left #about_me a i, body .user_profile .left #favorites a i, body .user_profile .left #contact a i {
   display: flex;
   font-size: 3.5vw;
   justify-content: center;
 }
-body .user_profile #about_me:hover, body .user_profile #favorites:hover, body .user_profile #contact:hover {
+body .user_profile .left #about_me:hover, body .user_profile .left #favorites:hover, body .user_profile .left #contact:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   -webkit-animation: scale05 0.2s forwards;
 }
-body .user_profile #about_me {
+body .user_profile .left #about_me {
   grid-area: about;
 }
-body .user_profile #favorites {
+body .user_profile .left #favorites {
   grid-area: favorites;
 }
-body .user_profile #contact {
+body .user_profile .left #contact {
   grid-area: contact;
 }
-body .user_profile #favorites > label {
+body .user_profile .left #favorites > label {
   padding: 10%;
   font-size: 4vw;
   color: white;
 }
-body .user_profile #favorites > label i {
+body .user_profile .left #favorites > label i {
   display: flex;
   font-size: 3.5vw;
   justify-content: center;
 }
-body .user_profile #favorites > label span {
+body .user_profile .left #favorites > label span {
   display: flex;
   font-size: 1.5vw;
   justify-content: center;
 }
-body .user_profile #favorites > label input {
+body .user_profile .left #favorites > label input {
   display: none;
 }
-body .user_profile .colaborations {
-  grid-area: colaborations;
-  border-radius: 15px;
-  background-color: grey;
-  margin: 3% 3%;
-}
-body .user_profile .colaborations #colaboration_imgs {
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-}
-body .user_profile .colaborations #colaboration_imgs a {
-  padding: 1%;
-  flex-basis: 14.5%;
-}
-body .user_profile .colaborations #colaboration_imgs a img {
-  width: 100%;
-}
-body .user_profile .colaborations #colaboration_imgs a img:hover {
-  -webkit-animation: scale05 0.2s forwards;
-}
-body .user_profile .user_pets {
+body .user_profile .left .user_pets {
   grid-area: pets;
   border-radius: 15px;
   background-color: grey;
   margin: 2% 3% 2% 3%;
 }
-body .user_profile .user_pets .pet {
+body .user_profile .left .user_pets .pet {
   display: flex;
   padding: 15px;
   background-color: #363636;
@@ -951,23 +944,50 @@ body .user_profile .user_pets .pet {
   width: 90%;
   margin: 15px auto;
 }
-body .user_profile .user_pets .pet .container-dog {
-  padding: 0;
-  width: 51vw;
+body .user_profile .left .user_pets .pet .container-dog {
+  width: 54vw;
   text-align: justify;
 }
-body .user_profile .user_pets .pet:hover {
+body .user_profile .left .user_pets .pet:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   -webkit-animation: scale05 0.2s forwards;
 }
-body .user_profile .user_activity {
-  grid-area: activity;
+body .user_profile .right {
+  margin-top: 10px;
+  margin-bottom: 27px;
+  width: 35%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: fit-content(0%);
+}
+body .user_profile .right .colaborations {
   border-radius: 15px;
   background-color: grey;
-  margin: 3% 3%;
+  margin: 3.5% 3%;
 }
-body .user_profile .user_activity .activity-card {
+body .user_profile .right .colaborations #colaboration_imgs {
+  display: flex;
+  padding: 10px;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+body .user_profile .right .colaborations #colaboration_imgs a {
+  padding: 1%;
+  flex-basis: 14.5%;
+}
+body .user_profile .right .colaborations #colaboration_imgs a img {
+  width: 67px;
+}
+body .user_profile .right .colaborations #colaboration_imgs a img:hover {
+  -webkit-animation: scale05 0.2s forwards;
+}
+body .user_profile .right .user_activity {
+  border-radius: 15px;
+  background-color: grey;
+  margin: 2% 3% 4% 3%;
+}
+body .user_profile .right .user_activity .activity-card {
   display: flex;
   padding: 15px;
   background-color: #363636;
@@ -975,12 +995,11 @@ body .user_profile .user_activity .activity-card {
   width: 85%;
   margin: 15px auto;
 }
-body .user_profile .user_activity .activity-card .container-activity {
-  padding: 0;
+body .user_profile .right .user_activity .activity-card .container-activity {
   width: 28vw;
   text-align: justify;
 }
-body .user_profile .user_activity .activity-card:hover {
+body .user_profile .right .user_activity .activity-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   -webkit-animation: scale05 0.2s forwards;
