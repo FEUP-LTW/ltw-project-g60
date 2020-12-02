@@ -72,18 +72,44 @@ function userExists($username, $password)
     $stmt->execute();
     $users = $stmt->fetch();
 
-    if (count($users) < 0) {
+    if ($users == false) {
         $shaPassword = sha1($password);
         $stmt = $db->prepare('SELECT * FROM Shelters WHERE username = :username AND password = :password');
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':password', $shaPassword);
 
-        if (count($users) < 0) {
+        if ($users == false) {
             return false;
         } else {
             return true;
         }
     } else {
         return true;
+    }
+}
+
+function registerUser($name, $username, $password, $usertype) {
+    if ($usertype == "user") {
+        global $db;
+        $shaPassword = sha1($password);
+        $stmt = $db->prepare('INSERT INTO Users(username, name, password, info) VALUES (:username, :name, :password, :info)');
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $shaPassword);
+        $stmt->bindParam(':name', $name);
+        $info = "Lorem Ipsum Things TODO here";
+        $stmt->bindParam(':info', $info);
+
+        $stmt->execute();
+    } else {
+        global $db;
+        $shaPassword = sha1($password);
+        $stmt = $db->prepare('INSERT INTO Shelters(username, name, password, info) VALUES (:username, :name, :password, :info)');
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $shaPassword);
+        $stmt->bindParam(':name', $name);
+        $info = "Lorem Ipsum Things TODO here";
+        $stmt->bindParam(':info', $info);
+
+        $stmt->execute();
     }
 }
