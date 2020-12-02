@@ -672,7 +672,7 @@ body .shelter_profile .right {
 body .shelter_profile .right .shelter_adopted {
   border-radius: 15px;
   background-color: grey;
-  margin: 2% 3% 4% 3%;
+  margin: 3.5% 3% 4% 3%;
 }
 body .shelter_profile .right .shelter_adopted .adopted-card {
   display: flex;
@@ -964,7 +964,7 @@ body .user_profile .right {
 body .user_profile .right .colaborations {
   border-radius: 15px;
   background-color: grey;
-  margin: 4% 3%;
+  margin: 3.5% 3%;
 }
 body .user_profile .right .colaborations #colaboration_imgs {
   display: flex;
