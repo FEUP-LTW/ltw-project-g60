@@ -1,6 +1,7 @@
 <div class="page-content" id="pet-profile">
     <div class="pet-bio">
-        <div id="pet-image"></div>
+        <a class="pet-image" style="background-image: url('<?= $pet['imagePath'] ?>')">
+        </a>
         <section class="pet-info">
             <div id="title">
                 <h2><?= $pet['name'] ?></h2>

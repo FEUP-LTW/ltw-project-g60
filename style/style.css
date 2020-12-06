@@ -500,11 +500,14 @@ body #shuffle-button {
 }
 .pets-list .pet-card .pet-image, .shelters-list .pet-card .pet-image, .pets-list .shelter-card .pet-image, .shelters-list .shelter-card .pet-image, .pets-list .pet-card .shelter-image, .shelters-list .pet-card .shelter-image, .pets-list .shelter-card .shelter-image, .shelters-list .shelter-card .shelter-image {
   grid-area: image;
-}
-.pets-list .pet-card .pet-image img, .shelters-list .pet-card .pet-image img, .pets-list .shelter-card .pet-image img, .shelters-list .shelter-card .pet-image img, .pets-list .pet-card .shelter-image img, .shelters-list .pet-card .shelter-image img, .pets-list .shelter-card .shelter-image img, .shelters-list .shelter-card .shelter-image img {
   border-radius: 10px;
+  justify-self: auto;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
 }
-.pets-list .pet-card .pet-image img:hover, .shelters-list .pet-card .pet-image img:hover, .pets-list .shelter-card .pet-image img:hover, .shelters-list .shelter-card .pet-image img:hover, .pets-list .pet-card .shelter-image img:hover, .shelters-list .pet-card .shelter-image img:hover, .pets-list .shelter-card .shelter-image img:hover, .shelters-list .shelter-card .shelter-image img:hover {
+.pets-list .pet-card .pet-image:hover, .shelters-list .pet-card .pet-image:hover, .pets-list .shelter-card .pet-image:hover, .shelters-list .shelter-card .pet-image:hover, .pets-list .pet-card .shelter-image:hover, .shelters-list .pet-card .shelter-image:hover, .pets-list .shelter-card .shelter-image:hover, .shelters-list .shelter-card .shelter-image:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s;
 }
@@ -697,14 +700,14 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   grid-template-columns: 200px 3fr 200px;
   grid-gap: 10px;
 }
-#pet-profile .pet-bio #pet-image {
+#pet-profile .pet-bio .pet-image {
   grid-column: 1;
   border-radius: 10px 0 0 10px;
-  justify-self: end;
+  justify-self: auto;
   width: 100%;
   height: 100%;
-  background-image: url("https://picsum.photos/200");
   background-size: cover;
+  background-position: center;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
 }
 #pet-profile .pet-bio #owner-info {

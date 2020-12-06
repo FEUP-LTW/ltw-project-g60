@@ -25,9 +25,10 @@
         <div class="user_pets">
             <div class="title">My pets</div>
             <?php foreach ($pets as $pet) { ?>
+                <?=console_log($pet);?>
                 <div class="pet">
                     <a href="pet_detail.php?id=<?= $pet['PetID'] ?>">
-                        <img src="https://picsum.photos/200" alt="puppy photo">
+                        <img src="<?= $pet['imagePath'] ?>" alt="puppy photo">
                         <div class="container-dog">
                             <h4><b><?= $pet['PetName'] ?></b></h4>
                             <p><?= $pet['PetInfo'] ?></p>

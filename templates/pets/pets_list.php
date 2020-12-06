@@ -32,9 +32,10 @@
 
 <section class="pets-list">
     <?php
+        console_log($pets);
         foreach ($pets as $pet) { ?>
             <article class="pet-card">
-                <a class="pet-image" href="pet_detail.php?id=<?= $pet['pet_id'] ?>"><img src="https://picsum.photos/200" alt="pet photo"></a>
+                <a class="pet-image" href="pet_detail.php?id=<?= $pet['pet_id'] ?>" style="background-image: url('<?= $pet['imagePath'] ?>')"></a>
                 <div class="pet-information">
                     <h1><?= $pet['name'] ?></h1>
                     <div class="pet-details">

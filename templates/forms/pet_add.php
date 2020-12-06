@@ -4,22 +4,22 @@
             <h2>Give us the details about your pet!</h2>
         </section>
         <section id="right">
-            <form action="" method="post">
+            <form action="action_addpet.php" method="post" enctype="multipart/form-data">
                 <label>Name
-                    <input type="text" name="Name" placeholder="Pet's name">
+                    <input type="text" name="name" placeholder="Pet's name">
                 </label>
                 <label>Breed
-                    <input type="text" name="Breed" placeholder="Pet's breed">
+                    <input type="text" name="breed" placeholder="Pet's breed">
                 </label>
                 <label>
                     <span class="material-icons">
                     add_photo_alternate
                     </span>
                     Choose a photo
-                    <input hidden type="file" name="Photo" id="Pet-photo">
+                    <input hidden type="file" name="photo" id="Pet-photo">
                 </label>
                 <label>Size
-                    <input type="number" name="Size" placeholder="Pet's size">
+                    <input type="number" name="size" placeholder="Pet's size">
                 </label>
                 <label>Color
                     <input type="text" name="color" placeholder="Pet's color">

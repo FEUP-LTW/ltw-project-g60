@@ -100,11 +100,15 @@
 
     .pet-image
       grid-area: image
-      img
-        border-radius: 10px
-      img:hover
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
-        transition: box-shadow 0.3s
+      border-radius: 10px
+      justify-self: auto
+      width: 100%
+      height: 100%
+      background-size: cover
+      background-position: center
+    .pet-image:hover
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
+      transition: box-shadow 0.3s
     .pet-information
       grid-area: info
       h1

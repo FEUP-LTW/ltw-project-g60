@@ -29,7 +29,7 @@ function getUserByUsername($username) {
 function getUserPets($id) {
     global $db;
     if ($stmt = $db->prepare('
-        SELECT Pets.name as PetName, Pets.pet_id as PetID, Pets.info as PetInfo
+        SELECT Pets.name as PetName, Pets.pet_id as PetID, Pets.info as PetInfo, Pets.imagePath as imagePath
         FROM Users, Users_Pets, Pets
         WHERE Users.user_id = :id
         AND Users_Pets.user_id = :id
@@ -103,7 +103,7 @@ function registerUser($name, $username, $password, $usertype) {
     } else {
         global $db;
         $shaPassword = sha1($password);
-        $stmt = $db->prepare('INSERT INTO Shelters(username, name, password, info) VALUES (:username, :name, :password, :info)');
+        $stmt = $db->prepare('INSERT INTO Shelter(username, name, password, info) VALUES (:username, :name, :password, :info)');
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':password', $shaPassword);
         $stmt->bindParam(':name', $name);
@@ -112,4 +112,34 @@ function registerUser($name, $username, $password, $usertype) {
 
         $stmt->execute();
     }
+}
+
+function getSessionId(){
+    global $db;
+
+    $stmt = $db->prepare('SELECT user_id FROM Users WHERE username = :username');
+    $stmt->bindParam(':username', $_SESSION['username']);
+    $stmt->execute();
+    $user_id = $stmt->fetch()[0];
+
+    if ($user_id == false) {
+        $stmt = $db->prepare('SELECT shelter_id FROM Shelters WHERE username = :username');
+        $stmt->bindParam(':username', $_SESSION['username']);
+        $stmt->execute();
+        return $stmt->fetch()[0];
+    }else{
+        return $user_id;
+    }
+}
+
+function isUser($id){
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM Users WHERE user_id = :id');
+    $stmt->bindParam(':id', $id);
+
+    $stmt->execute();
+    $user = $stmt->fetch();
+
+    if ($user == false) return false;
+    return true;
 }

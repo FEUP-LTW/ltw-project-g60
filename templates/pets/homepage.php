@@ -3,7 +3,7 @@
         <div class="card">
             <a href="pet_detail.php?id=<?= $pets[0]['pet_id'] ?>">
                 <div class="card-title">Featured Pet</div>
-                <img src="https://picsum.photos/200" alt="puppy photo" style="width:100%; height: auto">
+                <img src="<?= $pets[0]['imagePath'] ?>" alt="puppy photo" style="width:100%; height: 72%">
                 <div class="container">
                     <h4><b><?= $pets[0]['name'] ?></b></h4>
                     <p>Information</p>
@@ -23,7 +23,7 @@
         <div class="card">
             <a href="pet_detail.php?id=<?= $pets[1]['pet_id'] ?>">
                 <div class="card-title">Featured Pet</div>
-                <img src="https://picsum.photos/200" alt="puppy photo" style="width:100%">
+                <img src="<?= $pets[1]['imagePath'] ?>" alt="puppy photo" style="width:100%; height: 72%">
                 <div class="container">
                     <h4><b><?= $pets[1]['name'] ?></b></h4>
                     <p>Information</p>
