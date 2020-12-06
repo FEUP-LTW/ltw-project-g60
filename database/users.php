@@ -29,7 +29,7 @@ function getUserByUsername($username) {
 function getUserPets($id) {
     global $db;
     if ($stmt = $db->prepare('
-        SELECT Pets.name as PetName, Pets.pet_id as PetID, Pets.info as PetInfo, Pets.imagePath as imagePath
+        SELECT Pets.name as PetName, Pets.pet_id as PetID, Pets.info as PetInfo
         FROM Users, Users_Pets, Pets
         WHERE Users.user_id = :id
         AND Users_Pets.user_id = :id

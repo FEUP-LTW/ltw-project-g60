@@ -104,16 +104,13 @@ function getPetByID($petID) {
     }
 }
 
-function addPet($id, $name, $image, $species, $size, $color, $gender, $info, $age, $location) {
+function addPet($id, $name, $image, $image_title, $species, $size, $color, $gender, $info, $age, $location) {
     global $db;
 
-    $imagePath = saveImage($image);
-
-    $stmt = $db->prepare('INSERT INTO Pets(name, species, imagePath, size, color, gender, info, age, location) 
-            VALUES (:name, :species, :imagePath, :size, :color, :gender, :info, :age, :location)');
+    $stmt = $db->prepare('INSERT INTO Pets(name, species, size, color, gender, info, age, location) 
+            VALUES (:name, :species, :size, :color, :gender, :info, :age, :location)');
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':species', $species);
-    $stmt->bindParam(':imagePath', $imagePath);
     $stmt->bindParam(':size', $size);
     $stmt->bindParam(':color', $color);
     $stmt->bindParam(':gender', $gender);
@@ -123,42 +120,40 @@ function addPet($id, $name, $image, $species, $size, $color, $gender, $info, $ag
 
     $stmt->execute();
 
+    $last_pet_id = $db->lastInsertId('pet_id');
+
+    $stmt = $db->prepare("INSERT INTO Pets_Images VALUES(NULL, :pet_id, :title)");
+    $stmt->bindParam(':pet_id', $last_pet_id);
+    $stmt->bindParam(':title', $image_title);
+    $stmt->execute();
+
+    // Get image ID
+    $image_id = $db->lastInsertId();
+
+    uploadImage($image,$image_id);
+
     if (isUser($id)) {
         $stmt = $db->prepare('INSERT INTO Users_Pets(user_id, pet_id) VALUES (:user_id, :pet_id)');
         $stmt->bindParam(':user_id', $id);
-        $last_id = $db->lastInsertId('pet_id');
-        $stmt->bindParam(':pet_id', $last_id);
+        $stmt->bindParam(':pet_id', $last_pet_id);
         $stmt->execute();
     }else{
         $stmt = $db->prepare('INSERT INTO Shelters_Pets(user_id, pet_id) VALUES (:user_id, :pet_id)');
         $stmt->bindParam(':user_id', $id);
-        $last_id = $db->lastInsertId('pet_id');
-        $stmt->bindParam(':pet_id', $last_id);
+        $stmt->bindParam(':pet_id', $last_pet_id);
         $stmt->execute();
     }
 }
 
-function saveImage($image){
-    //Stores the filename as it was on the client computer.
-    $imagename = $image['name'];
-    //Stores the filetype e.g image/jpeg
-    //$imagetype = $image['type'];
-    //Stores the tempname as it is given by the host when uploaded.
-    $imagetemp = $image['tmp_name'];
-
-    //The path to upload the image to
-    $imagePath = "./database/images/";
-
-    if(is_uploaded_file($imagetemp)) {
-        if(move_uploaded_file($imagetemp, $imagePath . $imagename)) {
-            echo "Uploaded your image.";
-            return $imagePath . $imagename;
-        }
-        else {
-            echo "Failed to move your image.";
-        }
+function getImageByPetId($petID){
+    global $db;
+    if ($stmt = $db->prepare('SELECT * FROM Pets_Images WHERE pet_id = :id')) {
+        $stmt->bindParam(':id', $petID);
+        $stmt->execute();
+        return $stmt->fetch()[0];
     }
     else {
-        echo "Failed to upload your image.";
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
     }
 }

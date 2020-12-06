@@ -21,7 +21,7 @@
             <?php foreach ($adoption as $pet) { ?>
                 <div class="adoption-card">
                     <a href="pet_detail.php?id=<?= $pet['pet_id'] ?>">
-                        <img src="<?= $pet['imagePath'] ?>" alt="puppy photo">
+                        <img src="database/images/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg" alt="puppy photo">
                         <div class="container-dog">
                             <h4><b><?= $pet['name'] ?></b></h4>
                             <p><?= $pet['info'] ?></p>
@@ -37,7 +37,7 @@
             <?php foreach ($pets as $pet) { ?>
                 <div class="adopted-card">
                     <a href="pet_detail.php?id=<?= $pet['pet_id'] ?>">
-                        <img src="<?= $pet['imagePath'] ?>" alt="puppy photo" >
+                        <img src="database/images/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg" alt="puppy photo" >
                         <div class="container-dog">
                             <h4><b><?= $pet['name'] ?></b></h4>
                             <p><?= $pet['info'] ?></p>

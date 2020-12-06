@@ -3,10 +3,12 @@
         <div class="card">
             <a href="pet_detail.php?id=<?= $pets[0]['pet_id'] ?>">
                 <div class="card-title">Featured Pet</div>
-                <img src="<?= $pets[0]['imagePath'] ?>" alt="puppy photo" style="width:100%; height: 72%">
+                <div class="image"
+                    style="background-image: url('database/images/originals/<?= getImageByPetId($pets[0]['pet_id']) ?>.jpg">
+                </div>
                 <div class="container">
                     <h4><b><?= $pets[0]['name'] ?></b></h4>
-                    <p>Information</p>
+                    <p><?= $pets[0]['info'] ?></p>
                 </div>
             </a>
         </div>
@@ -23,10 +25,12 @@
         <div class="card">
             <a href="pet_detail.php?id=<?= $pets[1]['pet_id'] ?>">
                 <div class="card-title">Featured Pet</div>
-                <img src="<?= $pets[1]['imagePath'] ?>" alt="puppy photo" style="width:100%; height: 72%">
+                <div class="image"
+                     style="background-image: url('database/images/originals/<?= getImageByPetId($pets[1]['pet_id']) ?>.jpg">
+                </div>
                 <div class="container">
                     <h4><b><?= $pets[1]['name'] ?></b></h4>
-                    <p>Information</p>
+                    <p><?= $pets[1]['info'] ?></p>
                 </div>
             </a>
         </div>

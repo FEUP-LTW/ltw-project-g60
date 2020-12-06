@@ -12,10 +12,13 @@
                     <input type="text" name="breed" placeholder="Pet's breed">
                 </label>
                 <label>
+                    <input type="text" name="title" placeholder="Image title">
+                </label>
+                <label>
                     <span class="material-icons">
                     add_photo_alternate
                     </span>
-                    Choose a photo
+                    Choose photo
                     <input hidden type="file" name="photo" id="Pet-photo">
                 </label>
                 <label>Size

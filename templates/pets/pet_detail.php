@@ -1,6 +1,6 @@
 <div class="page-content" id="pet-profile">
     <div class="pet-bio">
-        <a class="pet-image" style="background-image: url('<?= $pet['imagePath'] ?>')">
+        <a class="pet-image" style="background-image: url('database/images/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg')">
         </a>
         <section class="pet-info">
             <div id="title">
