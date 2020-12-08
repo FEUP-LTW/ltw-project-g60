@@ -6,8 +6,8 @@
 <section class="user_profile">
 
     <section class="left">
-        <div class="profile_pic">
-            <img src="https://picsum.photos/200/200" alt="user photo">
+        <div class="profile_pic"
+             style="background-image: url('database/images/users/profile/thumbs_medium/<?= $user['user_id'] ?>.jpg') ">
         </div>
         <div id="about_me">
             <a href="#"><i class="far fa-file"></i>About Me</a>
@@ -27,7 +27,7 @@
             <?php foreach ($pets as $pet) { ?>
                 <div class="pet">
                     <a href="pet_detail.php?id=<?= $pet['PetID'] ?>">
-                        <img src="database/images/thumbs_medium/<?= getImageByPetId($pet['PetID']) ?>.jpg" alt="puppy photo">
+                        <img src="database/images/pets/thumbs_medium/<?= getImageByPetId($pet['PetID']) ?>.jpg" alt="puppy photo">
                         <div class="container-dog">
                             <h4><b><?= $pet['PetName'] ?></b></h4>
                             <p><?= $pet['PetInfo'] ?></p>

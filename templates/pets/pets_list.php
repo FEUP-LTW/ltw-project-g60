@@ -34,7 +34,7 @@
     <?php
         foreach ($pets as $pet) { ?>
             <article class="pet-card">
-                <a class="pet-image" href="pet_detail.php?id=<?= $pet['pet_id'] ?>" style="background-image: url('database/images/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg')"></a>
+                <a class="pet-image" href="pet_detail.php?id=<?= $pet['pet_id'] ?>" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg')"></a>
                 <div class="pet-information">
                     <h1><?= $pet['name'] ?></h1>
                     <div class="pet-details">

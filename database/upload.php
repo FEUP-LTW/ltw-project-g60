@@ -1,15 +1,15 @@
 <?php
   // Insert image data into database
-function uploadImage($image, $id)
+function uploadImage($image, $id, $path)
 {
   // Generate filenames for original, small and medium files
-  $originalFileName = "./database/images/originals/$id.jpg";
-  $smallFileName = "./database/images/thumbs_small/$id.jpg";
-  $mediumFileName = "./database/images/thumbs_medium/$id.jpg";
+  $originalFileName = "database/$path/originals/$id.jpg";
+  $smallFileName = "database/$path/thumbs_small/$id.jpg";
+  $mediumFileName = "database/$path/thumbs_medium/$id.jpg";
 
+  $destination_path = getcwd().DIRECTORY_SEPARATOR;
   // Move the uploaded file to its final destination
-  console_log($image);
-  move_uploaded_file($image['tmp_name'], $originalFileName);
+  move_uploaded_file($image['tmp_name'],$destination_path . $originalFileName);
 
   // Crete an image representation of the original image
   $original = imagecreatefromjpeg($originalFileName);

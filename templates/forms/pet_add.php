@@ -19,10 +19,10 @@
                     add_photo_alternate
                     </span>
                     Choose photo
-                    <input hidden type="file" name="photo" id="Pet-photo">
+                    <input hidden type="file" name="photo">
                 </label>
                 <label>Size
-                    <input type="number" name="size" placeholder="Pet's size">
+                    <input type="number" name="size" placeholder="Pet's size" step=".01">
                 </label>
                 <label>Color
                     <input type="text" name="color" placeholder="Pet's color">

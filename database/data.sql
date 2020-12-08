@@ -76,7 +76,7 @@ CREATE TABLE Collaborators (
   user_id       INTEGER,
   CONSTRAINT collab_fk1 FOREIGN KEY (shelter_id) REFERENCES Shelters(shelter_id),
   CONSTRAINT collab_fk2 FOREIGN KEY (user_id) REFERENCES Users(user_id),
-	CONSTRAINT collab_pk PRIMARY KEY(shelter_id, user_id)
+  CONSTRAINT collab_pk PRIMARY KEY(shelter_id, user_id)
 );
 
 CREATE TABLE Favorites (
@@ -96,10 +96,10 @@ CREATE TABLE Pets_Adoption_Shelter(
 );
 
 CREATE TABLE Pets_Images(
-    img_id      INTEGER PRIMARY KEY,
+    img_id      INTEGER,
     pet_id      INTEGER,
-    title       TEXT,
-    CONSTRAINT pet_img_fk1 FOREIGN KEY (pet_id) REFERENCES Pets(pet_id)
+    CONSTRAINT pet_img_fk1 FOREIGN KEY (pet_id) REFERENCES Pets(pet_id),
+    CONSTRAINT imgs_pet_pk PRIMARY KEY(img_id, pet_id)
 );
 
 -- All passwords are 1234 in SHA-1 format
@@ -107,7 +107,6 @@ INSERT INTO Users (username, password, name, info) VALUES ('dominic', '7110eda4d
 INSERT INTO Users (username, password, name, info) VALUES ('zachary', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Zachary Young', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?');
 INSERT INTO Users (username, password, name, info) VALUES ('alicia', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Alicia Hamilton', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?');
 INSERT INTO Users (username, password, name, info) VALUES ('abril', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Abril Cooley', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?');
-
 
 INSERT INTO Shelters (username, password, name, info) VALUES ('shelter_ze', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Zés Shelter', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?');
 INSERT INTO Shelters (username, password, name, info) VALUES ('gaia_shelter', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'V.N. de Gaia Shelter', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?');
@@ -189,31 +188,31 @@ insert into Pets (name, species, size, color, gender, info, age, location, state
 insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Insect, stick', 'faucibus cursus', 0.8, 'Orange', 1, 'vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus', 4, 'Rundeng', 'prepared');
 insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Monkey, vervet', 'tellus in', 0.6, 'Goldenrod', 1, 'diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat', 1, 'Giemdiem', 'prepared');
 
-INSERT INTO Pets_Images (pet_id, title) VALUES (1, 'my pet1');
-INSERT INTO Pets_Images (pet_id, title) VALUES (2, 'my pet2');
-INSERT INTO Pets_Images (pet_id, title) VALUES (3, 'my pet3');
-INSERT INTO Pets_Images (pet_id, title) VALUES (4, 'my pet4');
-INSERT INTO Pets_Images (pet_id, title) VALUES (5, 'my pet5');
-INSERT INTO Pets_Images (pet_id, title) VALUES (6, 'my pet6');
-INSERT INTO Pets_Images (pet_id, title) VALUES (7, 'my pet7');
-INSERT INTO Pets_Images (pet_id, title) VALUES (8, 'my pet8');
-INSERT INTO Pets_Images (pet_id, title) VALUES (9, 'my pet9');
-INSERT INTO Pets_Images (pet_id, title) VALUES (10, 'my pet10');
-INSERT INTO Pets_Images (pet_id, title) VALUES (11, 'my pet11');
-INSERT INTO Pets_Images (pet_id, title) VALUES (12, 'my pet12');
-INSERT INTO Pets_Images (pet_id, title) VALUES (13, 'my pet13');
-INSERT INTO Pets_Images (pet_id, title) VALUES (14, 'my pet14');
-INSERT INTO Pets_Images (pet_id, title) VALUES (15, 'my pet15');
-INSERT INTO Pets_Images (pet_id, title) VALUES (16, 'my pet16');
-INSERT INTO Pets_Images (pet_id, title) VALUES (17, 'my pet17');
-INSERT INTO Pets_Images (pet_id, title) VALUES (18, 'my pet18');
-INSERT INTO Pets_Images (pet_id, title) VALUES (19, 'my pet19');
-INSERT INTO Pets_Images (pet_id, title) VALUES (20, 'my pet20');
-INSERT INTO Pets_Images (pet_id, title) VALUES (21, 'my pet21');
-INSERT INTO Pets_Images (pet_id, title) VALUES (22, 'my pet22');
-INSERT INTO Pets_Images (pet_id, title) VALUES (23, 'my pet23');
-INSERT INTO Pets_Images (pet_id, title) VALUES (24, 'my pet24');
-INSERT INTO Pets_Images (pet_id, title) VALUES (25, 'my pet25');
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (1,1);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (2,2);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (3,3);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (4,4);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (5,5);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (6,6);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (7,7);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (8,8);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (9,9);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (10,10);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (11,11);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (12,12);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (13,13);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (14,14);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (15,15);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (16,16);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (17,17);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (18,18);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (19,19);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (20,20);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (21,21);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (22,22);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (23,23);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (24,24);
+INSERT INTO Pets_Images (img_id,pet_id) VALUES (25,25);
 
 insert into ProposalsUser (pet_id, user_id, date) values (11, 4, '1581098589');
 insert into ProposalsUser (pet_id, user_id, date) values (8, 2, '1580845198');

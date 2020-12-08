@@ -1,5 +1,11 @@
 <?php
 
+function console_log( $data ){
+    echo '<script>';
+    echo 'console.log('. json_encode( $data ) .')';
+    echo '</script>';
+}
+
 function getUserByID($id) {
     global $db;
     if ($stmt = $db->prepare('SELECT * FROM Users WHERE user_id = :id')) {
@@ -88,7 +94,7 @@ function userExists($username, $password)
     }
 }
 
-function registerUser($name, $username, $password, $usertype) {
+function registerUser($name, $username, $password, $usertype, $profile_image, $header_image) {
     if ($usertype == "user") {
         global $db;
         $shaPassword = sha1($password);
@@ -100,10 +106,15 @@ function registerUser($name, $username, $password, $usertype) {
         $stmt->bindParam(':info', $info);
 
         $stmt->execute();
+
+        $image_id = $db->lastInsertId();
+        uploadImage($profile_image,$image_id,"images/users/profile");
+
+
     } else {
         global $db;
         $shaPassword = sha1($password);
-        $stmt = $db->prepare('INSERT INTO Shelter(username, name, password, info) VALUES (:username, :name, :password, :info)');
+        $stmt = $db->prepare('INSERT INTO Shelters(username, name, password, info) VALUES (:username, :name, :password, :info)');
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':password', $shaPassword);
         $stmt->bindParam(':name', $name);
@@ -111,6 +122,10 @@ function registerUser($name, $username, $password, $usertype) {
         $stmt->bindParam(':info', $info);
 
         $stmt->execute();
+
+        $image_id = $db->lastInsertId();
+        uploadImage($profile_image,$image_id,'images/shelters/profile');
+        uploadImage($header_image,$image_id,'images/shelters/header');
     }
 }
 

@@ -83,6 +83,7 @@ html, body {
   background-image: url("https://dogworldkennelclub.co.uk/wp-content/uploads/2017/11/banner-dog-field-2000x580.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   width: 100%;
   height: 15em;
   color: white;
@@ -142,7 +143,7 @@ html, body {
   float: right;
 }
 
-.button {
+.button, body #pet_add #right form label:nth-of-type(4), #register form #photos label:nth-of-type(1), #register form #photos label:nth-of-type(2) {
   background-color: #363636;
   border: none;
   color: white;
@@ -156,7 +157,7 @@ html, body {
   cursor: pointer;
 }
 
-.button:hover {
+.button:hover, body #pet_add #right form label:hover:nth-of-type(4), #register form #photos label:hover:nth-of-type(1), #register form #photos label:hover:nth-of-type(2) {
   -webkit-animation: scale05 0.2s forwards;
 }
 
@@ -235,7 +236,7 @@ body .card .image {
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 72%;
+  height: 45vh;
 }
 body .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -326,14 +327,27 @@ body #shuffle-button {
   grid-row: 1;
 }
 #register form label:nth-of-type(2) {
-  grid-column: 1/3;
+  grid-column: 1;
   grid-row: 2;
 }
-#register form label:nth-of-type(3) {
+#register form #photos {
+  grid-column: 2;
+  grid-row: 2;
+}
+#register form #photos label:nth-of-type(1), #register form #photos label:nth-of-type(2) {
+  margin: 0.5em 2em;
+  display: flex;
+  height: 20px;
+  width: 58%;
+}
+#register form #photos label:nth-of-type(1) span, #register form #photos label:nth-of-type(2) span {
+  margin-right: 0.2em;
+}
+#register form label:nth-of-type(4) {
   grid-column: 1;
   grid-row: 3;
 }
-#register form label:nth-of-type(4) {
+#register form label:nth-of-type(5) {
   grid-column: 2;
   grid-row: 3;
 }
@@ -602,14 +616,15 @@ body .shelter_profile .left {
 }
 body .shelter_profile .left .profile_pic {
   grid-area: profile;
-}
-body .shelter_profile .left .profile_pic img {
-  top: 13vw;
-  width: 15%;
-  position: absolute;
+  position: relative;
+  width: 80%;
+  height: 145%;
   left: 25px;
+  bottom: 10vh;
   z-index: 1;
   border-radius: 15px;
+  background-size: cover;
+  background-position: center;
 }
 body .shelter_profile .left #about_me, body .shelter_profile .left #location, body .shelter_profile .left #contact {
   display: flex;
@@ -724,7 +739,6 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   border-radius: 10px;
   width: 100%;
   height: 100%;
-  background-image: url("https://picsum.photos/200");
   background-size: cover;
 }
 #pet-profile .pet-bio #owner-info p {
@@ -820,8 +834,8 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 #pet-profile #proposals .grid-list .adoption-proposal .img {
   border-radius: 10px 10px 0 0;
   width: 100%;
-  background-image: url("https://picsum.photos/200");
   background-size: cover;
+  background-position: center;
   grid-row: 1;
   grid-column: 1;
 }
@@ -882,14 +896,15 @@ body .user_profile .left {
 }
 body .user_profile .left .profile_pic {
   grid-area: profile;
-}
-body .user_profile .left .profile_pic img {
-  top: 13vw;
-  width: 15%;
-  position: absolute;
+  position: relative;
+  width: 80%;
+  height: 145%;
   left: 25px;
+  bottom: 10vh;
   z-index: 1;
   border-radius: 15px;
+  background-size: cover;
+  background-position: center;
 }
 body .user_profile .left #about_me, body .user_profile .left #favorites, body .user_profile .left #contact {
   display: flex;
@@ -1065,26 +1080,15 @@ body #pet_add #right form label:nth-of-type(3) {
 body #pet_add #right form label:nth-of-type(4) {
   grid-column: 2;
   grid-row: 1;
-  margin: 2em 0 2em 1em;
-  color: white;
-  height: 40px;
-  width: 72%;
-  border-radius: 10px;
-  border: 1px solid transparent;
-  background-color: #363636;
+  padding: 1em 1em 0.5em 1em;
+  justify-content: center;
   display: flex;
-  padding: 10px;
-  align-items: center;
-  font-size: 1em;
+  margin: 2em 0 2em 0.2em;
+  height: 30px;
+  width: 65%;
 }
-body #pet_add #right form label:nth-of-type(4) span {
-  display: flex;
-  margin: 10px;
-}
-body #pet_add #right form label:nth-of-type(4):hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  -webkit-animation: scale05 0.2s forwards;
+body #pet_add #right form span {
+  margin-right: 0.2em;
 }
 body #pet_add #right form label:nth-of-type(2) {
   grid-column: 1;
@@ -1099,11 +1103,11 @@ body #pet_add #right form label:nth-of-type(6) {
   grid-row: 2;
 }
 body #pet_add #right form label:nth-of-type(7) {
-  grid-column: 1;
+  grid-column: 2;
   grid-row: 3;
 }
 body #pet_add #right form label:nth-of-type(8) {
-  grid-column: 2;
+  grid-column: 1;
   grid-row: 3;
 }
 body #pet_add #right form label:nth-of-type(9) {
@@ -1138,10 +1142,9 @@ body #pet_add #right form #petInfo {
 body #pet_add #right form #addButton {
   grid-column: 3;
   grid-row: 4;
-  border-radius: 10px;
   margin: 3em 2em;
-  height: 120px;
-  width: 150px;
+  height: 40%;
+  width: 60%;
 }
 body #pet_add #right form select {
   height: 50px;
