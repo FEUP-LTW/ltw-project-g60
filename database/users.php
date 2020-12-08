@@ -109,6 +109,7 @@ function registerUser($name, $username, $password, $usertype, $profile_image, $h
 
         $image_id = $db->lastInsertId();
         uploadImage($profile_image,$image_id,"images/users/profile");
+        uploadImage($header_image,$image_id,"images/users/header");
 
 
     } else {

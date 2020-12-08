@@ -1,5 +1,5 @@
 <section class="banner"
-         style="background-image: url('https://images.unsplash.com/photo-1570021974424-60e83dfee639?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80');">
+         style="background-image: url('database/images/users/header/originals/<?= $user['user_id'] ?>.jpg');">
     <a><?= $user['name'] ?></a>
 </section>
 

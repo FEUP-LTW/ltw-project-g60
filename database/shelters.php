@@ -25,6 +25,19 @@ function getAllShelters() {
     }
 }
 
+function getShelterByUsername($username) {
+    global $db;
+    if ($stmt = $db->prepare('SELECT * FROM Shelters WHERE username = :username')) {
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
+}
+
 function getShelterPets($id) {
     global $db;
     if ($stmt = $db->prepare('
