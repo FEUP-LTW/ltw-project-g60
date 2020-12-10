@@ -1,5 +1,11 @@
 <?php
 
+function console_log( $data ){
+    echo '<script>';
+    echo 'console.log('. json_encode( $data ) .')';
+    echo '</script>';
+}
+
 function getUserByID($id) {
     global $db;
     if ($stmt = $db->prepare('SELECT * FROM Users WHERE user_id = :id')) {
@@ -88,7 +94,7 @@ function userExists($username, $password)
     }
 }
 
-function registerUser($name, $username, $password, $usertype) {
+function registerUser($name, $username, $password, $usertype, $profile_image, $header_image) {
     if ($usertype == "user") {
         global $db;
         $shaPassword = sha1($password);
@@ -100,6 +106,12 @@ function registerUser($name, $username, $password, $usertype) {
         $stmt->bindParam(':info', $info);
 
         $stmt->execute();
+
+        $image_id = $db->lastInsertId();
+        uploadImage($profile_image,$image_id,"images/users/profile");
+        uploadImage($header_image,$image_id,"images/users/header");
+
+
     } else {
         global $db;
         $shaPassword = sha1($password);
@@ -111,5 +123,39 @@ function registerUser($name, $username, $password, $usertype) {
         $stmt->bindParam(':info', $info);
 
         $stmt->execute();
+
+        $image_id = $db->lastInsertId();
+        uploadImage($profile_image,$image_id,'images/shelters/profile');
+        uploadImage($header_image,$image_id,'images/shelters/header');
     }
+}
+
+function getSessionId(){
+    global $db;
+
+    $stmt = $db->prepare('SELECT user_id FROM Users WHERE username = :username');
+    $stmt->bindParam(':username', $_SESSION['username']);
+    $stmt->execute();
+    $user_id = $stmt->fetch()[0];
+
+    if ($user_id == false) {
+        $stmt = $db->prepare('SELECT shelter_id FROM Shelters WHERE username = :username');
+        $stmt->bindParam(':username', $_SESSION['username']);
+        $stmt->execute();
+        return $stmt->fetch()[0];
+    }else{
+        return $user_id;
+    }
+}
+
+function isUser($id){
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM Users WHERE user_id = :id');
+    $stmt->bindParam(':id', $id);
+
+    $stmt->execute();
+    $user = $stmt->fetch();
+
+    if ($user == false) return false;
+    return true;
 }

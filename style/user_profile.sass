@@ -2,6 +2,10 @@
 @use 'animations'
 
 body
+  .banner
+    background-size: cover
+    background-position: center
+
   .user_profile
     display: flex
 
@@ -28,14 +32,15 @@ body
 
       .profile_pic
         grid-area: profile
-
-        img
-          top: 13vw
-          width: 15%
-          position: absolute
-          left: 25px
-          z-index: 1
-          border-radius: 15px
+        position: relative
+        width: 80%
+        height: 145%
+        left: 25px
+        bottom: 10vh
+        z-index: 1
+        border-radius: 15px
+        background-size: cover
+        background-position: center
 
       #about_me, #favorites, #contact
         display: flex

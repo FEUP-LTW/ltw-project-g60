@@ -1,13 +1,13 @@
 <section class="banner"
-         style="background-image: url('https://images.unsplash.com/photo-1570021974424-60e83dfee639?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80');">
+         style="background-image: url('database/images/users/header/originals/<?= $user['user_id'] ?>.jpg');">
     <a><?= $user['name'] ?></a>
 </section>
 
 <section class="user_profile">
 
     <section class="left">
-        <div class="profile_pic">
-            <img src="https://picsum.photos/200/200" alt="user photo">
+        <div class="profile_pic"
+             style="background-image: url('database/images/users/profile/thumbs_medium/<?= $user['user_id'] ?>.jpg') ">
         </div>
         <div id="about_me">
             <a href="#"><i class="far fa-file"></i>About Me</a>
@@ -27,7 +27,7 @@
             <?php foreach ($pets as $pet) { ?>
                 <div class="pet">
                     <a href="pet_detail.php?id=<?= $pet['PetID'] ?>">
-                        <img src="https://picsum.photos/200" alt="puppy photo">
+                        <img src="database/images/pets/thumbs_medium/<?= getImageByPetId($pet['PetID']) ?>.jpg" alt="puppy photo">
                         <div class="container-dog">
                             <h4><b><?= $pet['PetName'] ?></b></h4>
                             <p><?= $pet['PetInfo'] ?></p>

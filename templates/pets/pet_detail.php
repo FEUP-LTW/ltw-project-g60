@@ -1,6 +1,7 @@
 <div class="page-content" id="pet-profile">
     <div class="pet-bio">
-        <div id="pet-image"></div>
+        <a class="pet-image" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg')">
+        </a>
         <section class="pet-info">
             <div id="title">
                 <h2><?= $pet['name'] ?></h2>
@@ -24,14 +25,14 @@
         $owner = getPetOwner($pet['pet_id']);
         if ($owner[1] == 'user') {
             echo '<a id="owner-info" href="user_profile.php?id=' . $owner[0] . '">';
-            echo '<div class="img"></div>
-                  <p>' . getUserByID($owner[0])['name'] . '</p>
+            echo "<div class=\"img\" style=\"background-image: url('database/images/users/profile/thumbs_medium/" . $owner[0] . ".jpg')\"> </div>
+                  <p>" . getUserByID($owner[0])['name'] . '</p>
                   </a>';
         }
         else {
             echo '<a id="owner-info" href="shelter_profile.php?id=' . $owner[0] . '">';
-            echo '<div class="img"></div>
-                  <p>' . getShelterByID($owner[0])['name'] . '</p>
+            echo "<div class=\"img\" style=\"background-image: url('database/images/shelters/profile/thumbs_medium/" . $owner[0] . ".jpg')\"></div>
+                  <p>" . getShelterByID($owner[0])['name'] . '</p>
                   </a>';
         }
         ?>
@@ -48,7 +49,7 @@
         <div class="grid-list">
             <?php foreach ($proposals as $proposal) { ?>
                 <article class="adoption-proposal">
-                    <div class="img"></div>
+                    <div class="img" style="background-image: url('database/images/users/profile/thumbs_medium/<?= $proposal['user_id'] ?>.jpg"></div>
                     <h3><?= $proposal['name'] ?></h3>
                     <div class="user-details">
                         <p><?= $proposal['info'] ?></p>

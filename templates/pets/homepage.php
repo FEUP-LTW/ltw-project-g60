@@ -3,30 +3,36 @@
         <div class="card">
             <a href="pet_detail.php?id=<?= $pets[0]['pet_id'] ?>">
                 <div class="card-title">Featured Pet</div>
-                <img src="https://picsum.photos/200" alt="puppy photo" style="width:100%; height: auto">
+                <div class="image"
+                    style="background-image: url('database/images/pets/originals/<?= getImageByPetId($pets[0]['pet_id']) ?>.jpg">
+                </div>
                 <div class="container">
                     <h4><b><?= $pets[0]['name'] ?></b></h4>
-                    <p>Information</p>
+                    <p><?= $pets[0]['info'] ?></p>
                 </div>
             </a>
         </div>
         <div class="card">
-            <a href="#">
+            <a href="shelter_profile.php?id=<?=$shelter['shelter_id'] ?>">
                 <div class="card-title">Featured Shelter</div>
-                <img src="https://picsum.photos/200" alt="puppy photo" style="width:100%">
+                <div class="image"
+                     style="background-image: url('database/images/shelters/profile/originals/<?= getImageByPetId($pets[0]['pet_id']) ?>.jpg">
+                </div>
                 <div class="container">
                     <h4><b><?= $shelter['name'] ?></b></h4>
-                    <p>Information</p>
+                    <p><?= $shelter['info'] ?></p>
                 </div>
             </a>
         </div>
         <div class="card">
             <a href="pet_detail.php?id=<?= $pets[1]['pet_id'] ?>">
                 <div class="card-title">Featured Pet</div>
-                <img src="https://picsum.photos/200" alt="puppy photo" style="width:100%">
+                <div class="image"
+                     style="background-image: url('database/images/pets/originals/<?= getImageByPetId($pets[1]['pet_id']) ?>.jpg">
+                </div>
                 <div class="container">
                     <h4><b><?= $pets[1]['name'] ?></b></h4>
-                    <p>Information</p>
+                    <p><?= $pets[1]['info'] ?></p>
                 </div>
             </a>
         </div>
