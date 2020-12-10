@@ -1,6 +1,6 @@
 <div class="content">
     <section id="pet_add">
-        <section id="left">
+        <section id="left" style="background-image: url('database/images/defaults/addDog.jpg')">
             <h2>Give us the details about your pet!</h2>
         </section>
         <section id="right">
@@ -10,16 +10,6 @@
                 </label>
                 <label>Breed
                     <input type="text" name="breed" placeholder="Pet's breed">
-                </label>
-                <label>
-                    <input type="text" name="title" placeholder="Image title">
-                </label>
-                <label>
-                    <span class="material-icons">
-                    add_photo_alternate
-                    </span>
-                    Choose photo
-                    <input hidden type="file" name="photo">
                 </label>
                 <label>Size
                     <input type="number" name="size" placeholder="Pet's size" step=".01">
@@ -33,7 +23,6 @@
                 <label>Location
                     <input type="text" name="location" placeholder="Pet's location">
                 </label>
-                <input type="submit" class="button" id="addButton" value="Add Pet!">
                 <div id="gender-option">
                     <label>Male
                         <input type="radio"  name="gender" value="male" checked="checked">
@@ -51,6 +40,17 @@
                     <option value="" disabled selected>Status</option>
                     <option value="">prepared</option>
                 </select>
+                <label>
+                    <span class="material-icons">
+                    add_photo_alternate
+                    </span>
+                    Choose photo
+                    <input hidden type="file" name="photo">
+                </label>
+                <label>
+                    Add Pet!
+                    <input hidden type="submit" class="button">
+                </label>
             </form>
         </section>
     </section>
