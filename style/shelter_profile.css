@@ -56,7 +56,7 @@ body #signup {
 }
 body .footer {
   flex-shrink: 0;
-  background-color: #363636;
+  background-color: $accent-color;
   color: white;
   padding: 3px 1em;
 }
@@ -67,7 +67,7 @@ body .footer p:last-child {
   float: right;
 }
 body .button {
-  background-color: #363636;
+  background-color: $accent-color;
   border: none;
   color: white;
   padding: 15px 32px;

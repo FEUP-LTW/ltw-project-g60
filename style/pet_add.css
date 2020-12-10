@@ -125,7 +125,7 @@ html, body {
 
 .footer {
   flex-shrink: 0;
-  background-color: #363636;
+  background-color: $accent-color;
   color: white;
   position: absolute;
   left: 0;
@@ -143,7 +143,7 @@ html, body {
 }
 
 .button {
-  background-color: #363636;
+  background-color: $accent-color;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -170,7 +170,7 @@ hr {
 }
 
 .navigation_bar {
-  background-color: #363636;
+  background-color: $accent-color;
   width: 100%;
 }
 .navigation_bar a {
@@ -216,7 +216,7 @@ body #pet_add #left h2 {
   top: 50px;
   text-align: center;
   width: 100%;
-  color: #363636;
+  color: $accent-color;
 }
 body #pet_add #right form {
   padding-top: 20px;
@@ -229,7 +229,7 @@ body #pet_add #right form {
   grid-template-rows: 20% 20% 20% 40%;
   background-color: #bababa;
   transition: 0.3s;
-  color: #363636;
+  color: $accent-color;
 }
 body #pet_add #right form label:nth-of-type(1) {
   grid-column: 1;
@@ -244,7 +244,7 @@ body #pet_add #right form label:nth-of-type(3) {
   width: 200px;
   border-radius: 10px;
   border: 1px solid transparent;
-  background-color: #363636;
+  background-color: $accent-color;
   display: flex;
   padding: 10px;
   align-items: center;
@@ -322,9 +322,9 @@ body #pet_add #right form select {
   grid-row: 4;
   width: 69%;
   margin: 4em auto;
-  border: 3px solid #363636;
+  border: 3px solid $accent-color;
   padding: 1em;
-  background-color: #363636;
+  background-color: $accent-color;
   border-radius: 7px;
   color: white;
 }
