@@ -1,4 +1,4 @@
-<header id="main-header" class="header">
+<header id="main-header" class="header" style="background-image: url('res/banner.jpg')">
     <a href="homepage.php">
         <h1>Adoption Center</h1>
     </a>
