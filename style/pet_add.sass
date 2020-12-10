@@ -95,6 +95,7 @@ body
             margin-top: 1em
             width: 100%
             font-size: 0.9em
+            outline: none
 
         #petInfo
           grid-column: 1
@@ -114,7 +115,6 @@ body
           grid-row: 4
           input
             display: none
-
 
         select
           height: 50px
@@ -161,7 +161,7 @@ body
             &:hover input ~ .checkmark
               background-color: #ccc
             input:checked ~ .checkmark
-              background-color: #2196F3
+              background-color: common.$accent-color
             .checkmark:after
               content: ""
               position: absolute

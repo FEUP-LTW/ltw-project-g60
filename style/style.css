@@ -418,87 +418,82 @@ body #shuffle-button {
   display: grid;
   margin: 30px auto 50px;
   grid-template-rows: 0.6fr 0.6fr 0.6fr 0.5fr;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 50% 50%;
 }
-#register form input[type=text], #register form input[type=password] {
-  width: 98%;
-}
-#register form label:nth-of-type(1) {
+#register form .group:nth-of-type(1) {
   grid-column: 1/3;
   grid-row: 1;
 }
-#register form label:nth-of-type(2) {
+#register form .group:nth-of-type(2) {
   grid-column: 1;
   grid-row: 2;
 }
 #register form #photos {
   grid-column: 2;
   grid-row: 2;
+  display: flex;
+  justify-self: right;
+  margin-right: 1em;
 }
 #register form #photos label:nth-of-type(1), #register form #photos label:nth-of-type(2) {
-  margin: 0.5em 2em;
+  padding: 1em;
+  margin-left: 10px;
   display: flex;
   height: 20px;
-  width: 58%;
+}
+#register form #photos label:nth-of-type(1) input, #register form #photos label:nth-of-type(2) input {
+  display: none;
 }
 #register form #photos label:nth-of-type(1) span, #register form #photos label:nth-of-type(2) span {
   margin-right: 0.2em;
 }
-#register form label:nth-of-type(4) {
-  grid-column: 1;
-  grid-row: 3;
-}
-#register form label:nth-of-type(5) {
-  grid-column: 2;
-  grid-row: 3;
-}
-#register form div {
+#register form #shelter-user-option {
   grid-column: 1;
   grid-row: 4;
 }
-#register form div label {
+#register form #shelter-user-option label {
   display: block;
   position: relative;
   padding-left: 35px;
   margin-left: 1em;
-  margin-bottom: 0;
+  margin-bottom: 20px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
-#register form div label input {
+#register form #shelter-user-option label input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
   width: 0;
 }
-#register form div label .checkmark {
+#register form #shelter-user-option label .checkmark {
   position: absolute;
-  top: 1em;
+  top: 0;
   left: 0;
   height: 25px;
   width: 25px;
   background-color: #eee;
   border-radius: 50%;
 }
-#register form div label:hover input ~ .checkmark {
+#register form #shelter-user-option label:hover input ~ .checkmark {
   background-color: #ccc;
 }
-#register form div label input:checked ~ .checkmark {
+#register form #shelter-user-option label input:checked ~ .checkmark {
   background-color: #934B00;
 }
-#register form div label .checkmark:after {
+#register form #shelter-user-option label .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-#register form div label input:checked ~ .checkmark:after {
+#register form #shelter-user-option label input:checked ~ .checkmark:after {
   display: block;
 }
-#register form div label .checkmark:after {
+#register form #shelter-user-option label .checkmark:after {
   top: 9px;
   left: 9px;
   width: 8px;
@@ -506,7 +501,7 @@ body #shuffle-button {
   border-radius: 50%;
   background: white;
 }
-#register form input:nth-of-type(1) {
+#register form input {
   grid-column: 2;
   grid-row: 4;
 }
@@ -1252,6 +1247,7 @@ body #pet_add #right form label input[type=text], body #pet_add #right form labe
   margin-top: 1em;
   width: 100%;
   font-size: 0.9em;
+  outline: none;
 }
 body #pet_add #right form #petInfo {
   grid-column: 1;
@@ -1321,7 +1317,7 @@ body #pet_add #right form #gender-option label:hover input ~ .checkmark {
   background-color: #ccc;
 }
 body #pet_add #right form #gender-option label input:checked ~ .checkmark {
-  background-color: #2196F3;
+  background-color: #934B00;
 }
 body #pet_add #right form #gender-option label .checkmark:after {
   content: "";

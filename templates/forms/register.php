@@ -2,34 +2,46 @@
     <section id="register">
         <h2>Register</h2>
         <form action="action_register.php" method="post" enctype="multipart/form-data">
-            <label>Name
-                <input type="text" name="name" placeholder="Full Name">
-            </label>
-            <label>Username
-                <input type="text" name="username" placeholder="no spaces">
-            </label>
+            <div class="group">
+                <input id="name" name="name" type="text" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="name">Full Name</label>
+            </div>
+            <div class="group">
+                <input id="username" name="username" type="text" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="username">Username</label>
+            </div>
             <div id="photos">
                 <label>
                     <span class="material-icons">
                     add_photo_alternate
                     </span>
-                    Profile photo
+                    Profile
                     <input hidden type="file" class="button" name="profile_photo">
                 </label>
                 <label>
                     <span class="material-icons">
                     add_photo_alternate
                     </span>
-                    Header photo
+                    Header
                     <input hidden type="file" class="button" name="header_photo">
                 </label>
             </div>
-            <label>Password
-                <input type="password" name="password" placeholder="min. 8 characters">
-            </label>
-            <label>Confirm Password
-                <input type="password" name="password" placeholder="confirm your password">
-            </label>
+            <div class="group">
+                <input id="password" name="password" type="password" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="password">Password</label>
+            </div>
+            <div class="group">
+                <input id="confirm-password" name="confirm-password" type="password" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="confirm-password">Confirm Password</label>
+            </div>
             <input type="submit" class="button" value="Register">
             <div id="shelter-user-option">
                 <label>User
