@@ -39,7 +39,7 @@ html, body {
 
 .small-header {
   margin: 0 auto;
-  background-color: #363636;
+  background-color: $accent-color;
   width: 100%;
   color: white;
   display: flex;
@@ -86,7 +86,7 @@ html, body {
 
 .footer {
   flex-shrink: 0;
-  background-color: #363636;
+  background-color: $accent-color;
   color: white;
   padding: 3px 1em;
 }
@@ -98,7 +98,7 @@ html, body {
 }
 
 .button {
-  background-color: #363636;
+  background-color: $accent-color;
   border: none;
   color: white;
   padding: 15px 32px;

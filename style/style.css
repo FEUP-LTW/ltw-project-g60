@@ -79,37 +79,40 @@ html, body {
 
 .header {
   margin: 0 auto;
-  background-color: grey;
-  background-image: url("https://dogworldkennelclub.co.uk/wp-content/uploads/2017/11/banner-dog-field-2000x580.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 15em;
   color: white;
-  padding-bottom: 1em;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: 10em 3em 2.5em;
 }
 .header a {
+  justify-self: center;
+  align-self: center;
   color: white;
+  grid-column: 1/6;
+  grid-row: 1;
 }
 .header h1 {
-  margin: 0 auto;
-  padding-top: 1em;
   text-align: center;
   font-size: 450%;
   letter-spacing: 10px;
 }
 .header h2 {
+  grid-column: 1/6;
+  grid-row: 2;
   text-align: center;
   font-size: 200%;
 }
-
-#links, #signup {
-  position: relative;
+.header #links, .header #signup {
+  justify-self: right;
+  grid-row: 3;
+  grid-column: 1;
   float: left;
-  padding-left: 10em;
 }
-#links a, #signup a {
+.header #links a, .header #signup a {
   font-size: 1.2rem;
   text-decoration: none;
   color: white;
@@ -118,15 +121,19 @@ html, body {
   padding-bottom: 5px;
   margin-bottom: 1em;
 }
-
-#signup {
+.header #links a:nth-child(2), .header #signup a:nth-child(2) {
+  margin: 0;
+}
+.header #signup {
+  grid-row: 3;
+  grid-column: 3;
+  justify-self: left;
   float: right;
-  padding-right: 10em;
 }
 
 .footer {
   flex-shrink: 0;
-  background-color: #363636;
+  background-color: #934B00;
   color: white;
   position: absolute;
   left: 0;
@@ -144,7 +151,7 @@ html, body {
 }
 
 .button, body #pet_add #right form label:nth-of-type(8), body #pet_add #right form label:nth-of-type(9), #register form #photos label:nth-of-type(1), #register form #photos label:nth-of-type(2) {
-  background-color: #363636;
+  background-color: #934B00;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -171,7 +178,7 @@ hr {
 }
 
 .navigation_bar {
-  background-color: #363636;
+  background-color: #934B00;
   width: 100%;
 }
 .navigation_bar a {
@@ -183,10 +190,17 @@ hr {
 .navigation_bar #links, .navigation_bar #signup {
   padding: 10px;
   margin-left: 10%;
+  position: relative;
+  float: left;
 }
 .navigation_bar #links a, .navigation_bar #signup a {
-  padding: 0px;
-  margin-bottom: 0px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+  border-bottom: 1px solid white;
+  padding: 0;
+  margin-bottom: 0;
 }
 .navigation_bar #signup {
   padding: 10px;
@@ -226,7 +240,7 @@ body .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 10px;
-  background-color: #a1a1a1;
+  background-color: #F1A66A;
 }
 body .card a {
   position: relative;
@@ -246,11 +260,15 @@ body .container {
   padding: 10px 10px;
 }
 body .container p {
-  color: #363636;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
 }
 body .card-title {
   padding: 10px 10px 10px 15px;
-  background-color: #363636;
+  background-color: #934B00;
   font-size: large;
   font-weight: bold;
   color: white;
@@ -263,7 +281,7 @@ body #shuffle-button {
 }
 
 #login h2, #register h2 {
-  background-color: #363636;
+  background-color: #934B00;
   text-align: center;
   width: 100%;
   padding: 10px 0;
@@ -272,11 +290,11 @@ body #shuffle-button {
 }
 #login form, #register form {
   width: 30em;
-  background-color: #bababa;
+  background-color: #F1A66A;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   transition: 0.3s;
-  color: #363636;
+  color: white;
   margin: 2em auto;
   padding: 1em;
 }
@@ -303,14 +321,14 @@ body #shuffle-button {
 }
 #login input[type=submit], #register input[type=submit] {
   width: auto;
-  background-color: #363636;
+  background-color: #934B00;
   color: white;
   border: none;
   margin: 1em 1em 1em auto;
 }
 #login input:focus, #register input:focus {
   outline: none;
-  border-bottom: 1px solid #046dd5;
+  border-bottom: 1px solid #934B00;
 }
 
 #register form {
@@ -387,7 +405,7 @@ body #shuffle-button {
   background-color: #ccc;
 }
 #register form div label input:checked ~ .checkmark {
-  background-color: #2196F3;
+  background-color: #934B00;
 }
 #register form div label .checkmark:after {
   content: "";
@@ -411,7 +429,9 @@ body #shuffle-button {
 }
 
 .search {
-  background-image: url("https://dogworldkennelclub.co.uk/wp-content/uploads/2017/11/banner-dog-field-2000x580.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   width: 100%;
   margin: 0 auto;
 }
@@ -441,12 +461,12 @@ body #shuffle-button {
   height: 36px;
   border-radius: 5px 0 0 5px;
   outline: none;
-  color: #363636;
+  color: #934B00;
 }
 .search form #search-wrap #search button {
   width: 40px;
   height: 36px;
-  background: #363636;
+  background: #934B00;
   text-align: center;
   color: #fff;
   border-radius: 0 5px 5px 0;
@@ -479,9 +499,9 @@ body #shuffle-button {
 .search form select {
   width: 80%;
   margin: 0 auto;
-  border: 3px solid #363636;
+  border: 3px solid #934B00;
   padding: 1em;
-  background-color: #363636;
+  background-color: #934B00;
   border-radius: 7px;
   color: white;
 }
@@ -489,7 +509,7 @@ body #shuffle-button {
   width: 65%;
   margin: 0 auto;
   padding: 1em;
-  background-color: #363636;
+  background-color: #934B00;
   border-radius: 7px;
   color: white;
 }
@@ -626,13 +646,15 @@ body .shelter_profile .left .profile_pic {
   border-radius: 15px;
   background-size: cover;
   background-position: center;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 body .shelter_profile .left #about_me, body .shelter_profile .left #location, body .shelter_profile .left #contact {
   display: flex;
   border-radius: 15px;
-  background-color: grey;
+  background-color: #934B00;
   margin: 8% 12%;
   justify-content: center;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 body .shelter_profile .left #about_me a, body .shelter_profile .left #location a, body .shelter_profile .left #contact a {
   padding: 10%;
@@ -665,13 +687,13 @@ body .shelter_profile .left .container-dog {
 body .shelter_profile .left .shelter_adoption {
   grid-area: adopt;
   border-radius: 15px;
-  background-color: grey;
+  background-color: #F1A66A;
   margin: 3% 3%;
 }
 body .shelter_profile .left .shelter_adoption .adoption-card {
   display: flex;
   padding: 15px;
-  background-color: #363636;
+  background-color: #934B00;
   border-radius: 15px;
   width: 90%;
   margin: 15px auto;
@@ -696,13 +718,13 @@ body .shelter_profile .right {
 }
 body .shelter_profile .right .shelter_adopted {
   border-radius: 15px;
-  background-color: grey;
+  background-color: #F1A66A;
   margin: 3.5% 3% 4% 3%;
 }
 body .shelter_profile .right .shelter_adopted .adopted-card {
   display: flex;
   padding: 15px;
-  background-color: #363636;
+  background-color: #934B00;
   border-radius: 15px;
   width: 85%;
   margin: 15px auto;
@@ -746,7 +768,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 #pet-profile .pet-bio #owner-info p {
   padding: 5px;
   border-radius: 5px;
-  background-color: #363636;
+  background-color: #934B00;
   position: absolute;
   bottom: 8px;
   left: 8px;
@@ -760,7 +782,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   height: 100%;
   margin-left: -10px;
   display: grid;
-  background-color: #363636;
+  background-color: #934B00;
   color: white;
   border-radius: 0 10px 10px 0;
   grid-template-rows: auto auto auto;
@@ -797,7 +819,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 #pet-profile #options {
   margin-top: 1em;
   padding: 1em;
-  background-color: #bababa;
+  background-color: #F1A66A;
   border-radius: 10px;
 }
 #pet-profile #options .buttons {
@@ -812,7 +834,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 #pet-profile #proposals {
   margin-top: 1em;
   padding: 1em;
-  background-color: #bababa;
+  background-color: #F1A66A;
   border-radius: 10px;
 }
 #pet-profile #proposals h2 {
@@ -825,7 +847,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 }
 #pet-profile #proposals .grid-list .adoption-proposal {
   padding: 1em;
-  background-color: #363636;
+  background-color: #934B00;
   border-radius: 10px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
   display: grid;
@@ -911,13 +933,15 @@ body .user_profile .left .profile_pic {
   border-radius: 15px;
   background-size: cover;
   background-position: center;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 body .user_profile .left #about_me, body .user_profile .left #favorites, body .user_profile .left #contact {
   display: flex;
   border-radius: 15px;
-  background-color: grey;
+  background-color: #934B00;
   margin: 8% 12%;
   justify-content: center;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 body .user_profile .left #about_me a, body .user_profile .left #favorites a, body .user_profile .left #contact a {
   padding: 10%;
@@ -963,13 +987,13 @@ body .user_profile .left #favorites > label input {
 body .user_profile .left .user_pets {
   grid-area: pets;
   border-radius: 15px;
-  background-color: grey;
+  background-color: #F1A66A;
   margin: 2% 3% 2% 3%;
 }
 body .user_profile .left .user_pets .pet {
   display: flex;
   padding: 15px;
-  background-color: #363636;
+  background-color: #934B00;
   border-radius: 15px;
   width: 90%;
   margin: 15px auto;
@@ -993,7 +1017,7 @@ body .user_profile .right {
 }
 body .user_profile .right .colaborations {
   border-radius: 15px;
-  background-color: grey;
+  background-color: #F1A66A;
   margin: 3.5% 3%;
 }
 body .user_profile .right .colaborations #colaboration_imgs {
@@ -1014,13 +1038,13 @@ body .user_profile .right .colaborations #colaboration_imgs a img:hover {
 }
 body .user_profile .right .user_activity {
   border-radius: 15px;
-  background-color: grey;
+  background-color: #F1A66A;
   margin: 2% 3% 4% 3%;
 }
 body .user_profile .right .user_activity .activity-card {
   display: flex;
   padding: 15px;
-  background-color: #363636;
+  background-color: #934B00;
   border-radius: 15px;
   width: 85%;
   margin: 15px auto;
@@ -1047,7 +1071,7 @@ body #pet_add {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   transition: 0.3s;
-  color: #363636;
+  color: #934B00;
   width: 75%;
   max-width: 1080px;
   margin: 2em auto;
@@ -1062,11 +1086,10 @@ body #pet_add #left {
 }
 body #pet_add #left h2 {
   position: relative;
-  padding-left: 0.5em;
   top: 50px;
   text-align: center;
-  width: 90%;
-  color: #363636;
+  width: 100%;
+  color: #934B00;
 }
 body #pet_add #right {
   width: 68%;
@@ -1078,9 +1101,9 @@ body #pet_add #right form {
   contain: content;
   grid-template-columns: 45% 25% 25%;
   grid-template-rows: 20% 20% 20% 40%;
-  background-color: #bababa;
+  background-color: #F1A66A;
   transition: 0.3s;
-  color: #363636;
+  color: #934B00;
 }
 body #pet_add #right form label:nth-of-type(1) {
   grid-column: 1;
@@ -1172,9 +1195,9 @@ body #pet_add #right form select {
   grid-row: 4;
   width: 69%;
   margin: 4em auto;
-  border: 3px solid #363636;
+  border: 3px solid #934B00;
   padding: 1em;
-  background-color: #363636;
+  background-color: #934B00;
   border-radius: 7px;
   color: white;
 }
@@ -1247,7 +1270,7 @@ body #pet_add #right form #gender-option label .checkmark:after {
     color: white;
     padding: 10px;
     width: 100%;
-    background-color: #363636;
+    background-color: #934B00;
   }
   body #pet_add #right {
     width: 100%;
@@ -1268,7 +1291,7 @@ body #pet_add #right form #gender-option label .checkmark:after {
     color: white;
     padding: 10px 0;
     width: 100%;
-    background-color: #363636;
+    background-color: #934B00;
   }
   body #pet_add #right {
     width: 100%;

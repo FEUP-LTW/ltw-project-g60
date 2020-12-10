@@ -2,7 +2,9 @@
 @use 'animations'
 
 .search
-  background-image: common.$background-image
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: center
   width: 100%
   margin: 0 auto
   form
@@ -29,11 +31,11 @@
           height: 36px
           border-radius: 5px 0 0 5px
           outline: none
-          color: common.$dark-grey
+          color: common.$accent-color
         button
           width: 40px
           height: 36px
-          background: common.$dark-grey
+          background: common.$accent-color
           text-align: center
           color: #fff
           border-radius: 0 5px 5px 0
@@ -61,16 +63,16 @@
     select
       width: 80%
       margin: 0 auto
-      border: 3px solid common.$dark-grey
+      border: 3px solid common.$accent-color
       padding: 1em
-      background-color: common.$dark-grey
+      background-color: common.$accent-color
       border-radius: 7px
       color: white
     label
       width: 65%
       margin: 0 auto
       padding: 1em
-      background-color: common.$dark-grey
+      background-color: common.$accent-color
       border-radius: 7px
       color: white
 

@@ -1,4 +1,4 @@
-<section class="search">
+<section class="search" style="background-image: url('res/banner.jpg')">
     <form action="shelters_list.php" method="GET">
         <div id="search-wrap">
             <div id="search">

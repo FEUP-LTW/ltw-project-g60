@@ -24,7 +24,7 @@ body
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2)
     transition: 0.3s
     border-radius: 10px
-    background-color: #a1a1a1
+    background-color: common.$main-color
     a
       position: relative
       color: black
@@ -41,11 +41,15 @@ body
   .container
     padding: 10px 10px
     p
-      color: common.$dark-grey
+      color: white
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      max-width: 250px
 
   .card-title
     padding: 10px 10px 10px 15px
-    background-color: common.$dark-grey
+    background-color: common.$accent-color
     font-size: large
     font-weight: bold
     color: white
