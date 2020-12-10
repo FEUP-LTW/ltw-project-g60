@@ -136,5 +136,65 @@ hr
       padding: 0
       margin-bottom: 0
 
+.group
+  position: relative
+  margin-bottom: 45px
+  input
+    font-size: 18px
+    padding: 10px 10px 10px 5px
+    display: block
+    width: 80%
+    border: none
+    border-bottom: 1px solid $accent-color
+    color: white
+    margin: 0
+    &:focus
+      outline: none
+      & ~ .highlight
+        @include animations.animation("inputHighlighter 0.3s ease")
+  label
+    color: white
+    font-size: 18px
+    font-weight: normal
+    position: absolute
+    pointer-events: none
+    left: 5px
+    top: 10px
+    transition: 0.2s ease all
+    -moz-transition: 0.2s ease all
+    -webkit-transition: 0.2s ease all
+  input:focus ~ label, input:valid ~ label
+    top: -20px
+    font-size: 14px
+    color: $accent-color
+  .bar
+    position: relative
+    display: block
+    width: 83%
+    &:before
+      left: 50%
+    &:after
+      right: 50%
+  .bar:before, .bar:after
+    content: ''
+    height: 2px
+    width: 0
+    bottom: 1px
+    position: absolute
+    background: $accent-color
+    transition: 0.2s ease all
+    -moz-transition: 0.2s ease all
+    -webkit-transition: 0.2s ease all
+  input:focus ~ .bar:before, input:focus ~ .bar:after
+    width: 50%
+  .highlight
+    position: absolute
+    height: 60%
+    width: 100px
+    top: 25%
+    left: 0
+    pointer-events: none
+    opacity: 0.5
+
 .page-content
   padding: 2em
