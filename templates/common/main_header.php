@@ -13,7 +13,19 @@
         <a href="login.php">Login</a>
     <?php } else { ?>
         <a href="pet_add.php">Add Pet</a>
-        <a href=""><?= getUserByUsername($_SESSION['username'])['name'] ?></a>
+        <a href="<?php
+            $id = getSessionId();
+            if (getUserByUsername($_SESSION['username'])) {
+                echo "user_profile.php?id=" . $id;
+            } else {
+                echo "shelter_profile.php?id=" . $id;
+            }?>"><?php
+            $id = getSessionId();
+            if (getUserByUsername($_SESSION['username'])) {
+                echo getUserByUsername($_SESSION['username'])['name'];
+            } else {
+                echo getShelterByUsername($_SESSION['username'])['name'];
+            }?></a>
         <a href="action_logout.php">Logout</a>
     <?php } ?>
     </nav>

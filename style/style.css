@@ -943,7 +943,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   margin: 0;
   padding: 10px;
   border-radius: 0 0 10px 10px;
-  background-color: #a1a1a1;
+  background-color: #F1A66A;
   color: black;
   grid-row: 2;
   grid-column: 1;
@@ -963,7 +963,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   align-self: flex-end;
   color: black;
   font-weight: bold;
-  background-color: #a1a1a1;
+  background-color: #F1A66A;
 }
 #pet-profile #proposals .grid-list .adoption-proposal .user-details small {
   text-align: right;
