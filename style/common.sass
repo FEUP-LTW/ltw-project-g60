@@ -115,7 +115,6 @@ hr
     float: left
   #links
     padding: 10px
-    margin-left: 10%
     position: relative
     float: left
     a
@@ -198,24 +197,64 @@ hr
   padding: 2em
 
 .hamburger
-  background-color: $main-color
   #myLinks
     display: none
     border-radius: 10px
+    a
+      display: none
+      margin: 2px
+      background-color: $main-color
+      right: 0
+      border-radius: 10px
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+      @include animations.animation("rotateX 300ms ease-in-out forwards")
   a
+    display: none
     color: white
     padding: 14px 16px
     text-decoration: none
     font-size: 15px
-    display: block
   a.icon
     background: none
-    display: block
+    display: none
     position: absolute
     left: 0
     top: 0
   a:hover
     color: white
+
+.hamburger_navbar
+  background-color: $main-color
+  #myLinks
+    display: none
+    position: absolute
+    right: 0
+    z-index: 1
+    a
+      width: 10em
+      display: block
+      margin: 2px
+      background-color: $main-color
+      right: 0
+      border-radius: 10px
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+      @include animations.animation("rotateX 300ms ease-in-out forwards")
+  a
+    display: none
+    background-color: $main-color
+    color: white
+    padding: 14px 16px
+    text-decoration: none
+    font-size: 15px
+  a.icon_navbar
+    background: none
+    display: none
+    position: absolute
+    right: 0
+    top: 0
+  a:hover
+    @include animations.animation("fadeIn 0.5s ease")
+    background-color: $main-color
 
 @media (max-width: 60em)
   .header
@@ -225,13 +264,26 @@ hr
       font-size: 180%
     #links
       display: none
-  .hamburger
+  .navigation_bar
+    #links
+      display: none
+  .hamburger, .hamburger_navbar
+    #myLinks
+      a
+        display: block
     a.icon
       background: none
       display: block
       position: absolute
       left: 0
       top: 200px
+    a
+      display: block
+    a.icon_navbar
+      background: none
+      display: block
+      position: absolute
+      right: 0
 
 @media (max-width: 30em)
   .header
@@ -244,11 +296,21 @@ hr
       font-size: 100%
     #links
       display: none
-  .hamburger
+  .hamburger, .hamburger_navbar
+    #myLinks
+      a
+        display: block
     a.icon
       background: none
       display: block
       position: absolute
       left: 0
       top: 95px
+    a
+      display: block
+    a.icon_navbar
+      background: none
+      display: block
+      position: absolute
+      right: 0
 

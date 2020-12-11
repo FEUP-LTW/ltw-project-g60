@@ -4,5 +4,6 @@ function myFunction() {
         x.style.display = "none";
     } else {
         x.style.display = "block";
+        x.style.transition = "growDown 300ms ease-in-out forwards";
     }
 }
