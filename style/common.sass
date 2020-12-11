@@ -27,7 +27,7 @@ html, body
   width: 100%
   color: white
   display: grid
-  grid-template-columns: 25% 50% 25%
+  grid-template-columns: 1fr 0.1fr 1fr
   grid-template-rows: 10em  3em 2.5em
   a
     justify-self: center
@@ -45,7 +45,7 @@ html, body
     text-align: center
     font-size: 200%
   #links
-    justify-self: right
+    justify-self: center
     grid-row: 3
     grid-column: 1
     float: left
@@ -57,13 +57,11 @@ html, body
       border-bottom: 1px solid white
       padding-bottom: 5px
       margin-bottom: 1em
-    a:nth-child(2)
-      margin: 0
   #signup
     @extend #links
     grid-row: 3
     grid-column: 3
-    justify-self: left
+    justify-self: center
     float: right
 
 .footer
