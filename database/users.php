@@ -84,6 +84,8 @@ function userExists($username, $password)
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':password', $shaPassword);
 
+        $stmt->execute();
+        $users = $stmt->fetch();
         if ($users == false) {
             return false;
         } else {
@@ -110,8 +112,6 @@ function registerUser($name, $username, $password, $usertype, $profile_image, $h
         $image_id = $db->lastInsertId();
         uploadImage($profile_image,$image_id,"images/users/profile");
         uploadImage($header_image,$image_id,"images/users/header");
-
-
     } else {
         global $db;
         $shaPassword = sha1($password);
@@ -145,6 +145,24 @@ function getSessionId(){
         return $stmt->fetch()[0];
     }else{
         return $user_id;
+    }
+}
+
+function getUserActivity($id) {
+    global $db;
+    if ($stmt = $db->prepare('
+        SELECT *
+        FROM Users, ProposalsUser 
+        WHERE Users.user_id = ProposalsUser.user_id
+        AND Users.user_id = :id
+        LIMIT 4')) {
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
     }
 }
 

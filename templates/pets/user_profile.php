@@ -38,43 +38,30 @@
         </div>
     </section>
     <section class="right">
-        <div class="colaborations">
-            <div class="title">Colaborations</div>
-            <div id="colaboration_imgs">
+        <div class="collaborations">
+            <div class="title">Collaborations</div>
+            <div id="collaboration-imgs">
                 <?php foreach ($collaborations as $collab) { ?>
-                    <a href="shelter_profile.php?id=<?= $collab['shelter_id'] ?>"><img src="https://picsum.photos/100/100" alt=""></a>
+                    <a href="shelter_profile.php?id=<?= $collab['shelter_id'] ?>">
+                        <div class="collaboration-img" style="background-image: url('database/images/shelters/profile/thumbs_medium/<?= $collab['shelter_id'] ?>.jpg') ">
+                        </div>
+                    </a>
                 <?php } ?>
             </div>
         </div>
         <div class="user_activity">
             <div class="title">Activity</div>
-            <div class="activity-card">
-                <a href="#">
-                    <img src="https://picsum.photos/200" alt="puppy photo">
-                    <div class="container-activity">
-                        <h4><b>Proposal</b></h4>
-                        <p> Made a proposal to this dog.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="activity-card">
-                <a href="#">
-                    <img src="https://picsum.photos/200" alt="puppy photo">
-                    <div class="container-activity">
-                        <h4><b>Proposal</b></h4>
-                        <p> Made a proposal to this dog.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="activity-card">
-                <a href="#">
-                    <img src="https://picsum.photos/200" alt="puppy photo">
-                    <div class="container-activity">
-                        <h4><b>Proposal</b></h4>
-                        <p> Made a proposal to this dog.</p>
-                    </div>
-                </a>
-            </div>
+            <?php $count = 0; foreach ($activity as $act) { ?>
+                <div class="activity-card">
+                    <a href="pet_detail.php?id=<?= $act['pet_id'] ?>">
+                        <div class="activity-img" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($act['pet_id']) ?>.jpg')"></div>
+                        <div class="container-activity">
+                            <h4><b>Proposal</b></h4>
+                            <p> Made a proposal to this dog.</p>
+                        </div>
+                    </a>
+                </div>
+            <?php } ?>
         </div>
     </section>
 </section>
