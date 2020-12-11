@@ -15,7 +15,7 @@
                     echo '<i class="fas fa-venus"></i>';
                 ?>
                 <span><?= $pet['color'] ?></span>
-                <span><?= $pet['size'] ?></span>
+                <span><?= $pet['size'] ?>m</span>
                 <span><?= $pet['species'] ?></span>
                 <span><?= $pet['age'] . ' years' ?></span>
             </div>
@@ -59,5 +59,67 @@
                 </article>
             <?php } ?>
         </div>
+    </section>
+    <section id="pet-comments">
+        <h2>Comments</h2>
+        <div class="pet-comment">
+            <a href="#" class="user-image" style="background-image: url('https://dummyimage.com/200/000/fff')"></a>
+            <span class="user"><a href="">Anne Frank</a></span>
+            <span class="date">2020-08-01 09:19</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget mi fringilla mi molestie finibus quis ac lectus. Suspendisse feugiat dignissim vulputate. Ut eleifend commodo est at dictum. Aliquam quis dolor convallis, bibendum nisi id, condimentum felis. Etiam blandit pharetra massa a tempus. Phasellus semper diam erat, id eleifend mauris.</p>
+        </div>
+        <div class="pet-comment">
+            <a href="#" class="user-image" style="background-image: url('https://dummyimage.com/200/000/fff')"></a>
+            <span class="user"><a href="">Anne Frank</a></span>
+            <span class="date">2020-08-01 09:19</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget mi fringilla mi molestie finibus quis ac lectus. Suspendisse feugiat dignissim vulputate. Ut eleifend commodo est at dictum. Aliquam quis dolor convallis, bibendum nisi id, condimentum felis. Etiam blandit pharetra massa a tempus. Phasellus semper diam erat, id eleifend mauris.</p>
+        </div>
+        <div class="pet-comment">
+            <a href="#" class="user-image" style="background-image: url('https://dummyimage.com/200/000/fff')"></a>
+            <span class="user"><a href="">Anne Frank</a></span>
+            <span class="date">2020-08-01 09:19</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget mi fringilla mi molestie finibus quis ac lectus. Suspendisse feugiat dignissim vulputate. Ut eleifend commodo est at dictum. Aliquam quis dolor convallis, bibendum nisi id, condimentum felis. Etiam blandit pharetra massa a tempus. Phasellus semper diam erat, id eleifend mauris.</p>
+        </div>
+        <div class="pet-comment">
+            <a href="#" class="user-image" style="background-image: url('https://dummyimage.com/200/000/fff')"></a>
+            <span class="user"><a href="">Anne Frank</a></span>
+            <span class="date">2020-08-01 09:19</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget mi fringilla mi molestie finibus quis ac lectus. Suspendisse feugiat dignissim vulputate. Ut eleifend commodo est at dictum. Aliquam quis dolor convallis, bibendum nisi id, condimentum felis. Etiam blandit pharetra massa a tempus. Phasellus semper diam erat, id eleifend mauris.</p>
+        </div>
+        <div class="pet-comment">
+            <a href="#" class="user-image" style="background-image: url('https://dummyimage.com/200/000/fff')"></a>
+            <span class="user"><a href="">Anne Frank</a></span>
+            <span class="date">2020-08-01 09:19</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget mi fringilla mi molestie finibus quis ac lectus. Suspendisse feugiat dignissim vulputate. Ut eleifend commodo est at dictum. Aliquam quis dolor convallis, bibendum nisi id, condimentum felis. Etiam blandit pharetra massa a tempus. Phasellus semper diam erat, id eleifend mauris.</p>
+        </div>
+        <div class="pet-comment">
+            <a href="#" class="user-image" style="background-image: url('https://dummyimage.com/200/000/fff')"></a>
+            <span class="user"><a href="">Anne Frank</a></span>
+            <span class="date">2020-08-01 09:19</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget mi fringilla mi molestie finibus quis ac lectus. Suspendisse feugiat dignissim vulputate. Ut eleifend commodo est at dictum. Aliquam quis dolor convallis, bibendum nisi id, condimentum felis. Etiam blandit pharetra massa a tempus. Phasellus semper diam erat, id eleifend mauris.</p>
+        </div>
+        <div class="pet-comment">
+            <a href="#" class="user-image" style="background-image: url('https://dummyimage.com/200/000/fff')"></a>
+            <span class="user"><a href="">Anne Frank</a></span>
+            <span class="date">2020-08-01 09:19</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget mi fringilla mi molestie finibus quis ac lectus. Suspendisse feugiat dignissim vulputate. Ut eleifend commodo est at dictum. Aliquam quis dolor convallis, bibendum nisi id, condimentum felis. Etiam blandit pharetra massa a tempus. Phasellus semper diam erat, id eleifend mauris.</p>
+        </div>
+        <div class="pet-comment">
+            <a href="#" class="user-image" style="background-image: url('https://dummyimage.com/200/000/fff')"></a>
+            <span class="user"><a href="">Anne Frank</a></span>
+            <span class="date">2020-08-01 09:19</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget mi fringilla mi molestie finibus quis ac lectus. Suspendisse feugiat dignissim vulputate. Ut eleifend commodo est at dictum. Aliquam quis dolor convallis, bibendum nisi id, condimentum felis. Etiam blandit pharetra massa a tempus. Phasellus semper diam erat, id eleifend mauris.</p>
+        </div>
+        <div class="pet-comment">
+            <a href="#" class="user-image" style="background-image: url('https://dummyimage.com/200/000/fff')"></a>
+            <span class="user"><a href="">Anne Frank</a></span>
+            <span class="date">2020-08-01 09:19</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget mi fringilla mi molestie finibus quis ac lectus. Suspendisse feugiat dignissim vulputate. Ut eleifend commodo est at dictum. Aliquam quis dolor convallis, bibendum nisi id, condimentum felis. Etiam blandit pharetra massa a tempus. Phasellus semper diam erat, id eleifend mauris.</p>
+        </div>
+        <form action="" method="get" class="add-comment">
+            <label for="comment">Add a Comment on This Pet</label>
+            <textarea id="comment" name="comment" placeholder="Comment" required></textarea>
+            <input type="submit" class="button" value="Submit">
+        </form>
     </section>
 </div>

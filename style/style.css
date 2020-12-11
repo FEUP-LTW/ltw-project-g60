@@ -968,6 +968,96 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 #pet-profile #proposals .grid-list .adoption-proposal .user-details small {
   text-align: right;
 }
+#pet-profile #pet-comments {
+  margin-top: 1em;
+  padding: 1em;
+  background-color: #F1A66A;
+  border-radius: 10px;
+}
+#pet-profile #pet-comments h2 {
+  margin-bottom: 1em;
+}
+#pet-profile #pet-comments .pet-comment {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+  background-color: #934B00;
+  margin-bottom: 1em;
+  border-radius: 10px;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 8fr 2fr;
+  grid-template-rows: 1fr 2fr;
+  grid-column-gap: 1em;
+}
+#pet-profile #pet-comments .pet-comment p {
+  grid-column: 2/4;
+  grid-row: 2;
+  font-style: italic;
+  padding-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+#pet-profile #pet-comments .pet-comment .user a {
+  border-bottom: 1px solid white;
+  color: white;
+  font-size: x-large;
+}
+#pet-profile #pet-comments .pet-comment .user a:after {
+  content: " said ...";
+  color: black;
+  font-size: medium;
+  font-style: italic;
+}
+#pet-profile #pet-comments .pet-comment .date {
+  justify-self: right;
+  margin-right: 1em;
+  align-self: center;
+}
+#pet-profile #pet-comments .pet-comment .user {
+  margin-top: 10px;
+}
+#pet-profile #pet-comments .pet-comment .user-image {
+  grid-column: 1;
+  grid-row: 1/3;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  justify-self: center;
+  align-self: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+}
+#pet-profile #pet-comments .pet-comment .user-image:hover {
+  -webkit-animation: scale05 0.2s forwards;
+}
+#pet-profile #pet-comments form {
+  margin-top: 1em;
+  padding: 1em;
+  background-color: #934B00;
+  border-radius: 10px;
+}
+#pet-profile #pet-comments form label {
+  margin-bottom: 1em;
+  font-size: x-large;
+  font-weight: bold;
+}
+#pet-profile #pet-comments form textarea {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  min-width: 97%;
+  border-radius: 10px;
+  min-height: 5em;
+  resize: vertical;
+  outline: none;
+  font-size: large;
+  color: black;
+  overflow: auto;
+  background-color: #F1A66A;
+  padding: 1em;
+}
+#pet-profile #pet-comments form .button {
+  background-color: black;
+}
 
 body .banner {
   background-size: cover;
