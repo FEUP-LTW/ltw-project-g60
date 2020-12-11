@@ -101,11 +101,11 @@ body
       display: grid
       grid-template-columns: 1fr
       grid-auto-rows: fit-content(0%)
-      .colaborations
+      .collaborations
         border-radius: 15px
         background-color: common.$main-color
         margin: 3.5% 3%
-        #colaboration_imgs
+        #collaboration-imgs
           display: flex
           padding: 10px
           flex-wrap: wrap
@@ -113,10 +113,16 @@ body
           a
             padding: 1%
             flex-basis: 14.5%
-            img
-              width: 67px
-            img:hover
-              @include animations.animation("scale05 0.2s forwards")
+            .collaboration-img
+              height: 3.5em
+              width: 3.5em
+              background-repeat: no-repeat
+              background-position: center
+              background-size: cover
+              display: block
+              border-radius: 10px
+              &:hover
+                @include animations.animation("scale05 0.2s forwards")
       .user_activity
         border-radius: 15px
         background-color: common.$main-color

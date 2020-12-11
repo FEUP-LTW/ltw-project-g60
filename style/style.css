@@ -1090,25 +1090,31 @@ body .user_profile .right {
   grid-template-columns: 1fr;
   grid-auto-rows: fit-content(0%);
 }
-body .user_profile .right .colaborations {
+body .user_profile .right .collaborations {
   border-radius: 15px;
   background-color: #F1A66A;
   margin: 3.5% 3%;
 }
-body .user_profile .right .colaborations #colaboration_imgs {
+body .user_profile .right .collaborations #collaboration-imgs {
   display: flex;
   padding: 10px;
   flex-wrap: wrap;
   align-content: flex-start;
 }
-body .user_profile .right .colaborations #colaboration_imgs a {
+body .user_profile .right .collaborations #collaboration-imgs a {
   padding: 1%;
   flex-basis: 14.5%;
 }
-body .user_profile .right .colaborations #colaboration_imgs a img {
-  width: 67px;
+body .user_profile .right .collaborations #collaboration-imgs a .collaboration-img {
+  height: 3.5em;
+  width: 3.5em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: block;
+  border-radius: 10px;
 }
-body .user_profile .right .colaborations #colaboration_imgs a img:hover {
+body .user_profile .right .collaborations #collaboration-imgs a .collaboration-img:hover {
   -webkit-animation: scale05 0.2s forwards;
 }
 body .user_profile .right .user_activity {
