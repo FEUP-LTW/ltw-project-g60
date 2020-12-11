@@ -48,33 +48,17 @@
         </div>
         <div class="user_activity">
             <div class="title">Activity</div>
-            <div class="activity-card">
-                <a href="#">
-                    <img src="https://picsum.photos/200" alt="puppy photo">
-                    <div class="container-activity">
-                        <h4><b>Proposal</b></h4>
-                        <p> Made a proposal to this dog.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="activity-card">
-                <a href="#">
-                    <img src="https://picsum.photos/200" alt="puppy photo">
-                    <div class="container-activity">
-                        <h4><b>Proposal</b></h4>
-                        <p> Made a proposal to this dog.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="activity-card">
-                <a href="#">
-                    <img src="https://picsum.photos/200" alt="puppy photo">
-                    <div class="container-activity">
-                        <h4><b>Proposal</b></h4>
-                        <p> Made a proposal to this dog.</p>
-                    </div>
-                </a>
-            </div>
+            <?php $count = 0; foreach ($activity as $act) { ?>
+                <div class="activity-card">
+                    <a href="pet_detail.php?id=<?= $act['pet_id'] ?>">
+                        <div class="activity-img" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($act['pet_id']) ?>.jpg')"></div>
+                        <div class="container-activity">
+                            <h4><b>Proposal</b></h4>
+                            <p> Made a proposal to this dog.</p>
+                        </div>
+                    </a>
+                </div>
+            <?php } ?>
         </div>
     </section>
 </section>

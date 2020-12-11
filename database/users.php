@@ -148,6 +148,24 @@ function getSessionId(){
     }
 }
 
+function getUserActivity($id) {
+    global $db;
+    if ($stmt = $db->prepare('
+        SELECT *
+        FROM Users, ProposalsUser 
+        WHERE Users.user_id = ProposalsUser.user_id
+        AND Users.user_id = :id
+        LIMIT 4')) {
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
+}
+
 function isUser($id){
     global $db;
     $stmt = $db->prepare('SELECT * FROM Users WHERE user_id = :id');

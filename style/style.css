@@ -1124,6 +1124,16 @@ body .user_profile .right .user_activity .activity-card {
   width: 85%;
   margin: 15px auto;
 }
+body .user_profile .right .user_activity .activity-card .activity-img {
+  float: left;
+  margin-right: 10px;
+  border-radius: 10px;
+  width: 5em;
+  height: 5em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 body .user_profile .right .user_activity .activity-card .container-activity {
   width: 28vw;
   text-align: justify;
