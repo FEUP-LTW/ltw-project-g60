@@ -14,15 +14,15 @@
         </div>
         <!--Estando a checkbox ativada ou não mostra os favoritos, evita dar reload á pagina-->
         <div id="favorites">
-            <label><i class="far fa-heart"></i>
+            <label><i id="fav_icon" class="far fa-heart"></i>
                 <span>Favorites</span>
-                <input type="checkbox" name="favorites">
+                <input id="user_fav" type="checkbox" name="favorites" onclick="userFavorites()">
             </label>
         </div>
         <div id="contact">
             <a href="#"><i class="fas fa-mobile-alt"></i>Contacts</a>
         </div>
-        <div class="user_pets">
+        <div class="user_pets" style="display: block">
             <div class="title">My pets</div>
             <?php foreach ($pets as $pet) { ?>
                 <div class="pet">
@@ -35,6 +35,20 @@
                     </a>
                 </div>
             <?php } ?>
+        </div>
+        <div class="user_pets user_favorites" style="display: none">
+            <div class="title">Favorites</div>
+            <?php foreach ($favorites as $pet) { ?>
+                  <div class="pet">
+                      <a href="pet_detail.php?id=<?= $pet['PetID'] ?>">
+                          <img src="database/images/pets/thumbs_medium/<?= getImageByPetId($pet['PetID']) ?>.jpg" alt="puppy photo">
+                          <div class="container-dog">
+                              <h4><b><?= $pet['PetName'] ?></b></h4>
+                              <p><?= $pet['PetInfo'] ?></p>
+                          </div>
+                      </a>
+                  </div>
+          <?php } ?>
         </div>
     </section>
     <section class="right">

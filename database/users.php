@@ -50,6 +50,24 @@ function getUserPets($id) {
     }
 }
 
+function getUserFavorites($id) {
+  global $db;
+  if ($stmt = $db->prepare('
+        SELECT Pets.name as PetName, Pets.pet_id as PetID, Pets.info as PetInfo
+        FROM Users, Favorites, Pets
+        WHERE Users.user_id = :id
+        AND Favorites.user_id = :id
+        AND Favorites.pet_id = Pets.pet_id')) {
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+    return $stmt->fetchAll();
+  }
+  else {
+    printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+    die;
+  }
+}
+
 function getUserCollaborations($id) {
     global $db;
     if ($stmt = $db->prepare('
