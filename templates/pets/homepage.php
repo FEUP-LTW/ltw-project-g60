@@ -16,7 +16,7 @@
             <a href="shelter_profile.php?id=<?=$shelter['shelter_id'] ?>">
                 <div class="card-title">Featured Shelter</div>
                 <div class="image"
-                     style="background-image: url('database/images/shelters/profile/originals/<?= getImageByPetId($pets[0]['pet_id']) ?>.jpg">
+                     style="background-image: url('database/images/shelters/profile/originals/<?= $shelter['shelter_id'] ?>.jpg">
                 </div>
                 <div class="container">
                     <h4><b><?= $shelter['name'] ?></b></h4>

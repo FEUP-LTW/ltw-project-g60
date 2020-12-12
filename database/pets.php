@@ -3,10 +3,18 @@
 function getFeaturedPets()
 {
     global $db;
-    if ($stmt = $db->prepare('SELECT * FROM Pets')) {
+    if ($stmt = $db->prepare('SELECT *, (SELECT count(*) FROM Comments WHERE Comments.pet_id = Pets.pet_id) AS Comments FROM Pets ORDER BY Comments DESC')) {
         $stmt->execute();
-        $pets = $stmt->fetchAll();
-        return [$pets[0], $pets[1]];
+        $petComments = $stmt->fetch();
+        if ($stmt = $db->prepare('SELECT *, (SELECT count(*) FROM ProposalsUser WHERE ProposalsUser.pet_id = Pets.pet_id) AS Proposals FROM Pets ORDER BY Proposals')) {
+            $stmt->execute();
+            $petProposals = $stmt->fetch();
+            return [$petComments, $petProposals];
+        }
+        else {
+            printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+            die;
+        }
     }
     else {
         printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
@@ -124,7 +132,7 @@ function addPet($id, $name, $image, $image_title, $species, $size, $color, $gend
     // Get image ID
     $image_id = $db->lastInsertId();
 
-    uploadImage($image,$image_id);
+    uploadImage($image, $image_id);
 
     if (isUser($id)) {
         $stmt = $db->prepare('INSERT INTO Users_Pets(user_id, pet_id) VALUES (:user_id, :pet_id)');
@@ -188,5 +196,7 @@ function addPetComment($pet_id, $user_id, $text) {
         die;
     }
 }
+
+
 
 
