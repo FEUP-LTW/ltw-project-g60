@@ -965,7 +965,6 @@ body .banner {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-position-y: -200px;
   width: 100%;
   height: 15vw;
 }
@@ -983,14 +982,18 @@ body .shelter_profile {
   display: flex;
 }
 body .shelter_profile .title {
-  padding: 18px 0px 0px 25px;
+  padding: 10px 0px 0px 15px;
   font-size: 25px;
   font-weight: bold;
   color: white;
 }
+body .shelter_profile .title i {
+  font-size: 110%;
+  padding-right: 10px;
+}
 body .shelter_profile img {
   width: 8vw;
-  border-radius: 15px;
+  border-radius: 10px;
   float: left;
   margin-right: 10px;
 }
@@ -1007,22 +1010,22 @@ body .shelter_profile .left .profile_pic {
   grid-area: profile;
   position: relative;
   width: 80%;
-  height: 145%;
-  left: 25px;
-  bottom: 10vh;
+  height: 135%;
+  left: 10%;
+  bottom: 45%;
   z-index: 1;
-  border-radius: 15px;
+  border-radius: 10px;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
 }
 body .shelter_profile .left #about_me, body .shelter_profile .left #location, body .shelter_profile .left #contact {
   display: flex;
-  border-radius: 15px;
+  border-radius: 10px;
   background-color: #934B00;
   margin: 8% 12%;
   justify-content: center;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
 }
 body .shelter_profile .left #about_me a, body .shelter_profile .left #location a, body .shelter_profile .left #contact a {
   padding: 10%;
@@ -1043,7 +1046,7 @@ body .shelter_profile .left #contact {
   grid-area: contact;
 }
 body .shelter_profile .left #about_me:hover, body .shelter_profile .left #location:hover, body .shelter_profile .left #contact:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   -webkit-animation: scale05 0.2s forwards;
 }
@@ -1054,19 +1057,32 @@ body .shelter_profile .left .container-dog {
 }
 body .shelter_profile .left .shelter_adoption {
   grid-area: adopt;
-  border-radius: 15px;
+  border-radius: 10px;
   background-color: #F1A66A;
   margin: 3% 3%;
 }
 body .shelter_profile .left .shelter_adoption .adoption-card {
   display: flex;
-  padding: 15px;
+  padding: 8px;
   background-color: #934B00;
-  border-radius: 15px;
+  border-radius: 10px;
   width: 90%;
   margin: 15px auto;
 }
-body .shelter_profile .left .shelter_adoption .adoption-card .container-dog {
+body .shelter_profile .left .shelter_adoption .adoption-card a {
+  width: fit-content;
+}
+body .shelter_profile .left .shelter_adoption .adoption-card a .pet-img {
+  float: left;
+  margin-right: 10px;
+  border-radius: 10px;
+  width: 7em;
+  height: 7em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+body .shelter_profile .left .shelter_adoption .adoption-card .container-pet {
   padding: 0;
   width: 54vw;
   text-align: justify;
@@ -1091,13 +1107,23 @@ body .shelter_profile .right .shelter_adopted {
 }
 body .shelter_profile .right .shelter_adopted .adopted-card {
   display: flex;
-  padding: 15px;
+  padding: 8px;
   background-color: #934B00;
   border-radius: 15px;
   width: 85%;
   margin: 15px auto;
 }
-body .shelter_profile .right .shelter_adopted .adopted-card .container-dog {
+body .shelter_profile .right .shelter_adopted .adopted-card .pet-img {
+  float: left;
+  margin-right: 10px;
+  border-radius: 10px;
+  width: 5em;
+  height: 5em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+body .shelter_profile .right .shelter_adopted .adopted-card .container-pet {
   width: 27vw;
   text-align: justify;
 }
@@ -1107,6 +1133,105 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   -webkit-animation: scale05 0.2s forwards;
 }
 
+@media (max-width: 57em) {
+  body .shelter_profile .title {
+    text-align: center;
+  }
+  body .shelter_profile .title span {
+    display: none;
+  }
+  body .shelter_profile .left {
+    width: 75%;
+  }
+  body .shelter_profile .left #about_me i, body .shelter_profile .left #location i, body .shelter_profile .left #contact i {
+    margin: 10px 0;
+    font-size: 275%;
+  }
+  body .shelter_profile .left #about_me span, body .shelter_profile .left #location span, body .shelter_profile .left #contact span {
+    display: none;
+  }
+  body .shelter_profile .left .shelter_adoption p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  body .shelter_profile .right {
+    width: 25%;
+  }
+  body .shelter_profile .right .shelter_adopted {
+    justify-content: center;
+  }
+  body .shelter_profile .right .shelter_adopted .adopted-card {
+    display: flex;
+    padding: 8px;
+    width: fit-content;
+  }
+  body .shelter_profile .right .shelter_adopted .adopted-card a .pet-img {
+    align-self: center;
+    float: none;
+    margin: 0;
+  }
+  body .shelter_profile .right .shelter_adopted .adopted-card a .container-pet {
+    width: fit-content;
+    max-width: 82px;
+  }
+  body .shelter_profile .right .shelter_adopted .adopted-card a .container-pet h4 {
+    word-wrap: break-word;
+  }
+  body .shelter_profile .right .shelter_adopted .adopted-card a .container-pet p {
+    display: none;
+  }
+}
+@media (max-width: 35em) {
+  body .banner {
+    height: 80px;
+  }
+  body .shelter_profile {
+    display: block;
+  }
+  body .shelter_profile .left {
+    width: 100%;
+  }
+  body .shelter_profile .left #about_me a i, body .shelter_profile .left #location a i, body .shelter_profile .left #contact a i {
+    margin: 7px 0;
+    font-size: 375%;
+  }
+  body .shelter_profile .left .shelter_adoption {
+    padding: 5px;
+    width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+  body .shelter_profile .left .shelter_adoption .adoption-card {
+    width: fit-content;
+  }
+  body .shelter_profile .left .shelter_adoption .adoption-card a .pet-img {
+    float: none;
+    margin: 0;
+  }
+  body .shelter_profile .left .shelter_adoption .adoption-card a .container-pet {
+    width: 20vw;
+  }
+  body .shelter_profile .left .shelter_adoption .adoption-card a .container-pet p {
+    display: none;
+  }
+  body .shelter_profile .left .shelter_adoption .title {
+    width: 100%;
+  }
+  body .shelter_profile .right {
+    width: 100%;
+  }
+  body .shelter_profile .right .shelter_adopted {
+    padding-right: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+  body .shelter_profile .right .shelter_adopted .title {
+    width: 100%;
+  }
+}
 #pet-profile .pet-bio {
   display: grid;
   grid-template-columns: 200px 3fr 200px;
@@ -1262,10 +1387,6 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   text-align: right;
 }
 
-body .banner {
-  background-size: cover;
-  background-position: center;
-}
 body .banner a {
   font-size: 4vw;
   margin-right: 15px;
@@ -1380,8 +1501,7 @@ body .user_profile .left .user_pets .pet:hover {
   -webkit-animation: scale05 0.2s forwards;
 }
 body .user_profile .right {
-  margin-top: 10px;
-  margin-bottom: 27px;
+  margin: 10px 10px 27px 0;
   width: 35%;
   display: grid;
   grid-template-columns: 1fr;
@@ -1441,6 +1561,9 @@ body .user_profile .right .user_activity .activity-card .container-activity {
   width: 28vw;
   text-align: justify;
 }
+body .user_profile .right .user_activity .activity-card .container-activity p {
+  padding: 8px;
+}
 body .user_profile .right .user_activity .activity-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -1489,6 +1612,7 @@ body .user_profile .right .user_activity .activity-card:hover {
     width: fit-content;
   }
   body .user_profile .right .user_activity .activity-card .activity-img {
+    float: none;
     margin: 0;
   }
   body .user_profile .right .user_activity .activity-card .container-activity {
@@ -1520,6 +1644,7 @@ body .user_profile .right .user_activity .activity-card:hover {
     align-content: flex-start;
   }
   body .user_profile .left .user_pets .pet a .pet-img {
+    float: none;
     margin: 0;
   }
   body .user_profile .left .user_pets .pet a .container-pet {

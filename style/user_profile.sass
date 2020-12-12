@@ -3,8 +3,6 @@
 
 body
   .banner
-    background-size: cover
-    background-position: center
     a
       font-size: 4vw
       margin-right: 15px
@@ -99,8 +97,7 @@ body
           cursor: pointer
           @include animations.animation("scale05 0.2s forwards")
     .right
-      margin-top: 10px
-      margin-bottom: 27px
+      margin: 10px 10px 27px 0
       width: 35%
       display: grid
       grid-template-columns: 1fr
@@ -150,6 +147,8 @@ body
           .container-activity
             width: 28vw
             text-align: justify
+            p
+              padding: 8px
         .activity-card:hover
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
           cursor: pointer
@@ -191,6 +190,7 @@ body
             padding: 8px
             width: fit-content
             .activity-img
+              float: none
               margin: 0
             .container-activity
               width: fit-content
@@ -219,6 +219,7 @@ body
           .pet
             a
               .pet-img
+                float: none
                 margin: 0
               .container-pet
                 width: 18vw
