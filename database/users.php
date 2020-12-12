@@ -177,3 +177,26 @@ function isUser($id){
     if ($user == false) return false;
     return true;
 }
+
+function getSheltersWithoutUserCollaboration($userID) {
+    global $db;
+    if ($stmt = $db->prepare('
+        SELECT shelter_id, name
+        FROM Shelters
+        WHERE (
+            SELECT count(*) 
+            FROM Collaborators 
+            WHERE Shelters.shelter_id = Collaborators.shelter_id 
+            AND user_id = :id) > 0')
+        ) {
+        $stmt->bindParam(':id', $userID);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        console_log($result);
+        return $result;
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
+}

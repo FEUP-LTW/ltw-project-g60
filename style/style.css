@@ -278,7 +278,7 @@ html, body {
   float: right;
 }
 
-.button, body #pet_add #right form label:nth-of-type(8), body #pet_add #right form label:nth-of-type(9), #register form #photos label:nth-of-type(1), #register form #photos label:nth-of-type(2) {
+.button, body #pet_add #right form label:nth-of-type(8), body #pet_add #right form label:nth-of-type(9), body .user_profile .left .edit_user_info form #photos label:nth-of-type(1), body .user_profile .left .edit_user_info form #photos label:nth-of-type(2), #register form #photos label:nth-of-type(1), #register form #photos label:nth-of-type(2) {
   background-color: #934B00;
   border: none;
   color: white;
@@ -292,7 +292,7 @@ html, body {
   cursor: pointer;
 }
 
-.button:hover, body #pet_add #right form label:hover:nth-of-type(8), body #pet_add #right form label:hover:nth-of-type(9), #register form #photos label:hover:nth-of-type(1), #register form #photos label:hover:nth-of-type(2) {
+.button:hover, body #pet_add #right form label:hover:nth-of-type(8), body #pet_add #right form label:hover:nth-of-type(9), body .user_profile .left .edit_user_info form #photos label:hover:nth-of-type(1), body .user_profile .left .edit_user_info form #photos label:hover:nth-of-type(2), #register form #photos label:hover:nth-of-type(1), #register form #photos label:hover:nth-of-type(2) {
   -webkit-animation: scale05 0.2s forwards;
 }
 
@@ -1525,14 +1525,21 @@ body .user_profile .left #about_me, body .user_profile .left #favorites, body .u
   justify-content: center;
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
 }
-body .user_profile .left #about_me a, body .user_profile .left #favorites a, body .user_profile .left #contact a {
+body .user_profile .left #about_me label, body .user_profile .left #about_me a, body .user_profile .left #favorites label, body .user_profile .left #favorites a, body .user_profile .left #contact label, body .user_profile .left #contact a {
+  color: white;
   padding: 10%;
   font-size: 1.5vw;
 }
-body .user_profile .left #about_me a i, body .user_profile .left #favorites a i, body .user_profile .left #contact a i {
+body .user_profile .left #about_me label i, body .user_profile .left #about_me a i, body .user_profile .left #favorites label i, body .user_profile .left #favorites a i, body .user_profile .left #contact label i, body .user_profile .left #contact a i {
   display: flex;
   font-size: 3.5vw;
   justify-content: center;
+}
+body .user_profile .left #about_me label input, body .user_profile .left #about_me a input, body .user_profile .left #favorites label input, body .user_profile .left #favorites a input, body .user_profile .left #contact label input, body .user_profile .left #contact a input {
+  display: none;
+}
+body .user_profile .left #about_me label:hover, body .user_profile .left #about_me a:hover, body .user_profile .left #favorites label:hover, body .user_profile .left #favorites a:hover, body .user_profile .left #contact label:hover, body .user_profile .left #contact a:hover {
+  cursor: pointer;
 }
 body .user_profile .left #about_me:hover, body .user_profile .left #favorites:hover, body .user_profile .left #contact:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -1548,13 +1555,13 @@ body .user_profile .left #favorites {
 body .user_profile .left #contact {
   grid-area: contact;
 }
-body .user_profile .left .user_pets {
+body .user_profile .left .user_pets, body .user_profile .left .edit_user_info {
   grid-area: pets;
   border-radius: 10px;
   background-color: #F1A66A;
   margin: 2% 3% 2% 3%;
 }
-body .user_profile .left .user_pets .pet {
+body .user_profile .left .user_pets .pet, body .user_profile .left .edit_user_info .pet {
   display: flex;
   padding: 8px;
   background-color: #934B00;
@@ -1562,10 +1569,10 @@ body .user_profile .left .user_pets .pet {
   width: fit-content;
   margin: 15px auto;
 }
-body .user_profile .left .user_pets .pet a {
+body .user_profile .left .user_pets .pet a, body .user_profile .left .edit_user_info .pet a {
   width: fit-content;
 }
-body .user_profile .left .user_pets .pet a .pet-img {
+body .user_profile .left .user_pets .pet a .pet-img, body .user_profile .left .edit_user_info .pet a .pet-img {
   float: left;
   margin-right: 10px;
   border-radius: 10px;
@@ -1575,14 +1582,109 @@ body .user_profile .left .user_pets .pet a .pet-img {
   background-size: cover;
   background-position: center;
 }
-body .user_profile .left .user_pets .pet a .container-pet {
+body .user_profile .left .user_pets .pet a .container-pet, body .user_profile .left .edit_user_info .pet a .container-pet {
   width: 54vw;
   text-align: justify;
 }
-body .user_profile .left .user_pets .pet:hover {
+body .user_profile .left .user_pets .pet:hover, body .user_profile .left .edit_user_info .pet:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   -webkit-animation: scale05 0.2s forwards;
+}
+body .user_profile .left .edit_user_info form {
+  display: grid;
+  margin: 30px auto 50px;
+  grid-template-rows: 0.3fr 0.3fr 0.3fr 0.5fr 0.2fr;
+  grid-template-columns: 50% 50%;
+}
+body .user_profile .left .edit_user_info form .group:nth-of-type(1) {
+  grid-column: 1/3;
+  grid-row: 1;
+}
+body .user_profile .left .edit_user_info form .group:nth-of-type(2) {
+  grid-column: 1;
+  grid-row: 2;
+}
+body .user_profile .left .edit_user_info form #photos {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  justify-self: center;
+  margin-right: 1em;
+}
+body .user_profile .left .edit_user_info form #photos label:nth-of-type(1), body .user_profile .left .edit_user_info form #photos label:nth-of-type(2) {
+  padding: 1em;
+  margin-left: 10px;
+  display: flex;
+  height: 20px;
+}
+body .user_profile .left .edit_user_info form #photos label:nth-of-type(1) input, body .user_profile .left .edit_user_info form #photos label:nth-of-type(2) input {
+  display: none;
+}
+body .user_profile .left .edit_user_info form #photos label:nth-of-type(1) span, body .user_profile .left .edit_user_info form #photos label:nth-of-type(2) span {
+  margin-right: 0.2em;
+}
+body .user_profile .left .edit_user_info form .new-collaboration {
+  grid-row: 4;
+  grid-column: 1/3;
+  display: inline;
+}
+body .user_profile .left .edit_user_info form .new-collaboration .container {
+  margin-left: 2em;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+body .user_profile .left .edit_user_info form .new-collaboration .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+body .user_profile .left .edit_user_info form .new-collaboration .checkmark {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+body .user_profile .left .edit_user_info form .new-collaboration .container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+body .user_profile .left .edit_user_info form .new-collaboration .container input:checked ~ .checkmark {
+  background-color: #934B00;
+}
+body .user_profile .left .edit_user_info form .new-collaboration .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+body .user_profile .left .edit_user_info form .new-collaboration .container input:checked ~ .checkmark:after {
+  display: block;
+}
+body .user_profile .left .edit_user_info form .new-collaboration .container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+body .user_profile .left input[type=submit] {
+  grid-column: 2;
+  justify-self: center;
+  align-self: center;
 }
 body .user_profile .right {
   margin: 10px 10px 27px 0;
@@ -1671,7 +1773,7 @@ body .user_profile .right .user_activity .activity-card:hover {
   body .user_profile .left #about_me span, body .user_profile .left #favorites span, body .user_profile .left #contact span {
     display: none;
   }
-  body .user_profile .left .user_pets p {
+  body .user_profile .left .user_pets p, body .user_profile .left .edit_user_info p {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1720,24 +1822,24 @@ body .user_profile .right .user_activity .activity-card:hover {
     margin: 7px 0;
     font-size: 375%;
   }
-  body .user_profile .left .user_pets {
+  body .user_profile .left .user_pets, body .user_profile .left .edit_user_info {
     padding: 5px;
     width: fit-content;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
   }
-  body .user_profile .left .user_pets .pet a .pet-img {
+  body .user_profile .left .user_pets .pet a .pet-img, body .user_profile .left .edit_user_info .pet a .pet-img {
     float: none;
     margin: 0;
   }
-  body .user_profile .left .user_pets .pet a .container-pet {
+  body .user_profile .left .user_pets .pet a .container-pet, body .user_profile .left .edit_user_info .pet a .container-pet {
     width: 18vw;
   }
-  body .user_profile .left .user_pets .pet a .container-pet p {
+  body .user_profile .left .user_pets .pet a .container-pet p, body .user_profile .left .edit_user_info .pet a .container-pet p {
     display: none;
   }
-  body .user_profile .left .user_pets .title {
+  body .user_profile .left .user_pets .title, body .user_profile .left .edit_user_info .title {
     width: 100%;
   }
   body .user_profile .right {
