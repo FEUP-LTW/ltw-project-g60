@@ -15,7 +15,7 @@
                     echo '<i class="fas fa-venus"></i>';
                 ?>
                 <span><?= $pet['color'] ?></span>
-                <span><?= $pet['size'] ?></span>
+                <span><?= $pet['size'] ?>m</span>
                 <span><?= $pet['species'] ?></span>
                 <span><?= $pet['age'] . ' years' ?></span>
             </div>
@@ -59,5 +59,27 @@
                 </article>
             <?php } ?>
         </div>
+    </section>
+    <section id="pet-comments">
+        <h2><?= count($comments) ?> Comments</h2>
+        <?php foreach ($comments as $comment) { ?>
+            <div class="pet-comment">
+                <a href="user_profile.php?id=<?= $comment['user_id'] ?>" class="user-image" style="background-image: url('database/images/users/profile/thumbs_medium/<?= $comment['user_id'] ?>.jpg')"></a>
+                <span class="user"><a href="user_profile.php?id=<?= $comment['user_id'] ?>"><?= $comment['name'] ?></a></span>
+                <span class="date"><?= date("Y-m-d H:i", substr($comment['date'], 0, 10)) ?></span>
+                <p><?= $comment['text'] ?></p>
+            </div>
+        <?php } ?>
+        <?php if (isset($_SESSION['username']) and isUser(getUserByUsername($_SESSION['username'])['user_id'])) { ?>
+        <form action="action_add_comment.php" method="get" class="add-comment">
+            <label for="text">Add a Comment on This Pet</label>
+            <textarea id="text" name="text" placeholder="Comment" required></textarea>
+            <label for="user_id" hidden></label>
+            <input id="user_id" name="user_id" type="text" hidden value="<?= getUserByUsername($_SESSION['username'])['user_id'] ?>">
+            <label for="pet_id" hidden></label>
+            <input id="pet_id" name="pet_id" type="text" hidden value="<?= $_GET['id'] ?>">
+            <input type="submit" class="button" value="Submit">
+        </form>
+        <?php } ?>
     </section>
 </div>
