@@ -20,6 +20,14 @@
                 <input id="user_fav" type="checkbox" name="favorites" onclick="userFavorites()">
             </label>
         </div>
+
+        <!--<div id="favorites">
+            <a href="#"><i id="fav_icon" class="far fa-heart"></i>
+                <span>Favorites</span>
+            </a>
+        </div>-->
+
+
         <div id="contact">
             <a href="#"><i class="fas fa-mobile-alt"></i>
                 <span>Contacts</span>
