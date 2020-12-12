@@ -1317,7 +1317,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 #pet-profile #options .buttons {
   text-align: center;
 }
-#pet-profile #options .buttons a {
+#pet-profile #options .buttons label {
   display: inline-block;
   margin-right: 10px;
   margin-top: 10px;
@@ -1385,16 +1385,16 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 #pet-profile #proposals .grid-list .adoption-proposal .user-details small {
   text-align: right;
 }
-#pet-profile #pet-comments {
+#pet-profile #pet-comments, #pet-profile #make_proposal {
   margin-top: 1em;
   padding: 1em;
   background-color: #F1A66A;
   border-radius: 10px;
 }
-#pet-profile #pet-comments h2 {
+#pet-profile #pet-comments h2, #pet-profile #make_proposal h2 {
   margin-bottom: 1em;
 }
-#pet-profile #pet-comments .pet-comment {
+#pet-profile #pet-comments .pet-comment, #pet-profile #make_proposal .pet-comment {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
   background-color: #934B00;
   margin-bottom: 1em;
@@ -1405,7 +1405,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   grid-template-rows: 1fr 2fr;
   grid-column-gap: 1em;
 }
-#pet-profile #pet-comments .pet-comment p {
+#pet-profile #pet-comments .pet-comment p, #pet-profile #make_proposal .pet-comment p {
   grid-column: 2/4;
   grid-row: 2;
   font-style: italic;
@@ -1413,20 +1413,20 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   padding-top: 1em;
   padding-bottom: 1em;
 }
-#pet-profile #pet-comments .pet-comment .user a {
+#pet-profile #pet-comments .pet-comment .user a, #pet-profile #make_proposal .pet-comment .user a {
   border-bottom: 1px solid white;
   color: white;
   font-size: x-large;
 }
-#pet-profile #pet-comments .pet-comment .date {
+#pet-profile #pet-comments .pet-comment .date, #pet-profile #make_proposal .pet-comment .date {
   justify-self: right;
   margin-right: 1em;
   align-self: center;
 }
-#pet-profile #pet-comments .pet-comment .user {
+#pet-profile #pet-comments .pet-comment .user, #pet-profile #make_proposal .pet-comment .user {
   margin-top: 10px;
 }
-#pet-profile #pet-comments .pet-comment .user-image {
+#pet-profile #pet-comments .pet-comment .user-image, #pet-profile #make_proposal .pet-comment .user-image {
   grid-column: 1;
   grid-row: 1/3;
   background-repeat: no-repeat;
@@ -1438,22 +1438,22 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   height: 100%;
   border-radius: 10px 0 0 10px;
 }
-#pet-profile #pet-comments .pet-comment .user-image:hover {
+#pet-profile #pet-comments .pet-comment .user-image:hover, #pet-profile #make_proposal .pet-comment .user-image:hover {
   -webkit-animation: scale05 0.2s forwards;
 }
-#pet-profile #pet-comments form {
+#pet-profile #pet-comments form, #pet-profile #make_proposal form {
   margin-top: 1em;
   padding: 1em;
   background-color: #934B00;
   border-radius: 10px;
 }
-#pet-profile #pet-comments form label {
+#pet-profile #pet-comments form label, #pet-profile #make_proposal form label {
   color: white;
   margin-bottom: 1em;
   font-size: x-large;
   font-weight: bold;
 }
-#pet-profile #pet-comments form textarea {
+#pet-profile #pet-comments form textarea, #pet-profile #make_proposal form textarea {
   margin-top: 10px;
   margin-bottom: 10px;
   min-width: 97%;
@@ -1467,7 +1467,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   background-color: #F1A66A;
   padding: 1em;
 }
-#pet-profile #pet-comments form .button {
+#pet-profile #pet-comments form .button, #pet-profile #make_proposal form .button {
   background-color: black;
 }
 
@@ -1525,14 +1525,23 @@ body .user_profile .left #about_me, body .user_profile .left #favorites, body .u
   justify-content: center;
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
 }
-body .user_profile .left #about_me a, body .user_profile .left #favorites a, body .user_profile .left #contact a {
+body .user_profile .left #about_me a, body .user_profile .left #about_me label, body .user_profile .left #favorites a, body .user_profile .left #favorites label, body .user_profile .left #contact a, body .user_profile .left #contact label {
+  width: 100%;
+  color: white;
   padding: 10%;
   font-size: 1.5vw;
+  text-align: center;
 }
-body .user_profile .left #about_me a i, body .user_profile .left #favorites a i, body .user_profile .left #contact a i {
+body .user_profile .left #about_me a i, body .user_profile .left #about_me label i, body .user_profile .left #favorites a i, body .user_profile .left #favorites label i, body .user_profile .left #contact a i, body .user_profile .left #contact label i {
   display: flex;
   font-size: 3.5vw;
   justify-content: center;
+}
+body .user_profile .left #about_me a input, body .user_profile .left #about_me label input, body .user_profile .left #favorites a input, body .user_profile .left #favorites label input, body .user_profile .left #contact a input, body .user_profile .left #contact label input {
+  display: none;
+}
+body .user_profile .left #about_me label:hover, body .user_profile .left #favorites label:hover, body .user_profile .left #contact label:hover {
+  cursor: pointer;
 }
 body .user_profile .left #about_me:hover, body .user_profile .left #favorites:hover, body .user_profile .left #contact:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);

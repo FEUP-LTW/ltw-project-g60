@@ -195,3 +195,23 @@ function isUser($id){
     if ($user == false) return false;
     return true;
 }
+
+function addProposal($text, $user_id, $pet_id){
+    global $db;
+    if ($stmt = $db->prepare('
+        INSERT INTO 
+        ProposalsUser(pet_id, user_id, date, text) 
+        VALUES (:pet_id, :user_id, :date, :text)')) {
+
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':pet_id', $pet_id);
+        $stmt->bindParam(':text', $text);
+        $time = time();
+        $stmt->bindParam(':date', $time);
+        $stmt->execute();
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
+}

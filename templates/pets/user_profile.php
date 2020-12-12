@@ -49,7 +49,7 @@
             <?php } ?>
         </div>
         <div class="user_pets user_favorites" style="display: none">
-            <div class="title">Favorites</div>
+            <div class="title"><i class="fas fa-heart"></i>Favorites</div>
             <?php foreach ($favorites as $pet) { ?>
                   <div class="pet">
                       <a href="pet_detail.php?id=<?= $pet['PetID'] ?>">

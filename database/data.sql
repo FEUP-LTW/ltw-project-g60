@@ -50,6 +50,7 @@ CREATE TABLE ProposalsUser (
     prop_id     INTEGER PRIMARY KEY,
     pet_id      INTEGER,
     user_id     INTEGER,
+    text        VARCHAR,
     date        VARCHAR,
     CONSTRAINT  prop_fk1 FOREIGN KEY (pet_id) REFERENCES Pets(pet_id),
     CONSTRAINT  prop_fk2 FOREIGN KEY (user_id) REFERENCES Users(user_id)
