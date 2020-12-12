@@ -8,21 +8,27 @@
              style="background-image: url('database/images/shelters/profile/thumbs_medium/<?= $shelter['shelter_id'] ?>.jpg') ">
         </div>
         <div id="about_me">
-            <a href="#"><i class="far fa-file"></i>About Us</a>
+            <a href="#"><i class="far fa-file"></i>
+                <span>About Me</span></a>
         </div>
         <div id="location">
-            <a href="#"><i class="fas fa-map-marker-alt"></i>Location</a>
+            <a href="#"><i class="fas fa-map-marker-alt"></i>
+                <span>Location</span></a>
         </div>
         <div id="contact">
-            <a href="#"><i class="fas fa-mobile-alt"></i>Contacts</a>
+            <a href="#"><i class="fas fa-mobile-alt"></i>
+                <span>Contacts</span>
+            </a>
         </div>
         <section class="shelter_adoption">
-            <div class="title">For adoption</div>
+            <div class="title"><i class="fas fa-paw"></i>
+                <span>For adoption</span>
+            </div>
             <?php foreach ($adoption as $pet) { ?>
                 <div class="adoption-card">
                     <a href="pet_detail.php?id=<?= $pet['pet_id'] ?>">
-                        <img src="database/images/pets/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg" alt="puppy photo">
-                        <div class="container-dog">
+                        <div class="pet-img" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg')"></div>
+                        <div class="container-pet">
                             <h4><b><?= $pet['name'] ?></b></h4>
                             <p><?= $pet['info'] ?></p>
                         </div>
@@ -33,12 +39,14 @@
     </section>
     <section class="right">
         <div class="shelter_adopted">
-            <div class="title">Adopted</div>
+            <div class="title"><i class="fas fa-home"></i>
+                <span>Adopted</span>
+            </div>
             <?php foreach ($pets as $pet) { ?>
                 <div class="adopted-card">
                     <a href="pet_detail.php?id=<?= $pet['pet_id'] ?>">
-                        <img src="database/images/pets/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg" alt="puppy photo" >
-                        <div class="container-dog">
+                        <div class="pet-img" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg')"></div>
+                        <div class="container-pet">
                             <h4><b><?= $pet['name'] ?></b></h4>
                             <p><?= $pet['info'] ?></p>
                         </div>

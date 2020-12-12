@@ -151,3 +151,42 @@ function getImageByPetId($petID){
         die;
     }
 }
+
+function getPetComments($petID) {
+    global $db;
+    if ($stmt = $db->prepare('
+            SELECT * 
+            FROM Comments, Users
+            WHERE pet_id = :id
+            AND Users.user_id = Comments.user_id
+            ORDER BY date DESC')
+    ) {
+        $stmt->bindParam(':id', $petID);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
+}
+
+function addPetComment($pet_id, $user_id, $text) {
+    global $db;
+    if ($stmt = $db->prepare('INSERT INTO Comments(user_id, pet_id, text, date) VALUES (:user_id, :pet_id, :text, :date)')) {
+        $stmt->bindParam(':pet_id', $pet_id);
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':text', $text);
+        $time = time();
+        $stmt->bindParam(':date', $time);
+        $stmt->execute();
+
+        return $pet_id;
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
+}
+
+

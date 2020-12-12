@@ -3,73 +3,77 @@
 
 body
   #pet_add
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2)
+    border-radius: 10px
+    transition: 0.3s
+    color: common.$accent-color
+    width: 85%
+    max-width: 1080px
+    margin: 2em auto
     contain: content
-    display: grid
-    grid-template-columns: 35% 65%
-    height: 95vh
+    display: flex
     #left
-      background-image: url(https://images.unsplash.com/photo-1563441405613-82b7d27cbc23?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80)
+      width: 32%
       background-repeat: no-repeat
       background-size: cover
-
+      background-position-x: center
       h2
         position: relative
         top: 50px
         text-align: center
         width: 100%
-        color: common.$dark-grey
+        color: common.$accent-color
 
     #right
+      width: 68%
       form
         padding-top: 20px
         padding-left: 20px
-        height: 95vh
-        width: 100%
         display: grid
         contain: content
-        grid-template-columns: 48% 25% 25%
+        grid-template-columns: 45% 25% 25%
         grid-template-rows: 20% 20% 20% 40%
-        background-color: #bababa
+        background-color: common.$main-color
         transition: 0.3s
-        color: common.$dark-grey
+        color: common.$accent-color
         label:nth-of-type(1)
           grid-column: 1
           grid-row: 1
 
-        label:nth-of-type(3)
-          margin: 32px 0px
-          grid-column: 3
+        label:nth-of-type(8)
+          grid-column: 2 / 3
           grid-row: 1
-
-        label:nth-of-type(4)
-          grid-column: 2
-          grid-row: 1
-          padding: 1em 1em 0.5em 1em
-          @extend .button
-          justify-content: center
+          margin: 1.5em 1em 1em 4em
+          height: 40px
+          width: 85%
           display: flex
-          margin: 2em 0 2em 0.2em
-          height: 30px
-          width: 65%
-        span
-          margin-right: 0.2em
+          padding: 8px 15px
+          align-items: center
+          contain: content
+          @extend .button
+
+          span
+            display: flex
+            font-size: 2em
+            margin-right: 5px
+
 
         label:nth-of-type(2)
           grid-column: 1
           grid-row: 2
-        label:nth-of-type(5)
+        label:nth-of-type(3)
           grid-column: 2
           grid-row: 2
-        label:nth-of-type(6)
+        label:nth-of-type(4)
           grid-column: 3
           grid-row: 2
-        label:nth-of-type(7)
+        label:nth-of-type(5)
           grid-column: 2
           grid-row: 3
-        label:nth-of-type(8)
+        label:nth-of-type(6)
           grid-column: 1
           grid-row: 3
-        label:nth-of-type(9)
+        label:nth-of-type(7)
           grid-column: 1
           grid-row: 4
         label
@@ -89,19 +93,28 @@ body
             -moz-appearance: none
             appearance: none
             margin-top: 1em
-            width: 80%
+            width: 100%
             font-size: 0.9em
+            outline: none
 
         #petInfo
+          grid-column: 1
+          grid-row: 4
           height: 120px !important
-          max-width: 105%
+          max-width: 350px
 
-        #addButton
+        label:nth-of-type(9)
+          margin: 3em 1em 1em 1.5em
+          width: fit-content
+          height: 80px
+          padding: 15px 25px
+          display: flex
+          align-items: center
+          @extend .button
           grid-column: 3
           grid-row: 4
-          margin: 3em 2em
-          height: 40%
-          width: 60%
+          input
+            display: none
 
         select
           height: 50px
@@ -109,9 +122,9 @@ body
           grid-row: 4
           width: 69%
           margin: 4em auto
-          border: 3px solid common.$dark-grey
+          border: 3px solid common.$accent-color
           padding: 1em
-          background-color: common.$dark-grey
+          background-color: common.$accent-color
           border-radius: 7px
           color: white
 
@@ -148,7 +161,7 @@ body
             &:hover input ~ .checkmark
               background-color: #ccc
             input:checked ~ .checkmark
-              background-color: #2196F3
+              background-color: common.$accent-color
             .checkmark:after
               content: ""
               position: absolute
@@ -164,3 +177,45 @@ body
               border-radius: 50%
               background: white
 
+@media (max-width: 60em)
+  body
+    #pet_add
+      display: block
+      width: 85%
+      #left
+        background-image: none !important
+        width: 100%
+        h2
+          top: 0
+          color: white
+          padding: 10px
+          width: 100%
+          background-color: common.$accent-color
+      #right
+        width: 100%
+
+@media (max-width: 35em)
+  body
+    #pet_add
+      display: block
+      width: 85%
+      #left
+        background-image: none !important
+        h2
+          top: 0
+          color: white
+          padding: 10px 0
+          width: 100%
+          background-color: common.$accent-color
+      #right
+        width: 100%
+        form
+          display: block
+          padding: 10px
+          label
+            margin: 25px 45px 25px 18px!important
+          label:nth-of-type(8)
+            width: 120px
+          select
+            width: 100px
+            margin: 0px 18px

@@ -2,12 +2,18 @@
     <section id="login">
         <h2>Login</h2>
         <form action="action_login.php" method="post">
-            <label>Username
-                <input type="text" name="username" placeholder="username">
-            </label>
-            <label>Password
-                <input type="password" name="password" placeholder="your password here">
-            </label>
+            <div class="group">
+                <input id="username" name="username" type="text" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="username">Username</label>
+            </div>
+            <div class="group">
+                <input id="password" name="password" type="password" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="password">Password</label>
+            </div>
             <input hidden type="submit" class="button" value="Login">
         </form>
     </section>
