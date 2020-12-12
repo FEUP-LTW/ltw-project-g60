@@ -1296,6 +1296,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   height: 100%;
   background-size: cover;
   background-position: center;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
 }
 #pet-profile .pet-bio #owner-info p {
   padding: 5px;
