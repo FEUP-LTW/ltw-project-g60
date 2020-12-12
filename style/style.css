@@ -1266,18 +1266,27 @@ body .banner {
   background-size: cover;
   background-position: center;
 }
+body .banner a {
+  font-size: 4vw;
+  margin-right: 15px;
+  margin-bottom: 5px;
+}
 body .user_profile {
   display: flex;
 }
 body .user_profile .title {
-  padding: 15px 0px 0px 25px;
+  padding: 10px 0px 0px 15px;
   font-size: 25px;
   font-weight: bold;
   color: white;
 }
+body .user_profile .title i {
+  font-size: 110%;
+  padding-right: 10px;
+}
 body .user_profile img {
-  width: 8vw;
-  border-radius: 15px;
+  width: 10vw;
+  border-radius: 10px;
   float: left;
   margin-right: 10px;
 }
@@ -1294,22 +1303,22 @@ body .user_profile .left .profile_pic {
   grid-area: profile;
   position: relative;
   width: 80%;
-  height: 145%;
-  left: 25px;
-  bottom: 10vh;
+  height: 135%;
+  left: 10%;
+  bottom: 45%;
   z-index: 1;
-  border-radius: 15px;
+  border-radius: 10px;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
 }
 body .user_profile .left #about_me, body .user_profile .left #favorites, body .user_profile .left #contact {
   display: flex;
-  border-radius: 15px;
+  border-radius: 10px;
   background-color: #934B00;
   margin: 8% 12%;
   justify-content: center;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
 }
 body .user_profile .left #about_me a, body .user_profile .left #favorites a, body .user_profile .left #contact a {
   padding: 10%;
@@ -1334,39 +1343,34 @@ body .user_profile .left #favorites {
 body .user_profile .left #contact {
   grid-area: contact;
 }
-body .user_profile .left #favorites > label {
-  padding: 10%;
-  font-size: 4vw;
-  color: white;
-}
-body .user_profile .left #favorites > label i {
-  display: flex;
-  font-size: 3.5vw;
-  justify-content: center;
-}
-body .user_profile .left #favorites > label span {
-  display: flex;
-  font-size: 1.5vw;
-  justify-content: center;
-}
-body .user_profile .left #favorites > label input {
-  display: none;
-}
 body .user_profile .left .user_pets {
   grid-area: pets;
-  border-radius: 15px;
+  border-radius: 10px;
   background-color: #F1A66A;
   margin: 2% 3% 2% 3%;
 }
 body .user_profile .left .user_pets .pet {
   display: flex;
-  padding: 15px;
+  padding: 8px;
   background-color: #934B00;
-  border-radius: 15px;
-  width: 90%;
+  border-radius: 10px;
+  width: fit-content;
   margin: 15px auto;
 }
-body .user_profile .left .user_pets .pet .container-dog {
+body .user_profile .left .user_pets .pet a {
+  width: fit-content;
+}
+body .user_profile .left .user_pets .pet a .pet-img {
+  float: left;
+  margin-right: 10px;
+  border-radius: 10px;
+  width: 7em;
+  height: 7em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+body .user_profile .left .user_pets .pet a .container-pet {
   width: 54vw;
   text-align: justify;
 }
@@ -1384,7 +1388,7 @@ body .user_profile .right {
   grid-auto-rows: fit-content(0%);
 }
 body .user_profile .right .collaborations {
-  border-radius: 15px;
+  border-radius: 10px;
   background-color: #F1A66A;
   margin: 3.5% 3%;
 }
@@ -1411,15 +1415,15 @@ body .user_profile .right .collaborations #collaboration-imgs a .collaboration-i
   -webkit-animation: scale05 0.2s forwards;
 }
 body .user_profile .right .user_activity {
-  border-radius: 15px;
+  border-radius: 10px;
   background-color: #F1A66A;
   margin: 2% 3% 4% 3%;
 }
 body .user_profile .right .user_activity .activity-card {
   display: flex;
-  padding: 15px;
+  padding: 8px;
   background-color: #934B00;
-  border-radius: 15px;
+  border-radius: 10px;
   width: 85%;
   margin: 15px auto;
 }
@@ -1443,6 +1447,103 @@ body .user_profile .right .user_activity .activity-card:hover {
   -webkit-animation: scale05 0.2s forwards;
 }
 
+@media (max-width: 57em) {
+  body .user_profile .title {
+    text-align: center;
+  }
+  body .user_profile .title span {
+    display: none;
+  }
+  body .user_profile .left {
+    width: 75%;
+  }
+  body .user_profile .left #about_me i, body .user_profile .left #favorites i, body .user_profile .left #contact i {
+    margin: 10px 0;
+    font-size: 275%;
+  }
+  body .user_profile .left #about_me span, body .user_profile .left #favorites span, body .user_profile .left #contact span {
+    display: none;
+  }
+  body .user_profile .left .user_pets p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  body .user_profile .right {
+    width: 25%;
+  }
+  body .user_profile .right .collaborations #collaboration-imgs {
+    padding: 5px;
+    justify-content: center;
+  }
+  body .user_profile .right .collaborations #collaboration-imgs .collaboration-img {
+    margin-bottom: 5px;
+  }
+  body .user_profile .right .user_activity {
+    margin-top: 30px;
+    justify-content: center;
+  }
+  body .user_profile .right .user_activity .activity-card {
+    display: flex;
+    padding: 8px;
+    width: fit-content;
+  }
+  body .user_profile .right .user_activity .activity-card .activity-img {
+    margin: 0;
+  }
+  body .user_profile .right .user_activity .activity-card .container-activity {
+    width: fit-content;
+  }
+  body .user_profile .right .user_activity .activity-card .container-activity p {
+    display: none;
+  }
+}
+@media (max-width: 35em) {
+  body .banner {
+    height: 80px;
+  }
+  body .user_profile {
+    display: block;
+  }
+  body .user_profile .left {
+    width: 100%;
+  }
+  body .user_profile .left #about_me a i, body .user_profile .left #favorites a i, body .user_profile .left #contact a i {
+    margin: 7px 0;
+    font-size: 375%;
+  }
+  body .user_profile .left .user_pets {
+    padding: 5px;
+    width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+  body .user_profile .left .user_pets .pet a .pet-img {
+    margin: 0;
+  }
+  body .user_profile .left .user_pets .pet a .container-pet {
+    width: 18vw;
+  }
+  body .user_profile .left .user_pets .pet a .container-pet p {
+    display: none;
+  }
+  body .user_profile .left .user_pets .title {
+    width: 100%;
+  }
+  body .user_profile .right {
+    width: 100%;
+  }
+  body .user_profile .right .user_activity {
+    padding-right: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+  body .user_profile .right .user_activity .title {
+    width: 100%;
+  }
+}
 .shelters-list {
   width: 70%;
 }

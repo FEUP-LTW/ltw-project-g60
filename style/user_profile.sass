@@ -5,16 +5,23 @@ body
   .banner
     background-size: cover
     background-position: center
+    a
+      font-size: 4vw
+      margin-right: 15px
+      margin-bottom: 5px
   .user_profile
     display: flex
     .title
-      padding: 15px 0px 0px 25px
+      padding: 10px 0px 0px 15px
       font-size: 25px
       font-weight: bold
       color: white
+      i
+        font-size: 110%
+        padding-right: 10px
     img
-      width: 8vw
-      border-radius: 15px
+      width: 10vw
+      border-radius: 10px
       float: left
       margin-right: 10px
     .left
@@ -29,21 +36,21 @@ body
         grid-area: profile
         position: relative
         width: 80%
-        height: 145%
-        left: 25px
-        bottom: 10vh
+        height: 135%
+        left: 10%
+        bottom: 45%
         z-index: 1
-        border-radius: 15px
+        border-radius: 10px
         background-size: cover
         background-position: center
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2)
       #about_me, #favorites, #contact
         display: flex
-        border-radius: 15px
+        border-radius: 10px
         background-color: common.$accent-color
         margin: 8% 12%
         justify-content: center
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2)
         a
           padding: 10%
           font-size: 1.5vw
@@ -61,35 +68,32 @@ body
         grid-area: favorites
       #contact
         grid-area: contact
-      #favorites > label
-        padding: 10%
-        font-size: 4vw
-        color: white
-        i
-          display: flex
-          font-size: 3.5vw
-          justify-content: center
-        span
-          display: flex
-          font-size: 1.5vw
-          justify-content: center
-        input
-          display: none
       .user_pets
         grid-area: pets
-        border-radius: 15px
+        border-radius: 10px
         background-color: common.$main-color
         margin: 2% 3% 2% 3%
         .pet
           display: flex
-          padding: 15px
+          padding: 8px
           background-color: common.$accent-color
-          border-radius: 15px
-          width: 90%
+          border-radius: 10px
+          width: fit-content
           margin: 15px auto
-          .container-dog
-            width: 54vw
-            text-align: justify
+          a
+            width: fit-content
+            .pet-img
+              float: left
+              margin-right: 10px
+              border-radius: 10px
+              width: 7em
+              height: 7em
+              background-repeat: no-repeat
+              background-size: cover
+              background-position: center
+            .container-pet
+              width: 54vw
+              text-align: justify
         .pet:hover
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
           cursor: pointer
@@ -102,7 +106,7 @@ body
       grid-template-columns: 1fr
       grid-auto-rows: fit-content(0%)
       .collaborations
-        border-radius: 15px
+        border-radius: 10px
         background-color: common.$main-color
         margin: 3.5% 3%
         #collaboration-imgs
@@ -124,14 +128,14 @@ body
               &:hover
                 @include animations.animation("scale05 0.2s forwards")
       .user_activity
-        border-radius: 15px
+        border-radius: 10px
         background-color: common.$main-color
         margin: 2% 3% 4% 3%
         .activity-card
           display: flex
-          padding: 15px
+          padding: 8px
           background-color: common.$accent-color
-          border-radius: 15px
+          border-radius: 10px
           width: 85%
           margin: 15px auto
           .activity-img
@@ -150,3 +154,84 @@ body
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
           cursor: pointer
           @include animations.animation("scale05 0.2s forwards")
+
+@media (max-width: 57em)
+  body
+    .user_profile
+      .title
+        text-align: center
+        span
+          display: none
+      .left
+        width: 75%
+        #about_me, #favorites, #contact
+            i
+              margin: 10px 0
+              font-size: 275%
+            span
+              display: none
+        .user_pets
+          p
+            white-space: nowrap
+            overflow: hidden
+            text-overflow: ellipsis
+      .right
+        width: 25%
+        .collaborations
+          #collaboration-imgs
+            padding: 5px
+            justify-content: center
+            .collaboration-img
+              margin-bottom: 5px
+        .user_activity
+          margin-top: 30px
+          justify-content: center
+          .activity-card
+            display: flex
+            padding: 8px
+            width: fit-content
+            .activity-img
+              margin: 0
+            .container-activity
+              width: fit-content
+              p
+                display: none
+
+@media (max-width: 35em)
+  body
+    .banner
+      height: 80px
+    .user_profile
+      display: block
+      .left
+        width: 100%
+        #about_me, #favorites, #contact
+          a
+            i
+              margin: 7px 0
+              font-size: 375%
+        .user_pets
+          padding: 5px
+          width: fit-content
+          display: flex
+          flex-wrap: wrap
+          align-content: flex-start
+          .pet
+            a
+              .pet-img
+                margin: 0
+              .container-pet
+                width: 18vw
+                p
+                  display: none
+          .title
+            width: 100%
+      .right
+        width: 100%
+        .user_activity
+          padding-right: 5px
+          .title
+            width: 100%
+          display: flex
+          flex-wrap: wrap
+          align-content: flex-start
