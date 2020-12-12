@@ -28,8 +28,6 @@
     </nav>
 </section>
 
-<script src="scripts/hamburger.js">
-</script>
 <div class="hamburger_navbar">
     <div id="myLinks">
         <a href="pets_list.php">Pets</a>

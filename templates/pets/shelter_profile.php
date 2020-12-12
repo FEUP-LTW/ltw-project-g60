@@ -7,10 +7,14 @@
         <div class="profile_pic"
              style="background-image: url('database/images/shelters/profile/thumbs_medium/<?= $shelter['shelter_id'] ?>.jpg') ">
         </div>
-        <div id="about_me">
-            <a href="#"><i class="far fa-file"></i>
-                <span>About Me</span></a>
-        </div>
+        <?php if (isset($_SESSION['username']) and getShelterByID($_GET['id'])['username'] == $_SESSION['username']) { ?>
+            <div id="about_me">
+                <label><i id="abt_icon" class="far fa-file"></i>
+                    <span>About Us</span>
+                    <input id="about_me_check" type="checkbox" name="aboutme" onclick="editShelterInfo()">
+                </label>
+            </div>
+        <?php } ?>
         <div id="location">
             <a href="#"><i class="fas fa-map-marker-alt"></i>
                 <span>Location</span></a>
@@ -20,7 +24,7 @@
                 <span>Contacts</span>
             </a>
         </div>
-        <section class="shelter_adoption">
+        <section class="shelter_adoption" style="display: block">
             <div class="title"><i class="fas fa-paw"></i>
                 <span>For adoption</span>
             </div>
@@ -36,6 +40,55 @@
                 </div>
             <?php } ?>
         </section>
+        <div class="edit_shelter_info" style="display: none">
+            <div class="title">
+                <i class="fas fa-paw"></i>
+                <span>Edit Info</span>
+                <form action="" method="post" enctype="multipart/form-data">
+                    <div class="group">
+                        <input id="name" name="name" type="text" value="<?= $shelter['name'] ?>" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="name">Full Name</label>
+                    </div>
+                    <div class="group">
+                        <input id="username" name="username" value="<?= $shelter['username'] ?>" type="text" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="username">Username</label>
+                    </div>
+                    <div id="photos">
+                        <label>
+                    <span class="material-icons">
+                    add_photo_alternate
+                    </span>
+                            Profile
+                            <input hidden type="file" class="button" name="profile_photo">
+                        </label>
+                        <label>
+                    <span class="material-icons">
+                    add_photo_alternate
+                    </span>
+                            Header
+                            <input hidden type="file" class="button" name="header_photo">
+                        </label>
+                    </div>
+                    <div class="group">
+                        <input id="password" name="password" type="password" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="group">
+                        <input id="confirm-password" name="confirm-password" type="password" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="confirm-password">Confirm Password</label>
+                    </div>
+                    <input type="submit" class="button" value="Confirm">
+                </form>
+            </div>
+        </div>
     </section>
     <section class="right">
         <div class="shelter_adopted">
