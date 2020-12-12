@@ -1001,12 +1001,6 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   color: white;
   font-size: x-large;
 }
-#pet-profile #pet-comments .pet-comment .user a:after {
-  content: " said ...";
-  color: black;
-  font-size: medium;
-  font-style: italic;
-}
 #pet-profile #pet-comments .pet-comment .date {
   justify-self: right;
   margin-right: 1em;
@@ -1037,6 +1031,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   border-radius: 10px;
 }
 #pet-profile #pet-comments form label {
+  color: white;
   margin-bottom: 1em;
   font-size: x-large;
   font-weight: bold;
