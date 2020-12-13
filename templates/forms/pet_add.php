@@ -42,7 +42,7 @@
                 <label>Information
                     <textarea id="petInfo" name="information" placeholder="Pet's info"></textarea>
                 </label>
-                <select name="status">
+                <select name="status" required>
                     <option value="" disabled selected>Status</option>
                     <option value="prepared">prepared</option>
                 </select>
@@ -51,7 +51,7 @@
                     add_photo_alternate
                     </span>
                     Choose photo
-                    <input hidden type="file" name="photo">
+                    <input hidden type="file" name="photo" required>
                 </label>
                 <label>
                     Add Pet!

@@ -5,8 +5,17 @@ include_once('database/users.php');      // loads the functions responsible for 
 include_once('database/pets.php');
 include_once('database/upload.php');
 
-addPet($_SESSION['username'],$_POST['name'],$_FILES['photo'], $_POST['breed'],$_POST['size'],$_POST['color'],$_POST['gender'],
-    $_POST['information'],$_POST['age'],$_POST['location']);
+$colors = getPetColors();
+$breeds = getBreeds();
 
-header('Location: ' . 'homepage.php');
-die();
+if( in_array($_POST['breed'], $breeds) and in_array($_POST['color'], $colors) ){
+  addPet($_SESSION['username'],$_POST['name'],$_FILES['photo'], $_POST['breed'],$_POST['size'],$_POST['color'],$_POST['gender'],
+      $_POST['information'],$_POST['age'],$_POST['location']);
+
+  header('Location: ' . 'homepage.php');
+  die();
+} else {
+  header('Location: ' . 'pet_add.php');
+  die();
+}
+

@@ -106,7 +106,7 @@ function getPetByID($petID) {
     }
 }
 
-function addPet($id, $name, $image, $image_title, $species, $size, $color, $gender, $info, $age, $location) {
+function addPet($username, $name, $image, $species, $size, $color, $gender, $info, $age, $location) {
     global $db;
 
     $user_id = getSessionId();
