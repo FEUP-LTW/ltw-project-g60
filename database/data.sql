@@ -15,6 +15,8 @@ DROP TABLE IF EXISTS ProposalsUser;
 DROP TABLE IF EXISTS Pets;
 DROP TABLE IF EXISTS Shelters;
 DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS Breeds;
+DROP TABLE IF EXISTS Pets_Colors;
 
 CREATE TABLE Users (
   user_id     INTEGER PRIMARY KEY,
@@ -114,6 +116,14 @@ create table Comments (
     CONSTRAINT  comm_fk2 FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
 
+CREATE TABLE Breeds (
+    id INTEGER PRIMARY KEY,
+    breed VARCHAR
+);
+CREATE TABLE Pets_Colors (
+    id INTEGER PRIMARY KEY,
+    color VARCHAR
+);
 -- All passwords are 1234 in SHA-1 format
 INSERT INTO Users (username, password, name, info) VALUES ('dominic', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Dominic Woods', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?');
 INSERT INTO Users (username, password, name, info) VALUES ('zachary', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Zachary Young', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?');
@@ -124,21 +134,21 @@ INSERT INTO Shelters (username, password, name, info) VALUES ('shelter_ze', '711
 INSERT INTO Shelters (username, password, name, info) VALUES ('gaia_shelter', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'V.N. de Gaia Shelter', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia hic sit incidunt quia iusto que?');
 
 INSERT INTO Pets(name, species, size, color, gender, info, age, location, state) VALUES (
-             'Maria',
-            'labradoodle',
-            1.1,
-            'blue',
-            1,
-            'Lorem Ipsum Dolor Whatever',
-            0,
-            'V.N. de Gaia',
-            'prepared');
+     'Maria',
+    'Selkirk Rex',
+    1.1,
+    'Amber',
+    1,
+    'Lorem Ipsum Dolor Whatever',
+    0,
+    'V.N. de Gaia',
+    'prepared');
 
 INSERT INTO Pets (name, species, size, color, gender, info, age, location, state) VALUES (
   'Ponnappa', 
-  'labrador',
+  'Ocicat',
   2.2,
-  'brown',
+  'Black',
   0,
   'Lorem Ipsum Dolor Whatever',
   1,
@@ -147,9 +157,9 @@ INSERT INTO Pets (name, species, size, color, gender, info, age, location, state
 );
 INSERT INTO Pets (name, species, size, color, gender, info, age, location, state) VALUES (
   'Stanbridge', 
-  'german shepherd',
+  'Javanese',
   0.5,
-  'green',
+  'Blue',
   0,
   'Lorem Ipsum Dolor Whatever',
   2,
@@ -158,9 +168,9 @@ INSERT INTO Pets (name, species, size, color, gender, info, age, location, state
 );
 INSERT INTO Pets (name, species, size, color, gender, info, age, location, state) VALUES (
   'Tarryn', 
-  'bulldog',
+  'Corgi',
   0.7,
-  'yellow',
+  'Yellow',
   1,
   'Lorem Ipsum Dolor Whatever',
   3,
@@ -171,7 +181,7 @@ INSERT INTO Pets (name, species, size, color, gender, info, age, location, state
   'Hayman', 
   'Beagle',
   0.3,
-  'cyan',
+  'Brown',
   0,
   'Lorem Ipsum Dolor Whatever',
   1,
@@ -179,26 +189,26 @@ INSERT INTO Pets (name, species, size, color, gender, info, age, location, state
   'delivered'
 );
 
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Lesser mouse lemur', 'turpis', 1.8, 'Khaki', 1, 'amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit', 3, 'Cicurug', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Red and blue macaw', 'morbi non', 1.8, 'Turquoise', 1, 'vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere', 1, 'Daniwato', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Gull, kelp', 'justo in', 1.5, 'Blue', 0, 'aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a', 1, 'Phoenix', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Racer snake', 'sit amet', 0.8, 'Blue', 1, 'nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu', 4, 'Shchastya', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Spotted deer', 'volutpat', 1.2, 'Mauv', 1, 'eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam', 4, 'Spånga', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Seal, harbor', 'lacinia aenean', 2.0, 'Maroon', 1, 'eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan', 2, 'Urukh', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Blue catfish', 'lectus', 1.3, 'Green', 0, 'sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque', 4, 'Siparia', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Moccasin, water', 'nullam', 0.7, 'Red', 0, 'libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem', 2, 'Gore', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Vulture, king', 'donec', 0.2, 'Indigo', 1, 'amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh', 1, 'Luna', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Langur, hanuman', 'sem', 0.7, 'Turquoise', 0, 'viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet', 5, 'Stod', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Cat, cape wild', 'viverra diam', 1.3, 'Violet', 1, 'tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed', 1, 'Timurlorong', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Whale, killer', 'nullam', 0.9, 'Khaki', 0, 'ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper', 3, 'Liulin', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Eastern dwarf mongoose', 'mauris sit', 1.7, 'Yellow', 0, 'sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque', 5, 'Ciénaga', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Black-backed jackal', 'non', 1.9, 'Goldenrod', 0, 'metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et', 5, 'Khon Kaen', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Squirrel, richardson''s ground', 'primis in', 1.9, 'Maroon', 1, 'pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris', 5, 'Ampelókipoi', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Black-capped capuchin', 'nec sem', 1.9, 'Orange', 1, 'in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem', 5, 'Kelasuri', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Collared peccary', 'et', 0.4, 'Pink', 0, 'curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum', 3, 'Tarnogskiy Gorodok', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Common wombat', 'nonummy', 1.8, 'Pink', 1, 'sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus', 3, 'Feira de Santana', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Insect, stick', 'faucibus cursus', 0.8, 'Orange', 1, 'vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus', 4, 'Rundeng', 'prepared');
-insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Monkey, vervet', 'tellus in', 0.6, 'Goldenrod', 1, 'diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat', 1, 'Giemdiem', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Lesser mouse lemur', 'Entlebucher', 1.8, 'Chocolate', 1, 'amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit', 3, 'Cicurug', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Red and blue macaw', 'Field Spaniel', 1.8, 'Cinnamon', 1, 'vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere', 1, 'Daniwato', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Gull, kelp', 'French Bulldog', 1.5, 'Cream', 0, 'aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a', 1, 'Phoenix', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Racer snake', 'German Shepherd Dog', 0.8, 'Fown', 1, 'nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu', 4, 'Shchastya', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Spotted deer', 'Golden Retriever', 1.2, 'Isabella', 1, 'eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam', 4, 'Spånga', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Seal, harbor', 'Great Dane', 2.0, 'Lilac', 1, 'eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan', 2, 'Urukh', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Blue catfish', 'Hamiltonstovare', 1.3, 'Pale Amber', 0, 'sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque', 4, 'Siparia', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Moccasin, water', 'Hovawart', 0.7, 'Red', 0, 'libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem', 2, 'Gore', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Vulture, king', 'Icelandic Sheepdog', 0.2, 'TortoiseShell', 1, 'amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh', 1, 'Luna', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Langur, hanuman', 'Irish Wolfhound', 0.7, 'Amber', 0, 'viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet', 5, 'Stod', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Cat, cape wild', 'Jindo', 1.3, 'Black', 1, 'tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed', 1, 'Timurlorong', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Whale, killer', 'Kai Dog', 0.9, 'Blue', 0, 'ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper', 3, 'Liulin', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Eastern dwarf mongoose', 'Kishu', 1.7, 'Yellow', 0, 'sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque', 5, 'Ciénaga', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Black-backed jackal', 'Pit Bull Terrier', 1.9, 'Brown', 0, 'metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et', 5, 'Khon Kaen', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Squirrel, richardson''s ground', 'Kuvasz', 1.9, 'Chocolate', 1, 'pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris', 5, 'Ampelókipoi', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Black-capped capuchin', 'Labradoodle', 1.9, 'Cinnamon', 1, 'in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem', 5, 'Kelasuri', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Collared peccary', 'Leonberger', 0.4, 'Cream', 0, 'curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum', 3, 'Tarnogskiy Gorodok', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Common wombat', 'Maltese', 1.8, 'Fown', 1, 'sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus', 3, 'Feira de Santana', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Insect, stick', 'McNab', 0.8, 'Isabella', 1, 'vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus', 4, 'Rundeng', 'prepared');
+insert into Pets (name, species, size, color, gender, info, age, location, state) values ('Monkey, vervet', 'Munsterlander', 0.6, 'Lilac', 1, 'diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat', 1, 'Giemdiem', 'prepared');
 
 INSERT INTO Pets_Images (img_id,pet_id) VALUES (1,1);
 INSERT INTO Pets_Images (img_id,pet_id) VALUES (2,2);
@@ -1364,3 +1374,361 @@ insert into Comments (id, user_id, pet_id, date, text) values (998, 2, 25, '1593
 insert into Comments (id, user_id, pet_id, date, text) values (999, 2, 17, '1581960809', 'Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet.');
 insert into Comments (id, user_id, pet_id, date, text) values (1000, 3, 12, '1593128097', 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices.');
 
+insert into Breeds (id, breed) values (1, 'Abyssinian');
+insert into Breeds (id, breed) values (2, 'American Bobtail');
+insert into Breeds (id, breed) values (3, 'American Curl');
+insert into Breeds (id, breed) values (4, 'American Shorthair');
+insert into Breeds (id, breed) values (5, 'American Wirehair');
+insert into Breeds (id, breed) values (6, 'Applehead Siamese');
+insert into Breeds (id, breed) values (7, 'Balinese');
+insert into Breeds (id, breed) values (8, 'Bengal');
+insert into Breeds (id, breed) values (9, 'Birman');
+insert into Breeds (id, breed) values (10, 'Bombay');
+insert into Breeds (id, breed) values (11, 'British Shorthair');
+insert into Breeds (id, breed) values (12, 'Burmese');
+insert into Breeds (id, breed) values (13, 'Burmilla');
+insert into Breeds (id, breed) values (14, 'Calico');
+insert into Breeds (id, breed) values (15, 'Canadian Hairless');
+insert into Breeds (id, breed) values (16, 'Chartreux');
+insert into Breeds (id, breed) values (17, 'Chausie');
+insert into Breeds (id, breed) values (18, 'Chinchilla');
+insert into Breeds (id, breed) values (19, 'Cornish Rex');
+insert into Breeds (id, breed) values (20, 'Cymric');
+insert into Breeds (id, breed) values (21, 'Devon Rex');
+insert into Breeds (id, breed) values (22, 'Dilute Calico');
+insert into Breeds (id, breed) values (23, 'Dilute Tortoiseshell');
+insert into Breeds (id, breed) values (24, 'Domestic Long Hair');
+insert into Breeds (id, breed) values (25, 'Domestic Medium Hair');
+insert into Breeds (id, breed) values (26, 'Domestic Short Hair');
+insert into Breeds (id, breed) values (27, 'Egyptian Mau');
+insert into Breeds (id, breed) values (28, 'Exotic Shorthair');
+insert into Breeds (id, breed) values (29, 'Extra-Toes Cat');
+insert into Breeds (id, breed) values (30, 'Havana');
+insert into Breeds (id, breed) values (31, 'Himalayan');
+insert into Breeds (id, breed) values (32, 'Japanese Bobtail');
+insert into Breeds (id, breed) values (33, 'Javanese');
+insert into Breeds (id, breed) values (34, 'Korat');
+insert into Breeds (id, breed) values (35, 'LaPerm');
+insert into Breeds (id, breed) values (36, 'Maine Coon');
+insert into Breeds (id, breed) values (37, 'Manx');
+insert into Breeds (id, breed) values (38, 'Munchkin');
+insert into Breeds (id, breed) values (39, 'Nebelung');
+insert into Breeds (id, breed) values (40, 'Norwegian Forest Cat');
+insert into Breeds (id, breed) values (41, 'Ocicat');
+insert into Breeds (id, breed) values (42, 'Oriental Long Hair');
+insert into Breeds (id, breed) values (43, 'Oriental Short Hair');
+insert into Breeds (id, breed) values (44, 'Oriental Tabby');
+insert into Breeds (id, breed) values (45, 'Persian');
+insert into Breeds (id, breed) values (46, 'Pixiebob');
+insert into Breeds (id, breed) values (47, 'Ragamuffin');
+insert into Breeds (id, breed) values (48, 'Ragdoll');
+insert into Breeds (id, breed) values (49, 'Russian Blue');
+insert into Breeds (id, breed) values (50, 'Scottish Fold');
+insert into Breeds (id, breed) values (51, 'Selkirk Rex');
+insert into Breeds (id, breed) values (52, 'Siamese');
+insert into Breeds (id, breed) values (53, 'Siberian');
+insert into Breeds (id, breed) values (54, 'Silver');
+insert into Breeds (id, breed) values (55, 'Singapura');
+insert into Breeds (id, breed) values (56, 'Snowshoe');
+insert into Breeds (id, breed) values (57, 'Somali');
+insert into Breeds (id, breed) values (58, 'Sphynx');
+insert into Breeds (id, breed) values (59, 'Tabby');
+insert into Breeds (id, breed) values (60, 'Tiger');
+insert into Breeds (id, breed) values (61, 'Tonkinese');
+insert into Breeds (id, breed) values (62, 'Torbie');
+insert into Breeds (id, breed) values (63, 'Tortoiseshell');
+insert into Breeds (id, breed) values (64, 'Toyger');
+insert into Breeds (id, breed) values (65, 'Turkish Angora');
+insert into Breeds (id, breed) values (66, 'Turkish Van');
+insert into Breeds (id, breed) values (67, 'Tuxedo');
+insert into Breeds (id, breed) values (68, 'York Chocolate');
+insert into Breeds (id, breed) values (69, 'Affenpinscher');
+insert into Breeds (id, breed) values (70, 'Afghan Hound');
+insert into Breeds (id, breed) values (71, 'Airedale Terrier');
+insert into Breeds (id, breed) values (72, 'Akbash');
+insert into Breeds (id, breed) values (73, 'Akita');
+insert into Breeds (id, breed) values (74, 'Alaskan Malamute');
+insert into Breeds (id, breed) values (75, 'American Bulldog');
+insert into Breeds (id, breed) values (76, 'American Bully');
+insert into Breeds (id, breed) values (77, 'American Eskimo Dog');
+insert into Breeds (id, breed) values (78, 'American Foxhound');
+insert into Breeds (id, breed) values (79, 'American Hairless Terrier');
+insert into Breeds (id, breed) values (80, 'American Staffordshire Terrier');
+insert into Breeds (id, breed) values (81, 'American Water Spaniel');
+insert into Breeds (id, breed) values (82, 'Anatolian Shepherd');
+insert into Breeds (id, breed) values (83, 'Appenzell Mountain Dog');
+insert into Breeds (id, breed) values (84, 'Aussiedoodle');
+insert into Breeds (id, breed) values (85, 'Australian Cattle Dog');
+insert into Breeds (id, breed) values (86, 'Australian Kelpie');
+insert into Breeds (id, breed) values (87, 'Australian Shepherd');
+insert into Breeds (id, breed) values (88, 'Australian Terrier');
+insert into Breeds (id, breed) values (89, 'Basenji');
+insert into Breeds (id, breed) values (90, 'Basset Hound');
+insert into Breeds (id, breed) values (91, 'Beagle');
+insert into Breeds (id, breed) values (92, 'Bearded Collie');
+insert into Breeds (id, breed) values (93, 'Beauceron');
+insert into Breeds (id, breed) values (94, 'Bedlington Terrier');
+insert into Breeds (id, breed) values (95, 'Belgian Shepherd');
+insert into Breeds (id, breed) values (96, 'Belgian Shepherd');
+insert into Breeds (id, breed) values (97, 'Belgian Shepherd');
+insert into Breeds (id, breed) values (98, 'Belgian Shepherd');
+insert into Breeds (id, breed) values (99, 'Bernedoodle');
+insert into Breeds (id, breed) values (100, 'Bernese Mountain Dog');
+insert into Breeds (id, breed) values (101, 'Bichon Frise');
+insert into Breeds (id, breed) values (102, 'Black and Tan Coonhound');
+insert into Breeds (id, breed) values (103, 'Black Labrador Retriever');
+insert into Breeds (id, breed) values (104, 'Black Mouth Cur');
+insert into Breeds (id, breed) values (105, 'Black Russian Terrier');
+insert into Breeds (id, breed) values (106, 'Bloodhound');
+insert into Breeds (id, breed) values (107, 'Blue Lacy');
+insert into Breeds (id, breed) values (108, 'Bluetick Coonhound');
+insert into Breeds (id, breed) values (109, 'Boerboel');
+insert into Breeds (id, breed) values (110, 'Bolognese');
+insert into Breeds (id, breed) values (111, 'Border Collie');
+insert into Breeds (id, breed) values (112, 'Border Terrier');
+insert into Breeds (id, breed) values (113, 'Borzoi');
+insert into Breeds (id, breed) values (114, 'Boston Terrier');
+insert into Breeds (id, breed) values (115, 'Bouvier des Flandres');
+insert into Breeds (id, breed) values (116, 'Boxer');
+insert into Breeds (id, breed) values (117, 'Boykin Spaniel');
+insert into Breeds (id, breed) values (118, 'Briard');
+insert into Breeds (id, breed) values (119, 'Brittany Spaniel');
+insert into Breeds (id, breed) values (120, 'Brussels Griffon');
+insert into Breeds (id, breed) values (121, 'Bull Terrier');
+insert into Breeds (id, breed) values (122, 'Bullmastiff');
+insert into Breeds (id, breed) values (123, 'Cairn Terrier');
+insert into Breeds (id, breed) values (124, 'Canaan Dog');
+insert into Breeds (id, breed) values (125, 'Cane Corso');
+insert into Breeds (id, breed) values (126, 'Cardigan Welsh Corgi');
+insert into Breeds (id, breed) values (127, 'Carolina Dog');
+insert into Breeds (id, breed) values (128, 'Catahoula Leopard Dog');
+insert into Breeds (id, breed) values (129, 'Cattle Dog');
+insert into Breeds (id, breed) values (130, 'Caucasian Sheepdog');
+insert into Breeds (id, breed) values (131, 'Cavachon');
+insert into Breeds (id, breed) values (132, 'Cavalier King Charles Spaniel');
+insert into Breeds (id, breed) values (133, 'Cavapoo');
+insert into Breeds (id, breed) values (134, 'Chesapeake Bay Retriever');
+insert into Breeds (id, breed) values (135, 'Chihuahua');
+insert into Breeds (id, breed) values (136, 'Chinese Crested Dog');
+insert into Breeds (id, breed) values (137, 'Chinese Foo Dog');
+insert into Breeds (id, breed) values (138, 'Chinook');
+insert into Breeds (id, breed) values (139, 'Chiweenie');
+insert into Breeds (id, breed) values (140, 'Chocolate Labrador Retriever');
+insert into Breeds (id, breed) values (141, 'Chow Chow');
+insert into Breeds (id, breed) values (142, 'Cirneco dellEtna');
+insert into Breeds (id, breed) values (143, 'Clumber Spaniel');
+insert into Breeds (id, breed) values (144, 'Cockapoo');
+insert into Breeds (id, breed) values (145, 'Cocker Spaniel');
+insert into Breeds (id, breed) values (146, 'Collie');
+insert into Breeds (id, breed) values (147, 'Coonhound');
+insert into Breeds (id, breed) values (148, 'Corgi');
+insert into Breeds (id, breed) values (149, 'Coton de Tulear');
+insert into Breeds (id, breed) values (150, 'Curly-Coated Retriever');
+insert into Breeds (id, breed) values (151, 'Dachshund');
+insert into Breeds (id, breed) values (152, 'Dalmatian');
+insert into Breeds (id, breed) values (153, 'Dandie Dinmont Terrier');
+insert into Breeds (id, breed) values (154, 'Doberman Pinscher');
+insert into Breeds (id, breed) values (155, 'Dogo Argentino');
+insert into Breeds (id, breed) values (156, 'Dogue de Bordeaux');
+insert into Breeds (id, breed) values (157, 'Dutch Shepherd');
+insert into Breeds (id, breed) values (158, 'English Bulldog');
+insert into Breeds (id, breed) values (159, 'English Cocker Spaniel');
+insert into Breeds (id, breed) values (160, 'English Coonhound');
+insert into Breeds (id, breed) values (161, 'English Foxhound');
+insert into Breeds (id, breed) values (162, 'English Pointer');
+insert into Breeds (id, breed) values (163, 'English Setter');
+insert into Breeds (id, breed) values (164, 'English Shepherd');
+insert into Breeds (id, breed) values (165, 'English Springer Spaniel');
+insert into Breeds (id, breed) values (166, 'English Toy Spaniel');
+insert into Breeds (id, breed) values (167, 'Entlebucher');
+insert into Breeds (id, breed) values (168, 'Eskimo Dog');
+insert into Breeds (id, breed) values (169, 'Feist');
+insert into Breeds (id, breed) values (170, 'Field Spaniel');
+insert into Breeds (id, breed) values (171, 'Fila Brasileiro');
+insert into Breeds (id, breed) values (172, 'Finnish Lapphund');
+insert into Breeds (id, breed) values (173, 'Finnish Spitz');
+insert into Breeds (id, breed) values (174, 'Flat-Coated Retriever');
+insert into Breeds (id, breed) values (175, 'Fox Terrier');
+insert into Breeds (id, breed) values (176, 'Foxhound');
+insert into Breeds (id, breed) values (177, 'French Bulldog');
+insert into Breeds (id, breed) values (178, 'Galgo Spanish Greyhound');
+insert into Breeds (id, breed) values (179, 'German Pinscher');
+insert into Breeds (id, breed) values (180, 'German Shepherd Dog');
+insert into Breeds (id, breed) values (181, 'German Shorthaired Pointer');
+insert into Breeds (id, breed) values (182, 'German Spitz');
+insert into Breeds (id, breed) values (183, 'German Wirehaired Pointer');
+insert into Breeds (id, breed) values (184, 'Giant Schnauzer');
+insert into Breeds (id, breed) values (185, 'Glen of Imaal Terrier');
+insert into Breeds (id, breed) values (186, 'Golden Retriever');
+insert into Breeds (id, breed) values (187, 'Goldendoodle');
+insert into Breeds (id, breed) values (188, 'Gordon Setter');
+insert into Breeds (id, breed) values (189, 'Great Dane');
+insert into Breeds (id, breed) values (190, 'Great Pyrenees');
+insert into Breeds (id, breed) values (191, 'Greater Swiss Mountain Dog');
+insert into Breeds (id, breed) values (192, 'Greyhound');
+insert into Breeds (id, breed) values (193, 'Hamiltonstovare');
+insert into Breeds (id, breed) values (194, 'Harrier');
+insert into Breeds (id, breed) values (195, 'Havanese');
+insert into Breeds (id, breed) values (196, 'Hound');
+insert into Breeds (id, breed) values (197, 'Hovawart');
+insert into Breeds (id, breed) values (198, 'Husky');
+insert into Breeds (id, breed) values (199, 'Ibizan Hound');
+insert into Breeds (id, breed) values (200, 'Icelandic Sheepdog');
+insert into Breeds (id, breed) values (201, 'Illyrian Sheepdog');
+insert into Breeds (id, breed) values (202, 'Irish Setter');
+insert into Breeds (id, breed) values (203, 'Irish Terrier');
+insert into Breeds (id, breed) values (204, 'Irish Water Spaniel');
+insert into Breeds (id, breed) values (205, 'Irish Wolfhound');
+insert into Breeds (id, breed) values (206, 'Italian Greyhound');
+insert into Breeds (id, breed) values (207, 'Jack Russell Terrier');
+insert into Breeds (id, breed) values (208, 'Japanese Chin');
+insert into Breeds (id, breed) values (209, 'Jindo');
+insert into Breeds (id, breed) values (210, 'Kai Dog');
+insert into Breeds (id, breed) values (211, 'Karelian Bear Dog');
+insert into Breeds (id, breed) values (212, 'Keeshond');
+insert into Breeds (id, breed) values (213, 'Kerry Blue Terrier');
+insert into Breeds (id, breed) values (214, 'Kishu');
+insert into Breeds (id, breed) values (215, 'Klee Kai');
+insert into Breeds (id, breed) values (216, 'Komondor');
+insert into Breeds (id, breed) values (217, 'Kuvasz');
+insert into Breeds (id, breed) values (218, 'Kyi Leo');
+insert into Breeds (id, breed) values (219, 'Labradoodle');
+insert into Breeds (id, breed) values (220, 'Labrador Retriever');
+insert into Breeds (id, breed) values (221, 'Lakeland Terrier');
+insert into Breeds (id, breed) values (222, 'Lancashire Heeler');
+insert into Breeds (id, breed) values (223, 'Leonberger');
+insert into Breeds (id, breed) values (224, 'Lhasa Apso');
+insert into Breeds (id, breed) values (225, 'Lowchen');
+insert into Breeds (id, breed) values (226, 'Lurcher');
+insert into Breeds (id, breed) values (227, 'Maltese');
+insert into Breeds (id, breed) values (228, 'Maltipoo');
+insert into Breeds (id, breed) values (229, 'Manchester Terrier');
+insert into Breeds (id, breed) values (230, 'Maremma Sheepdog');
+insert into Breeds (id, breed) values (231, 'Mastiff');
+insert into Breeds (id, breed) values (232, 'McNab');
+insert into Breeds (id, breed) values (233, 'Miniature Bull Terrier');
+insert into Breeds (id, breed) values (234, 'Miniature Dachshund');
+insert into Breeds (id, breed) values (235, 'Miniature Pinscher');
+insert into Breeds (id, breed) values (236, 'Miniature Poodle');
+insert into Breeds (id, breed) values (237, 'Miniature Schnauzer');
+insert into Breeds (id, breed) values (238, 'Mixed Breed');
+insert into Breeds (id, breed) values (239, 'Morkie');
+insert into Breeds (id, breed) values (240, 'Mountain Cur');
+insert into Breeds (id, breed) values (241, 'Mountain Dog');
+insert into Breeds (id, breed) values (242, 'Munsterlander');
+insert into Breeds (id, breed) values (243, 'Neapolitan Mastiff');
+insert into Breeds (id, breed) values (244, 'New Guinea Singing Dog');
+insert into Breeds (id, breed) values (245, 'Newfoundland Dog');
+insert into Breeds (id, breed) values (246, 'Norfolk Terrier');
+insert into Breeds (id, breed) values (247, 'Norwegian Buhund');
+insert into Breeds (id, breed) values (248, 'Norwegian Elkhound');
+insert into Breeds (id, breed) values (249, 'Norwegian Lundehund');
+insert into Breeds (id, breed) values (250, 'Norwich Terrier');
+insert into Breeds (id, breed) values (251, 'Nova Scotia Duck Tolling Retriever');
+insert into Breeds (id, breed) values (252, 'Old English Sheepdog');
+insert into Breeds (id, breed) values (253, 'Otterhound');
+insert into Breeds (id, breed) values (254, 'Papillon');
+insert into Breeds (id, breed) values (255, 'Parson Russell Terrier');
+insert into Breeds (id, breed) values (256, 'Patterdale Terrier');
+insert into Breeds (id, breed) values (257, 'Pekingese');
+insert into Breeds (id, breed) values (258, 'Pembroke Welsh Corgi');
+insert into Breeds (id, breed) values (259, 'Peruvian Inca Orchid');
+insert into Breeds (id, breed) values (260, 'Petit Basset Griffon Vendeen');
+insert into Breeds (id, breed) values (261, 'Pharaoh Hound');
+insert into Breeds (id, breed) values (262, 'Pit Bull Terrier');
+insert into Breeds (id, breed) values (263, 'Plott Hound');
+insert into Breeds (id, breed) values (264, 'Pointer');
+insert into Breeds (id, breed) values (265, 'Polish Lowland Sheepdog');
+insert into Breeds (id, breed) values (266, 'Pomeranian');
+insert into Breeds (id, breed) values (267, 'Pomsky');
+insert into Breeds (id, breed) values (268, 'Poodle');
+insert into Breeds (id, breed) values (269, 'Portuguese Podengo');
+insert into Breeds (id, breed) values (270, 'Portuguese Water Dog');
+insert into Breeds (id, breed) values (271, 'Presa Canario');
+insert into Breeds (id, breed) values (272, 'Pug');
+insert into Breeds (id, breed) values (273, 'Puggle');
+insert into Breeds (id, breed) values (274, 'Puli');
+insert into Breeds (id, breed) values (275, 'Pumi');
+insert into Breeds (id, breed) values (276, 'Pyrenean Shepherd');
+insert into Breeds (id, breed) values (277, 'Rat Terrier');
+insert into Breeds (id, breed) values (278, 'Redbone Coonhound');
+insert into Breeds (id, breed) values (279, 'Retriever');
+insert into Breeds (id, breed) values (280, 'Rhodesian Ridgeback');
+insert into Breeds (id, breed) values (281, 'Rottweiler');
+insert into Breeds (id, breed) values (282, 'Rough Collie');
+insert into Breeds (id, breed) values (283, 'Saint Bernard');
+insert into Breeds (id, breed) values (284, 'Saluki');
+insert into Breeds (id, breed) values (285, 'Samoyed');
+insert into Breeds (id, breed) values (286, 'Sarplaninac');
+insert into Breeds (id, breed) values (287, 'Schipperke');
+insert into Breeds (id, breed) values (288, 'Schnauzer');
+insert into Breeds (id, breed) values (289, 'Schnoodle');
+insert into Breeds (id, breed) values (290, 'Scottish Deerhound');
+insert into Breeds (id, breed) values (291, 'Scottish Terrier');
+insert into Breeds (id, breed) values (292, 'Sealyham Terrier');
+insert into Breeds (id, breed) values (293, 'Setter');
+insert into Breeds (id, breed) values (294, 'Shar-Pei');
+insert into Breeds (id, breed) values (295, 'Sheep Dog');
+insert into Breeds (id, breed) values (296, 'Sheepadoodle');
+insert into Breeds (id, breed) values (297, 'Shepherd');
+insert into Breeds (id, breed) values (298, 'Shetland Sheepdog');
+insert into Breeds (id, breed) values (299, 'Shiba Inu');
+insert into Breeds (id, breed) values (300, 'Shih poo');
+insert into Breeds (id, breed) values (301, 'Shih Tzu');
+insert into Breeds (id, breed) values (302, 'Shollie');
+insert into Breeds (id, breed) values (303, 'Siberian Husky');
+insert into Breeds (id, breed) values (304, 'Silky Terrier');
+insert into Breeds (id, breed) values (305, 'Skye Terrier');
+insert into Breeds (id, breed) values (306, 'Sloughi');
+insert into Breeds (id, breed) values (307, 'Smooth Collie');
+insert into Breeds (id, breed) values (308, 'Smooth Fox Terrier');
+insert into Breeds (id, breed) values (309, 'South Russian Ovtcharka');
+insert into Breeds (id, breed) values (310, 'Spaniel');
+insert into Breeds (id, breed) values (311, 'Spanish Water Dog');
+insert into Breeds (id, breed) values (312, 'Spinone Italiano');
+insert into Breeds (id, breed) values (313, 'Spitz');
+insert into Breeds (id, breed) values (314, 'Staffordshire Bull Terrier');
+insert into Breeds (id, breed) values (315, 'Standard Poodle');
+insert into Breeds (id, breed) values (316, 'Standard Schnauzer');
+insert into Breeds (id, breed) values (317, 'Sussex Spaniel');
+insert into Breeds (id, breed) values (318, 'Swedish Vallhund');
+insert into Breeds (id, breed) values (319, 'Tennessee Treeing Brindle');
+insert into Breeds (id, breed) values (320, 'Terrier');
+insert into Breeds (id, breed) values (321, 'Thai Ridgeback');
+insert into Breeds (id, breed) values (322, 'Tibetan Mastiff');
+insert into Breeds (id, breed) values (323, 'Tibetan Spaniel');
+insert into Breeds (id, breed) values (324, 'Tibetan Terrier');
+insert into Breeds (id, breed) values (325, 'Tosa Inu');
+insert into Breeds (id, breed) values (326, 'Toy Fox Terrier');
+insert into Breeds (id, breed) values (327, 'Toy Manchester Terrier');
+insert into Breeds (id, breed) values (328, 'Treeing Walker Coonhound');
+insert into Breeds (id, breed) values (329, 'Vizsla');
+insert into Breeds (id, breed) values (330, 'Weimaraner');
+insert into Breeds (id, breed) values (331, 'Welsh Springer Spaniel');
+insert into Breeds (id, breed) values (332, 'Welsh Terrier');
+insert into Breeds (id, breed) values (333, 'West Highland White Terrier');
+insert into Breeds (id, breed) values (334, 'Wheaten Terrier');
+insert into Breeds (id, breed) values (335, 'Whippet');
+insert into Breeds (id, breed) values (336, 'White German Shepherd');
+insert into Breeds (id, breed) values (337, 'Wire Fox Terrier');
+insert into Breeds (id, breed) values (338, 'Wirehaired Dachshund');
+insert into Breeds (id, breed) values (339, 'Wirehaired Pointing Griffon');
+insert into Breeds (id, breed) values (340, 'Wirehaired Terrier');
+insert into Breeds (id, breed) values (341, 'Xoloitzcuintli');
+insert into Breeds (id, breed) values (342, 'Yellow Labrador Retriever');
+insert into Breeds (id, breed) values (343, 'Yorkshire Terrier');
+
+insert into Pets_Colors (id, color) values (1, 'Amber');
+insert into Pets_Colors (id, color) values (2, 'Black');
+insert into Pets_Colors (id, color) values (3, 'Blue');
+insert into Pets_Colors (id, color) values (4, 'Yellow');
+insert into Pets_Colors (id, color) values (5, 'Brown');
+insert into Pets_Colors (id, color) values (6, 'Chocolate');
+insert into Pets_Colors (id, color) values (7, 'Cinnamon');
+insert into Pets_Colors (id, color) values (8, 'Cream');
+insert into Pets_Colors (id, color) values (9, 'Fown');
+insert into Pets_Colors (id, color) values (10, 'Isabella');
+insert into Pets_Colors (id, color) values (11, 'Lilac');
+insert into Pets_Colors (id, color) values (12, 'Pale Amber');
+insert into Pets_Colors (id, color) values (13, 'Red');
+insert into Pets_Colors (id, color) values (14, 'TortoiseShell');

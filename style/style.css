@@ -1865,6 +1865,10 @@ body #pet_add #right form label input[type=text], body #pet_add #right form labe
   font-size: 0.9em;
   outline: none;
 }
+body #pet_add #right form label ul {
+  max-height: 100px;
+  overflow: auto;
+}
 body #pet_add #right form #petInfo {
   grid-column: 1;
   grid-row: 4;

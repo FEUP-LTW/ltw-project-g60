@@ -132,8 +132,8 @@ function addPet($id, $name, $image, $image_title, $species, $size, $color, $gend
         $stmt->bindParam(':pet_id', $last_pet_id);
         $stmt->execute();
     }else{
-        $stmt = $db->prepare('INSERT INTO Shelters_Pets(user_id, pet_id) VALUES (:user_id, :pet_id)');
-        $stmt->bindParam(':user_id', $id);
+        $stmt = $db->prepare('INSERT INTO Shelters_Pets(shelter_id, pet_id) VALUES (:shelter_id, :pet_id)');
+        $stmt->bindParam(':shelter_id', $id);
         $stmt->bindParam(':pet_id', $last_pet_id);
         $stmt->execute();
     }
@@ -189,4 +189,39 @@ function addPetComment($pet_id, $user_id, $text) {
     }
 }
 
+function getBreeds() {
+  global $db;
+  if ($stmt = $db->prepare('SELECT breed FROM Breeds')) {
+    $stmt->execute();
+    $tempbreeds = $stmt->fetchAll();
+
+    $breeds = [];
+    foreach ($tempbreeds as $breed){
+      array_push($breeds, $breed["breed"]);
+    }
+    return $breeds;
+  }
+  else {
+    printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+    die;
+  }
+}
+
+function getPetColors() {
+  global $db;
+  if ($stmt = $db->prepare('SELECT color FROM Pets_Colors')) {
+    $stmt->execute();
+    $tempcolors = $stmt->fetchAll();
+
+    $colors = [];
+    foreach ($tempcolors as $color){
+      array_push($colors, $color["color"]);
+    }
+    return $colors;
+  }
+  else {
+    printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+    die;
+  }
+}
 
