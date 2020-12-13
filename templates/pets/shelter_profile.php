@@ -16,33 +16,35 @@
             </div>
         <?php } ?>
         <div id="location">
-            <a href="#"><i class="fas fa-map-marker-alt"></i>
-                <span>Location</span></a>
+            <label ><i class="fas fa-map-marker-alt"></i>
+                <span>Location</span></label>
         </div>
         <div id="contact">
-            <a href="#"><i class="fas fa-mobile-alt"></i>
+            <label><i class="fas fa-mobile-alt"></i>
                 <span>Contacts</span>
-            </a>
+            </label>
         </div>
-        <section class="shelter_adoption" style="display: block">
+        <section class="shelter_adoption">
             <div class="title"><i class="fas fa-paw"></i>
                 <span>For adoption</span>
             </div>
-            <?php foreach ($adoption as $pet) { ?>
-                <div class="adoption-card">
-                    <a href="pet_detail.php?id=<?= $pet['pet_id'] ?>">
-                        <div class="pet-img" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg')"></div>
-                        <div class="container-pet">
-                            <h4><b><?= $pet['name'] ?></b></h4>
-                            <p><?= $pet['info'] ?></p>
-                        </div>
-                    </a>
-                </div>
-            <?php } ?>
+            <div class="pets_container">
+                <?php foreach ($adoption as $pet) { ?>
+                    <div class="adoption-card">
+                        <a href="pet_detail.php?id=<?= $pet['pet_id'] ?>">
+                            <div class="pet-img" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg')"></div>
+                            <div class="container-pet">
+                                <h4><b><?= $pet['name'] ?></b></h4>
+                                <p><?= $pet['info'] ?></p>
+                            </div>
+                        </a>
+                    </div>
+                <?php } ?>
+            </div>
         </section>
         <div class="edit_shelter_info" style="display: none">
             <div class="title">
-                <i class="fas fa-paw"></i>
+                <i class="fas fa-file"></i>
                 <span>Edit Info</span>
                 <form action="" method="post" enctype="multipart/form-data">
                     <div class="group">

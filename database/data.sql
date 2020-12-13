@@ -99,10 +99,9 @@ CREATE TABLE Pets_Adoption_Shelter(
 );
 
 CREATE TABLE Pets_Images(
-    img_id      INTEGER,
+    img_id      INTEGER PRIMARY KEY,
     pet_id      INTEGER,
-    CONSTRAINT pet_img_fk1 FOREIGN KEY (pet_id) REFERENCES Pets(pet_id),
-    CONSTRAINT imgs_pet_pk PRIMARY KEY(img_id, pet_id)
+    CONSTRAINT pet_img_fk1 FOREIGN KEY (pet_id) REFERENCES Pets(pet_id)
 );
 
 create table Comments (

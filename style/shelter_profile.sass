@@ -99,7 +99,7 @@ body
         cursor: pointer
         @include animations.animation("scale05 0.2s forwards")
 
-      .container-dog
+      .container-pet
         padding: 0
         width: 28vw
         text-align: justify
@@ -114,7 +114,7 @@ body
           padding: 8px
           background-color: common.$accent-color
           border-radius: 10px
-          width: 90%
+          width: fit-content
           margin: 15px auto
           a
             width: fit-content
@@ -128,10 +128,10 @@ body
               background-size: cover
               background-position: center
 
-          .container-pet
-            padding: 0
-            width: 54vw
-            text-align: justify
+            .container-pet
+              padding: 0
+              width: 54vw
+              text-align: justify
 
         .adoption-card:hover
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
@@ -207,7 +207,7 @@ body
           cursor: pointer
           @include animations.animation("scale05 0.2s forwards")
 
-@media (max-width: 57em)
+@media (max-width: 55em)
   body
     .shelter_profile
       .title
@@ -217,11 +217,12 @@ body
       .left
         width: 75%
         #about_me, #location, #contact
-          i
-            margin: 10px 0
-            font-size: 275%
-          span
-            display: none
+          label
+            i
+              margin: 10px 0
+              font-size: 275%
+            span
+              display: none
         .shelter_adoption
           p
             white-space: nowrap
@@ -257,14 +258,14 @@ body
       .left
         width: 100%
         #about_me, #location, #contact
-          a
+          label
             i
               margin: 7px 0
               font-size: 375%
-        .shelter_adoption
+        .pets_container
           padding: 5px
           width: fit-content
-          display: flex
+          display: flex !important
           flex-wrap: wrap
           align-content: flex-start
           .adoption-card
@@ -279,6 +280,10 @@ body
                   display: none
           .title
             width: 100%
+        .edit_shelter_info
+          .title
+            form
+              display: block
       .right
         width: 100%
         .shelter_adopted

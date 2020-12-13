@@ -25,38 +25,44 @@
             </label>
         </div>
         <div id="contact">
-            <a href="#"><i class="fas fa-mobile-alt"></i>
+            <label><i id="contact_icon" class="fas fa-mobile-alt"></i>
                 <span>Contacts</span>
-            </a>
+                <!--<input id="user_fav" type="checkbox" name="favorites" onclick="userFavorites()">-->
+            </label>
         </div>
-        <div class="user_pets" style="display: block">
+        <div class="user_pets">
             <div class="title"><i class="fas fa-paw"></i>
                 <span>My pets</span></div>
-            <?php foreach ($pets as $pet) { ?>
-                <div class="pet">
-                    <a href="pet_detail.php?id=<?= $pet['PetID'] ?>">
-                        <div class="pet-img" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($pet['PetID']) ?>.jpg')"></div>
-                        <div class="container-pet">
-                            <h4><b><?= $pet['PetName'] ?></b></h4>
-                            <p><?= $pet['PetInfo'] ?></p>
-                        </div>
-                    </a>
-                </div>
-            <?php } ?>
+            <div class="pets_container">
+                <?php foreach ($pets as $pet) { ?>
+                    <div class="pet">
+                        <a href="pet_detail.php?id=<?= $pet['PetID'] ?>">
+                            <div class="pet-img" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($pet['PetID']) ?>.jpg')"></div>
+                            <div class="container-pet">
+                                <h4><b><?= $pet['PetName'] ?></b></h4>
+                                <p><?= $pet['PetInfo'] ?></p>
+                            </div>
+                        </a>
+                    </div>
+                <?php } ?>
+            </div>
         </div>
-        <div class="user_pets user_favorites" style="display: none">
-            <div class="title"><i class="fas fa-heart"></i>Favorites</div>
-            <?php foreach ($favorites as $pet) { ?>
-                  <div class="pet">
-                      <a href="pet_detail.php?id=<?= $pet['PetID'] ?>">
-                          <img src="database/images/pets/thumbs_medium/<?= getImageByPetId($pet['PetID']) ?>.jpg" alt="puppy photo">
-                          <div class="container-dog">
-                              <h4><b><?= $pet['PetName'] ?></b></h4>
-                              <p><?= $pet['PetInfo'] ?></p>
-                          </div>
-                      </a>
-                  </div>
-          <?php } ?>
+        <div class="user_favorites" style="display: none">
+            <div class="title"><i class="fas fa-heart"></i>
+                <span>Favorites</span></div>
+            <div class="pets_container">
+                <?php foreach ($favorites as $pet) { ?>
+                      <div class="pet">
+                          <a href="pet_detail.php?id=<?= $pet['PetID'] ?>">
+                              <div class="pet-img" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($pet['PetID']) ?>.jpg')"></div>
+                              <div class="container-pet">
+                                  <h4><b><?= $pet['PetName'] ?></b></h4>
+                                  <p><?= $pet['PetInfo'] ?></p>
+                              </div>
+                          </a>
+                      </div>
+              <?php } ?>
+            </div>
         </div>
         <div class="edit_user_info" style="display: none">
             <div class="title">
@@ -104,12 +110,12 @@
                         <label for="confirm-password">Confirm Password</label>
                     </div>
                     <div class="new-collaboration">
-                        <div class="title"> <i class="fas fa-hands-helping"></i>
-                            <span>New Collaborations</span></div>
+                        <div class="new_collabs"> <i class="fas fa-hands-helping"></i>
+                            New Collaborations</div>
                         <?php foreach (getSheltersWithoutUserCollaboration($user['user_id']) as $shelter) { ?>
                             <label class="container"><?= $shelter['name'] ?>
                                 <input type="checkbox" name="new-collab" value="<?= $shelter['shelter_id'] ?>">
-                                <span class="checkmark"></span>
+                                <div class="checkmark"></div>
                             </label>
                         <?php } ?>
                     </div>

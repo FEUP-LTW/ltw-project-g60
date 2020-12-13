@@ -1056,7 +1056,7 @@ body .shelter_profile .left #about_me:hover, body .shelter_profile .left #locati
   cursor: pointer;
   -webkit-animation: scale05 0.2s forwards;
 }
-body .shelter_profile .left .container-dog {
+body .shelter_profile .left .container-pet {
   padding: 0;
   width: 28vw;
   text-align: justify;
@@ -1072,7 +1072,7 @@ body .shelter_profile .left .shelter_adoption .adoption-card, body .shelter_prof
   padding: 8px;
   background-color: #934B00;
   border-radius: 10px;
-  width: 90%;
+  width: fit-content;
   margin: 15px auto;
 }
 body .shelter_profile .left .shelter_adoption .adoption-card a, body .shelter_profile .left .edit_shelter_info .adoption-card a {
@@ -1088,7 +1088,7 @@ body .shelter_profile .left .shelter_adoption .adoption-card a .pet-img, body .s
   background-size: cover;
   background-position: center;
 }
-body .shelter_profile .left .shelter_adoption .adoption-card .container-pet, body .shelter_profile .left .edit_shelter_info .adoption-card .container-pet {
+body .shelter_profile .left .shelter_adoption .adoption-card a .container-pet, body .shelter_profile .left .edit_shelter_info .adoption-card a .container-pet {
   padding: 0;
   width: 54vw;
   text-align: justify;
@@ -1172,7 +1172,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   -webkit-animation: scale05 0.2s forwards;
 }
 
-@media (max-width: 57em) {
+@media (max-width: 55em) {
   body .shelter_profile .title {
     text-align: center;
   }
@@ -1182,11 +1182,11 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   body .shelter_profile .left {
     width: 75%;
   }
-  body .shelter_profile .left #about_me i, body .shelter_profile .left #location i, body .shelter_profile .left #contact i {
+  body .shelter_profile .left #about_me label i, body .shelter_profile .left #location label i, body .shelter_profile .left #contact label i {
     margin: 10px 0;
     font-size: 275%;
   }
-  body .shelter_profile .left #about_me span, body .shelter_profile .left #location span, body .shelter_profile .left #contact span {
+  body .shelter_profile .left #about_me label span, body .shelter_profile .left #location label span, body .shelter_profile .left #contact label span {
     display: none;
   }
   body .shelter_profile .left .shelter_adoption p, body .shelter_profile .left .edit_shelter_info p {
@@ -1231,32 +1231,35 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   body .shelter_profile .left {
     width: 100%;
   }
-  body .shelter_profile .left #about_me a i, body .shelter_profile .left #location a i, body .shelter_profile .left #contact a i {
+  body .shelter_profile .left #about_me label i, body .shelter_profile .left #location label i, body .shelter_profile .left #contact label i {
     margin: 7px 0;
     font-size: 375%;
   }
-  body .shelter_profile .left .shelter_adoption, body .shelter_profile .left .edit_shelter_info {
+  body .shelter_profile .left .pets_container {
     padding: 5px;
     width: fit-content;
-    display: flex;
+    display: flex !important;
     flex-wrap: wrap;
     align-content: flex-start;
   }
-  body .shelter_profile .left .shelter_adoption .adoption-card, body .shelter_profile .left .edit_shelter_info .adoption-card {
+  body .shelter_profile .left .pets_container .adoption-card {
     width: fit-content;
   }
-  body .shelter_profile .left .shelter_adoption .adoption-card a .pet-img, body .shelter_profile .left .edit_shelter_info .adoption-card a .pet-img {
+  body .shelter_profile .left .pets_container .adoption-card a .pet-img {
     float: none;
     margin: 0;
   }
-  body .shelter_profile .left .shelter_adoption .adoption-card a .container-pet, body .shelter_profile .left .edit_shelter_info .adoption-card a .container-pet {
+  body .shelter_profile .left .pets_container .adoption-card a .container-pet {
     width: 20vw;
   }
-  body .shelter_profile .left .shelter_adoption .adoption-card a .container-pet p, body .shelter_profile .left .edit_shelter_info .adoption-card a .container-pet p {
+  body .shelter_profile .left .pets_container .adoption-card a .container-pet p {
     display: none;
   }
-  body .shelter_profile .left .shelter_adoption .title, body .shelter_profile .left .edit_shelter_info .title {
+  body .shelter_profile .left .pets_container .title {
     width: 100%;
+  }
+  body .shelter_profile .left .edit_shelter_info .title form {
+    display: block;
   }
   body .shelter_profile .right {
     width: 100%;
@@ -1567,6 +1570,7 @@ body .user_profile .left #about_me, body .user_profile .left #favorites, body .u
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
 }
 body .user_profile .left #about_me label, body .user_profile .left #about_me a, body .user_profile .left #favorites label, body .user_profile .left #favorites a, body .user_profile .left #contact label, body .user_profile .left #contact a {
+  width: 100%;
   color: white;
   padding: 10%;
   font-size: 1.5vw;
@@ -1597,13 +1601,13 @@ body .user_profile .left #favorites {
 body .user_profile .left #contact {
   grid-area: contact;
 }
-body .user_profile .left .user_pets, body .user_profile .left .edit_user_info {
+body .user_profile .left .user_pets, body .user_profile .left .edit_user_info, body .user_profile .left .user_favorites {
   grid-area: pets;
   border-radius: 10px;
   background-color: #F1A66A;
   margin: 2% 3% 2% 3%;
 }
-body .user_profile .left .user_pets .pet, body .user_profile .left .edit_user_info .pet {
+body .user_profile .left .user_pets .pet, body .user_profile .left .edit_user_info .pet, body .user_profile .left .user_favorites .pet {
   display: flex;
   padding: 8px;
   background-color: #934B00;
@@ -1611,10 +1615,10 @@ body .user_profile .left .user_pets .pet, body .user_profile .left .edit_user_in
   width: fit-content;
   margin: 15px auto;
 }
-body .user_profile .left .user_pets .pet a, body .user_profile .left .edit_user_info .pet a {
+body .user_profile .left .user_pets .pet a, body .user_profile .left .edit_user_info .pet a, body .user_profile .left .user_favorites .pet a {
   width: fit-content;
 }
-body .user_profile .left .user_pets .pet a .pet-img, body .user_profile .left .edit_user_info .pet a .pet-img {
+body .user_profile .left .user_pets .pet a .pet-img, body .user_profile .left .edit_user_info .pet a .pet-img, body .user_profile .left .user_favorites .pet a .pet-img {
   float: left;
   margin-right: 10px;
   border-radius: 10px;
@@ -1624,11 +1628,11 @@ body .user_profile .left .user_pets .pet a .pet-img, body .user_profile .left .e
   background-size: cover;
   background-position: center;
 }
-body .user_profile .left .user_pets .pet a .container-pet, body .user_profile .left .edit_user_info .pet a .container-pet {
+body .user_profile .left .user_pets .pet a .container-pet, body .user_profile .left .edit_user_info .pet a .container-pet, body .user_profile .left .user_favorites .pet a .container-pet {
   width: 54vw;
   text-align: justify;
 }
-body .user_profile .left .user_pets .pet:hover, body .user_profile .left .edit_user_info .pet:hover {
+body .user_profile .left .user_pets .pet:hover, body .user_profile .left .edit_user_info .pet:hover, body .user_profile .left .user_favorites .pet:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   -webkit-animation: scale05 0.2s forwards;
@@ -1667,9 +1671,9 @@ body .user_profile .left .edit_user_info form #photos label:nth-of-type(1) span,
   margin-right: 0.2em;
 }
 body .user_profile .left .edit_user_info form .new-collaboration {
+  text-align: left;
   grid-row: 4;
   grid-column: 1/3;
-  display: inline;
 }
 body .user_profile .left .edit_user_info form .new-collaboration .container {
   margin-left: 2em;
@@ -1798,7 +1802,7 @@ body .user_profile .right .user_activity .activity-card:hover {
   -webkit-animation: scale05 0.2s forwards;
 }
 
-@media (max-width: 57em) {
+@media (max-width: 55em) {
   body .user_profile .title {
     text-align: center;
   }
@@ -1808,14 +1812,14 @@ body .user_profile .right .user_activity .activity-card:hover {
   body .user_profile .left {
     width: 75%;
   }
-  body .user_profile .left #about_me i, body .user_profile .left #favorites i, body .user_profile .left #contact i {
+  body .user_profile .left #about_me label i, body .user_profile .left #favorites label i, body .user_profile .left #contact label i {
     margin: 10px 0;
     font-size: 275%;
   }
-  body .user_profile .left #about_me span, body .user_profile .left #favorites span, body .user_profile .left #contact span {
+  body .user_profile .left #about_me label span, body .user_profile .left #favorites label span, body .user_profile .left #contact label span {
     display: none;
   }
-  body .user_profile .left .user_pets p, body .user_profile .left .edit_user_info p {
+  body .user_profile .left .user_pets p, body .user_profile .left .edit_user_info p, body .user_profile .left .user_favorites p {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1860,29 +1864,31 @@ body .user_profile .right .user_activity .activity-card:hover {
   body .user_profile .left {
     width: 100%;
   }
-  body .user_profile .left #about_me a i, body .user_profile .left #favorites a i, body .user_profile .left #contact a i {
+  body .user_profile .left #about_me label i, body .user_profile .left #favorites label i, body .user_profile .left #contact label i {
     margin: 7px 0;
     font-size: 375%;
   }
-  body .user_profile .left .user_pets, body .user_profile .left .edit_user_info {
+  body .user_profile .left .pets_container {
     padding: 5px;
-    width: fit-content;
-    display: flex;
+    display: flex !important;
     flex-wrap: wrap;
     align-content: flex-start;
   }
-  body .user_profile .left .user_pets .pet a .pet-img, body .user_profile .left .edit_user_info .pet a .pet-img {
+  body .user_profile .left .pets_container .pet a .pet-img {
     float: none;
     margin: 0;
   }
-  body .user_profile .left .user_pets .pet a .container-pet, body .user_profile .left .edit_user_info .pet a .container-pet {
+  body .user_profile .left .pets_container .pet a .container-pet {
     width: 18vw;
   }
-  body .user_profile .left .user_pets .pet a .container-pet p, body .user_profile .left .edit_user_info .pet a .container-pet p {
+  body .user_profile .left .pets_container .pet a .container-pet p {
     display: none;
   }
-  body .user_profile .left .user_pets .title, body .user_profile .left .edit_user_info .title {
+  body .user_profile .left .pets_container .title {
     width: 100%;
+  }
+  body .user_profile .left .edit_user_info .title form {
+    display: block;
   }
   body .user_profile .right {
     width: 100%;

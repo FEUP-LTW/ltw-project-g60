@@ -154,7 +154,7 @@ function getSessionId(){
     $stmt = $db->prepare('SELECT user_id FROM Users WHERE username = :username');
     $stmt->bindParam(':username', $_SESSION['username']);
     $stmt->execute();
-    $user_id = $stmt->fetch()[0];
+    $user_id = $stmt->fetch();
 
     if ($user_id == false) {
         $stmt = $db->prepare('SELECT shelter_id FROM Shelters WHERE username = :username');
@@ -162,7 +162,7 @@ function getSessionId(){
         $stmt->execute();
         return $stmt->fetch()[0];
     }else{
-        return $user_id;
+        return $user_id[0];
     }
 }
 
@@ -184,14 +184,13 @@ function getUserActivity($id) {
     }
 }
 
-function isUser($id){
+function isUser($username){
     global $db;
-    $stmt = $db->prepare('SELECT * FROM Users WHERE user_id = :id');
-    $stmt->bindParam(':id', $id);
+    $stmt = $db->prepare('SELECT * FROM Users WHERE username = :username');
+    $stmt->bindParam(':username', $username);
 
     $stmt->execute();
     $user = $stmt->fetch();
-
     if ($user == false) return false;
     return true;
 }

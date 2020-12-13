@@ -50,6 +50,7 @@ body
         justify-content: center
         box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2)
         label, a
+          width: 100%
           color: white
           padding: 10%
           font-size: 1.5vw
@@ -72,7 +73,7 @@ body
         grid-area: favorites
       #contact
         grid-area: contact
-      .user_pets
+      .user_pets, .user_favorites
         grid-area: pets
         border-radius: 10px
         background-color: common.$main-color
@@ -132,9 +133,9 @@ body
               span
                 margin-right: 0.2em
           .new-collaboration
+            text-align: left
             grid-row: 4
             grid-column: 1 / 3
-            display: inline
             .container
               margin-left: 2em
               display: block
@@ -247,7 +248,7 @@ body
           cursor: pointer
           @include animations.animation("scale05 0.2s forwards")
 
-@media (max-width: 57em)
+@media (max-width: 55em)
   body
     .user_profile
       .title
@@ -257,12 +258,13 @@ body
       .left
         width: 75%
         #about_me, #favorites, #contact
+          label
             i
               margin: 10px 0
               font-size: 275%
             span
               display: none
-        .user_pets
+        .user_pets, .user_favorites
           p
             white-space: nowrap
             overflow: hidden
@@ -299,14 +301,13 @@ body
       .left
         width: 100%
         #about_me, #favorites, #contact
-          a
+          label
             i
               margin: 7px 0
               font-size: 375%
-        .user_pets
+        .pets_container
           padding: 5px
-          width: fit-content
-          display: flex
+          display: flex !important
           flex-wrap: wrap
           align-content: flex-start
           .pet
@@ -320,6 +321,10 @@ body
                   display: none
           .title
             width: 100%
+        .edit_user_info
+          .title
+            form
+              display: block
       .right
         width: 100%
         .user_activity

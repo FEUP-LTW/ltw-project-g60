@@ -5,7 +5,7 @@ include_once('database/users.php');      // loads the functions responsible for 
 include_once('database/pets.php');
 include_once('database/upload.php');
 
-addPet(getSessionId(),$_POST['name'],$_FILES['photo'], $_POST['title'],$_POST['breed'],$_POST['size'],$_POST['color'],$_POST['gender'],
+addPet($_SESSION['username'],$_POST['name'],$_FILES['photo'], $_POST['breed'],$_POST['size'],$_POST['color'],$_POST['gender'],
     $_POST['information'],$_POST['age'],$_POST['location']);
 
 header('Location: ' . 'homepage.php');

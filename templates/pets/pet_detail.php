@@ -1,6 +1,6 @@
 <div class="page-content" id="pet-profile">
     <div class="pet-bio">
-        <a class="pet-image" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg')">
+        <a class="pet-image" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($_GET['id']) ?>.jpg')">
         </a>
         <section class="pet-info">
             <div id="title">
@@ -37,7 +37,7 @@
         }
         ?>
     </div>
-    <?php if (isset($_SESSION['username']) and isUser(getUserByUsername($_SESSION['username'])['user_id'])) { ?>
+    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
     <section id="options">
         <h2>Options</h2>
         <div class="buttons">
@@ -68,7 +68,7 @@
             <?php } ?>
         </div>
     </section>
-    <?php if (isset($_SESSION['username']) and isUser(getUserByUsername($_SESSION['username'])['user_id'])) { ?>
+    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
     <section id="make_proposal" style="display: none">
         <h2>Submit Proposal</h2>
         <form action="action_submit_proposal.php" method="get">
@@ -93,7 +93,7 @@
                 <p><?= $comment['text'] ?></p>
             </div>
         <?php } ?>
-        <?php if (isset($_SESSION['username']) and isUser(getUserByUsername($_SESSION['username'])['user_id'])) { ?>
+        <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
         <form action="action_add_comment.php" method="get" class="add-comment">
             <label for="text">Add a Comment on This Pet</label>
             <textarea id="text" name="text" placeholder="Comment" required></textarea>
