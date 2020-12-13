@@ -154,7 +154,7 @@ function getSessionId(){
     $stmt = $db->prepare('SELECT user_id FROM Users WHERE username = :username');
     $stmt->bindParam(':username', $_SESSION['username']);
     $stmt->execute();
-    $user_id = $stmt->fetch()[0];
+    $user_id = $stmt->fetch();
 
     if ($user_id == false) {
         $stmt = $db->prepare('SELECT shelter_id FROM Shelters WHERE username = :username');
@@ -162,7 +162,7 @@ function getSessionId(){
         $stmt->execute();
         return $stmt->fetch()[0];
     }else{
-        return $user_id;
+        return $user_id[0];
     }
 }
 
@@ -184,14 +184,56 @@ function getUserActivity($id) {
     }
 }
 
-function isUser($id){
+function isUser($username){
     global $db;
-    $stmt = $db->prepare('SELECT * FROM Users WHERE user_id = :id');
-    $stmt->bindParam(':id', $id);
+    $stmt = $db->prepare('SELECT * FROM Users WHERE username = :username');
+    $stmt->bindParam(':username', $username);
 
     $stmt->execute();
     $user = $stmt->fetch();
-
     if ($user == false) return false;
     return true;
+}
+
+function getSheltersWithoutUserCollaboration($userID) {
+    global $db;
+    if ($stmt = $db->prepare('
+        SELECT shelter_id, name
+        FROM Shelters
+        WHERE (
+            SELECT count(*) 
+            FROM Collaborators 
+            WHERE Shelters.shelter_id = Collaborators.shelter_id 
+            AND user_id = :id) > 0')
+        ) {
+        $stmt->bindParam(':id', $userID);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        console_log($result);
+        return $result;
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
+}
+
+function addProposal($text, $user_id, $pet_id){
+    global $db;
+    if ($stmt = $db->prepare('
+        INSERT INTO 
+        ProposalsUser(pet_id, user_id, date, text) 
+        VALUES (:pet_id, :user_id, :date, :text)')) {
+
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':pet_id', $pet_id);
+        $stmt->bindParam(':text', $text);
+        $time = time();
+        $stmt->bindParam(':date', $time);
+        $stmt->execute();
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
 }

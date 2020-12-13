@@ -30,9 +30,6 @@
     <?php } ?>
     </nav>
 </header>
-
-<script src="scripts/hamburger.js">
-</script>
 <div class="hamburger">
     <!-- Navigation links (hidden by default) -->
     <div id="myLinks">
@@ -43,7 +40,11 @@
             <a href="login.php">Login</a>
         <?php } else { ?>
             <a href="pet_add.php">Add Pet</a>
-            <a href=""><?= getUserByUsername($_SESSION['username'])['name'] ?></a>
+            <a href=""><?php if (getUserByUsername($_SESSION['username'])) {
+                    echo getUserByUsername($_SESSION['username'])['name'];
+                } else {
+                    echo getShelterByUsername($_SESSION['username'])['name'];
+                }?> </a>
             <a href="action_logout.php">Logout</a>
         <?php } ?>
     </div>

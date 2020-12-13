@@ -1,6 +1,6 @@
 <div class="page-content" id="pet-profile">
     <div class="pet-bio">
-        <a class="pet-image" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg')">
+        <a class="pet-image" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($_GET['id']) ?>.jpg')">
         </a>
         <section class="pet-info">
             <div id="title">
@@ -37,13 +37,21 @@
         }
         ?>
     </div>
+    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
     <section id="options">
         <h2>Options</h2>
         <div class="buttons">
-            <a href="#" class="button">Submit Proposal</a>
-            <a href="#" class="button">Add to Favorites</a>
+            <label class="button">
+                Submit Proposal
+                <input hidden id="pet_proposal" type="checkbox" name="proposal" onclick="petProposal()">
+            </label>
+            <label class="button">
+                Add to favorites
+                <input hidden id="pet_favorite" type="checkbox" name="favorite" onclick="addFavorite()">
+            </label>
         </div>
     </section>
+    <?php } ?>
     <section id="proposals">
         <h2>Proposals</h2>
         <div class="grid-list">
@@ -52,7 +60,7 @@
                     <div class="img" style="background-image: url('database/images/users/profile/thumbs_medium/<?= $proposal['user_id'] ?>.jpg"></div>
                     <h3><?= $proposal['name'] ?></h3>
                     <div class="user-details">
-                        <p><?= $proposal['info'] ?></p>
+                        <p><?= $proposal['text'] ?></p>
                         <small><?= date("Y-m-d H:i", substr($proposal['date'], 0, 10)) ?></small>
                         <a href="user_profile.php?id=<?= $proposal['user_id'] ?>" class="button">View User</a>
                     </div>
@@ -60,6 +68,21 @@
             <?php } ?>
         </div>
     </section>
+    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
+    <section id="make_proposal" style="display: none">
+        <h2>Submit Proposal</h2>
+        <form action="action_submit_proposal.php" method="get">
+            <label>Description
+                <textarea id="info" name="info" placeholder="Describe your proposal" required></textarea>
+            </label>
+            <label for="user_id" hidden></label>
+            <input id="user_id" name="user_id" type="text" hidden value="<?= getUserByUsername($_SESSION['username'])['user_id'] ?>">
+            <label for="pet_id" hidden></label>
+            <input id="pet_id" name="pet_id" type="text" hidden value="<?= $_GET['id'] ?>">
+            <input hidden type="submit" class="button">
+        </form>
+    </section>
+    <?php } ?>
     <section id="pet-comments">
         <h2><?= count($comments) ?> Comments</h2>
         <?php foreach ($comments as $comment) { ?>
@@ -70,7 +93,7 @@
                 <p><?= $comment['text'] ?></p>
             </div>
         <?php } ?>
-        <?php if (isset($_SESSION['username']) and isUser(getUserByUsername($_SESSION['username'])['user_id'])) { ?>
+        <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
         <form action="action_add_comment.php" method="get" class="add-comment">
             <label for="text">Add a Comment on This Pet</label>
             <textarea id="text" name="text" placeholder="Comment" required></textarea>

@@ -9,5 +9,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
     <script src="scripts/autocomplete.js" ></script>
+    <script src="scripts/hamburger.js"></script>
+    <script src="scripts/user_buttons.js"></script>
+    <script src="scripts/test.js" ></script>
 </head>
 <body>
