@@ -199,6 +199,40 @@ function addPetComment($pet_id, $user_id, $text) {
     }
 }
 
+function getBreeds() {
+  global $db;
+  if ($stmt = $db->prepare('SELECT breed FROM Breeds')) {
+    $stmt->execute();
+    $tempbreeds = $stmt->fetchAll();
 
+    $breeds = [];
+    foreach ($tempbreeds as $breed){
+      array_push($breeds, $breed["breed"]);
+    }
+    return $breeds;
+  }
+  else {
+    printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+    die;
+  }
+}
+
+function getPetColors() {
+  global $db;
+  if ($stmt = $db->prepare('SELECT color FROM Pets_Colors')) {
+    $stmt->execute();
+    $tempcolors = $stmt->fetchAll();
+
+    $colors = [];
+    foreach ($tempcolors as $color){
+      array_push($colors, $color["color"]);
+    }
+    return $colors;
+  }
+  else {
+    printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+    die;
+  }
+}
 
 

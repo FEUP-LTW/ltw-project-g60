@@ -5,6 +5,8 @@ include_once('database/pets.php');
 include_once('database/shelters.php');
 include_once('database/users.php');
 
+$breeds = getBreeds();
+$colors = getPetColors();
 
 include('templates/common/header.php');
 
