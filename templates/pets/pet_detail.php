@@ -91,7 +91,7 @@
             <!-- foreach answer -->
             <div id="overlay">
                 <div>
-                    <form action="" method="post" class="add-comment">
+                    <form id="add-reply">
                         <label for="text">Reply</label>
                         <textarea id="text" name="text" placeholder="Comment" required></textarea>
                         <label for="comment" hidden></label>
