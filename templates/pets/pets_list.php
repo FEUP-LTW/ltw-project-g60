@@ -54,7 +54,9 @@
                     </div>
                 </div>
                 <div class="pet-links">
-                    <a class="button" href="#">Add to Favorites</a>
+                    <?php if (isUser($_SESSION['username'])) { ?>
+                    <button id="pet_favorite_button" name="favorite" data-petid="<?= $pet['pet_id'] ?>">Add to Favorites</button>
+                    <?php } ?>
                     <?php
                         $owner = getPetOwner($pet['pet_id']);
                         if ($owner[1] == 'user')

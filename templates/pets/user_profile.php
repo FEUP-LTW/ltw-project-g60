@@ -66,9 +66,9 @@
         </div>
         <div class="edit_user_info" style="display: none">
             <div class="title">
-                <i class="fas fa-paw"></i>
+                <i class="fas fa-file"></i>
                 <span>Edit Info</span>
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="action_edit_user.php" method="post" enctype="multipart/form-data">
                     <div class="group">
                         <input id="name" name="name" type="text" value="<?= $user['name'] ?>" required>
                         <span class="highlight"></span>
@@ -114,7 +114,7 @@
                             New Collaborations</div>
                         <?php foreach (getSheltersWithoutUserCollaboration($user['user_id']) as $shelter) { ?>
                             <label class="container"><?= $shelter['name'] ?>
-                                <input type="checkbox" name="new-collab" value="<?= $shelter['shelter_id'] ?>">
+                                <input type="checkbox" name="new-collab[]" value="<?= $shelter['shelter_id'] ?>">
                                 <div class="checkmark"></div>
                             </label>
                         <?php } ?>

@@ -173,6 +173,7 @@ function getUserActivity($id) {
         FROM Users, ProposalsUser 
         WHERE Users.user_id = ProposalsUser.user_id
         AND Users.user_id = :id
+        ORDER BY date DESC 
         LIMIT 4')) {
         $stmt->bindParam(':id', $id);
         $stmt->execute();
@@ -201,16 +202,13 @@ function getSheltersWithoutUserCollaboration($userID) {
         SELECT shelter_id, name
         FROM Shelters
         WHERE (
-            SELECT count(*) 
+            shelter_id NOT IN (SELECT shelter_id
             FROM Collaborators 
-            WHERE Shelters.shelter_id = Collaborators.shelter_id 
-            AND user_id = :id) > 0')
+            WHERE user_id == :id))')
         ) {
         $stmt->bindParam(':id', $userID);
         $stmt->execute();
-        $result = $stmt->fetchAll();
-        console_log($result);
-        return $result;
+        return $stmt->fetchAll();
     }
     else {
         printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
@@ -236,4 +234,65 @@ function addProposal($text, $user_id, $pet_id){
         printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
         die;
     }
+}
+
+function editUser($new_name, $new_username, $new_password, $usertype, $new_profile_image, $new_header_image, $collabs) {
+    global $db;
+    $session_id = getSessionId();
+
+    if ($usertype == "user") {
+        $shaPassword = sha1($new_password);
+        $stmt = $db->prepare('UPDATE Users SET username = :username, password = :password, name = :name 
+                                    WHERE user_id = :user_id');
+        $stmt->bindParam(':username', $new_username);
+        $stmt->bindParam(':password', $shaPassword);
+        $stmt->bindParam(':name', $new_name);
+        $stmt->bindParam(':user_id', $session_id);
+        $stmt->execute();
+
+        foreach ($collabs as $shelter_id) {
+            $stmt = $db->prepare('INSERT INTO Collaborators(user_id,shelter_id) VALUES (:user_id,:shelter_id)');
+            $stmt->bindParam(':user_id', $session_id);
+            $int_shelter_id = (int)$shelter_id;
+            $stmt->bindParam(':shelter_id', $int_shelter_id);
+
+            $stmt->execute();
+        }
+
+        //image_id = session_id
+        if ($new_profile_image['name'] != "") {
+            uploadImage($new_profile_image, $session_id, "images/users/profile/");
+        }
+        if ($new_header_image['name'] != "") {
+            uploadImage($new_header_image, $session_id, "images/users/header/");
+        }
+    }else{
+        $shaPassword = sha1($new_password);
+        $stmt = $db->prepare('UPDATE Shelters SET username = :username, password = :password, name = :name 
+                                    WHERE shelter_id = :shelter_id');
+        $stmt->bindParam(':username', $new_username);
+        $stmt->bindParam(':password', $shaPassword);
+        $stmt->bindParam(':name', $new_name);
+        $stmt->bindParam(':shelter_id', $session_id);
+        $stmt->execute();
+
+        //image_id = session_id
+        if ($new_profile_image['name'] != "") {
+            uploadImage($new_profile_image, $session_id, "images/shelters/profile/");
+        }
+        if ($new_header_image['name'] != "") {
+            uploadImage($new_header_image, $session_id, "images/shelters/header/");
+        }
+    }
+}
+
+function addFavoritePet($pet_id){
+    global $db;
+    $session_id = getSessionId();
+
+    $stmt = $db->prepare('INSERT INTO Favorites(user_id, pet_id) VALUES (:user_id, :pet_id)');
+    $stmt->bindParam(':pet_id', $pet_id);
+    $stmt->bindParam(':user_id', $session_id);
+    $stmt->execute();
+    console_log("DID IT WORK?");
 }

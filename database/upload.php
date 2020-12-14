@@ -38,4 +38,5 @@ function uploadImage($image, $id, $path)
 
   return $id;
 }
+
 ?>
