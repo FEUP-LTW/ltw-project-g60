@@ -36,11 +36,11 @@ body
         background-color: common.$main-color
         transition: 0.3s
         color: common.$accent-color
-        label:nth-of-type(1)
+        label:nth-of-type(1)  // Pet Name
           grid-column: 1
           grid-row: 1
 
-        label:nth-of-type(8)
+        label:nth-of-type(8) // Choose Photo
           grid-column: 2 / 3
           grid-row: 1
           margin: 1.5em 1em 1em 4em
@@ -58,22 +58,22 @@ body
             margin-right: 5px
 
 
-        label:nth-of-type(2)
+        label:nth-of-type(2) // Breed
           grid-column: 1
           grid-row: 2
-        label:nth-of-type(3)
+        label:nth-of-type(3) // Size
           grid-column: 2
           grid-row: 2
-        label:nth-of-type(4)
+        label:nth-of-type(4) // Color
           grid-column: 3
           grid-row: 2
-        label:nth-of-type(5)
+        label:nth-of-type(5) // Age
           grid-column: 2
           grid-row: 3
-        label:nth-of-type(6)
+        label:nth-of-type(6) // Location
           grid-column: 1
           grid-row: 3
-        label:nth-of-type(7)
+        label:nth-of-type(7) // Information
           grid-column: 1
           grid-row: 4
         label
@@ -96,14 +96,16 @@ body
             width: 100%
             font-size: 0.9em
             outline: none
-
+          ul
+            max-height: 100px
+            overflow: auto
         #petInfo
           grid-column: 1
           grid-row: 4
           height: 120px !important
           max-width: 350px
 
-        label:nth-of-type(9)
+        label:nth-of-type(9)  // Add Pet
           margin: 3em 1em 1em 1.5em
           width: fit-content
           height: 80px
