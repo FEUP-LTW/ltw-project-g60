@@ -284,3 +284,14 @@ function editUser($new_name, $new_username, $new_password, $usertype, $new_profi
         }
     }
 }
+
+function addFavoritePet($pet_id){
+    global $db;
+    $session_id = getSessionId();
+
+    $stmt = $db->prepare('INSERT INTO Favorites(user_id, pet_id) VALUES (:user_id, :pet_id)');
+    $stmt->bindParam(':pet_id', $pet_id);
+    $stmt->bindParam(':user_id', $session_id);
+    $stmt->execute();
+    console_log("DID IT WORK?");
+}

@@ -278,10 +278,11 @@ html, body {
   float: right;
 }
 
-.button, body #pet_add #right form label:nth-of-type(8), body #pet_add #right form label:nth-of-type(9), body .user_profile .left .edit_user_info form #photos label:nth-of-type(1), body .user_profile .left .edit_user_info form #photos label:nth-of-type(2), body .shelter_profile .edit_shelter_info form #photos label:nth-of-type(1), body .shelter_profile .edit_shelter_info form #photos label:nth-of-type(2), #register form #photos label:nth-of-type(1), #register form #photos label:nth-of-type(2) {
+.button, body #pet_add #right form label:nth-of-type(8), body #pet_add #right form label:nth-of-type(9), body .user_profile .left .edit_user_info form #photos label:nth-of-type(1), body .user_profile .left .edit_user_info form #photos label:nth-of-type(2), body .shelter_profile .edit_shelter_info form #photos label:nth-of-type(1), body .shelter_profile .edit_shelter_info form #photos label:nth-of-type(2), #register form #photos label:nth-of-type(1), #register form #photos label:nth-of-type(2), button {
   background-color: #934B00;
   border: none;
   color: white;
+  margin: 5px;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -292,7 +293,7 @@ html, body {
   cursor: pointer;
 }
 
-.button:hover, body #pet_add #right form label:hover:nth-of-type(8), body #pet_add #right form label:hover:nth-of-type(9), body .user_profile .left .edit_user_info form #photos label:hover:nth-of-type(1), body .user_profile .left .edit_user_info form #photos label:hover:nth-of-type(2), body .shelter_profile .edit_shelter_info form #photos label:hover:nth-of-type(1), body .shelter_profile .edit_shelter_info form #photos label:hover:nth-of-type(2), #register form #photos label:hover:nth-of-type(1), #register form #photos label:hover:nth-of-type(2) {
+.button:hover, body #pet_add #right form label:hover:nth-of-type(8), body #pet_add #right form label:hover:nth-of-type(9), body .user_profile .left .edit_user_info form #photos label:hover:nth-of-type(1), body .user_profile .left .edit_user_info form #photos label:hover:nth-of-type(2), body .shelter_profile .edit_shelter_info form #photos label:hover:nth-of-type(1), body .shelter_profile .edit_shelter_info form #photos label:hover:nth-of-type(2), #register form #photos label:hover:nth-of-type(1), #register form #photos label:hover:nth-of-type(2), button:hover {
   -webkit-animation: scale05 0.2s forwards;
 }
 
@@ -831,17 +832,8 @@ body #shuffle-button {
   color: #934B00;
 }
 .search form #search-wrap #search button {
-  width: 40px;
-  height: 36px;
-  background: #934B00;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
-}
-.search form #search-wrap #search button:hover {
-  -webkit-animation: scale05 0.2s forwards;
+  margin: 0;
+  padding: 0 20px;
 }
 .search form select[name=category] {
   grid-row: 2;
@@ -937,18 +929,6 @@ body #shuffle-button {
   display: grid;
   text-align: center;
   margin: auto;
-}
-.pets-list .pet-card .pet-links a, .shelters-list .pet-card .pet-links a, .pets-list .shelter-card .pet-links a, .shelters-list .shelter-card .pet-links a, .pets-list .pet-card .shelter-link a, .shelters-list .pet-card .shelter-link a, .pets-list .shelter-card .shelter-link a, .shelters-list .shelter-card .shelter-link a {
-  margin: 5px auto;
-  padding: 10px;
-  width: 100%;
-  transition-property: padding-bottom;
-  transition-duration: 0.5s;
-}
-.pets-list .pet-card .pet-links a:hover, .shelters-list .pet-card .pet-links a:hover, .pets-list .shelter-card .pet-links a:hover, .shelters-list .shelter-card .pet-links a:hover, .pets-list .pet-card .shelter-link a:hover, .shelters-list .pet-card .shelter-link a:hover, .pets-list .shelter-card .shelter-link a:hover, .shelters-list .shelter-card .shelter-link a:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s;
-  -webkit-animation: scale05 0.5s forwards;
 }
 
 body {
@@ -1361,7 +1341,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 #pet-profile #options .buttons {
   text-align: center;
 }
-#pet-profile #options .buttons label {
+#pet-profile #options .buttons button {
   display: inline-block;
   margin-right: 10px;
   margin-top: 10px;

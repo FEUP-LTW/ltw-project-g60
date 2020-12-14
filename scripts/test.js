@@ -14,20 +14,3 @@ function userFavorites() {
         favs.style.display = "none"
     }
 }
-
-function petProposal() {
-    let checkBox = document.getElementById("pet_proposal")
-    let proposals = document.getElementById("proposals")
-    let comments = document.getElementById("pet-comments")
-    let make_proposal = document.getElementById("make_proposal")
-
-    if (checkBox.checked){
-        proposals.style.display = "none"
-        comments.style.display = "none"
-        make_proposal.style.display = "block"
-    } else {
-        make_proposal.style.display = "none"
-        proposals.style.display = "block"
-        comments.style.display = "block"
-    }
-}

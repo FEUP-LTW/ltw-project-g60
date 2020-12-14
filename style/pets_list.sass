@@ -33,16 +33,9 @@
           outline: none
           color: common.$accent-color
         button
-          width: 40px
-          height: 36px
-          background: common.$accent-color
-          text-align: center
-          color: #fff
-          border-radius: 0 5px 5px 0
-          cursor: pointer
-          font-size: 20px
-        button:hover
-          @include animations.animation("scale05 0.2s forwards")
+          margin: 0
+          padding: 0 20px
+
 
     select[name="category"]
       grid-row: 2
@@ -126,13 +119,3 @@
       display: grid
       text-align: center
       margin: auto
-      a
-        margin: 5px auto
-        padding: 10px
-        width: 100%
-        transition-property: padding-bottom
-        transition-duration: 0.5s
-      a:hover
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
-        transition: box-shadow 0.3s
-        @include animations.animation("scale05 0.5s forwards")

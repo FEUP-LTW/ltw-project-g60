@@ -1,4 +1,4 @@
-<div class="page-content" id="pet-profile">
+<div class="page-content" id="pet-profile" >
     <div class="pet-bio">
         <a class="pet-image" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($_GET['id']) ?>.jpg')">
         </a>
@@ -41,14 +41,8 @@
     <section id="options">
         <h2>Options</h2>
         <div class="buttons">
-            <label class="button">
-                Submit Proposal
-                <input hidden id="pet_proposal" type="checkbox" name="proposal" onclick="petProposal()">
-            </label>
-            <label class="button">
-                Add to favorites
-                <input hidden id="pet_favorite" type="checkbox" name="favorite" onclick="addFavorite()">
-            </label>
+            <button id="pet_proposal_button" name="proposal" >Submit Proposal</button>
+            <button id="pet_favorite_button" name="favorite" data-petid="<?= $_GET['id'] ?>">Add to Favorites</button>
         </div>
     </section>
     <?php } ?>
