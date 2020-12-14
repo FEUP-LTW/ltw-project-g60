@@ -148,8 +148,8 @@
       border-radius: 10px
       color: white
       display: grid
-      grid-template-columns: 1fr 8fr 2fr
-      grid-template-rows: 1fr 2fr
+      grid-template-columns: 1.3fr 8fr 2fr
+      grid-template-rows: 1fr 1.5fr 0.2fr
       grid-column-gap: 1em
       p
         grid-column: 2 / 4
@@ -170,7 +170,7 @@
         margin-top: 10px
       .user-image
         grid-column: 1
-        grid-row: 1 / 3
+        grid-row: 1 / 4
         background-repeat: no-repeat
         background-position: center
         background-size: cover
@@ -181,6 +181,15 @@
         border-radius: 10px 0 0 10px
         &:hover
           @include animations.animation("scale05 0.2s forwards")
+      .reply-button
+        grid-column: 3
+        padding: 1em
+        background-color: common.$main-color
+        color: black
+        font-weight: bold
+    .pet-answer
+      @extend .pet-comment
+      margin-left: 5em
     form
       margin-top: 1em
       padding: 1em

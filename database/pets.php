@@ -199,6 +199,18 @@ function addPetComment($pet_id, $user_id, $text) {
     }
 }
 
+function getCommentReplies($commentID) {
+    global $db;
+    if ($stmt = $db->prepare('SELECT * FROM Answers WHERE comment_id = :id')) {
+        $stmt->bindParam(':id', $commentID);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
+}
 
 
 

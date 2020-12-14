@@ -85,7 +85,30 @@
                 <span class="user"><a href="user_profile.php?id=<?= $comment['user_id'] ?>"><?= $comment['name'] ?></a></span>
                 <span class="date"><?= date("Y-m-d H:i", substr($comment['date'], 0, 10)) ?></span>
                 <p><?= $comment['text'] ?></p>
+                <span class="reply-button button">Reply</span>
             </div>
+            <!-- foreach answer -->
+            <?php
+            $replies = getCommentReplies($comment['id']);
+            if ($owner[1] == 'user') {
+                foreach ($replies as $reply) {
+                    echo '<div class="pet-answer">';
+                    echo "<a href=\"user_profile.php?id=" . $owner[0] . "\" class=\"user-image\" style=\"background-image: url('database/images/users/profile/thumbs_medium/" . $owner[0] . ".jpg')\"></a>";
+                    echo "<span class=\"user\"><a href=\"user_profile.php?id=" . $owner[0] . "\">" . getUserByID($owner[0])['name'] . "</a></span>";
+                    echo "<span class=\"date\">" . date("Y-m-d H:i", substr($reply['date'], 0, 10)) . "</span>";
+                    echo "<p>" . $reply['text'] . "</p>";
+                    echo "</div>";
+                }
+            } else {
+                foreach ($replies as $reply) {
+                    echo '<div class="pet-answer">';
+                    echo "<a href=\"shelter_profile.php?id=" . $owner[0] . "\" class=\"user-image\" style=\"background-image: url('database/images/shelters/profile/thumbs_medium/" . $owner[0] . ".jpg')\"></a>";
+                    echo "<span class=\"user\"><a href=\"shelter_profile.php?id=" . $owner[0] . "\">" . getShelterByID($owner[0])['name'] . "</a></span>";
+                    echo "<span class=\"date\">" . date("Y-m-d H:i", substr($reply['date'], 0, 10)) . "</span>";
+                    echo "<p>" . $reply['text'] . "</p>";
+                    echo "</div>";
+                }
+            } ?>
         <?php } ?>
         <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
         <form action="action_add_comment.php" method="get" class="add-comment">
