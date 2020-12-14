@@ -85,9 +85,21 @@
                 <span class="user"><a href="user_profile.php?id=<?= $comment['user_id'] ?>"><?= $comment['name'] ?></a></span>
                 <span class="date"><?= date("Y-m-d H:i", substr($comment['date'], 0, 10)) ?></span>
                 <p><?= $comment['text'] ?></p>
-                <span class="reply-button button">Reply</span>
+                <?php if (isset($_SESSION['username']))
+                    echo '<span class="reply-button button">Reply</span>'?>
             </div>
             <!-- foreach answer -->
+            <div id="overlay">
+                <div>
+                    <form action="" method="post" class="add-comment">
+                        <label for="text">Reply</label>
+                        <textarea id="text" name="text" placeholder="Comment" required></textarea>
+                        <label for="comment" hidden></label>
+                        <input id="comment" name="comment" type="text" hidden value="<?= $comment['id'] ?>">
+                        <input type="submit" class="button" value="Submit">
+                    </form>
+                </div>
+            </div>
             <?php
             $replies = getCommentReplies($comment['id']);
             if ($owner[1] == 'user') {

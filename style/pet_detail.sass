@@ -190,6 +190,22 @@
     .pet-answer
       @extend .pet-comment
       margin-left: 5em
+    #overlay
+      background-color: common.$main-color
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3)
+      visibility: hidden
+      position: fixed
+      top: 50%
+      left: 20%
+      margin-top: -50px
+      margin-left: -100px
+      width: 75%
+      z-index: 1000
+      border-radius: 10px
+      float: top
+      form
+        margin-top: 0
+
     form
       margin-top: 1em
       padding: 1em

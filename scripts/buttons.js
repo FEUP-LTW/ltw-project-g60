@@ -6,6 +6,10 @@ document.querySelectorAll('#pet_proposal_button').forEach(button => { //submit p
     button.addEventListener('click', petProposal);
 })
 
+document.querySelectorAll('.reply-button').forEach(button => {
+    button.addEventListener('click', overlay);
+})
+
 // Send message
 function addFavorite(event) {
     confirm("Pet added to favorites!");
@@ -72,4 +76,9 @@ function editShelterInfo() {
         pets.style.display = "block"
         aboutme.style.display = "none"
     }
+}
+
+function overlay() {
+    let el = document.getElementById("overlay");
+    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
 }

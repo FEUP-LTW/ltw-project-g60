@@ -1475,6 +1475,23 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 #pet-profile #pet-comments .pet-answer, #pet-profile #make_proposal .pet-answer {
   margin-left: 5em;
 }
+#pet-profile #pet-comments #overlay, #pet-profile #make_proposal #overlay {
+  background-color: #F1A66A;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 20%;
+  margin-top: -50px;
+  margin-left: -100px;
+  width: 75%;
+  z-index: 1000;
+  border-radius: 10px;
+  float: top;
+}
+#pet-profile #pet-comments #overlay form, #pet-profile #make_proposal #overlay form {
+  margin-top: 0;
+}
 #pet-profile #pet-comments form, #pet-profile #make_proposal form {
   margin-top: 1em;
   padding: 1em;
