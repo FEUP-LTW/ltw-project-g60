@@ -207,6 +207,24 @@ html, body {
   height: 100%;
   position: relative;
   min-height: 100%;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+html ::-webkit-scrollbar, body ::-webkit-scrollbar {
+  width: 10px;
+}
+html ::-webkit-scrollbar-track, body ::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: #934B00;
+}
+html ::-webkit-scrollbar-thumb, body ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #F1A66A;
+}
+html ::-webkit-scrollbar-thumb:hover, body ::-webkit-scrollbar-thumb:hover {
+  background: white;
 }
 
 .header {
@@ -2003,6 +2021,35 @@ body #pet_add #right form label:nth-of-type(7) {
 body #pet_add #right form label {
   margin: 1em 2em;
   display: block;
+}
+body #pet_add #right form label .autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+}
+body #pet_add #right form label .autocomplete .autocomplete-items {
+  position: absolute;
+  border: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+body #pet_add #right form label .autocomplete .autocomplete-items li {
+  padding: 5px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  background-color: #934B00;
+}
+body #pet_add #right form label .autocomplete .autocomplete-items li:hover {
+  /*when hovering an item:*/
+  background-color: #F1A66A;
+}
+body #pet_add #right form label .autocomplete .autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: #934B00 !important;
+  color: #ffffff;
 }
 body #pet_add #right form label input[type=text], body #pet_add #right form label input[type=password], body #pet_add #right form label input[type=email], body #pet_add #right form label input[type=number], body #pet_add #right form label #petInfo {
   height: 34px;
