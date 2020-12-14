@@ -1,3 +1,16 @@
+function verify(breeds, colors){
+    let breed = document.getElementById("breed_input").value
+    let color = document.getElementById("color_input").value
+    if (! breeds.includes(breed)){
+        alert("Wrong Breed")
+        return false
+    } else if (! colors.includes(color)){
+        alert("Wrong Color")
+        return false
+    } else
+        return true
+}
+
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/

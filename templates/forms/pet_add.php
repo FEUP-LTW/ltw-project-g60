@@ -4,7 +4,7 @@
             <h2>Give us the details about your pet!</h2>
         </section>
         <section id="right">
-            <form action="action_addpet.php" method="post" enctype="multipart/form-data" autocomplete="off">
+            <form id="pet_add_form" action="action_addpet.php" method="post" enctype="multipart/form-data" autocomplete="off" onsubmit='verify(<?= json_encode( $breeds ) ?>, <?= json_encode( $colors ) ?>);'>
                 <label>Name
                     <input type="text" name="name" placeholder="Pet's name" required>
                 </label>

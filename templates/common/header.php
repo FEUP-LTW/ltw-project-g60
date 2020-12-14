@@ -11,6 +11,5 @@
     <script src="scripts/autocomplete.js" ></script>
     <script src="scripts/hamburger.js"></script>
     <script src="scripts/user_buttons.js"></script>
-    <script src="scripts/test.js" ></script>
 </head>
 <body>
