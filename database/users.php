@@ -85,7 +85,7 @@ function getUserCollaborations($id) {
     }
 }
 
-function userExists($username, $password)
+function userPasswordExists($username, $password)
 {
     global $db;
     $shaPassword = sha1($password);
@@ -104,7 +104,7 @@ function userExists($username, $password)
 
         $stmt->execute();
         $users = $stmt->fetch();
-        if ($users == false) {
+      if ($users == false) {
             return false;
         } else {
             return true;
@@ -112,6 +112,20 @@ function userExists($username, $password)
     } else {
         return true;
     }
+}
+
+function userExists($username){
+  global $db;
+  $stmt = $db->prepare('SELECT * FROM Users WHERE username = :username');
+  $stmt->bindParam(':username', $username);
+  $stmt->execute();
+  $users = $stmt->fetch();
+
+  if ($users == false) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 function registerUser($name, $username, $password, $usertype, $profile_image, $header_image) {

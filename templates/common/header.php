@@ -12,5 +12,6 @@
     <script src="scripts/hamburger.js"></script>
     <script src="scripts/test.js" ></script>
     <script src="scripts/buttons.js" defer></script>
+    <script src="scripts/password_check.js" defer></script>
 </head>
 <body>
