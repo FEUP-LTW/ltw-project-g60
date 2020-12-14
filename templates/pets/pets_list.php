@@ -54,8 +54,7 @@
                     </div>
                 </div>
                 <div class="pet-links">
-                    <?php
-                    if (!empty($_SESSION) and isUser($_SESSION['username'])) { ?>
+                    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
                     <button id="pet_favorite_button" name="favorite" data-petid="<?= $pet['pet_id'] ?>">Add to Favorites</button>
                     <?php } ?>
                     <?php
