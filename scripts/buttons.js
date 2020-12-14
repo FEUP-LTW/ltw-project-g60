@@ -10,7 +10,13 @@ document.querySelectorAll('.reply-button').forEach(button => {
     button.addEventListener('click', overlay);
 })
 
-document.getElementById('add-comment').addEventListener('submit', addComment)
+document.querySelectorAll('#add-comment').forEach(form => {
+    form.addEventListener('submit', addComment);
+})
+
+document.querySelectorAll('#add-reply').forEach(form => {
+    form.addEventListener('submit', addReply);
+})
 
 // Send message
 function addFavorite(event) {
@@ -80,9 +86,10 @@ function editShelterInfo() {
     }
 }
 
-function overlay() {
+function overlay(event) {
     let el = document.getElementById("overlay");
-    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    el.style.visibility = (el.style.visibility === "visible") ? "hidden" : "visible";
+    document.getElementById("add-reply").setAttribute("data-comment-id", event.target.getAttribute("data-comment-id"))
 }
 
 function addComment(event) {
@@ -96,6 +103,24 @@ function addComment(event) {
     let request = new XMLHttpRequest();
     request.open('get', 'action_add_comment.php?' + encodeForAjax({'pet_id': pet_id, 'user_id': user_id, 'text': text}), true);
     request.send();
+
+    event.preventDefault();
+}
+
+function addReply(event) {
+    let user_id = document.querySelector('#add-reply #reply-user_id').value;
+    let text = document.querySelector('#add-reply #reply-text').value;
+    let type = document.querySelector('#add-reply #reply-type').value;
+
+    // Delete sent message
+    document.querySelector('#add-reply #reply-text').value='';
+    // Send message
+    let request = new XMLHttpRequest();
+    request.open('get', 'action_add_reply.php?' + encodeForAjax({'comment_id': event.target.getAttribute("data-comment-id"), 'text': text, 'user_id': user_id, 'type': type}), true);
+    request.send();
+
+    let el = document.getElementById("overlay");
+    el.style.visibility = "hidden";
 
     event.preventDefault();
 }

@@ -120,6 +120,8 @@ create table Answers(
     comment_id INTEGER,
     date VARCHAR,
     text VARCHAR,
+    user_id INTEGER,
+    type VARCHAR, -- user or shelter
     constraint fk_comments FOREIGN KEY (comment_id) REFERENCES Comments
 );
 
@@ -698,105 +700,145 @@ insert into Comments (id, user_id, pet_id, date, text) values (298, 1, 6, '15929
 insert into Comments (id, user_id, pet_id, date, text) values (299, 4, 24, '1579247678', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.');
 insert into Comments (id, user_id, pet_id, date, text) values (300, 2, 17, '1605222369', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.');
 
-insert into Answers (id, comment_id, date, text) values (1, 151, '1603404297', 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.
+insert into Answers (id, comment_id, date, text, user_id, type) values (1, 92, '1586171365', 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.', 4, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (2, 188, '1599007019', 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.', 1, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (3, 187, '1604925650', 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', 3, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (4, 57, '1593208818', 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', 4, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (5, 277, '1579586019', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', 2, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (6, 100, '1593437292', 'In congue. Etiam justo. Etiam pretium iaculis justo.', 1, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (7, 128, '1578651337', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
 
-Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.');
-insert into Answers (id, comment_id, date, text) values (2, 226, '1584622854', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.');
-insert into Answers (id, comment_id, date, text) values (3, 287, '1598671762', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', 4, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (8, 255, '1601305781', 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
 
-Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.');
-insert into Answers (id, comment_id, date, text) values (4, 221, '1580435769', 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.');
-insert into Answers (id, comment_id, date, text) values (5, 90, '1592357745', 'In congue. Etiam justo. Etiam pretium iaculis justo.');
-insert into Answers (id, comment_id, date, text) values (6, 46, '1584513430', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.');
-insert into Answers (id, comment_id, date, text) values (7, 74, '1596922457', 'Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
+In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.', 1, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (9, 135, '1587509965', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.', 4, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (10, 217, '1596024784', 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.', 3, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (11, 268, '1603712104', 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
 
-Phasellus in felis. Donec semper sapien a libero. Nam dui.');
-insert into Answers (id, comment_id, date, text) values (8, 138, '1607298277', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.', 4, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (12, 173, '1607356420', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
 
-Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.');
-insert into Answers (id, comment_id, date, text) values (9, 279, '1600869273', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', 2, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (13, 258, '1593787563', 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
 
-In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
-insert into Answers (id, comment_id, date, text) values (10, 230, '1607272856', 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.');
-insert into Answers (id, comment_id, date, text) values (11, 217, '1592345166', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.', 4, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (14, 234, '1587179524', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
 
-Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.');
-insert into Answers (id, comment_id, date, text) values (12, 119, '1596824604', 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', 3, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (15, 213, '1593356213', 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.', 1, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (16, 113, '1597129892', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
 
-Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.');
-insert into Answers (id, comment_id, date, text) values (13, 160, '1598510186', 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 2, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (17, 143, '1582834751', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.', 2, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (18, 198, '1577613094', 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.', 3, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (19, 15, '1577642285', 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 4, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (20, 144, '1595894935', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.', 4, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (21, 42, '1588115264', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', 4, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (22, 46, '1598977880', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.', 4, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (23, 126, '1605449739', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.', 2, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (24, 7, '1604573180', 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.', 2, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (25, 213, '1581057004', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.', 3, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (26, 187, '1593161796', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 
-Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.');
-insert into Answers (id, comment_id, date, text) values (14, 188, '1593290369', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.');
-insert into Answers (id, comment_id, date, text) values (15, 69, '1594488510', 'Fusce consequat. Nulla nisl. Nunc nisl.');
-insert into Answers (id, comment_id, date, text) values (16, 50, '1595822072', 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.');
-insert into Answers (id, comment_id, date, text) values (17, 46, '1585349381', 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
-insert into Answers (id, comment_id, date, text) values (18, 189, '1587789410', 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', 3, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (27, 123, '1577910676', 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
 
-Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.');
-insert into Answers (id, comment_id, date, text) values (19, 276, '1594398407', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.');
-insert into Answers (id, comment_id, date, text) values (20, 218, '1590847780', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.', 3, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (28, 153, '1601903586', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
 
-Fusce consequat. Nulla nisl. Nunc nisl.');
-insert into Answers (id, comment_id, date, text) values (21, 158, '1578912028', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', 1, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (29, 57, '1603153993', 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
 
-In congue. Etiam justo. Etiam pretium iaculis justo.');
-insert into Answers (id, comment_id, date, text) values (22, 96, '1576301039', 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
-insert into Answers (id, comment_id, date, text) values (23, 169, '1600483578', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', 1, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (30, 199, '1606806721', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 4, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (31, 250, '1597399658', 'In congue. Etiam justo. Etiam pretium iaculis justo.
 
-Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.');
-insert into Answers (id, comment_id, date, text) values (24, 165, '1577194976', 'Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.');
-insert into Answers (id, comment_id, date, text) values (25, 281, '1581698094', 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.', 3, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (32, 107, '1606826312', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.', 4, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (33, 104, '1586555075', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
 
-Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.');
-insert into Answers (id, comment_id, date, text) values (26, 97, '1582687694', 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.');
-insert into Answers (id, comment_id, date, text) values (27, 106, '1596623966', 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 3, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (34, 241, '1584598868', 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
 
-Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.');
-insert into Answers (id, comment_id, date, text) values (28, 197, '1581179606', 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', 4, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (35, 228, '1602253882', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.
 
-Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.');
-insert into Answers (id, comment_id, date, text) values (29, 6, '1582153080', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.');
-insert into Answers (id, comment_id, date, text) values (30, 225, '1604991534', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.', 1, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (36, 40, '1605229050', 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
 
-Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.');
-insert into Answers (id, comment_id, date, text) values (31, 54, '1584212421', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+Sed ante. Vivamus tortor. Duis mattis egestas metus.', 3, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (37, 176, '1584995213', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
 
-Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.');
-insert into Answers (id, comment_id, date, text) values (32, 226, '1584221517', 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.');
-insert into Answers (id, comment_id, date, text) values (33, 245, '1589707108', 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.');
-insert into Answers (id, comment_id, date, text) values (34, 178, '1594176639', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.');
-insert into Answers (id, comment_id, date, text) values (35, 286, '1599174816', 'Phasellus in felis. Donec semper sapien a libero. Nam dui.
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', 4, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (38, 26, '1590548710', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
 
-Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.');
-insert into Answers (id, comment_id, date, text) values (36, 201, '1606995376', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', 1, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (39, 274, '1588247027', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.
 
-Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.');
-insert into Answers (id, comment_id, date, text) values (37, 116, '1601503172', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.
+Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', 2, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (40, 186, '1583894509', 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
 
-Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.');
-insert into Answers (id, comment_id, date, text) values (38, 143, '1587817188', 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.');
-insert into Answers (id, comment_id, date, text) values (39, 131, '1580359732', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.');
-insert into Answers (id, comment_id, date, text) values (40, 207, '1602219061', 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.', 3, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (41, 220, '1587056270', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.', 2, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (42, 276, '1600032625', 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
 
-Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.');
-insert into Answers (id, comment_id, date, text) values (41, 40, '1604411948', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', 4, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (43, 237, '1606859501', 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.', 2, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (44, 142, '1581226785', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
 
-Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.');
-insert into Answers (id, comment_id, date, text) values (42, 174, '1602408851', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.', 3, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (45, 17, '1588083347', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
 
-Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.');
-insert into Answers (id, comment_id, date, text) values (43, 102, '1599340615', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
-insert into Answers (id, comment_id, date, text) values (44, 269, '1604067448', 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.', 1, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (46, 1, '1599083946', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', 1, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (47, 45, '1594222905', 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.', 3, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (48, 277, '1581650499', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
 
-Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.');
-insert into Answers (id, comment_id, date, text) values (45, 41, '1582431117', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.');
-insert into Answers (id, comment_id, date, text) values (46, 296, '1579035260', 'Fusce consequat. Nulla nisl. Nunc nisl.');
-insert into Answers (id, comment_id, date, text) values (47, 58, '1597603382', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', 1, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (49, 73, '1603353879', 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
 
-Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.');
-insert into Answers (id, comment_id, date, text) values (48, 17, '1579682034', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.');
-insert into Answers (id, comment_id, date, text) values (49, 240, '1584656893', 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.');
-insert into Answers (id, comment_id, date, text) values (50, 141, '1604184776', 'Fusce consequat. Nulla nisl. Nunc nisl.
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.', 4, 'user');
+insert into Answers (id, comment_id, date, text, user_id, type) values (50, 111, '1586520716', 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
 
-Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.');
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.', 1, 'user');
+
+insert into Answers (id, comment_id, date, text, user_id, type) values (51, 36, '1577568740', 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 2, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (52, 12, '1583843173', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.', 1, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (53, 198, '1585122382', 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.', 2, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (54, 265, '1588078668', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', 1, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (55, 80, '1596450562', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.', 2, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (56, 88, '1603141454', 'Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.', 1, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (57, 6, '1596344056', 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', 2, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (58, 191, '1605046384', 'Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.', 1, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (59, 40, '1583106688', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.', 1, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (60, 287, '1588485524', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.', 2, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (61, 28, '1604139912', 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.', 2, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (62, 166, '1580248798', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.', 1, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (63, 108, '1604680054', 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
+
+Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', 1, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (64, 95, '1606673750', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.', 1, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (65, 86, '1588971152', 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.
+
+Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.', 1, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (66, 123, '1599865116', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.', 2, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (67, 122, '1599798498', 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.', 2, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (68, 1, '1580275269', 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', 1, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (69, 86, '1592316112', 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', 2, 'shelter');
+insert into Answers (id, comment_id, date, text, user_id, type) values (70, 128, '1599769515', 'Sed ante. Vivamus tortor. Duis mattis egestas metus.', 2, 'shelter');
+

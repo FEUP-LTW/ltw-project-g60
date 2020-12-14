@@ -212,5 +212,23 @@ function getCommentReplies($commentID) {
     }
 }
 
+function addPetReply($comment_id, $text, $user_id, $type) {
+    global $db;
+    if ($stmt = $db->prepare('INSERT INTO Answers(comment_id, date, text, user_id, type) VALUES (:comment_id, :date, :text, :user_id, :type)')) {
+        $stmt->bindParam(':comment_id', $comment_id);
+        $stmt->bindParam(':text', $text);
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':type', $type);
+        $time = time();
+        $stmt->bindParam(':date', $time);
+        $stmt->execute();
+        return $comment_id;
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
+}
+
 
 
