@@ -3,7 +3,6 @@
 
 body
   height: auto
-
   a
     color: white
     text-decoration: none
@@ -14,7 +13,6 @@ body
     background-repeat: no-repeat
     background-size: cover
     background-position: center
-    background-position-y: -200px
     width: 100%
     height: 15vw
 
@@ -32,14 +30,17 @@ body
     display: flex
 
     .title
-      padding: 18px 0px 0px 25px
+      padding: 10px 0px 0px 15px
       font-size: 25px
       font-weight: bold
       color: white
+      i
+        font-size: 110%
+        padding-right: 10px
 
     img
       width: 8vw
-      border-radius: 15px
+      border-radius: 10px
       float: left
       margin-right: 10px
 
@@ -56,29 +57,34 @@ body
         grid-area: profile
         position: relative
         width: 80%
-        height: 145%
-        left: 25px
-        bottom: 10vh
+        height: 135%
+        left: 10%
+        bottom: 45%
         z-index: 1
-        border-radius: 15px
+        border-radius: 10px
         background-size: cover
         background-position: center
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2)
 
       #about_me, #location, #contact
         display: flex
-        border-radius: 15px
-        background-color: grey
+        border-radius: 10px
+        background-color: common.$accent-color
         margin: 8% 12%
         justify-content: center
-
-        a
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2)
+        a, label
+          color: white
           padding: 10%
           font-size: 1.5vw
           i
             display: flex
             font-size: 3.5vw
             justify-content: center
-
+          input
+            display: none
+          &:hover
+            cursor: pointer
       #about_me
         grid-area: about
 
@@ -89,38 +95,77 @@ body
         grid-area: contact
 
       #about_me:hover, #location:hover, #contact:hover
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2)
         cursor: pointer
         @include animations.animation("scale05 0.2s forwards")
 
-      .container-dog
+      .container-pet
         padding: 0
         width: 28vw
         text-align: justify
 
       .shelter_adoption
         grid-area: adopt
-        border-radius: 15px
-        background-color: grey
+        border-radius: 10px
+        background-color: common.$main-color
         margin: 3% 3%
-
         .adoption-card
           display: flex
-          padding: 15px
-          background-color: #363636
-          border-radius: 15px
-          width: 90%
+          padding: 8px
+          background-color: common.$accent-color
+          border-radius: 10px
+          width: fit-content
           margin: 15px auto
+          a
+            width: fit-content
+            .pet-img
+              float: left
+              margin-right: 10px
+              border-radius: 10px
+              width: 7em
+              height: 7em
+              background-repeat: no-repeat
+              background-size: cover
+              background-position: center
 
-          .container-dog
-            padding: 0
-            width: 54vw
-            text-align: justify
+            .container-pet
+              padding: 0
+              width: 54vw
+              text-align: justify
 
         .adoption-card:hover
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
           cursor: pointer
           @include animations.animation("scale05 0.2s forwards")
+    .edit_shelter_info
+      @extend .shelter_adoption
+      form
+        display: grid
+        margin: 30px auto 50px
+        grid-template-rows: 0.3fr 0.3fr 0.3fr 0.3fr
+        grid-template-columns: 50% 50%
+        .group:nth-of-type(1)
+          grid-column: 1 / 3
+          grid-row: 1
+        .group:nth-of-type(2)
+          grid-column: 1
+          grid-row: 2
+        #photos
+          grid-column: 2
+          grid-row: 2
+          display: flex
+          justify-self: center
+          margin-right: 1em
+          label:nth-of-type(1),label:nth-of-type(2)
+            @extend .button
+            padding: 1em
+            margin-left: 10px
+            display: flex
+            height: 20px
+            input
+              display: none
+            span
+              margin-right: 0.2em
 
     .right
       margin-top: 10px
@@ -132,22 +177,119 @@ body
 
       .shelter_adopted
         border-radius: 15px
-        background-color: grey
+        background-color: common.$main-color
         margin: 3.5% 3% 4% 3%
 
         .adopted-card
           display: flex
-          padding: 15px
-          background-color: #363636
+          padding: 8px
+          background-color: common.$accent-color
           border-radius: 15px
           width: 85%
           margin: 15px auto
+          .pet-img
+            float: left
+            margin-right: 10px
+            border-radius: 10px
+            width: 5em
+            height: 5em
+            background-repeat: no-repeat
+            background-size: cover
+            background-position: center
 
-          .container-dog
+          .container-pet
             width: 27vw
             text-align: justify
+
 
         .adopted-card:hover
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
           cursor: pointer
           @include animations.animation("scale05 0.2s forwards")
+
+@media (max-width: 55em)
+  body
+    .shelter_profile
+      .title
+        text-align: center
+        span
+          display: none
+      .left
+        width: 75%
+        #about_me, #location, #contact
+          label
+            i
+              margin: 10px 0
+              font-size: 275%
+            span
+              display: none
+        .shelter_adoption
+          p
+            white-space: nowrap
+            overflow: hidden
+            text-overflow: ellipsis
+      .right
+        width: 25%
+        .shelter_adopted
+          justify-content: center
+          .adopted-card
+            display: flex
+            padding: 8px
+            width: fit-content
+            a
+              .pet-img
+                align-self: center
+                float: none
+                margin: 0
+              .container-pet
+                width: fit-content
+                max-width: 82px
+                h4
+                  word-wrap: break-word
+                p
+                  display: none
+
+@media (max-width: 35em)
+  body
+    .banner
+      height: 80px
+    .shelter_profile
+      display: block
+      .left
+        width: 100%
+        #about_me, #location, #contact
+          label
+            i
+              margin: 7px 0
+              font-size: 375%
+        .pets_container
+          padding: 5px
+          width: fit-content
+          display: flex !important
+          flex-wrap: wrap
+          align-content: flex-start
+          .adoption-card
+            width: fit-content
+            a
+              .pet-img
+                float: none
+                margin: 0
+              .container-pet
+                width: 20vw
+                p
+                  display: none
+          .title
+            width: 100%
+        .edit_shelter_info
+          .title
+            form
+              display: block
+      .right
+        width: 100%
+        .shelter_adopted
+          padding-right: 5px
+          .title
+            width: 100%
+          display: flex
+          flex-wrap: wrap
+          align-content: flex-start

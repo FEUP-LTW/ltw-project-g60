@@ -2,11 +2,11 @@
 session_start();                         // starts the session
 include_once('database/connection.php'); // connects to the database
 include_once('database/users.php');      // loads the functions responsible for the users table
-include_once('database/pets.php');
 include_once('database/upload.php');
 
-addPet($_SESSION['username'],$_POST['name'],$_FILES['photo'], $_POST['breed'],$_POST['size'],$_POST['color'],$_POST['gender'],
-    $_POST['information'],$_POST['age'],$_POST['location']);
+editUser($_POST['name'], $_POST['username'], $_POST['password'], "shelter", $_FILES['profile_photo'], $_FILES['header_photo'], null);
 
-header('Location: ' . 'homepage.php');
+$_SESSION['username'] = $_POST['username'];            // store the username
+header('Location: ' . $_SERVER['HTTP_REFERER']);
+
 die();

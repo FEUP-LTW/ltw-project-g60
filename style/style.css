@@ -62,6 +62,138 @@
     transform: scale(1.05);
   }
 }
+@-webkit-keyframes inputHighlighter {
+  0% {
+    background: #5264AE;
+  }
+  100% {
+    width: 0;
+    background: transparent;
+  }
+}
+@-moz-keyframes inputHighlighter {
+  0% {
+    background: #5264AE;
+  }
+  100% {
+    width: 0;
+    background: transparent;
+  }
+}
+@-ms-keyframes inputHighlighter {
+  0% {
+    background: #5264AE;
+  }
+  100% {
+    width: 0;
+    background: transparent;
+  }
+}
+@keyframes inputHighlighter {
+  0% {
+    background: #5264AE;
+  }
+  100% {
+    width: 0;
+    background: transparent;
+  }
+}
+@-webkit-keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+@-moz-keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+@-ms-keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+@-webkit-keyframes rotateX {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  50% {
+    transform: rotateX(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+@-moz-keyframes rotateX {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  50% {
+    transform: rotateX(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+@-ms-keyframes rotateX {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  50% {
+    transform: rotateX(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+@keyframes rotateX {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  50% {
+    transform: rotateX(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -79,37 +211,40 @@ html, body {
 
 .header {
   margin: 0 auto;
-  background-color: grey;
-  background-image: url("https://dogworldkennelclub.co.uk/wp-content/uploads/2017/11/banner-dog-field-2000x580.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 15em;
   color: white;
-  padding-bottom: 1em;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 10em 3em 2.5em;
 }
 .header a {
+  justify-self: center;
+  align-self: center;
   color: white;
+  grid-column: 1/6;
+  grid-row: 1;
 }
 .header h1 {
-  margin: 0 auto;
-  padding-top: 1em;
   text-align: center;
   font-size: 450%;
   letter-spacing: 10px;
 }
 .header h2 {
+  grid-column: 1/6;
+  grid-row: 2;
   text-align: center;
   font-size: 200%;
 }
-
-#links, #signup {
-  position: relative;
+.header #links, .header #signup {
+  justify-self: center;
+  grid-row: 3;
+  grid-column: 1/3;
   float: left;
-  padding-left: 10em;
 }
-#links a, #signup a {
+.header #links a, .header #signup a {
   font-size: 1.2rem;
   text-decoration: none;
   color: white;
@@ -118,15 +253,15 @@ html, body {
   padding-bottom: 5px;
   margin-bottom: 1em;
 }
-
-#signup {
-  float: right;
-  padding-right: 10em;
+.header #signup {
+  grid-row: 3;
+  grid-column: 3/5;
+  margin-right: 20px;
 }
 
 .footer {
   flex-shrink: 0;
-  background-color: #363636;
+  background-color: #934B00;
   color: white;
   position: absolute;
   left: 0;
@@ -143,10 +278,11 @@ html, body {
   float: right;
 }
 
-.button, body #pet_add #right form label:nth-of-type(4), #register form #photos label:nth-of-type(1), #register form #photos label:nth-of-type(2) {
-  background-color: #363636;
+.button, body #pet_add #right form label:nth-of-type(8), body #pet_add #right form label:nth-of-type(9), body .user_profile .left .edit_user_info form #photos label:nth-of-type(1), body .user_profile .left .edit_user_info form #photos label:nth-of-type(2), body .shelter_profile .edit_shelter_info form #photos label:nth-of-type(1), body .shelter_profile .edit_shelter_info form #photos label:nth-of-type(2), #register form #photos label:nth-of-type(1), #register form #photos label:nth-of-type(2), button {
+  background-color: #934B00;
   border: none;
   color: white;
+  margin: 5px;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -157,7 +293,7 @@ html, body {
   cursor: pointer;
 }
 
-.button:hover, body #pet_add #right form label:hover:nth-of-type(4), #register form #photos label:hover:nth-of-type(1), #register form #photos label:hover:nth-of-type(2) {
+.button:hover, body #pet_add #right form label:hover:nth-of-type(8), body #pet_add #right form label:hover:nth-of-type(9), body .user_profile .left .edit_user_info form #photos label:hover:nth-of-type(1), body .user_profile .left .edit_user_info form #photos label:hover:nth-of-type(2), body .shelter_profile .edit_shelter_info form #photos label:hover:nth-of-type(1), body .shelter_profile .edit_shelter_info form #photos label:hover:nth-of-type(2), #register form #photos label:hover:nth-of-type(1), #register form #photos label:hover:nth-of-type(2), button:hover {
   -webkit-animation: scale05 0.2s forwards;
 }
 
@@ -171,7 +307,7 @@ hr {
 }
 
 .navigation_bar {
-  background-color: #363636;
+  background-color: #934B00;
   width: 100%;
 }
 .navigation_bar a {
@@ -182,11 +318,17 @@ hr {
 }
 .navigation_bar #links, .navigation_bar #signup {
   padding: 10px;
-  margin-left: 10%;
+  position: relative;
+  float: left;
 }
 .navigation_bar #links a, .navigation_bar #signup a {
-  padding: 0px;
-  margin-bottom: 0px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+  border-bottom: 1px solid white;
+  padding: 0;
+  margin-bottom: 0;
 }
 .navigation_bar #signup {
   padding: 10px;
@@ -197,20 +339,232 @@ hr {
   margin-bottom: 0;
 }
 
+.group {
+  position: relative;
+  margin-bottom: 45px;
+}
+.group input {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 80%;
+  border: none;
+  border-bottom: 1px solid #934B00;
+  color: white;
+  margin: 0;
+}
+.group input:focus {
+  outline: none;
+}
+.group input:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+}
+.group label {
+  color: white;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.group input:focus ~ label, .group input:valid ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #934B00;
+}
+.group .bar {
+  position: relative;
+  display: block;
+  width: 83%;
+}
+.group .bar:before {
+  left: 50%;
+}
+.group .bar:after {
+  right: 50%;
+}
+.group .bar:before, .group .bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #934B00;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.group input:focus ~ .bar:before, .group input:focus ~ .bar:after {
+  width: 50%;
+}
+.group .highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .page-content {
   padding: 2em;
 }
 
+.hamburger #myLinks {
+  display: none;
+  border-radius: 10px;
+}
+.hamburger #myLinks a {
+  display: none;
+  margin: 2px;
+  background-color: #F1A66A;
+  right: 0;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  -webkit-animation: rotateX 300ms ease-in-out forwards;
+}
+.hamburger a {
+  display: none;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 15px;
+}
+.hamburger a.icon {
+  background: none;
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.hamburger a:hover {
+  color: white;
+}
+
+.hamburger_navbar {
+  background-color: #F1A66A;
+}
+.hamburger_navbar #myLinks {
+  display: none;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+.hamburger_navbar #myLinks a {
+  width: 10em;
+  display: block;
+  margin: 2px;
+  background-color: #F1A66A;
+  right: 0;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  -webkit-animation: rotateX 300ms ease-in-out forwards;
+}
+.hamburger_navbar a {
+  display: none;
+  background-color: #F1A66A;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 15px;
+}
+.hamburger_navbar a.icon_navbar {
+  background: none;
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.hamburger_navbar a:hover {
+  -webkit-animation: fadeIn 0.5s ease;
+  background-color: #F1A66A;
+}
+
+@media (max-width: 60em) {
+  .header h1 {
+    font-size: 350%;
+  }
+  .header h2 {
+    font-size: 180%;
+  }
+  .header #links, .header #signup {
+    display: none;
+  }
+
+  .navigation_bar #links, .navigation_bar #signup {
+    display: none;
+  }
+
+  .hamburger #myLinks a, .hamburger_navbar #myLinks a {
+    display: block;
+  }
+  .hamburger a.icon, .hamburger_navbar a.icon {
+    background: none;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 200px;
+  }
+  .hamburger a, .hamburger_navbar a {
+    display: block;
+  }
+  .hamburger a.icon_navbar, .hamburger_navbar a.icon_navbar {
+    background: none;
+    display: block;
+    position: absolute;
+    right: 0;
+  }
+}
+@media (max-width: 30em) {
+  .header {
+    height: 140px;
+    display: block;
+    grid-template-rows: 6em 2em 1.5em;
+  }
+  .header h1 {
+    font-size: 250%;
+  }
+  .header h2 {
+    font-size: 100%;
+  }
+  .header #links, .header #signup {
+    display: none;
+  }
+
+  .hamburger #myLinks a, .hamburger_navbar #myLinks a {
+    display: block;
+  }
+  .hamburger a.icon, .hamburger_navbar a.icon {
+    background: none;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 95px;
+  }
+  .hamburger a, .hamburger_navbar a {
+    display: block;
+  }
+  .hamburger a.icon_navbar, .hamburger_navbar a.icon_navbar {
+    background: none;
+    display: block;
+    position: absolute;
+    right: 0;
+  }
+}
 body {
   display: flex;
   flex-direction: column;
 }
-body .content {
-  flex: 1 0 auto;
-}
 body #homepage-cards {
-  margin: 1em auto 0;
-  width: 75%;
+  margin: 1em auto;
+  width: 85%;
+  max-width: 1024px;
+  height: 400px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: auto;
@@ -226,7 +580,7 @@ body .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 10px;
-  background-color: #a1a1a1;
+  background-color: #F1A66A;
 }
 body .card a {
   position: relative;
@@ -236,7 +590,7 @@ body .card .image {
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 45vh;
+  height: 300px;
 }
 body .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -246,11 +600,15 @@ body .container {
   padding: 10px 10px;
 }
 body .container p {
-  color: #363636;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
 }
 body .card-title {
   padding: 10px 10px 10px 15px;
-  background-color: #363636;
+  background-color: #934B00;
   font-size: large;
   font-weight: bold;
   color: white;
@@ -262,8 +620,66 @@ body #shuffle-button {
   margin: 2em auto;
 }
 
+@media (max-width: 60em) {
+  body .content #homepage-cards {
+    height: 100%;
+    display: block;
+  }
+  body .content #homepage-cards .card {
+    margin: 2em auto;
+  }
+  body .content #homepage-cards .card a {
+    margin: 1em auto;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 20vw auto;
+    grid-auto-rows: auto 35px;
+  }
+  body .content #homepage-cards .card a .card-title {
+    grid-column: 2;
+    grid-row: 2;
+    margin-left: 35%;
+    border-radius: 10px 0 0 0;
+    padding: 5px 0 0 15px;
+  }
+  body .content #homepage-cards .card a .image {
+    grid-column: 1;
+    grid-row: 1/3;
+    margin-right: 1em;
+    border-radius: 10px 0 0 10px;
+    background-size: cover;
+    background-position: center;
+    width: 20vw;
+    height: 20vw;
+  }
+}
+@media (max-width: 30em) {
+  body .content #homepage-cards {
+    height: 90%;
+    display: block;
+  }
+  body .content #homepage-cards .card {
+    margin: 2em auto;
+  }
+  body .content #homepage-cards .card a {
+    margin: 1em auto;
+    display: block;
+  }
+  body .content #homepage-cards .card a .card-title {
+    margin: 0;
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
+  }
+  body .content #homepage-cards .card a .image {
+    border-radius: 0;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 270px;
+  }
+}
 #login h2, #register h2 {
-  background-color: #363636;
+  background-color: #934B00;
   text-align: center;
   width: 100%;
   padding: 10px 0;
@@ -272,132 +688,102 @@ body #shuffle-button {
 }
 #login form, #register form {
   width: 30em;
-  background-color: #bababa;
+  background-color: #F1A66A;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   transition: 0.3s;
-  color: #363636;
+  color: white;
   margin: 2em auto;
-  padding: 1em;
-}
-#login label, #register label {
-  padding: 1em;
-  display: block;
-}
-#login input[type=text], #login input[type=password], #login input[type=email], #register input[type=text], #register input[type=password], #register input[type=email] {
-  height: 34px;
-  border-radius: 10px;
-  border: 1px solid transparent;
-  border-top: none;
-  border-bottom: 1px solid #DDD;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
-  display: block;
-  padding: 0 10px;
-  background-color: white;
-  color: black;
-  -moz-appearance: none;
-  appearance: none;
-  margin-top: 1em;
-  width: 90%;
-  font-size: 0.9em;
+  padding: 2em;
 }
 #login input[type=submit], #register input[type=submit] {
   width: auto;
-  background-color: #363636;
+  background-color: #934B00;
   color: white;
   border: none;
   margin: 1em 1em 1em auto;
-}
-#login input:focus, #register input:focus {
-  outline: none;
-  border-bottom: 1px solid #046dd5;
 }
 
 #register form {
   display: grid;
   margin: 30px auto 50px;
   grid-template-rows: 0.6fr 0.6fr 0.6fr 0.5fr;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 50% 50%;
 }
-#register form input[type=text], #register form input[type=password] {
-  width: 98%;
-}
-#register form label:nth-of-type(1) {
+#register form .group:nth-of-type(1) {
   grid-column: 1/3;
   grid-row: 1;
 }
-#register form label:nth-of-type(2) {
+#register form .group:nth-of-type(2) {
   grid-column: 1;
   grid-row: 2;
 }
 #register form #photos {
   grid-column: 2;
   grid-row: 2;
+  display: flex;
+  justify-self: right;
+  margin-right: 1em;
 }
 #register form #photos label:nth-of-type(1), #register form #photos label:nth-of-type(2) {
-  margin: 0.5em 2em;
+  padding: 1em;
+  margin-left: 10px;
   display: flex;
   height: 20px;
-  width: 58%;
+}
+#register form #photos label:nth-of-type(1) input, #register form #photos label:nth-of-type(2) input {
+  display: none;
 }
 #register form #photos label:nth-of-type(1) span, #register form #photos label:nth-of-type(2) span {
   margin-right: 0.2em;
 }
-#register form label:nth-of-type(4) {
-  grid-column: 1;
-  grid-row: 3;
-}
-#register form label:nth-of-type(5) {
-  grid-column: 2;
-  grid-row: 3;
-}
-#register form div {
+#register form #shelter-user-option {
   grid-column: 1;
   grid-row: 4;
 }
-#register form div label {
+#register form #shelter-user-option label {
   display: block;
   position: relative;
   padding-left: 35px;
   margin-left: 1em;
-  margin-bottom: 0;
+  margin-bottom: 20px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
-#register form div label input {
+#register form #shelter-user-option label input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
   width: 0;
 }
-#register form div label .checkmark {
+#register form #shelter-user-option label .checkmark {
   position: absolute;
-  top: 1em;
+  top: 0;
   left: 0;
   height: 25px;
   width: 25px;
   background-color: #eee;
   border-radius: 50%;
 }
-#register form div label:hover input ~ .checkmark {
+#register form #shelter-user-option label:hover input ~ .checkmark {
   background-color: #ccc;
 }
-#register form div label input:checked ~ .checkmark {
-  background-color: #2196F3;
+#register form #shelter-user-option label input:checked ~ .checkmark {
+  background-color: #934B00;
 }
-#register form div label .checkmark:after {
+#register form #shelter-user-option label .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-#register form div label input:checked ~ .checkmark:after {
+#register form #shelter-user-option label input:checked ~ .checkmark:after {
   display: block;
 }
-#register form div label .checkmark:after {
+#register form #shelter-user-option label .checkmark:after {
   top: 9px;
   left: 9px;
   width: 8px;
@@ -405,13 +791,15 @@ body #shuffle-button {
   border-radius: 50%;
   background: white;
 }
-#register form input:nth-of-type(1) {
+#register form input {
   grid-column: 2;
   grid-row: 4;
 }
 
 .search {
-  background-image: url("https://dogworldkennelclub.co.uk/wp-content/uploads/2017/11/banner-dog-field-2000x580.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   width: 100%;
   margin: 0 auto;
 }
@@ -441,20 +829,11 @@ body #shuffle-button {
   height: 36px;
   border-radius: 5px 0 0 5px;
   outline: none;
-  color: #363636;
+  color: #934B00;
 }
 .search form #search-wrap #search button {
-  width: 40px;
-  height: 36px;
-  background: #363636;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
-}
-.search form #search-wrap #search button:hover {
-  -webkit-animation: scale05 0.2s forwards;
+  margin: 0;
+  padding: 0 20px;
 }
 .search form select[name=category] {
   grid-row: 2;
@@ -479,9 +858,9 @@ body #shuffle-button {
 .search form select {
   width: 80%;
   margin: 0 auto;
-  border: 3px solid #363636;
+  border: 3px solid #934B00;
   padding: 1em;
-  background-color: #363636;
+  background-color: #934B00;
   border-radius: 7px;
   color: white;
 }
@@ -489,7 +868,7 @@ body #shuffle-button {
   width: 65%;
   margin: 0 auto;
   padding: 1em;
-  background-color: #363636;
+  background-color: #934B00;
   border-radius: 7px;
   color: white;
 }
@@ -551,18 +930,6 @@ body #shuffle-button {
   text-align: center;
   margin: auto;
 }
-.pets-list .pet-card .pet-links a, .shelters-list .pet-card .pet-links a, .pets-list .shelter-card .pet-links a, .shelters-list .shelter-card .pet-links a, .pets-list .pet-card .shelter-link a, .shelters-list .pet-card .shelter-link a, .pets-list .shelter-card .shelter-link a, .shelters-list .shelter-card .shelter-link a {
-  margin: 5px auto;
-  padding: 10px;
-  width: 100%;
-  transition-property: padding-bottom;
-  transition-duration: 0.5s;
-}
-.pets-list .pet-card .pet-links a:hover, .shelters-list .pet-card .pet-links a:hover, .pets-list .shelter-card .pet-links a:hover, .shelters-list .shelter-card .pet-links a:hover, .pets-list .pet-card .shelter-link a:hover, .shelters-list .pet-card .shelter-link a:hover, .pets-list .shelter-card .shelter-link a:hover, .shelters-list .shelter-card .shelter-link a:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s;
-  -webkit-animation: scale05 0.5s forwards;
-}
 
 body {
   height: auto;
@@ -577,7 +944,6 @@ body .banner {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-position-y: -200px;
   width: 100%;
   height: 15vw;
 }
@@ -595,14 +961,18 @@ body .shelter_profile {
   display: flex;
 }
 body .shelter_profile .title {
-  padding: 18px 0px 0px 25px;
+  padding: 10px 0px 0px 15px;
   font-size: 25px;
   font-weight: bold;
   color: white;
 }
+body .shelter_profile .title i {
+  font-size: 110%;
+  padding-right: 10px;
+}
 body .shelter_profile img {
   width: 8vw;
-  border-radius: 15px;
+  border-radius: 10px;
   float: left;
   margin-right: 10px;
 }
@@ -619,29 +989,38 @@ body .shelter_profile .left .profile_pic {
   grid-area: profile;
   position: relative;
   width: 80%;
-  height: 145%;
-  left: 25px;
-  bottom: 10vh;
+  height: 135%;
+  left: 10%;
+  bottom: 45%;
   z-index: 1;
-  border-radius: 15px;
+  border-radius: 10px;
   background-size: cover;
   background-position: center;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
 }
 body .shelter_profile .left #about_me, body .shelter_profile .left #location, body .shelter_profile .left #contact {
   display: flex;
-  border-radius: 15px;
-  background-color: grey;
+  border-radius: 10px;
+  background-color: #934B00;
   margin: 8% 12%;
   justify-content: center;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
 }
-body .shelter_profile .left #about_me a, body .shelter_profile .left #location a, body .shelter_profile .left #contact a {
+body .shelter_profile .left #about_me a, body .shelter_profile .left #about_me label, body .shelter_profile .left #location a, body .shelter_profile .left #location label, body .shelter_profile .left #contact a, body .shelter_profile .left #contact label {
+  color: white;
   padding: 10%;
   font-size: 1.5vw;
 }
-body .shelter_profile .left #about_me a i, body .shelter_profile .left #location a i, body .shelter_profile .left #contact a i {
+body .shelter_profile .left #about_me a i, body .shelter_profile .left #about_me label i, body .shelter_profile .left #location a i, body .shelter_profile .left #location label i, body .shelter_profile .left #contact a i, body .shelter_profile .left #contact label i {
   display: flex;
   font-size: 3.5vw;
   justify-content: center;
+}
+body .shelter_profile .left #about_me a input, body .shelter_profile .left #about_me label input, body .shelter_profile .left #location a input, body .shelter_profile .left #location label input, body .shelter_profile .left #contact a input, body .shelter_profile .left #contact label input {
+  display: none;
+}
+body .shelter_profile .left #about_me a:hover, body .shelter_profile .left #about_me label:hover, body .shelter_profile .left #location a:hover, body .shelter_profile .left #location label:hover, body .shelter_profile .left #contact a:hover, body .shelter_profile .left #contact label:hover {
+  cursor: pointer;
 }
 body .shelter_profile .left #about_me {
   grid-area: about;
@@ -653,38 +1032,84 @@ body .shelter_profile .left #contact {
   grid-area: contact;
 }
 body .shelter_profile .left #about_me:hover, body .shelter_profile .left #location:hover, body .shelter_profile .left #contact:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   -webkit-animation: scale05 0.2s forwards;
 }
-body .shelter_profile .left .container-dog {
+body .shelter_profile .left .container-pet {
   padding: 0;
   width: 28vw;
   text-align: justify;
 }
-body .shelter_profile .left .shelter_adoption {
+body .shelter_profile .left .shelter_adoption, body .shelter_profile .left .edit_shelter_info {
   grid-area: adopt;
-  border-radius: 15px;
-  background-color: grey;
+  border-radius: 10px;
+  background-color: #F1A66A;
   margin: 3% 3%;
 }
-body .shelter_profile .left .shelter_adoption .adoption-card {
+body .shelter_profile .left .shelter_adoption .adoption-card, body .shelter_profile .left .edit_shelter_info .adoption-card {
   display: flex;
-  padding: 15px;
-  background-color: #363636;
-  border-radius: 15px;
-  width: 90%;
+  padding: 8px;
+  background-color: #934B00;
+  border-radius: 10px;
+  width: fit-content;
   margin: 15px auto;
 }
-body .shelter_profile .left .shelter_adoption .adoption-card .container-dog {
+body .shelter_profile .left .shelter_adoption .adoption-card a, body .shelter_profile .left .edit_shelter_info .adoption-card a {
+  width: fit-content;
+}
+body .shelter_profile .left .shelter_adoption .adoption-card a .pet-img, body .shelter_profile .left .edit_shelter_info .adoption-card a .pet-img {
+  float: left;
+  margin-right: 10px;
+  border-radius: 10px;
+  width: 7em;
+  height: 7em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+body .shelter_profile .left .shelter_adoption .adoption-card a .container-pet, body .shelter_profile .left .edit_shelter_info .adoption-card a .container-pet {
   padding: 0;
   width: 54vw;
   text-align: justify;
 }
-body .shelter_profile .left .shelter_adoption .adoption-card:hover {
+body .shelter_profile .left .shelter_adoption .adoption-card:hover, body .shelter_profile .left .edit_shelter_info .adoption-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   -webkit-animation: scale05 0.2s forwards;
+}
+body .shelter_profile .edit_shelter_info form {
+  display: grid;
+  margin: 30px auto 50px;
+  grid-template-rows: 0.3fr 0.3fr 0.3fr 0.3fr;
+  grid-template-columns: 50% 50%;
+}
+body .shelter_profile .edit_shelter_info form .group:nth-of-type(1) {
+  grid-column: 1/3;
+  grid-row: 1;
+}
+body .shelter_profile .edit_shelter_info form .group:nth-of-type(2) {
+  grid-column: 1;
+  grid-row: 2;
+}
+body .shelter_profile .edit_shelter_info form #photos {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  justify-self: center;
+  margin-right: 1em;
+}
+body .shelter_profile .edit_shelter_info form #photos label:nth-of-type(1), body .shelter_profile .edit_shelter_info form #photos label:nth-of-type(2) {
+  padding: 1em;
+  margin-left: 10px;
+  display: flex;
+  height: 20px;
+}
+body .shelter_profile .edit_shelter_info form #photos label:nth-of-type(1) input, body .shelter_profile .edit_shelter_info form #photos label:nth-of-type(2) input {
+  display: none;
+}
+body .shelter_profile .edit_shelter_info form #photos label:nth-of-type(1) span, body .shelter_profile .edit_shelter_info form #photos label:nth-of-type(2) span {
+  margin-right: 0.2em;
 }
 body .shelter_profile .right {
   margin-top: 10px;
@@ -696,18 +1121,28 @@ body .shelter_profile .right {
 }
 body .shelter_profile .right .shelter_adopted {
   border-radius: 15px;
-  background-color: grey;
+  background-color: #F1A66A;
   margin: 3.5% 3% 4% 3%;
 }
 body .shelter_profile .right .shelter_adopted .adopted-card {
   display: flex;
-  padding: 15px;
-  background-color: #363636;
+  padding: 8px;
+  background-color: #934B00;
   border-radius: 15px;
   width: 85%;
   margin: 15px auto;
 }
-body .shelter_profile .right .shelter_adopted .adopted-card .container-dog {
+body .shelter_profile .right .shelter_adopted .adopted-card .pet-img {
+  float: left;
+  margin-right: 10px;
+  border-radius: 10px;
+  width: 5em;
+  height: 5em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+body .shelter_profile .right .shelter_adopted .adopted-card .container-pet {
   width: 27vw;
   text-align: justify;
 }
@@ -717,6 +1152,108 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   -webkit-animation: scale05 0.2s forwards;
 }
 
+@media (max-width: 55em) {
+  body .shelter_profile .title {
+    text-align: center;
+  }
+  body .shelter_profile .title span {
+    display: none;
+  }
+  body .shelter_profile .left {
+    width: 75%;
+  }
+  body .shelter_profile .left #about_me label i, body .shelter_profile .left #location label i, body .shelter_profile .left #contact label i {
+    margin: 10px 0;
+    font-size: 275%;
+  }
+  body .shelter_profile .left #about_me label span, body .shelter_profile .left #location label span, body .shelter_profile .left #contact label span {
+    display: none;
+  }
+  body .shelter_profile .left .shelter_adoption p, body .shelter_profile .left .edit_shelter_info p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  body .shelter_profile .right {
+    width: 25%;
+  }
+  body .shelter_profile .right .shelter_adopted {
+    justify-content: center;
+  }
+  body .shelter_profile .right .shelter_adopted .adopted-card {
+    display: flex;
+    padding: 8px;
+    width: fit-content;
+  }
+  body .shelter_profile .right .shelter_adopted .adopted-card a .pet-img {
+    align-self: center;
+    float: none;
+    margin: 0;
+  }
+  body .shelter_profile .right .shelter_adopted .adopted-card a .container-pet {
+    width: fit-content;
+    max-width: 82px;
+  }
+  body .shelter_profile .right .shelter_adopted .adopted-card a .container-pet h4 {
+    word-wrap: break-word;
+  }
+  body .shelter_profile .right .shelter_adopted .adopted-card a .container-pet p {
+    display: none;
+  }
+}
+@media (max-width: 35em) {
+  body .banner {
+    height: 80px;
+  }
+  body .shelter_profile {
+    display: block;
+  }
+  body .shelter_profile .left {
+    width: 100%;
+  }
+  body .shelter_profile .left #about_me label i, body .shelter_profile .left #location label i, body .shelter_profile .left #contact label i {
+    margin: 7px 0;
+    font-size: 375%;
+  }
+  body .shelter_profile .left .pets_container {
+    padding: 5px;
+    width: fit-content;
+    display: flex !important;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+  body .shelter_profile .left .pets_container .adoption-card {
+    width: fit-content;
+  }
+  body .shelter_profile .left .pets_container .adoption-card a .pet-img {
+    float: none;
+    margin: 0;
+  }
+  body .shelter_profile .left .pets_container .adoption-card a .container-pet {
+    width: 20vw;
+  }
+  body .shelter_profile .left .pets_container .adoption-card a .container-pet p {
+    display: none;
+  }
+  body .shelter_profile .left .pets_container .title {
+    width: 100%;
+  }
+  body .shelter_profile .left .edit_shelter_info .title form {
+    display: block;
+  }
+  body .shelter_profile .right {
+    width: 100%;
+  }
+  body .shelter_profile .right .shelter_adopted {
+    padding-right: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+  body .shelter_profile .right .shelter_adopted .title {
+    width: 100%;
+  }
+}
 #pet-profile .pet-bio {
   display: grid;
   grid-template-columns: 200px 3fr 200px;
@@ -742,11 +1279,12 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   height: 100%;
   background-size: cover;
   background-position: center;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
 }
 #pet-profile .pet-bio #owner-info p {
   padding: 5px;
   border-radius: 5px;
-  background-color: #363636;
+  background-color: #934B00;
   position: absolute;
   bottom: 8px;
   left: 8px;
@@ -760,7 +1298,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   height: 100%;
   margin-left: -10px;
   display: grid;
-  background-color: #363636;
+  background-color: #934B00;
   color: white;
   border-radius: 0 10px 10px 0;
   grid-template-rows: auto auto auto;
@@ -797,13 +1335,13 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 #pet-profile #options {
   margin-top: 1em;
   padding: 1em;
-  background-color: #bababa;
+  background-color: #F1A66A;
   border-radius: 10px;
 }
 #pet-profile #options .buttons {
   text-align: center;
 }
-#pet-profile #options .buttons a {
+#pet-profile #options .buttons button {
   display: inline-block;
   margin-right: 10px;
   margin-top: 10px;
@@ -812,7 +1350,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 #pet-profile #proposals {
   margin-top: 1em;
   padding: 1em;
-  background-color: #bababa;
+  background-color: #F1A66A;
   border-radius: 10px;
 }
 #pet-profile #proposals h2 {
@@ -825,7 +1363,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 }
 #pet-profile #proposals .grid-list .adoption-proposal {
   padding: 1em;
-  background-color: #363636;
+  background-color: #934B00;
   border-radius: 10px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
   display: grid;
@@ -846,7 +1384,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   margin: 0;
   padding: 10px;
   border-radius: 0 0 10px 10px;
-  background-color: #a1a1a1;
+  background-color: #F1A66A;
   color: black;
   grid-row: 2;
   grid-column: 1;
@@ -866,28 +1404,118 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   align-self: flex-end;
   color: black;
   font-weight: bold;
-  background-color: #a1a1a1;
+  background-color: #F1A66A;
 }
 #pet-profile #proposals .grid-list .adoption-proposal .user-details small {
   text-align: right;
 }
-
-body .banner {
-  background-size: cover;
+#pet-profile #pet-comments, #pet-profile #make_proposal {
+  margin-top: 1em;
+  padding: 1em;
+  background-color: #F1A66A;
+  border-radius: 10px;
+}
+#pet-profile #pet-comments h2, #pet-profile #make_proposal h2 {
+  margin-bottom: 1em;
+}
+#pet-profile #pet-comments .pet-comment, #pet-profile #make_proposal .pet-comment {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+  background-color: #934B00;
+  margin-bottom: 1em;
+  border-radius: 10px;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 8fr 2fr;
+  grid-template-rows: 1fr 2fr;
+  grid-column-gap: 1em;
+}
+#pet-profile #pet-comments .pet-comment p, #pet-profile #make_proposal .pet-comment p {
+  grid-column: 2/4;
+  grid-row: 2;
+  font-style: italic;
+  padding-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+#pet-profile #pet-comments .pet-comment .user a, #pet-profile #make_proposal .pet-comment .user a {
+  border-bottom: 1px solid white;
+  color: white;
+  font-size: x-large;
+}
+#pet-profile #pet-comments .pet-comment .date, #pet-profile #make_proposal .pet-comment .date {
+  justify-self: right;
+  margin-right: 1em;
+  align-self: center;
+}
+#pet-profile #pet-comments .pet-comment .user, #pet-profile #make_proposal .pet-comment .user {
+  margin-top: 10px;
+}
+#pet-profile #pet-comments .pet-comment .user-image, #pet-profile #make_proposal .pet-comment .user-image {
+  grid-column: 1;
+  grid-row: 1/3;
+  background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
+  justify-self: center;
+  align-self: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+}
+#pet-profile #pet-comments .pet-comment .user-image:hover, #pet-profile #make_proposal .pet-comment .user-image:hover {
+  -webkit-animation: scale05 0.2s forwards;
+}
+#pet-profile #pet-comments form, #pet-profile #make_proposal form {
+  margin-top: 1em;
+  padding: 1em;
+  background-color: #934B00;
+  border-radius: 10px;
+}
+#pet-profile #pet-comments form label, #pet-profile #make_proposal form label {
+  color: white;
+  margin-bottom: 1em;
+  font-size: x-large;
+  font-weight: bold;
+}
+#pet-profile #pet-comments form textarea, #pet-profile #make_proposal form textarea {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  min-width: 97%;
+  border-radius: 10px;
+  min-height: 5em;
+  resize: vertical;
+  outline: none;
+  font-size: large;
+  color: black;
+  overflow: auto;
+  background-color: #F1A66A;
+  padding: 1em;
+}
+#pet-profile #pet-comments form .button, #pet-profile #make_proposal form .button {
+  background-color: black;
+}
+
+body .banner a {
+  font-size: 4vw;
+  margin-right: 15px;
+  margin-bottom: 5px;
 }
 body .user_profile {
   display: flex;
 }
 body .user_profile .title {
-  padding: 15px 0px 0px 25px;
+  padding: 10px 0px 0px 15px;
   font-size: 25px;
   font-weight: bold;
   color: white;
 }
+body .user_profile .title i {
+  font-size: 110%;
+  padding-right: 10px;
+}
 body .user_profile img {
-  width: 8vw;
-  border-radius: 15px;
+  width: 10vw;
+  border-radius: 10px;
   float: left;
   margin-right: 10px;
 }
@@ -904,29 +1532,40 @@ body .user_profile .left .profile_pic {
   grid-area: profile;
   position: relative;
   width: 80%;
-  height: 145%;
-  left: 25px;
-  bottom: 10vh;
+  height: 135%;
+  left: 10%;
+  bottom: 45%;
   z-index: 1;
-  border-radius: 15px;
+  border-radius: 10px;
   background-size: cover;
   background-position: center;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
 }
 body .user_profile .left #about_me, body .user_profile .left #favorites, body .user_profile .left #contact {
   display: flex;
-  border-radius: 15px;
-  background-color: grey;
+  border-radius: 10px;
+  background-color: #934B00;
   margin: 8% 12%;
   justify-content: center;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
 }
-body .user_profile .left #about_me a, body .user_profile .left #favorites a, body .user_profile .left #contact a {
+body .user_profile .left #about_me label, body .user_profile .left #about_me a, body .user_profile .left #favorites label, body .user_profile .left #favorites a, body .user_profile .left #contact label, body .user_profile .left #contact a {
+  width: 100%;
+  color: white;
   padding: 10%;
   font-size: 1.5vw;
+  text-align: center;
 }
-body .user_profile .left #about_me a i, body .user_profile .left #favorites a i, body .user_profile .left #contact a i {
+body .user_profile .left #about_me label i, body .user_profile .left #about_me a i, body .user_profile .left #favorites label i, body .user_profile .left #favorites a i, body .user_profile .left #contact label i, body .user_profile .left #contact a i {
   display: flex;
   font-size: 3.5vw;
   justify-content: center;
+}
+body .user_profile .left #about_me label input, body .user_profile .left #about_me a input, body .user_profile .left #favorites label input, body .user_profile .left #favorites a input, body .user_profile .left #contact label input, body .user_profile .left #contact a input {
+  display: none;
+}
+body .user_profile .left #about_me label:hover, body .user_profile .left #about_me a:hover, body .user_profile .left #favorites label:hover, body .user_profile .left #favorites a:hover, body .user_profile .left #contact label:hover, body .user_profile .left #contact a:hover {
+  cursor: pointer;
 }
 body .user_profile .left #about_me:hover, body .user_profile .left #favorites:hover, body .user_profile .left #contact:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -942,92 +1581,200 @@ body .user_profile .left #favorites {
 body .user_profile .left #contact {
   grid-area: contact;
 }
-body .user_profile .left #favorites > label {
-  padding: 10%;
-  font-size: 4vw;
-  color: white;
-}
-body .user_profile .left #favorites > label i {
-  display: flex;
-  font-size: 3.5vw;
-  justify-content: center;
-}
-body .user_profile .left #favorites > label span {
-  display: flex;
-  font-size: 1.5vw;
-  justify-content: center;
-}
-body .user_profile .left #favorites > label input {
-  display: none;
-}
-body .user_profile .left .user_pets {
+body .user_profile .left .user_pets, body .user_profile .left .edit_user_info, body .user_profile .left .user_favorites {
   grid-area: pets;
-  border-radius: 15px;
-  background-color: grey;
+  border-radius: 10px;
+  background-color: #F1A66A;
   margin: 2% 3% 2% 3%;
 }
-body .user_profile .left .user_pets .pet {
+body .user_profile .left .user_pets .pet, body .user_profile .left .edit_user_info .pet, body .user_profile .left .user_favorites .pet {
   display: flex;
-  padding: 15px;
-  background-color: #363636;
-  border-radius: 15px;
-  width: 90%;
+  padding: 8px;
+  background-color: #934B00;
+  border-radius: 10px;
+  width: fit-content;
   margin: 15px auto;
 }
-body .user_profile .left .user_pets .pet .container-dog {
+body .user_profile .left .user_pets .pet a, body .user_profile .left .edit_user_info .pet a, body .user_profile .left .user_favorites .pet a {
+  width: fit-content;
+}
+body .user_profile .left .user_pets .pet a .pet-img, body .user_profile .left .edit_user_info .pet a .pet-img, body .user_profile .left .user_favorites .pet a .pet-img {
+  float: left;
+  margin-right: 10px;
+  border-radius: 10px;
+  width: 7em;
+  height: 7em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+body .user_profile .left .user_pets .pet a .container-pet, body .user_profile .left .edit_user_info .pet a .container-pet, body .user_profile .left .user_favorites .pet a .container-pet {
   width: 54vw;
   text-align: justify;
 }
-body .user_profile .left .user_pets .pet:hover {
+body .user_profile .left .user_pets .pet:hover, body .user_profile .left .edit_user_info .pet:hover, body .user_profile .left .user_favorites .pet:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   -webkit-animation: scale05 0.2s forwards;
 }
+body .user_profile .left .edit_user_info form {
+  display: grid;
+  margin: 30px auto 50px;
+  grid-template-rows: 0.3fr 0.3fr 0.3fr 0.5fr 0.2fr;
+  grid-template-columns: 50% 50%;
+}
+body .user_profile .left .edit_user_info form .group:nth-of-type(1) {
+  grid-column: 1/3;
+  grid-row: 1;
+}
+body .user_profile .left .edit_user_info form .group:nth-of-type(2) {
+  grid-column: 1;
+  grid-row: 2;
+}
+body .user_profile .left .edit_user_info form #photos {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  justify-self: center;
+  margin-right: 1em;
+}
+body .user_profile .left .edit_user_info form #photos label:nth-of-type(1), body .user_profile .left .edit_user_info form #photos label:nth-of-type(2) {
+  padding: 1em;
+  margin-left: 10px;
+  display: flex;
+  height: 20px;
+}
+body .user_profile .left .edit_user_info form #photos label:nth-of-type(1) input, body .user_profile .left .edit_user_info form #photos label:nth-of-type(2) input {
+  display: none;
+}
+body .user_profile .left .edit_user_info form #photos label:nth-of-type(1) span, body .user_profile .left .edit_user_info form #photos label:nth-of-type(2) span {
+  margin-right: 0.2em;
+}
+body .user_profile .left .edit_user_info form .new-collaboration {
+  text-align: left;
+  grid-row: 4;
+  grid-column: 1/3;
+}
+body .user_profile .left .edit_user_info form .new-collaboration .container {
+  margin-left: 2em;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+body .user_profile .left .edit_user_info form .new-collaboration .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+body .user_profile .left .edit_user_info form .new-collaboration .checkmark {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+body .user_profile .left .edit_user_info form .new-collaboration .container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+body .user_profile .left .edit_user_info form .new-collaboration .container input:checked ~ .checkmark {
+  background-color: #934B00;
+}
+body .user_profile .left .edit_user_info form .new-collaboration .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+body .user_profile .left .edit_user_info form .new-collaboration .container input:checked ~ .checkmark:after {
+  display: block;
+}
+body .user_profile .left .edit_user_info form .new-collaboration .container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+body .user_profile .left input[type=submit] {
+  grid-column: 2;
+  justify-self: center;
+  align-self: center;
+}
 body .user_profile .right {
-  margin-top: 10px;
-  margin-bottom: 27px;
+  margin: 10px 10px 27px 0;
   width: 35%;
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: fit-content(0%);
 }
-body .user_profile .right .colaborations {
-  border-radius: 15px;
-  background-color: grey;
+body .user_profile .right .collaborations {
+  border-radius: 10px;
+  background-color: #F1A66A;
   margin: 3.5% 3%;
 }
-body .user_profile .right .colaborations #colaboration_imgs {
+body .user_profile .right .collaborations #collaboration-imgs {
   display: flex;
   padding: 10px;
   flex-wrap: wrap;
   align-content: flex-start;
 }
-body .user_profile .right .colaborations #colaboration_imgs a {
+body .user_profile .right .collaborations #collaboration-imgs a {
   padding: 1%;
   flex-basis: 14.5%;
 }
-body .user_profile .right .colaborations #colaboration_imgs a img {
-  width: 67px;
+body .user_profile .right .collaborations #collaboration-imgs a .collaboration-img {
+  height: 3.5em;
+  width: 3.5em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: block;
+  border-radius: 10px;
 }
-body .user_profile .right .colaborations #colaboration_imgs a img:hover {
+body .user_profile .right .collaborations #collaboration-imgs a .collaboration-img:hover {
   -webkit-animation: scale05 0.2s forwards;
 }
 body .user_profile .right .user_activity {
-  border-radius: 15px;
-  background-color: grey;
+  border-radius: 10px;
+  background-color: #F1A66A;
   margin: 2% 3% 4% 3%;
 }
 body .user_profile .right .user_activity .activity-card {
   display: flex;
-  padding: 15px;
-  background-color: #363636;
-  border-radius: 15px;
+  padding: 8px;
+  background-color: #934B00;
+  border-radius: 10px;
   width: 85%;
   margin: 15px auto;
+}
+body .user_profile .right .user_activity .activity-card .activity-img {
+  float: left;
+  margin-right: 10px;
+  border-radius: 10px;
+  width: 5em;
+  height: 5em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 body .user_profile .right .user_activity .activity-card .container-activity {
   width: 28vw;
   text-align: justify;
+}
+body .user_profile .right .user_activity .activity-card .container-activity p {
+  padding: 8px;
 }
 body .user_profile .right .user_activity .activity-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -1035,6 +1782,107 @@ body .user_profile .right .user_activity .activity-card:hover {
   -webkit-animation: scale05 0.2s forwards;
 }
 
+@media (max-width: 55em) {
+  body .user_profile .title {
+    text-align: center;
+  }
+  body .user_profile .title span {
+    display: none;
+  }
+  body .user_profile .left {
+    width: 75%;
+  }
+  body .user_profile .left #about_me label i, body .user_profile .left #favorites label i, body .user_profile .left #contact label i {
+    margin: 10px 0;
+    font-size: 275%;
+  }
+  body .user_profile .left #about_me label span, body .user_profile .left #favorites label span, body .user_profile .left #contact label span {
+    display: none;
+  }
+  body .user_profile .left .user_pets p, body .user_profile .left .edit_user_info p, body .user_profile .left .user_favorites p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  body .user_profile .right {
+    width: 25%;
+  }
+  body .user_profile .right .collaborations #collaboration-imgs {
+    padding: 5px;
+    justify-content: center;
+  }
+  body .user_profile .right .collaborations #collaboration-imgs .collaboration-img {
+    margin-bottom: 5px;
+  }
+  body .user_profile .right .user_activity {
+    margin-top: 30px;
+    justify-content: center;
+  }
+  body .user_profile .right .user_activity .activity-card {
+    display: flex;
+    padding: 8px;
+    width: fit-content;
+  }
+  body .user_profile .right .user_activity .activity-card .activity-img {
+    float: none;
+    margin: 0;
+  }
+  body .user_profile .right .user_activity .activity-card .container-activity {
+    width: fit-content;
+  }
+  body .user_profile .right .user_activity .activity-card .container-activity p {
+    display: none;
+  }
+}
+@media (max-width: 35em) {
+  body .banner {
+    height: 80px;
+  }
+  body .user_profile {
+    display: block;
+  }
+  body .user_profile .left {
+    width: 100%;
+  }
+  body .user_profile .left #about_me label i, body .user_profile .left #favorites label i, body .user_profile .left #contact label i {
+    margin: 7px 0;
+    font-size: 375%;
+  }
+  body .user_profile .left .pets_container {
+    padding: 5px;
+    display: flex !important;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+  body .user_profile .left .pets_container .pet a .pet-img {
+    float: none;
+    margin: 0;
+  }
+  body .user_profile .left .pets_container .pet a .container-pet {
+    width: 18vw;
+  }
+  body .user_profile .left .pets_container .pet a .container-pet p {
+    display: none;
+  }
+  body .user_profile .left .pets_container .title {
+    width: 100%;
+  }
+  body .user_profile .left .edit_user_info .title form {
+    display: block;
+  }
+  body .user_profile .right {
+    width: 100%;
+  }
+  body .user_profile .right .user_activity {
+    padding-right: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+  body .user_profile .right .user_activity .title {
+    width: 100%;
+  }
+}
 .shelters-list {
   width: 70%;
 }
@@ -1044,79 +1892,84 @@ body .user_profile .right .user_activity .activity-card:hover {
 }
 
 body #pet_add {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: 0.3s;
+  color: #934B00;
+  width: 85%;
+  max-width: 1080px;
+  margin: 2em auto;
   contain: content;
-  display: grid;
-  grid-template-columns: 35% 65%;
-  height: 95vh;
+  display: flex;
 }
 body #pet_add #left {
-  background-image: url(https://images.unsplash.com/photo-1563441405613-82b7d27cbc23?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80);
+  width: 32%;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position-x: center;
 }
 body #pet_add #left h2 {
   position: relative;
   top: 50px;
   text-align: center;
   width: 100%;
-  color: #363636;
+  color: #934B00;
+}
+body #pet_add #right {
+  width: 68%;
 }
 body #pet_add #right form {
   padding-top: 20px;
   padding-left: 20px;
-  height: 95vh;
-  width: 100%;
   display: grid;
   contain: content;
-  grid-template-columns: 48% 25% 25%;
+  grid-template-columns: 45% 25% 25%;
   grid-template-rows: 20% 20% 20% 40%;
-  background-color: #bababa;
+  background-color: #F1A66A;
   transition: 0.3s;
-  color: #363636;
+  color: #934B00;
 }
 body #pet_add #right form label:nth-of-type(1) {
   grid-column: 1;
   grid-row: 1;
 }
-body #pet_add #right form label:nth-of-type(3) {
-  margin: 32px 0px;
-  grid-column: 3;
+body #pet_add #right form label:nth-of-type(8) {
+  grid-column: 2/3;
   grid-row: 1;
-}
-body #pet_add #right form label:nth-of-type(4) {
-  grid-column: 2;
-  grid-row: 1;
-  padding: 1em 1em 0.5em 1em;
-  justify-content: center;
+  margin: 1.5em 1em 1em 4em;
+  height: 40px;
+  width: 85%;
   display: flex;
-  margin: 2em 0 2em 0.2em;
-  height: 30px;
-  width: 65%;
+  padding: 8px 15px;
+  align-items: center;
+  contain: content;
 }
-body #pet_add #right form span {
-  margin-right: 0.2em;
+body #pet_add #right form label:nth-of-type(8) span {
+  display: flex;
+  font-size: 2em;
+  margin-right: 5px;
 }
 body #pet_add #right form label:nth-of-type(2) {
   grid-column: 1;
   grid-row: 2;
 }
-body #pet_add #right form label:nth-of-type(5) {
+body #pet_add #right form label:nth-of-type(3) {
   grid-column: 2;
   grid-row: 2;
 }
-body #pet_add #right form label:nth-of-type(6) {
+body #pet_add #right form label:nth-of-type(4) {
   grid-column: 3;
   grid-row: 2;
 }
-body #pet_add #right form label:nth-of-type(7) {
+body #pet_add #right form label:nth-of-type(5) {
   grid-column: 2;
   grid-row: 3;
 }
-body #pet_add #right form label:nth-of-type(8) {
+body #pet_add #right form label:nth-of-type(6) {
   grid-column: 1;
   grid-row: 3;
 }
-body #pet_add #right form label:nth-of-type(9) {
+body #pet_add #right form label:nth-of-type(7) {
   grid-column: 1;
   grid-row: 4;
 }
@@ -1138,19 +1991,28 @@ body #pet_add #right form label input[type=text], body #pet_add #right form labe
   -moz-appearance: none;
   appearance: none;
   margin-top: 1em;
-  width: 80%;
+  width: 100%;
   font-size: 0.9em;
+  outline: none;
 }
 body #pet_add #right form #petInfo {
+  grid-column: 1;
+  grid-row: 4;
   height: 120px !important;
-  max-width: 105%;
+  max-width: 350px;
 }
-body #pet_add #right form #addButton {
+body #pet_add #right form label:nth-of-type(9) {
+  margin: 3em 1em 1em 1.5em;
+  width: fit-content;
+  height: 80px;
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
   grid-column: 3;
   grid-row: 4;
-  margin: 3em 2em;
-  height: 40%;
-  width: 60%;
+}
+body #pet_add #right form label:nth-of-type(9) input {
+  display: none;
 }
 body #pet_add #right form select {
   height: 50px;
@@ -1158,9 +2020,9 @@ body #pet_add #right form select {
   grid-row: 4;
   width: 69%;
   margin: 4em auto;
-  border: 3px solid #363636;
+  border: 3px solid #934B00;
   padding: 1em;
-  background-color: #363636;
+  background-color: #934B00;
   border-radius: 7px;
   color: white;
 }
@@ -1201,7 +2063,7 @@ body #pet_add #right form #gender-option label:hover input ~ .checkmark {
   background-color: #ccc;
 }
 body #pet_add #right form #gender-option label input:checked ~ .checkmark {
-  background-color: #2196F3;
+  background-color: #934B00;
 }
 body #pet_add #right form #gender-option label .checkmark:after {
   content: "";
@@ -1218,6 +2080,60 @@ body #pet_add #right form #gender-option label .checkmark:after {
   height: 8px;
   border-radius: 50%;
   background: white;
+}
+
+@media (max-width: 60em) {
+  body #pet_add {
+    display: block;
+    width: 85%;
+  }
+  body #pet_add #left {
+    background-image: none !important;
+    width: 100%;
+  }
+  body #pet_add #left h2 {
+    top: 0;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    background-color: #934B00;
+  }
+  body #pet_add #right {
+    width: 100%;
+  }
+}
+@media (max-width: 35em) {
+  body #pet_add {
+    display: block;
+    width: 85%;
+  }
+  body #pet_add #left {
+    background-image: none !important;
+  }
+  body #pet_add #left h2 {
+    top: 0;
+    color: white;
+    padding: 10px 0;
+    width: 100%;
+    background-color: #934B00;
+  }
+  body #pet_add #right {
+    width: 100%;
+  }
+  body #pet_add #right form {
+    display: block;
+    padding: 10px;
+  }
+  body #pet_add #right form label {
+    margin: 25px 45px 25px 18px !important;
+  }
+  body #pet_add #right form label:nth-of-type(8) {
+    width: 120px;
+  }
+  body #pet_add #right form select {
+    width: 100px;
+    margin: 0px 18px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

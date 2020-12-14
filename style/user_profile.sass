@@ -3,24 +3,25 @@
 
 body
   .banner
-    background-size: cover
-    background-position: center
-
+    a
+      font-size: 4vw
+      margin-right: 15px
+      margin-bottom: 5px
   .user_profile
     display: flex
-
     .title
-      padding: 15px 0px 0px 25px
+      padding: 10px 0px 0px 15px
       font-size: 25px
       font-weight: bold
       color: white
-
+      i
+        font-size: 110%
+        padding-right: 10px
     img
-      width: 8vw
-      border-radius: 15px
+      width: 10vw
+      border-radius: 10px
       float: left
       margin-right: 10px
-
     .left
       margin-top: 10px
       margin-bottom: 27px
@@ -29,102 +30,177 @@ body
       grid-template-columns: 30% 23% 23% 23%
       grid-auto-rows: fit-content(0%)
       grid-template-areas: "profile about favorites contact" "pets pets pets pets"
-
       .profile_pic
         grid-area: profile
         position: relative
         width: 80%
-        height: 145%
-        left: 25px
-        bottom: 10vh
+        height: 135%
+        left: 10%
+        bottom: 45%
         z-index: 1
-        border-radius: 15px
+        border-radius: 10px
         background-size: cover
         background-position: center
-
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2)
       #about_me, #favorites, #contact
         display: flex
-        border-radius: 15px
-        background-color: grey
+        border-radius: 10px
+        background-color: common.$accent-color
         margin: 8% 12%
         justify-content: center
-
-        a
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2)
+        label, a
+          width: 100%
+          color: white
           padding: 10%
           font-size: 1.5vw
+          text-align: center
           i
             display: flex
             font-size: 3.5vw
             justify-content: center
-
+          input
+            display: none
+          &:hover
+            cursor: pointer
       #about_me:hover, #favorites:hover, #contact:hover
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
         cursor: pointer
         @include animations.animation("scale05 0.2s forwards")
-
       #about_me
         grid-area: about
-
       #favorites
         grid-area: favorites
-
       #contact
         grid-area: contact
-
-      #favorites > label
-        padding: 10%
-        font-size: 4vw
-        color: white
-        i
-          display: flex
-          font-size: 3.5vw
-          justify-content: center
-
-        span
-          display: flex
-          font-size: 1.5vw
-          justify-content: center
-
-        input
-          display: none
-
-      .user_pets
+      .user_pets, .user_favorites
         grid-area: pets
-        border-radius: 15px
-        background-color: grey
+        border-radius: 10px
+        background-color: common.$main-color
         margin: 2% 3% 2% 3%
-
         .pet
           display: flex
-          padding: 15px
-          background-color: #363636
-          border-radius: 15px
-          width: 90%
+          padding: 8px
+          background-color: common.$accent-color
+          border-radius: 10px
+          width: fit-content
           margin: 15px auto
-
-          .container-dog
-            width: 54vw
-            text-align: justify
-
+          a
+            width: fit-content
+            .pet-img
+              float: left
+              margin-right: 10px
+              border-radius: 10px
+              width: 7em
+              height: 7em
+              background-repeat: no-repeat
+              background-size: cover
+              background-position: center
+            .container-pet
+              width: 54vw
+              text-align: justify
         .pet:hover
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
           cursor: pointer
           @include animations.animation("scale05 0.2s forwards")
+      .edit_user_info
+        @extend .user_pets
+        form
+          display: grid
+          margin: 30px auto 50px
+          grid-template-rows: 0.3fr 0.3fr 0.3fr 0.5fr 0.2fr
+          grid-template-columns: 50% 50%
+          .group:nth-of-type(1)
+            grid-column: 1 / 3
+            grid-row: 1
+          .group:nth-of-type(2)
+            grid-column: 1
+            grid-row: 2
+          #photos
+            grid-column: 2
+            grid-row: 2
+            display: flex
+            justify-self: center
+            margin-right: 1em
+            label:nth-of-type(1),label:nth-of-type(2)
+              @extend .button
+              padding: 1em
+              margin-left: 10px
+              display: flex
+              height: 20px
+              input
+                display: none
+              span
+                margin-right: 0.2em
+          .new-collaboration
+            text-align: left
+            grid-row: 4
+            grid-column: 1 / 3
+            .container
+              margin-left: 2em
+              display: block
+              position: relative
+              padding-left: 35px
+
+              cursor: pointer
+              font-size: 22px
+              -webkit-user-select: none
+              -moz-user-select: none
+              -ms-user-select: none
+              user-select: none
+              input
+                position: absolute
+                opacity: 0
+                cursor: pointer
+                height: 0
+                width: 0
+            .checkmark
+              position: absolute
+              top: 15px
+              left: 0
+              height: 25px
+              width: 25px
+              background-color: #eee
+            .container
+              &:hover input ~ .checkmark
+                background-color: #ccc
+              input:checked ~ .checkmark
+                background-color: common.$accent-color
+            .checkmark:after
+              content: ""
+              position: absolute
+              display: none
+            .container
+              input:checked ~ .checkmark:after
+                display: block
+              .checkmark:after
+                left: 9px
+                top: 5px
+                width: 5px
+                height: 10px
+                border: solid white
+                border-width: 0 3px 3px 0
+                -webkit-transform: rotate(45deg)
+                -ms-transform: rotate(45deg)
+                transform: rotate(45deg)
+
+      input[type=submit]
+            grid-column: 2
+            justify-self: center
+            align-self: center
+
 
     .right
-      margin-top: 10px
-      margin-bottom: 27px
+      margin: 10px 10px 27px 0
       width: 35%
       display: grid
       grid-template-columns: 1fr
       grid-auto-rows: fit-content(0%)
-
-      .colaborations
-        border-radius: 15px
-        background-color: grey
+      .collaborations
+        border-radius: 10px
+        background-color: common.$main-color
         margin: 3.5% 3%
-
-        #colaboration_imgs
+        #collaboration-imgs
           display: flex
           padding: 10px
           flex-wrap: wrap
@@ -132,29 +208,129 @@ body
           a
             padding: 1%
             flex-basis: 14.5%
-            img
-              width: 67px
-            img:hover
-              @include animations.animation("scale05 0.2s forwards")
-
+            .collaboration-img
+              height: 3.5em
+              width: 3.5em
+              background-repeat: no-repeat
+              background-position: center
+              background-size: cover
+              display: block
+              border-radius: 10px
+              &:hover
+                @include animations.animation("scale05 0.2s forwards")
       .user_activity
-        border-radius: 15px
-        background-color: grey
+        border-radius: 10px
+        background-color: common.$main-color
         margin: 2% 3% 4% 3%
-
         .activity-card
           display: flex
-          padding: 15px
-          background-color: #363636
-          border-radius: 15px
+          padding: 8px
+          background-color: common.$accent-color
+          border-radius: 10px
           width: 85%
           margin: 15px auto
-
+          .activity-img
+            float: left
+            margin-right: 10px
+            border-radius: 10px
+            width: 5em
+            height: 5em
+            background-repeat: no-repeat
+            background-size: cover
+            background-position: center
           .container-activity
             width: 28vw
             text-align: justify
-
+            p
+              padding: 8px
         .activity-card:hover
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
           cursor: pointer
           @include animations.animation("scale05 0.2s forwards")
+
+@media (max-width: 55em)
+  body
+    .user_profile
+      .title
+        text-align: center
+        span
+          display: none
+      .left
+        width: 75%
+        #about_me, #favorites, #contact
+          label
+            i
+              margin: 10px 0
+              font-size: 275%
+            span
+              display: none
+        .user_pets, .user_favorites
+          p
+            white-space: nowrap
+            overflow: hidden
+            text-overflow: ellipsis
+      .right
+        width: 25%
+        .collaborations
+          #collaboration-imgs
+            padding: 5px
+            justify-content: center
+            .collaboration-img
+              margin-bottom: 5px
+        .user_activity
+          margin-top: 30px
+          justify-content: center
+          .activity-card
+            display: flex
+            padding: 8px
+            width: fit-content
+            .activity-img
+              float: none
+              margin: 0
+            .container-activity
+              width: fit-content
+              p
+                display: none
+
+@media (max-width: 35em)
+  body
+    .banner
+      height: 80px
+    .user_profile
+      display: block
+      .left
+        width: 100%
+        #about_me, #favorites, #contact
+          label
+            i
+              margin: 7px 0
+              font-size: 375%
+        .pets_container
+          padding: 5px
+          display: flex !important
+          flex-wrap: wrap
+          align-content: flex-start
+          .pet
+            a
+              .pet-img
+                float: none
+                margin: 0
+              .container-pet
+                width: 18vw
+                p
+                  display: none
+          .title
+            width: 100%
+        .edit_user_info
+          .title
+            form
+              display: block
+      .right
+        width: 100%
+        .user_activity
+          padding-right: 5px
+          .title
+            width: 100%
+          display: flex
+          flex-wrap: wrap
+          align-content: flex-start
