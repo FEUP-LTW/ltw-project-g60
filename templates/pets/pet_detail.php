@@ -123,7 +123,7 @@
             } ?>
         <?php } ?>
         <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
-        <form action="action_add_comment.php" method="get" class="add-comment">
+        <form id="add-comment">
             <label for="text">Add a Comment on This Pet</label>
             <textarea id="text" name="text" placeholder="Comment" required></textarea>
             <label for="user_id" hidden></label>

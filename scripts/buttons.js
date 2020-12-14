@@ -10,6 +10,8 @@ document.querySelectorAll('.reply-button').forEach(button => {
     button.addEventListener('click', overlay);
 })
 
+document.getElementById('add-comment').addEventListener('submit', addComment)
+
 // Send message
 function addFavorite(event) {
     confirm("Pet added to favorites!");
@@ -81,4 +83,19 @@ function editShelterInfo() {
 function overlay() {
     let el = document.getElementById("overlay");
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+}
+
+function addComment(event) {
+    let user_id = document.querySelector('#add-comment #user_id').value;
+    let pet_id = document.querySelector('#add-comment #user_id').value;
+    let text = document.querySelector('#add-comment #text').value;
+
+    // Delete sent message
+    document.querySelector('#add-comment #text').value='';
+    // Send message
+    let request = new XMLHttpRequest();
+    request.open('get', 'action_add_comment.php?' + encodeForAjax({'pet_id': pet_id, 'user_id': user_id, 'text': text}), true);
+    request.send();
+
+    event.preventDefault();
 }
