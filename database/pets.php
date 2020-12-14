@@ -50,10 +50,11 @@ function getNumberOfProposals($petID) {
 function getPetProposals($petID) {
     global $db;
     if ($stmt = $db->prepare('
-            SELECT * 
+            SELECT *
             FROM ProposalsUser, Users
             WHERE pet_id = :id
-            AND Users.user_id = ProposalsUser.user_id')
+            AND Users.user_id = ProposalsUser.user_id
+            ORDER BY date DESC')
     ) {
         $stmt->bindParam(':id', $petID);
         $stmt->execute();

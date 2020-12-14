@@ -173,6 +173,7 @@ function getUserActivity($id) {
         FROM Users, ProposalsUser 
         WHERE Users.user_id = ProposalsUser.user_id
         AND Users.user_id = :id
+        ORDER BY date DESC 
         LIMIT 4')) {
         $stmt->bindParam(':id', $id);
         $stmt->execute();
