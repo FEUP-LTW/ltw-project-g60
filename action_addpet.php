@@ -8,9 +8,21 @@ include_once('database/upload.php');
 $colors = getPetColors();
 $breeds = getBreeds();
 
+$stringpattern = "/[^a-zA-Z àèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ]/";
+$name = preg_replace($stringpattern, '', $_POST['name']);
+$breed = preg_replace($stringpattern, '', $_POST['breed']);
+$color = preg_replace($stringpattern, '', $_POST['color']);
+$information = preg_replace($stringpattern, '', $_POST['information']);
+$location = preg_replace($stringpattern, '', $_POST['location']);
+
+$numberpattern = "/[^0-9\.]/";
+$size = preg_replace($numberpattern, '', $_POST['size']);
+$age = preg_replace($numberpattern, '', $_POST['age']);
+$gender = preg_replace($numberpattern, '', $_POST['gender']);
+
 if( in_array($_POST['breed'], $breeds) and in_array($_POST['color'], $colors) ){
-  addPet($_SESSION['username'],$_POST['name'],$_FILES['photo'], $_POST['breed'],$_POST['size'],$_POST['color'],$_POST['gender'],
-      $_POST['information'],$_POST['age'],$_POST['location']);
+  addPet($_SESSION['username'],$name,$_FILES['photo'], $breed,$size,$color,$gender,
+      $information,$age,$location);
 
   header('Location: ' . 'homepage.php');
   die();

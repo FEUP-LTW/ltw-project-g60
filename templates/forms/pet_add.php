@@ -31,11 +31,11 @@
                 </label>
                 <div id="gender-option">
                     <label>Male
-                        <input type="radio"  name="gender" value="male" checked="checked">
+                        <input type="radio"  name="gender" value="0" checked="checked">
                         <span class="checkmark"></span>
                     </label>
                     <label>Female
-                        <input type="radio"  name="gender" value="female">
+                        <input type="radio"  name="gender" value="1">
                         <span class="checkmark"></span>
                     </label>
                 </div>
