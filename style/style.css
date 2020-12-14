@@ -1418,18 +1418,18 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 #pet-profile #pet-comments h2, #pet-profile #make_proposal h2 {
   margin-bottom: 1em;
 }
-#pet-profile #pet-comments .pet-comment, #pet-profile #make_proposal .pet-comment {
+#pet-profile #pet-comments .pet-comment, #pet-profile #pet-comments .pet-answer, #pet-profile #make_proposal .pet-comment, #pet-profile #make_proposal .pet-answer {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
   background-color: #934B00;
   margin-bottom: 1em;
   border-radius: 10px;
   color: white;
   display: grid;
-  grid-template-columns: 1fr 8fr 2fr;
-  grid-template-rows: 1fr 2fr;
+  grid-template-columns: 1.3fr 8fr 2fr;
+  grid-template-rows: 1fr 1.5fr 0.2fr;
   grid-column-gap: 1em;
 }
-#pet-profile #pet-comments .pet-comment p, #pet-profile #make_proposal .pet-comment p {
+#pet-profile #pet-comments .pet-comment p, #pet-profile #pet-comments .pet-answer p, #pet-profile #make_proposal .pet-comment p, #pet-profile #make_proposal .pet-answer p {
   grid-column: 2/4;
   grid-row: 2;
   font-style: italic;
@@ -1437,22 +1437,22 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   padding-top: 1em;
   padding-bottom: 1em;
 }
-#pet-profile #pet-comments .pet-comment .user a, #pet-profile #make_proposal .pet-comment .user a {
+#pet-profile #pet-comments .pet-comment .user a, #pet-profile #pet-comments .pet-answer .user a, #pet-profile #make_proposal .pet-comment .user a, #pet-profile #make_proposal .pet-answer .user a {
   border-bottom: 1px solid white;
   color: white;
   font-size: x-large;
 }
-#pet-profile #pet-comments .pet-comment .date, #pet-profile #make_proposal .pet-comment .date {
+#pet-profile #pet-comments .pet-comment .date, #pet-profile #pet-comments .pet-answer .date, #pet-profile #make_proposal .pet-comment .date, #pet-profile #make_proposal .pet-answer .date {
   justify-self: right;
   margin-right: 1em;
   align-self: center;
 }
-#pet-profile #pet-comments .pet-comment .user, #pet-profile #make_proposal .pet-comment .user {
+#pet-profile #pet-comments .pet-comment .user, #pet-profile #pet-comments .pet-answer .user, #pet-profile #make_proposal .pet-comment .user, #pet-profile #make_proposal .pet-answer .user {
   margin-top: 10px;
 }
-#pet-profile #pet-comments .pet-comment .user-image, #pet-profile #make_proposal .pet-comment .user-image {
+#pet-profile #pet-comments .pet-comment .user-image, #pet-profile #pet-comments .pet-answer .user-image, #pet-profile #make_proposal .pet-comment .user-image, #pet-profile #make_proposal .pet-answer .user-image {
   grid-column: 1;
-  grid-row: 1/3;
+  grid-row: 1/4;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1462,8 +1462,35 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   height: 100%;
   border-radius: 10px 0 0 10px;
 }
-#pet-profile #pet-comments .pet-comment .user-image:hover, #pet-profile #make_proposal .pet-comment .user-image:hover {
+#pet-profile #pet-comments .pet-comment .user-image:hover, #pet-profile #pet-comments .pet-answer .user-image:hover, #pet-profile #make_proposal .pet-comment .user-image:hover, #pet-profile #make_proposal .pet-answer .user-image:hover {
   -webkit-animation: scale05 0.2s forwards;
+}
+#pet-profile #pet-comments .pet-comment .reply-button, #pet-profile #pet-comments .pet-answer .reply-button, #pet-profile #make_proposal .pet-comment .reply-button, #pet-profile #make_proposal .pet-answer .reply-button {
+  grid-column: 3;
+  padding: 1em;
+  background-color: #F1A66A;
+  color: black;
+  font-weight: bold;
+}
+#pet-profile #pet-comments .pet-answer, #pet-profile #make_proposal .pet-answer {
+  margin-left: 5em;
+}
+#pet-profile #pet-comments #overlay, #pet-profile #make_proposal #overlay {
+  background-color: #F1A66A;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 20%;
+  margin-top: -50px;
+  margin-left: -100px;
+  width: 75%;
+  z-index: 1000;
+  border-radius: 10px;
+  float: top;
+}
+#pet-profile #pet-comments #overlay form, #pet-profile #make_proposal #overlay form {
+  margin-top: 0;
 }
 #pet-profile #pet-comments form, #pet-profile #make_proposal form {
   margin-top: 1em;
@@ -1994,6 +2021,10 @@ body #pet_add #right form label input[type=text], body #pet_add #right form labe
   width: 100%;
   font-size: 0.9em;
   outline: none;
+}
+body #pet_add #right form label ul {
+  max-height: 100px;
+  overflow: auto;
 }
 body #pet_add #right form #petInfo {
   grid-column: 1;
