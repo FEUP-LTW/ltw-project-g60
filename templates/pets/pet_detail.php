@@ -82,26 +82,19 @@
         <div id="overlay">
             <div>
                 <form id="add-reply">
-                <?php
-                    if (isUser($_SESSION['username'])) {
-                        echo '<label for="reply-text">Reply</label>';
-                        echo '<textarea id="reply-text" name="reply-text" placeholder="Comment" required></textarea>';
-                        echo '<label for="reply-user_id" hidden></label>';
-                        echo '<input id="reply-user_id" name="reply-user_id" type="text" hidden value="' . getUserByUsername($_SESSION['username'])['user_id'] . '">';
-                        echo '<label for="reply-type" hidden></label>';
-                        echo '<input id="reply-type" name="reply-type" type="text" hidden value="user">';
-                        echo '<input type="submit" class="button" value="Submit">';
-                    }
-                    else {
-                        echo '<label for="reply-text">Reply</label>';
-                        echo '<textarea id="reply-text" name="reply-text" placeholder="Comment" required></textarea>';
-                        echo '<label for="reply-user_id" hidden></label>';
-                        echo '<input id="reply-user_id" name="reply-user_id" type="text" hidden value="' . getShelterByUsername($_SESSION['username'])['shelter_id'] . '">';
-                        echo '<label for="reply-type" hidden></label>';
-                        echo '<input id="reply-type" name="reply-type" type="text" hidden value="shelter">';
-                        echo '<input type="submit" class="button" value="Submit">';
-                    }
-                ?>
+                    <label for="reply-text">Reply</label>
+                    <textarea id="reply-text" name="reply-text" placeholder="Comment" required></textarea>
+                    <label for="reply-user_id" hidden></label>
+                    <?php
+                    if (isUser($_SESSION['username'])) echo '<input id="reply-user_id" name="reply-user_id" type="text" hidden value="' . getUserByUsername($_SESSION['username'])['user_id'] . '">';
+                    else echo '<input id="reply-user_id" name="reply-user_id" type="text" hidden value="' . getShelterByUsername($_SESSION['username'])['shelter_id'] . '">';
+                    ?>
+                    <label for="reply-type" hidden></label>
+                    <?php
+                    if (isUser($_SESSION['username'])) echo '<input id="reply-type" name="reply-type" type="text" hidden value="user">';
+                    else echo '<input id="reply-type" name="reply-type" type="text" hidden value="shelter">';
+                    ?>
+                    <input type="submit" class="button" value="Submit">
                 </form>
             </div>
         </div>
