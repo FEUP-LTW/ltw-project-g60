@@ -32,7 +32,8 @@
 
 <section class="pets-list">
     <?php
-        foreach ($pets as $pet) { ?>
+        $index=-1;
+        foreach ($pets as $pet) { $index++; ?>
             <article class="pet-card">
                 <a class="pet-image" href="pet_detail.php?id=<?= $pet['pet_id'] ?>" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg')"></a>
                 <div class="pet-information">
@@ -55,7 +56,13 @@
                 </div>
                 <div class="pet-links">
                     <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
-                    <button id="pet_favorite_button" name="favorite" data-petid="<?= $pet['pet_id'] ?>">Add to Favorites</button>
+                    <div class="buttons" >
+                        <?php if (!isFavorite($pet['pet_id'])) { ?>
+                            <button id="pet_add_favorite_button" name="favorite" data-index="<?= $index ?>" data-petid="<?= $pet['pet_id'] ?>">Add to Favorites</button>
+                        <?php } else { ?>
+                            <button id="pet_remove_favorite_button" name="favorite" data-index="<?= $index ?>" data-petid="<?= $pet['pet_id'] ?>">Remove Favorite</button>
+                        <?php } ?>
+                    </div>
                     <?php } ?>
                     <?php
                         $owner = getPetOwner($pet['pet_id']);

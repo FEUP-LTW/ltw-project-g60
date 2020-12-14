@@ -42,7 +42,11 @@
         <h2>Options</h2>
         <div class="buttons">
             <button id="pet_proposal_button" name="proposal" >Submit Proposal</button>
-            <button id="pet_favorite_button" name="favorite" data-petid="<?= $_GET['id'] ?>">Add to Favorites</button>
+            <?php if (!isFavorite($_GET['id'])) { ?>
+            <button id="pet_add_favorite_button" name="favorite" data-index="0" data-petid="<?= $_GET['id'] ?>">Add to Favorites</button>
+            <?php } else { ?>
+            <button id="pet_remove_favorite_button" name="favorite" data-index="0" data-petid="<?= $_GET['id'] ?>">Remove Favorite</button>
+            <?php } ?>
         </div>
     </section>
     <?php } ?>
