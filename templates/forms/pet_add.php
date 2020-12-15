@@ -9,7 +9,9 @@
                     <input type="text" name="name" placeholder="Pet's name" required>
                 </label>
                 <label>Breed
-                    <input id="breed_input"  type="text" name="breed" placeholder="Pet's breed" required>
+                    <div class="autocomplete">
+                        <input id="breed_input"  type="text" name="breed" placeholder="Pet's breed" required>
+                    </div>
                     <script>
                         autocomplete(document.getElementById("breed_input"), <?= json_encode( $breeds )?>);
                     </script>
@@ -18,7 +20,9 @@
                     <input type="number" name="size" placeholder="Pet's size" step=".01" min="0" required>
                 </label>
                 <label>Color
-                    <input id="color_input" type="text" name="color" placeholder="Pet's color" required>
+                    <div class="autocomplete" >
+                        <input id="color_input" type="text" name="color" placeholder="Pet's color" required>
+                    </div>
                     <script>
                         autocomplete(document.getElementById("color_input"), <?= json_encode( $colors )?>);
                     </script>

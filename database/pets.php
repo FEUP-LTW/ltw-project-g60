@@ -200,21 +200,52 @@ function addPetComment($pet_id, $user_id, $text) {
 }
 
 function getBreeds() {
-  global $db;
-  if ($stmt = $db->prepare('SELECT breed FROM Breeds')) {
-    $stmt->execute();
-    $tempbreeds = $stmt->fetchAll();
+    global $db;
+    if ($stmt = $db->prepare('SELECT breed FROM Breeds')) {
+        $stmt->execute();
+        $tempbreeds = $stmt->fetchAll();
 
-    $breeds = [];
-    foreach ($tempbreeds as $breed){
-      array_push($breeds, $breed["breed"]);
+        $breeds = [];
+        foreach ($tempbreeds as $breed){
+            array_push($breeds, $breed["breed"]);
+        }
+        return $breeds;
     }
-    return $breeds;
-  }
-  else {
-    printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
-    die;
-  }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
+}
+
+function getCommentReplies($commentID) {
+    global $db;
+    if ($stmt = $db->prepare('SELECT * FROM Answers WHERE comment_id = :id')) {
+        $stmt->bindParam(':id', $commentID);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
+}
+
+function addPetReply($comment_id, $text, $user_id, $type) {
+    global $db;
+    if ($stmt = $db->prepare('INSERT INTO Answers(comment_id, date, text, user_id, type) VALUES (:comment_id, :date, :text, :user_id, :type)')) {
+        $stmt->bindParam(':comment_id', $comment_id);
+        $stmt->bindParam(':text', $text);
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':type', $type);
+        $time = time();
+        $stmt->bindParam(':date', $time);
+        $stmt->execute();
+        return $comment_id;
+    }
+    else {
+        printf('errno: %d, error: %s', $db->errorCode(), $db->errorInfo()[2]);
+        die;
+    }
 }
 
 function getPetColors() {

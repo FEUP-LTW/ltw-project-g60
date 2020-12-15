@@ -19,6 +19,25 @@ html, body
   position: relative
   min-height: 100%
 
+  /* width */
+  ::-webkit-scrollbar
+
+    width: 10px
+
+  /* Track */
+  ::-webkit-scrollbar-track
+    border-radius: 10px
+    background: $accent-color
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb
+    border-radius: 10px
+    background: $main-color
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover
+    background: white
+
 .header
   margin: 0 auto
   background-repeat: no-repeat

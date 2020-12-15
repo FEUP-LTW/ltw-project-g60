@@ -5,10 +5,8 @@ include_once('database/users.php');      // loads the functions responsible for 
 include_once('database/pets.php');
 include_once('database/upload.php');
 
-console_log($_GET['id']);
 if(isset($_GET['id'])) {
-
-    addFavoritePet($_GET['id']);
+    removeFavoritePet($_GET['id']);
 }
 
 die();

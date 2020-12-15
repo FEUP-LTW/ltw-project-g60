@@ -42,7 +42,11 @@
         <h2>Options</h2>
         <div class="buttons">
             <button id="pet_proposal_button" name="proposal" >Submit Proposal</button>
-            <button id="pet_favorite_button" name="favorite" data-petid="<?= $_GET['id'] ?>">Add to Favorites</button>
+            <?php if (!isFavorite($_GET['id'])) { ?>
+            <button id="pet_add_favorite_button" name="favorite" data-index="0" data-petid="<?= $_GET['id'] ?>">Add to Favorites</button>
+            <?php } else { ?>
+            <button id="pet_remove_favorite_button" name="favorite" data-index="0" data-petid="<?= $_GET['id'] ?>">Remove Favorite</button>
+            <?php } ?>
         </div>
     </section>
     <?php } ?>
@@ -79,16 +83,58 @@
     <?php } ?>
     <section id="pet-comments">
         <h2><?= count($comments) ?> Comments</h2>
+        <div id="overlay">
+            <div>
+                <form id="add-reply">
+                    <label for="reply-text">Reply</label>
+                    <textarea id="reply-text" name="reply-text" placeholder="Comment" required></textarea>
+                    <label for="reply-user_id" hidden></label>
+                    <?php
+                    if (isUser($_SESSION['username'])) echo '<input id="reply-user_id" name="reply-user_id" type="text" hidden value="' . getUserByUsername($_SESSION['username'])['user_id'] . '">';
+                    else echo '<input id="reply-user_id" name="reply-user_id" type="text" hidden value="' . getShelterByUsername($_SESSION['username'])['shelter_id'] . '">';
+                    ?>
+                    <label for="reply-type" hidden></label>
+                    <?php
+                    if (isUser($_SESSION['username'])) echo '<input id="reply-type" name="reply-type" type="text" hidden value="user">';
+                    else echo '<input id="reply-type" name="reply-type" type="text" hidden value="shelter">';
+                    ?>
+                    <input type="submit" class="button" value="Submit">
+                </form>
+            </div>
+        </div>
         <?php foreach ($comments as $comment) { ?>
             <div class="pet-comment">
                 <a href="user_profile.php?id=<?= $comment['user_id'] ?>" class="user-image" style="background-image: url('database/images/users/profile/thumbs_medium/<?= $comment['user_id'] ?>.jpg')"></a>
                 <span class="user"><a href="user_profile.php?id=<?= $comment['user_id'] ?>"><?= $comment['name'] ?></a></span>
                 <span class="date"><?= date("Y-m-d H:i", substr($comment['date'], 0, 10)) ?></span>
                 <p><?= $comment['text'] ?></p>
+                <?php if (isset($_SESSION['username']))
+                    echo '<span class="reply-button button" data-comment-id="' . $comment['id'] . '">Reply</span>'?>
             </div>
+            <?php
+            $replies = getCommentReplies($comment['id']);
+            foreach ($replies as $reply) {
+                if ($reply['type'] == "user") {
+                    echo '<div class="pet-answer">';
+                    echo "<a href=\"user_profile.php?id=" . $reply['user_id'] . "\" class=\"user-image\" style=\"background-image: url('database/images/users/profile/thumbs_medium/" . $reply['user_id'] . ".jpg')\"></a>";
+                    echo "<span class=\"user\"><a href=\"user_profile.php?id=" . $reply['user_id'] . "\">" . getUserByID($reply['user_id'])['name'] . "</a></span>";
+                    echo "<span class=\"date\">" . date("Y-m-d H:i", substr($reply['date'], 0, 10)) . "</span>";
+                    echo "<p>" . $reply['text'] . "</p>";
+                    echo "</div>";
+                }
+                else {
+                    echo '<div class="pet-answer">';
+                    echo "<a href=\"shelter_profile.php?id=" . $reply['user_id'] . "\" class=\"user-image\" style=\"background-image: url('database/images/shelters/profile/thumbs_medium/" . $reply['user_id'] . ".jpg')\"></a>";
+                    echo "<span class=\"user\"><a href=\"shelter_profile.php?id=" . $reply['user_id'] . "\">" . getShelterByID($reply['user_id'])['name'] . "</a></span>";
+                    echo "<span class=\"date\">" . date("Y-m-d H:i", substr($reply['date'], 0, 10)) . "</span>";
+                    echo "<p>" . $reply['text'] . "</p>";
+                    echo "</div>";
+                }
+            }
+            ?>
         <?php } ?>
         <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
-        <form action="action_add_comment.php" method="get" class="add-comment">
+        <form id="add-comment">
             <label for="text">Add a Comment on This Pet</label>
             <textarea id="text" name="text" placeholder="Comment" required></textarea>
             <label for="user_id" hidden></label>
