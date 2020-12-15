@@ -48,7 +48,7 @@
         }
         ?>
     </div>
-    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
+    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username']) and !isOwner($_GET['id'])) { ?>
     <section id="options">
         <h2>Options</h2>
         <div class="buttons">

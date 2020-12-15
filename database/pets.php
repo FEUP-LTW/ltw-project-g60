@@ -107,13 +107,13 @@ function getPetByID($petID) {
     }
 }
 
-function addPet($username, $name, $image, $species, $size, $color, $gender, $info, $age, $location) {
+function addPet($username, $name, $image, $species, $size, $color, $gender, $info, $age, $location, $statE) {
     global $db;
 
     $user_id = getSessionId();
 
-    $stmt = $db->prepare('INSERT INTO Pets(name, species, size, color, gender, info, age, location) 
-            VALUES (:name, :species, :size, :color, :gender, :info, :age, :location)');
+    $stmt = $db->prepare('INSERT INTO Pets(name, species, size, color, gender, info, age, location, state) 
+            VALUES (:name, :species, :size, :color, :gender, :info, :age, :location, :state)');
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':species', $species);
     $stmt->bindParam(':size', $size);
@@ -121,6 +121,7 @@ function addPet($username, $name, $image, $species, $size, $color, $gender, $inf
     $stmt->bindParam(':gender', $gender);
     $stmt->bindParam(':info', $info);
     $stmt->bindParam(':age', $age);
+    $stmt->bindParam(':state', $state);
     $stmt->bindParam(':location', $location);
 
     $stmt->execute();
@@ -146,6 +147,34 @@ function addPet($username, $name, $image, $species, $size, $color, $gender, $inf
         $stmt->bindParam(':shelter_id', $user_id);
         $stmt->bindParam(':pet_id', $last_pet_id);
         $stmt->execute();
+    }
+}
+
+function editPet($pet_id, $name, $image, $species, $size, $color, $gender, $info, $age, $location, $state) {
+    global $db;
+
+    $stmt = $db->prepare('UPDATE Pets SET name = :name, species = :species, size = :size, color = :color, gender = :gender, 
+                info = :info, age = :age, location = :location, state = :state
+WHERE pet_id = :pet_id');
+    $stmt->bindParam(':name', $name);
+    $stmt->bindParam(':species', $species);
+    $stmt->bindParam(':size', $size);
+    $stmt->bindParam(':color', $color);
+    $stmt->bindParam(':gender', $gender);
+    $stmt->bindParam(':info', $info);
+    $stmt->bindParam(':age', $age);
+    $stmt->bindParam(':location', $location);
+    $stmt->bindParam(':state', $state);
+    $stmt->bindParam(':pet_id', $pet_id);
+
+    $stmt->execute();
+
+    //image_id = session_id
+    if ($image['name'] != "") {
+        $stmt = $db->prepare("SELECT img_id FROM Pets_Images WHERE pet_id = :pet_id");
+        $stmt->bindParam(':pet_id', $pet_id);
+        $stmt->execute();
+        uploadImage($image, $stmt->fetch()[0], "images/pets/");
     }
 }
 

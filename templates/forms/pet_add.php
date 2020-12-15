@@ -46,8 +46,8 @@
                 <label>Information
                     <textarea id="petInfo" name="information" placeholder="Pet's info"></textarea>
                 </label>
-                <select name="status" required>
-                    <option value="" disabled selected>Status</option>
+                <select name="state" required>
+                    <option value="" disabled selected>State</option>
                     <option value="prepared">prepared</option>
                 </select>
                 <label>

@@ -4,7 +4,7 @@
             <h2>Edit the details about your pet!</h2>
         </section>
         <section id="right">
-            <form id="pet_add_form" action="action_editpet.php" method="post" enctype="multipart/form-data" autocomplete="off" onsubmit='verify(<?= json_encode( $breeds ) ?>, <?= json_encode( $colors ) ?>);'>
+            <form id="pet_add_form" action="action_edit_pet.php" method="post" enctype="multipart/form-data" autocomplete="off" onsubmit='verify(<?= json_encode( $breeds ) ?>, <?= json_encode( $colors ) ?>);'>
                 <label>Name
                     <input type="text" name="name" placeholder="Pet's name" value="<?= $pet['name'] ?>" required>
                 </label>
@@ -46,8 +46,8 @@
                 <label>Information
                     <textarea id="petInfo" name="information" placeholder="Pet's info"><?= $pet['info'] ?></textarea>
                 </label>
-                <select name="status" required>
-                    <option value="" disabled selected>Status</option>
+                <select name="state" required>
+                    <option value="" disabled selected>State</option>
                     <option value="prepared">prepared</option>
                 </select>
                 <label>
@@ -55,10 +55,11 @@
                     add_photo_alternate
                     </span>
                     Choose photo
-                    <input hidden type="file" name="photo" required>
+                    <input hidden type="file" name="photo">
                 </label>
+                <input id="pet_id" name="pet_id" type="text" hidden value="<?= $_GET['id'] ?>">
                 <label>
-                    Add Pet!
+                    Edit Pet!
                     <input hidden type="submit" class="button">
                 </label>
             </form>
