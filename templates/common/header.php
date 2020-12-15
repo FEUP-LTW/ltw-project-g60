@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
     <script src="scripts/autocomplete.js" ></script>
     <script src="scripts/hamburger.js"></script>
-    <script src="scripts/test.js" ></script>
     <script src="scripts/buttons.js" defer></script>
+    <script src="scripts/favorites.js" defer></script>
     <script src="scripts/password_check.js" defer></script>
     <script src="scripts/search.js" defer></script>
 </head>

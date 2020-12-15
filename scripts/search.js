@@ -1,11 +1,21 @@
+let favorites
+
 document.querySelectorAll('#choice').forEach(selector=>{
     selector.addEventListener("change", Filter)
 })
 
-function Filter(event){
-    // Percorre a lista e todos os pets que não sejam dessa breed ficam ocultos
-    console.log(event.target.value)
-    console.log(getConf())
+let username = document.querySelector("#signup").children[1].innerHTML
+let request = new XMLHttpRequest();
+request.addEventListener("load", saveFavorites)
+request.open("get", "action_get_favorites.php", true)
+request.send()
+
+function saveFavorites(){
+    favorites = JSON.parse(this.responseText);
+    console.log(favorites)
+}
+
+function Filter(){
     setResults(getConf())
 }
 
@@ -28,10 +38,16 @@ function setResults(conf){
     // TODO de cada pet ir buscar os valores, comparar os valores com os de conf, mudar display
 }
 
+/**
+ *
+ * @param {HTMLElement} pet Article de pet card
+ * @param conf
+ */
 function toDisplay(pet, conf){
     // pet.style.display="none"
     // console.log(pet.style
     let config = Object.assign([], conf)
+    let petid = pet.getAttribute("data-petid")
 
     if (config[0] == "")
         config[0] = pet.querySelector(".pet-details").children[3].innerHTML
@@ -44,7 +60,7 @@ function toDisplay(pet, conf){
     if (config[2] == "")
         config[2] = pet.querySelector(".pet-details").children[1].innerHTML
     if (config[3] == "")
-        config[3] = pet.querySelector(".pet-details").children[4].innerHTML
+        config[3] = pet.querySelector(".pet-details").children[4].innerHTML[0]
 
     let pet_conf = []
     pet_conf.push(pet.querySelector(".pet-details").children[3].innerHTML) // breed
@@ -53,13 +69,26 @@ function toDisplay(pet, conf){
     if (pet.querySelector(".pet-details").children[0].className === 'fas fa-venus')
         pet_conf.push("female")
     pet_conf.push(pet.querySelector(".pet-details").children[1].innerHTML) // color
-    pet_conf.push(pet.querySelector(".pet-details").children[4].innerHTML) // age
-    pet_conf.push(false)
+    pet_conf.push(pet.querySelector(".pet-details").children[4].innerHTML[0]) // age
+    pet_conf.push(conf[4])
 
-    if (arraysEqual(config, pet_conf))
+    console.log(config)
+    console.log(pet_conf)
+
+    if (arraysEqual(config, pet_conf) && favCheck(config, petid))
         pet.style.display = "grid"
     else
         pet.style.display = "none"
+}
+
+function favCheck(config, petid){
+    if (config[4] === false)
+        return true;
+    for (let i = 0; i<favorites.length; i++){
+        if (petid === favorites[i].PetID)
+            return true
+    }
+    return false
 }
 
 function arraysEqual(_arr1, _arr2) {

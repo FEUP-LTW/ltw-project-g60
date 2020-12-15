@@ -21,7 +21,7 @@
         <div id="favorites">
             <label><i id="fav_icon" class="far fa-heart"></i>
                 <span>Favorites</span>
-                <input id="user_fav" type="checkbox" name="favorites" onclick="userFavorites()">
+                <input id="user_fav" type="checkbox" name="favorites">
             </label>
         </div>
         <div id="contact">

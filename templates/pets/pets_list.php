@@ -45,7 +45,7 @@
 <section class="pets-list">
     <?php
         foreach ($pets as $pet) { ?>
-            <article class="pet-card" >
+            <article class="pet-card" data-petid="<?=$pet['pet_id'] ?>" >
                 <a class="pet-image" href="pet_detail.php?id=<?= $pet['pet_id'] ?>" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg')"></a>
                 <div class="pet-information">
                     <h1><?= $pet['name'] ?></h1>
