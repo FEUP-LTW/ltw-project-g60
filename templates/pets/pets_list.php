@@ -46,7 +46,7 @@
                                 echo '<i class="fas fa-venus"></i>';
                         ?>
                         <span><?= $pet['color'] ?></span>
-                        <span><?= $pet['size'] ?></span>
+                        <span><?= $pet['size'] ?>m</span>
                         <span><?= $pet['species'] ?></span>
                         <span><?= $pet['age'] . ' years' ?></span>
                     </div>
