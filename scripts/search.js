@@ -1,9 +1,16 @@
 let favorites
 
+// Atualizar Lista ao detetar mudanças nos filtros
 document.querySelectorAll('#choice').forEach(selector=>{
-    selector.addEventListener("change", Filter)
+    selector.addEventListener("change", filter)
 })
 
+// Atualizar lista em key Up de caixa de texto
+document.querySelectorAll("#search_input").forEach(input=>{
+    input.addEventListener("keyup", filterSearch)
+})
+
+// AJAX para buscar favoritos do utilizador
 let username = document.querySelector("#signup").children[1].innerHTML
 let request = new XMLHttpRequest();
 request.addEventListener("load", saveFavorites)
@@ -15,7 +22,18 @@ function saveFavorites(){
     console.log(favorites)
 }
 
-function Filter(){
+function filterSearch() {
+    let search = document.getElementById("search_input").value.toLowerCase()
+    let pets = document.getElementsByClassName("pets-list")[0].getElementsByClassName("pet-card")
+    for (let pet of pets){
+        if (pet.querySelectorAll("h1")[0].innerHTML.toLowerCase().includes(search) )
+            pet.style.display = "grid"
+        else
+            pet.style.display = "none"
+    }
+}
+
+function filter(){
     setResults(getConf())
 }
 
@@ -35,7 +53,6 @@ function setResults(conf){
     for (let pet of pets){
         toDisplay(pet, conf)
     }
-    // TODO de cada pet ir buscar os valores, comparar os valores com os de conf, mudar display
 }
 
 /**

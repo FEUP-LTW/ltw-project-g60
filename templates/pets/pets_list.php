@@ -1,9 +1,8 @@
 <section class="search" style="background-image: url('res/banner.jpg')">
-    <form action="./pets_list.php" method="GET">
+    <form>
         <div id="search-wrap">
             <div id="search">
-                <input type="text" autocomplete="off" name="search" placeholder="search for a pet..">
-                <button type="submit"><i class="fas fa-search"></i></button>
+                <input id="search_input" type="text" autocomplete="off" name="search" placeholder="search for a pet..">
             </div>
         </div>
 
