@@ -46,7 +46,7 @@
                                 echo '<i class="fas fa-venus"></i>';
                         ?>
                         <span><?= $pet['color'] ?></span>
-                        <span><?= $pet['size'] ?></span>
+                        <span><?= $pet['size'] ?>m</span>
                         <span><?= $pet['species'] ?></span>
                         <span><?= $pet['age'] . ' years' ?></span>
                     </div>
@@ -55,9 +55,9 @@
                     </div>
                 </div>
                 <div class="pet-links">
-                    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
+                    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username']) and !isOwner($pet['pet_id'])) { ?>
                     <div class="buttons" >
-                        <?php if (!isFavorite($pet['pet_id'])) { ?>
+                        <?php if (!isFavorite($pet['pet_id']) ) { ?>
                             <button id="pet_add_favorite_button" name="favorite" data-index="<?= $index ?>" data-petid="<?= $pet['pet_id'] ?>">Add to Favorites</button>
                         <?php } else { ?>
                             <button id="pet_remove_favorite_button" name="favorite" data-index="<?= $index ?>" data-petid="<?= $pet['pet_id'] ?>">Remove Favorite</button>

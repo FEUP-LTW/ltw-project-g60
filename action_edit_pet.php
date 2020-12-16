@@ -21,13 +21,12 @@ $age = preg_replace($numberpattern, '', $_POST['age']);
 $gender = preg_replace($numberpattern, '', $_POST['gender']);
 
 if( in_array($_POST['breed'], $breeds) and in_array($_POST['color'], $colors) ){
-  addPet($_SESSION['username'],$name,$_FILES['photo'], $breed,$size,$color,$gender,
-      $information,$age,$location, $_POST['state']);
+    editPet($_POST['pet_id'],$name, $_FILES['photo'], $breed, $size, $color, $gender,
+        $information,$age,$location, $_POST['state']);
 
-  header('Location: ' . 'homepage.php');
-  die();
+    header('Location: ' . 'pet_detail.php?id=' . $_POST['pet_id']);
+    die();
 } else {
-  header('Location: ' . 'pet_add.php');
-  die();
+    header('Location: ' . 'pet_edit.php');
+    die();
 }
-

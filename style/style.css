@@ -296,7 +296,7 @@ html ::-webkit-scrollbar-thumb:hover, body ::-webkit-scrollbar-thumb:hover {
   float: right;
 }
 
-.button, body #pet_add #right form label:nth-of-type(8), body #pet_add #right form label:nth-of-type(9), body .user_profile .left .edit_user_info form #photos label:nth-of-type(1), body .user_profile .left .edit_user_info form #photos label:nth-of-type(2), body .shelter_profile .edit_shelter_info form #photos label:nth-of-type(1), body .shelter_profile .edit_shelter_info form #photos label:nth-of-type(2), #register form #photos label:nth-of-type(1), #register form #photos label:nth-of-type(2), button {
+.button, body #pet_add #right form label:nth-of-type(8), body #pet_edit #right form label:nth-of-type(8), body #pet_add #right form label:nth-of-type(9), body #pet_edit #right form label:nth-of-type(9), body .user_profile .left .edit_user_info form #photos label:nth-of-type(1), body .user_profile .left .edit_user_info form #photos label:nth-of-type(2), body .shelter_profile .edit_shelter_info form #photos label:nth-of-type(1), body .shelter_profile .edit_shelter_info form #photos label:nth-of-type(2), #register form #photos label:nth-of-type(1), #register form #photos label:nth-of-type(2), button {
   background-color: #934B00;
   border: none;
   color: white;
@@ -311,7 +311,7 @@ html ::-webkit-scrollbar-thumb:hover, body ::-webkit-scrollbar-thumb:hover {
   cursor: pointer;
 }
 
-.button:hover, body #pet_add #right form label:hover:nth-of-type(8), body #pet_add #right form label:hover:nth-of-type(9), body .user_profile .left .edit_user_info form #photos label:hover:nth-of-type(1), body .user_profile .left .edit_user_info form #photos label:hover:nth-of-type(2), body .shelter_profile .edit_shelter_info form #photos label:hover:nth-of-type(1), body .shelter_profile .edit_shelter_info form #photos label:hover:nth-of-type(2), #register form #photos label:hover:nth-of-type(1), #register form #photos label:hover:nth-of-type(2), button:hover {
+.button:hover, body #pet_add #right form label:hover:nth-of-type(8), body #pet_edit #right form label:hover:nth-of-type(8), body #pet_add #right form label:hover:nth-of-type(9), body #pet_edit #right form label:hover:nth-of-type(9), body .user_profile .left .edit_user_info form #photos label:hover:nth-of-type(1), body .user_profile .left .edit_user_info form #photos label:hover:nth-of-type(2), body .shelter_profile .edit_shelter_info form #photos label:hover:nth-of-type(1), body .shelter_profile .edit_shelter_info form #photos label:hover:nth-of-type(2), #register form #photos label:hover:nth-of-type(1), #register form #photos label:hover:nth-of-type(2), button:hover {
   -webkit-animation: scale05 0.2s forwards;
 }
 
@@ -1350,6 +1350,14 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   grid-area: description;
   padding: 1em;
 }
+#pet-profile .pet-bio .pet-info #edit-pet-button {
+  grid-row: 3;
+  background-color: #F1A66A;
+  color: black;
+  justify-self: right;
+  margin: 1em;
+  font-weight: bold;
+}
 #pet-profile #options {
   margin-top: 1em;
   padding: 1em;
@@ -1936,7 +1944,7 @@ body .user_profile .right .user_activity .activity-card:hover {
   grid-row: 2;
 }
 
-body #pet_add {
+body #pet_add, body #pet_edit {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   transition: 0.3s;
@@ -1947,23 +1955,23 @@ body #pet_add {
   contain: content;
   display: flex;
 }
-body #pet_add #left {
+body #pet_add #left, body #pet_edit #left {
   width: 32%;
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
 }
-body #pet_add #left h2 {
+body #pet_add #left h2, body #pet_edit #left h2 {
   position: relative;
   top: 50px;
   text-align: center;
   width: 100%;
   color: #934B00;
 }
-body #pet_add #right {
+body #pet_add #right, body #pet_edit #right {
   width: 68%;
 }
-body #pet_add #right form {
+body #pet_add #right form, body #pet_edit #right form {
   padding-top: 20px;
   padding-left: 20px;
   display: grid;
@@ -1974,11 +1982,11 @@ body #pet_add #right form {
   transition: 0.3s;
   color: #934B00;
 }
-body #pet_add #right form label:nth-of-type(1) {
+body #pet_add #right form label:nth-of-type(1), body #pet_edit #right form label:nth-of-type(1) {
   grid-column: 1;
   grid-row: 1;
 }
-body #pet_add #right form label:nth-of-type(8) {
+body #pet_add #right form label:nth-of-type(8), body #pet_edit #right form label:nth-of-type(8) {
   grid-column: 2/3;
   grid-row: 1;
   margin: 1.5em 1em 1em 4em;
@@ -1989,44 +1997,44 @@ body #pet_add #right form label:nth-of-type(8) {
   align-items: center;
   contain: content;
 }
-body #pet_add #right form label:nth-of-type(8) span {
+body #pet_add #right form label:nth-of-type(8) span, body #pet_edit #right form label:nth-of-type(8) span {
   display: flex;
   font-size: 2em;
   margin-right: 5px;
 }
-body #pet_add #right form label:nth-of-type(2) {
+body #pet_add #right form label:nth-of-type(2), body #pet_edit #right form label:nth-of-type(2) {
   grid-column: 1;
   grid-row: 2;
 }
-body #pet_add #right form label:nth-of-type(3) {
+body #pet_add #right form label:nth-of-type(3), body #pet_edit #right form label:nth-of-type(3) {
   grid-column: 2;
   grid-row: 2;
 }
-body #pet_add #right form label:nth-of-type(4) {
+body #pet_add #right form label:nth-of-type(4), body #pet_edit #right form label:nth-of-type(4) {
   grid-column: 3;
   grid-row: 2;
 }
-body #pet_add #right form label:nth-of-type(5) {
+body #pet_add #right form label:nth-of-type(5), body #pet_edit #right form label:nth-of-type(5) {
   grid-column: 2;
   grid-row: 3;
 }
-body #pet_add #right form label:nth-of-type(6) {
+body #pet_add #right form label:nth-of-type(6), body #pet_edit #right form label:nth-of-type(6) {
   grid-column: 1;
   grid-row: 3;
 }
-body #pet_add #right form label:nth-of-type(7) {
+body #pet_add #right form label:nth-of-type(7), body #pet_edit #right form label:nth-of-type(7) {
   grid-column: 1;
   grid-row: 4;
 }
-body #pet_add #right form label {
+body #pet_add #right form label, body #pet_edit #right form label {
   margin: 1em 2em;
   display: block;
 }
-body #pet_add #right form label .autocomplete {
+body #pet_add #right form label .autocomplete, body #pet_edit #right form label .autocomplete {
   /*the container must be positioned relative:*/
   position: relative;
 }
-body #pet_add #right form label .autocomplete .autocomplete-items {
+body #pet_add #right form label .autocomplete .autocomplete-items, body #pet_edit #right form label .autocomplete .autocomplete-items {
   position: absolute;
   border: none;
   z-index: 99;
@@ -2035,23 +2043,23 @@ body #pet_add #right form label .autocomplete .autocomplete-items {
   left: 0;
   right: 0;
 }
-body #pet_add #right form label .autocomplete .autocomplete-items li {
+body #pet_add #right form label .autocomplete .autocomplete-items li, body #pet_edit #right form label .autocomplete .autocomplete-items li {
   padding: 5px;
   border-radius: 10px;
   color: white;
   cursor: pointer;
   background-color: #934B00;
 }
-body #pet_add #right form label .autocomplete .autocomplete-items li:hover {
+body #pet_add #right form label .autocomplete .autocomplete-items li:hover, body #pet_edit #right form label .autocomplete .autocomplete-items li:hover {
   /*when hovering an item:*/
   background-color: #F1A66A;
 }
-body #pet_add #right form label .autocomplete .autocomplete-active {
+body #pet_add #right form label .autocomplete .autocomplete-active, body #pet_edit #right form label .autocomplete .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
   background-color: #934B00 !important;
   color: #ffffff;
 }
-body #pet_add #right form label input[type=text], body #pet_add #right form label input[type=password], body #pet_add #right form label input[type=email], body #pet_add #right form label input[type=number], body #pet_add #right form label #petInfo {
+body #pet_add #right form label input[type=text], body #pet_add #right form label input[type=password], body #pet_add #right form label input[type=email], body #pet_add #right form label input[type=number], body #pet_add #right form label #petInfo, body #pet_edit #right form label input[type=text], body #pet_edit #right form label input[type=password], body #pet_edit #right form label input[type=email], body #pet_edit #right form label input[type=number], body #pet_edit #right form label #petInfo {
   height: 34px;
   border-radius: 10px;
   border: 1px solid transparent;
@@ -2069,17 +2077,17 @@ body #pet_add #right form label input[type=text], body #pet_add #right form labe
   font-size: 0.9em;
   outline: none;
 }
-body #pet_add #right form label ul {
+body #pet_add #right form label ul, body #pet_edit #right form label ul {
   max-height: 100px;
   overflow: auto;
 }
-body #pet_add #right form #petInfo {
+body #pet_add #right form #petInfo, body #pet_edit #right form #petInfo {
   grid-column: 1;
   grid-row: 4;
   height: 120px !important;
   max-width: 350px;
 }
-body #pet_add #right form label:nth-of-type(9) {
+body #pet_add #right form label:nth-of-type(9), body #pet_edit #right form label:nth-of-type(9) {
   margin: 3em 1em 1em 1.5em;
   width: fit-content;
   height: 80px;
@@ -2089,10 +2097,10 @@ body #pet_add #right form label:nth-of-type(9) {
   grid-column: 3;
   grid-row: 4;
 }
-body #pet_add #right form label:nth-of-type(9) input {
+body #pet_add #right form label:nth-of-type(9) input, body #pet_edit #right form label:nth-of-type(9) input {
   display: none;
 }
-body #pet_add #right form select {
+body #pet_add #right form select, body #pet_edit #right form select {
   height: 50px;
   grid-column: 2;
   grid-row: 4;
@@ -2104,12 +2112,12 @@ body #pet_add #right form select {
   border-radius: 7px;
   color: white;
 }
-body #pet_add #right form #gender-option {
+body #pet_add #right form #gender-option, body #pet_edit #right form #gender-option {
   margin-left: 1em;
   grid-column: 3;
   grid-row: 3;
 }
-body #pet_add #right form #gender-option label {
+body #pet_add #right form #gender-option label, body #pet_edit #right form #gender-option label {
   display: block;
   position: relative;
   padding-left: 35px;
@@ -2121,14 +2129,14 @@ body #pet_add #right form #gender-option label {
   -ms-user-select: none;
   user-select: none;
 }
-body #pet_add #right form #gender-option label input {
+body #pet_add #right form #gender-option label input, body #pet_edit #right form #gender-option label input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
   width: 0;
 }
-body #pet_add #right form #gender-option label .checkmark {
+body #pet_add #right form #gender-option label .checkmark, body #pet_edit #right form #gender-option label .checkmark {
   position: absolute;
   top: 0;
   left: 0;
@@ -2137,21 +2145,21 @@ body #pet_add #right form #gender-option label .checkmark {
   background-color: #eee;
   border-radius: 50%;
 }
-body #pet_add #right form #gender-option label:hover input ~ .checkmark {
+body #pet_add #right form #gender-option label:hover input ~ .checkmark, body #pet_edit #right form #gender-option label:hover input ~ .checkmark {
   background-color: #ccc;
 }
-body #pet_add #right form #gender-option label input:checked ~ .checkmark {
+body #pet_add #right form #gender-option label input:checked ~ .checkmark, body #pet_edit #right form #gender-option label input:checked ~ .checkmark {
   background-color: #934B00;
 }
-body #pet_add #right form #gender-option label .checkmark:after {
+body #pet_add #right form #gender-option label .checkmark:after, body #pet_edit #right form #gender-option label .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-body #pet_add #right form #gender-option label input:checked ~ .checkmark:after {
+body #pet_add #right form #gender-option label input:checked ~ .checkmark:after, body #pet_edit #right form #gender-option label input:checked ~ .checkmark:after {
   display: block;
 }
-body #pet_add #right form #gender-option label .checkmark:after {
+body #pet_add #right form #gender-option label .checkmark:after, body #pet_edit #right form #gender-option label .checkmark:after {
   top: 9px;
   left: 9px;
   width: 8px;
