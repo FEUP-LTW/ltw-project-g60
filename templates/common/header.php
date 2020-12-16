@@ -11,6 +11,8 @@
     <script src="scripts/autocomplete.js" ></script>
     <script src="scripts/hamburger.js"></script>
     <script src="scripts/buttons.js" defer></script>
+    <script src="scripts/favorites.js" defer></script>
     <script src="scripts/password_check.js" defer></script>
+    <script src="scripts/search.js" defer></script>
 </head>
 <body>

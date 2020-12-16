@@ -1,30 +1,41 @@
 <section class="search" style="background-image: url('res/banner.jpg')">
-    <form action="./pets_list.php" method="GET">
+    <form>
         <div id="search-wrap">
             <div id="search">
-                <input type="text" autocomplete="off" name="search" placeholder="search for a pet..">
-                <button type="submit"><i class="fas fa-search"></i></button>
+                <input id="search_input" type="text" autocomplete="off" name="search" placeholder="search for a pet..">
             </div>
         </div>
 
-        <select name="category">
-            <option value="" disabled selected>Category</option>
-            <option value="">option 1</option>
+        <select id="choice" name="category">
+            <option value="" selected>--Breed--</option>
+            <?php
+            foreach ($breeds as $breed){
+            ?>
+            <option value="<?=$breed?>"><?=$breed?></option>
+            <?php } ?>
         </select>
-        <select name="gender">
-            <option value="" disabled selected>Gender</option>
-            <option value="">option 1</option>
+        <select id="choice" name="gender">
+            <option value="" selected>--Gender--</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
         </select>
-        <select name="color">
-            <option value="" disabled selected>Color</option>
-            <option value="">option 1</option>
+        <select id="choice" name="color">
+            <option value="" selected>--Color--</option>
+            <?php
+            foreach ($colors as $color){
+            ?>
+            <option value="<?=$color?>"><?=$color?></option>
+            <?php } ?>
         </select>
-        <select name="age">
-            <option value="" disabled selected>Age</option>
-            <option value="">option 1</option>
+        <select id="choice" name="age">
+            <option value=""  selected>--Age--</option>
+            <?php
+            for ($x = 0; $x <= 10; $x++) { ?>
+                <option value="<?=$x?>"><?=$x?> Years</option>
+            <?php } ?>
         </select>
         <label>Favorites
-            <input type="checkbox" name="favorites">
+            <input id="choice" type="checkbox" name="favorites">
         </label>
 
     </form>
@@ -34,7 +45,7 @@
     <?php
         $index=-1;
         foreach ($pets as $pet) { $index++; ?>
-            <article class="pet-card">
+            <article class="pet-card" data-petid="<?=$pet['pet_id'] ?>" >
                 <a class="pet-image" href="pet_detail.php?id=<?= $pet['pet_id'] ?>" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg')"></a>
                 <div class="pet-information">
                     <h1><?= $pet['name'] ?></h1>
