@@ -20,9 +20,20 @@
                 <span><?= $pet['age'] . ' years' ?></span>
             </div>
             <p><?= $pet['info'] ?></p>
+            <?php
+            if (isset($_SESSION['username'])) {
+                if ($owner[1] == 'user') {
+                    if (getUserByID($owner[0])['username'] == $_SESSION['username'])
+                        echo '<a href="pet_edit.php?id=' . $pet['pet_id'] . '" class="button" id="edit-pet-button">Edit Post</a>';
+                } else {
+                    if (getShelterByID($owner[0])['username'] == $_SESSION['username'])
+                        echo '<a href="pet_edit.php?id=' . $pet['pet_id'] . '" class="button" id="edit-pet-button">Edit Post</a>';
+                }
+            }
+            ?>
+
         </section>
         <?php
-        $owner = getPetOwner($pet['pet_id']);
         if ($owner[1] == 'user') {
             echo '<a id="owner-info" href="user_profile.php?id=' . $owner[0] . '">';
             echo "<div class=\"img\" style=\"background-image: url('database/images/users/profile/thumbs_medium/" . $owner[0] . ".jpg')\"> </div>
@@ -37,7 +48,7 @@
         }
         ?>
     </div>
-    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
+    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username']) and !isOwner($_GET['id'])) { ?>
     <section id="options">
         <h2>Options</h2>
         <div class="buttons">

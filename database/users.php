@@ -331,3 +331,15 @@ function isFavorite($pet_id){
     if ($stmt->fetch()==false) return false;
     return true;
 }
+
+function isOwner($pet_id){
+    global $db;
+    $session_id = getSessionId();
+
+    $stmt = $db->prepare('SELECT * FROM Users_Pets WHERE user_id = :user_id AND pet_id = :pet_id');
+    $stmt->bindParam(':pet_id', $pet_id);
+    $stmt->bindParam(':user_id', $session_id);
+    $stmt->execute();
+    if ($stmt->fetch()==false) return false;
+    return true;
+}
