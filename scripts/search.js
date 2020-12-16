@@ -19,7 +19,6 @@ request.send()
 
 function saveFavorites(){
     favorites = JSON.parse(this.responseText);
-    console.log(favorites)
 }
 
 function filterSearch() {

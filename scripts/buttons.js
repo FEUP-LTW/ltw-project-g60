@@ -10,18 +10,6 @@ document.querySelectorAll('#pet_proposal_button').forEach(button => { //submit p
     button.addEventListener('click', petProposal);
 })
 
-document.querySelectorAll('.reply-button').forEach(button => {
-    button.addEventListener('click', overlay);
-})
-
-document.querySelectorAll('#add-comment').forEach(form => {
-    form.addEventListener('submit', addComment);
-})
-
-document.querySelectorAll('#add-reply').forEach(form => {
-    form.addEventListener('submit', addReply);
-})
-
 // Send message
 function addFavorite(event) {
     let request = new XMLHttpRequest();
@@ -34,8 +22,6 @@ function addFavorite(event) {
     //removes add button and adds remove button
     let pet_index = event.target.getAttribute("data-index");
     let pet_petid = event.target.getAttribute("data-petid");
-
-    console.log(pet_index);
 
     event.target.remove();
 
@@ -79,23 +65,6 @@ function encodeForAjax(data) {
     return Object.keys(data).map(function(k){
         return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
     }).join('&');
-}
-
-function userFavorites() {
-    let checkBox = document.getElementById("user_fav")
-    let icon = document.getElementById("fav_icon")
-    let pets = document.getElementsByClassName("user_pets")[0]
-    let favs = document.getElementsByClassName("user_favorites")[0]
-
-    if (checkBox.checked){
-        icon.className = "fas fa-heart"
-        pets.style.display = "none"
-        favs.style.display = "block"
-    } else {
-        icon.className = "far fa-heart"
-        pets.style.display = "block"
-        favs.style.display = "none"
-    }
 }
 
 function petProposal() {
@@ -148,41 +117,6 @@ function editShelterInfo() {
     }
 }
 
-function overlay(event) {
-    let el = document.getElementById("overlay");
-    el.style.visibility = (el.style.visibility === "visible") ? "hidden" : "visible";
-    document.getElementById("add-reply").setAttribute("data-comment-id", event.target.getAttribute("data-comment-id"))
-}
 
-function addComment(event) {
-    let user_id = document.querySelector('#add-comment #user_id').value;
-    let pet_id = document.querySelector('#add-comment #user_id').value;
-    let text = document.querySelector('#add-comment #text').value;
 
-    // Delete sent message
-    document.querySelector('#add-comment #text').value='';
-    // Send message
-    let request = new XMLHttpRequest();
-    request.open('get', 'action_add_comment.php?' + encodeForAjax({'pet_id': pet_id, 'user_id': user_id, 'text': text}), true);
-    request.send();
 
-    event.preventDefault();
-}
-
-function addReply(event) {
-    let user_id = document.querySelector('#add-reply #reply-user_id').value;
-    let text = document.querySelector('#add-reply #reply-text').value;
-    let type = document.querySelector('#add-reply #reply-type').value;
-
-    // Delete sent message
-    document.querySelector('#add-reply #reply-text').value='';
-    // Send message
-    let request = new XMLHttpRequest();
-    request.open('get', 'action_add_reply.php?' + encodeForAjax({'comment_id': event.target.getAttribute("data-comment-id"), 'text': text, 'user_id': user_id, 'type': type}), true);
-    request.send();
-
-    let el = document.getElementById("overlay");
-    el.style.visibility = "hidden";
-
-    event.preventDefault();
-}

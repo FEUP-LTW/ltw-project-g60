@@ -1518,19 +1518,19 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 #pet-profile #pet-comments #overlay form, #pet-profile #make_proposal #overlay form {
   margin-top: 0;
 }
-#pet-profile #pet-comments form, #pet-profile #make_proposal form {
+#pet-profile form {
   margin-top: 1em;
   padding: 1em;
   background-color: #934B00;
   border-radius: 10px;
 }
-#pet-profile #pet-comments form label, #pet-profile #make_proposal form label {
+#pet-profile form label {
   color: white;
   margin-bottom: 1em;
   font-size: x-large;
   font-weight: bold;
 }
-#pet-profile #pet-comments form textarea, #pet-profile #make_proposal form textarea {
+#pet-profile form textarea {
   margin-top: 10px;
   margin-bottom: 10px;
   min-width: 97%;
@@ -1544,7 +1544,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   background-color: #F1A66A;
   padding: 1em;
 }
-#pet-profile #pet-comments form .button, #pet-profile #make_proposal form .button {
+#pet-profile .button {
   background-color: black;
 }
 
@@ -2053,11 +2053,6 @@ body #pet_add #right form label .autocomplete .autocomplete-items li, body #pet_
 body #pet_add #right form label .autocomplete .autocomplete-items li:hover, body #pet_edit #right form label .autocomplete .autocomplete-items li:hover {
   /*when hovering an item:*/
   background-color: #F1A66A;
-}
-body #pet_add #right form label .autocomplete .autocomplete-active, body #pet_edit #right form label .autocomplete .autocomplete-active {
-  /*when navigating through the items using the arrow keys:*/
-  background-color: #934B00 !important;
-  color: #ffffff;
 }
 body #pet_add #right form label input[type=text], body #pet_add #right form label input[type=password], body #pet_add #right form label input[type=email], body #pet_add #right form label input[type=number], body #pet_add #right form label #petInfo, body #pet_edit #right form label input[type=text], body #pet_edit #right form label input[type=password], body #pet_edit #right form label input[type=email], body #pet_edit #right form label input[type=number], body #pet_edit #right form label #petInfo {
   height: 34px;
