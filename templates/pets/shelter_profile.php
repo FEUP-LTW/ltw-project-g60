@@ -15,6 +15,15 @@
                 </label>
             </div>
         <?php } ?>
+        <div id="location">
+            <label ><i class="fas fa-map-marker-alt"></i>
+                <span>Location</span></label>
+        </div>
+        <div id="contact">
+            <label><i class="fas fa-mobile-alt"></i>
+                <span>Contacts</span>
+            </label>
+        </div>
         <section class="shelter_adoption">
             <div class="title"><i class="fas fa-paw"></i>
                 <span>For adoption</span>
