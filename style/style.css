@@ -697,7 +697,7 @@ body #shuffle-button {
   }
 }
 #login h2, #register h2 {
-  background-color: #934B00;
+  background-color: #36393B;
   text-align: center;
   width: 100%;
   padding: 10px 0;
@@ -706,7 +706,7 @@ body #shuffle-button {
 }
 #login form, #register form {
   width: 30em;
-  background-color: #F1A66A;
+  background-color: #585D5F;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   transition: 0.3s;
@@ -716,7 +716,7 @@ body #shuffle-button {
 }
 #login input[type=submit], #register input[type=submit] {
   width: auto;
-  background-color: #934B00;
+  background-color: #36393B;
   color: white;
   border: none;
   margin: 1em 1em 1em auto;
@@ -791,7 +791,7 @@ body #shuffle-button {
   background-color: #ccc;
 }
 #register form #shelter-user-option label input:checked ~ .checkmark {
-  background-color: #934B00;
+  background-color: #36393B;
 }
 #register form #shelter-user-option label .checkmark:after {
   content: "";
