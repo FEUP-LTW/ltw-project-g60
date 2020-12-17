@@ -2019,10 +2019,10 @@ body #pet_add, body #pet_edit {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   transition: 0.3s;
-  color: #934B00;
+  color: white;
   width: 85%;
   max-width: 1080px;
-  margin: 2em auto;
+  margin: 5em auto;
   contain: content;
   display: flex;
 }
@@ -2037,7 +2037,7 @@ body #pet_add #left h2, body #pet_edit #left h2 {
   top: 50px;
   text-align: center;
   width: 100%;
-  color: #934B00;
+  color: #36393B;
 }
 body #pet_add #right, body #pet_edit #right {
   width: 68%;
@@ -2049,9 +2049,9 @@ body #pet_add #right form, body #pet_edit #right form {
   contain: content;
   grid-template-columns: 45% 25% 25%;
   grid-template-rows: 20% 20% 20% 40%;
-  background-color: #F1A66A;
+  background-color: #585D5F;
   transition: 0.3s;
-  color: #934B00;
+  color: white;
 }
 body #pet_add #right form label:nth-of-type(1), body #pet_edit #right form label:nth-of-type(1) {
   grid-column: 1;
@@ -2119,11 +2119,11 @@ body #pet_add #right form label .autocomplete .autocomplete-items li, body #pet_
   border-radius: 10px;
   color: white;
   cursor: pointer;
-  background-color: #934B00;
+  background-color: #585D5F;
 }
 body #pet_add #right form label .autocomplete .autocomplete-items li:hover, body #pet_edit #right form label .autocomplete .autocomplete-items li:hover {
   /*when hovering an item:*/
-  background-color: #F1A66A;
+  background-color: #585D5F;
 }
 body #pet_add #right form label input[type=text], body #pet_add #right form label input[type=password], body #pet_add #right form label input[type=email], body #pet_add #right form label input[type=number], body #pet_add #right form label #petInfo, body #pet_edit #right form label input[type=text], body #pet_edit #right form label input[type=password], body #pet_edit #right form label input[type=email], body #pet_edit #right form label input[type=number], body #pet_edit #right form label #petInfo {
   height: 34px;
@@ -2172,9 +2172,9 @@ body #pet_add #right form select, body #pet_edit #right form select {
   grid-row: 4;
   width: 69%;
   margin: 4em auto;
-  border: 3px solid #934B00;
+  border: 3px solid #36393B;
   padding: 1em;
-  background-color: #934B00;
+  background-color: #36393B;
   border-radius: 7px;
   color: white;
 }
@@ -2215,7 +2215,7 @@ body #pet_add #right form #gender-option label:hover input ~ .checkmark, body #p
   background-color: #ccc;
 }
 body #pet_add #right form #gender-option label input:checked ~ .checkmark, body #pet_edit #right form #gender-option label input:checked ~ .checkmark {
-  background-color: #934B00;
+  background-color: #36393B;
 }
 body #pet_add #right form #gender-option label .checkmark:after, body #pet_edit #right form #gender-option label .checkmark:after {
   content: "";
