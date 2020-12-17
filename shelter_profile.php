@@ -7,8 +7,8 @@ include_once('database/users.php');
 include_once('database/pets.php');
 
 $shelter = getShelterByID($_GET['id']);
-$pets = getShelterPets($_GET['id']);
-$adoption = getShelterPetsForAdoption($_GET['id']);
+$adoption = getShelterPets($_GET['id']);
+$pets = getShelterPetsAdopted($_GET['id']);
 
 include('templates/common/header.php');
 include('templates/common/navigation_bar.php');

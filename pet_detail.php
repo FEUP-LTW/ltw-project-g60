@@ -7,6 +7,7 @@ include_once('database/pets.php');
 include_once('database/users.php');
 include_once('database/shelters.php');
 
+
 $pet = getPetByID($_GET['id']);
 $proposals = getPetProposals($_GET['id']);
 $comments = getPetComments($_GET['id']);

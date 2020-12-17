@@ -37,14 +37,13 @@
     #owner-info:hover
       @include animations.animation("scale05 0.2s forwards")
     .pet-info
-      grid-column: 2
       height: 100%
       margin-left: -10px
       display: grid
       background-color: common.$accent-color
       color: white
       border-radius: 0 10px 10px 0
-      grid-template-rows: auto auto auto
+      grid-template-columns: auto 20% 20%
       grid-template-areas: "description" "details" "name"
       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3)
       #title
@@ -61,17 +60,27 @@
           padding: 0 10px
       #pet-details
         grid-area: details
+        grid-column: 1 / 4
         padding: 1em
       #pet-details>*
         margin-right: 40px
       p
-        grid-area: description
+        grid-column: 1 / 4
         padding: 1em
       #edit-pet-button
+        padding: 5%
+        grid-column: 3
         grid-row: 3
         background-color: common.$main-color
         color: black
-        justify-self: right
+        margin: 1em
+        font-weight: bold
+      #delete-pet-button
+        padding: 5%
+        grid-column: 2
+        grid-row: 3
+        background-color: common.$main-color
+        color: black
         margin: 1em
         font-weight: bold
   #options
@@ -105,7 +114,7 @@
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3)
         display: grid
         grid-template-columns: 40% 60%
-        grid-template-rows: 4fr 1fr
+        grid-template-rows: 4fr 1fr 0.5fr
         grid-column-gap: 1em
         .img
           border-radius: 10px 10px 0 0
@@ -140,6 +149,22 @@
             background-color: common.$main-color
           small
             text-align: right
+        #proposal_states
+          grid-row: 3
+          grid-column: 1 / 3
+          margin-right: 10px
+          margin-top: 10px
+          text-align: center
+          #waiting_state
+            border-radius: 5px
+            background-color: yellow
+          #accepted_state
+            border-radius: 5px
+            background-color: green
+          #denied_state
+            border-radius: 5px
+            background-color: red
+
   #pet-comments, #make_proposal
     margin-top: 1em
     padding: 1em
@@ -212,28 +237,28 @@
       form
         margin-top: 0
 
-    form
-      margin-top: 1em
-      padding: 1em
-      background-color: common.$accent-color
+  form
+    margin-top: 1em
+    padding: 1em
+    background-color: common.$accent-color
+    border-radius: 10px
+    label
+      color: white
+      margin-bottom: 1em
+      font-size: x-large
+      font-weight: bold
+    textarea
+      margin-top: 10px
+      margin-bottom: 10px
+      min-width: 97%
       border-radius: 10px
-      label
-        color: white
-        margin-bottom: 1em
-        font-size: x-large
-        font-weight: bold
-      textarea
-        margin-top: 10px
-        margin-bottom: 10px
-        min-width: 97%
-        border-radius: 10px
-        min-height: 5em
-        resize: vertical
-        outline: none
-        font-size: large
-        color: black
-        overflow: auto
-        background-color: common.$main-color
-        padding: 1em
-      .button
-        background-color: black
+      min-height: 5em
+      resize: vertical
+      outline: none
+      font-size: large
+      color: black
+      overflow: auto
+      background-color: common.$main-color
+      padding: 1em
+  .button
+    background-color: black

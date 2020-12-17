@@ -295,4 +295,70 @@ function getPetColors() {
   }
 }
 
+function acceptProposal($pet_id, $new_owner_id){
+    global $db;
+    $state = "adopted";
+    $stmt = $db->prepare('UPDATE Pets SET state = :state
+                                    WHERE pet_id = :pet_id');
+    $stmt->bindParam(':state', $state);
+    $stmt->bindParam(':pet_id', $pet_id);
+    $stmt->execute();
+
+    if (isUser($_SESSION['username'])) {
+        $stmt = $db->prepare('UPDATE Users_Pets SET user_id = :user_id
+                                    WHERE pet_id = :pet_id');
+        $stmt->bindParam(':user_id', $new_owner_id);
+        $stmt->bindParam(':pet_id', $pet_id);
+        $stmt->execute();
+    }else{
+        $stmt = $db->prepare('DELETE FROM Shelters_Pets WHERE pet_id = :pet_id');
+        $stmt->bindParam(':pet_id', $pet_id);
+        $stmt->execute();
+
+        $stmt = $db->prepare('INSERT INTO Users_Pets(user_id, pet_id) VALUES (:user_id, :pet_id)');
+        $stmt->bindParam(':user_id', $new_owner_id);
+        $stmt->bindParam(':pet_id', $pet_id);
+        $stmt->execute();
+    }
+
+    $state1 = 'denied';
+    $stmt = $db->prepare('UPDATE ProposalsUser SET state = :state
+                                    WHERE user_id != :user_id AND pet_id = :pet_id');
+    $stmt->bindParam(':user_id', $new_owner_id);
+    $stmt->bindParam(':pet_id', $pet_id);
+    $stmt->bindParam(':state', $state1);
+    $stmt->execute();
+
+    $state2 = 'accepted';
+    $stmt = $db->prepare('UPDATE ProposalsUser SET state = :state
+                                    WHERE user_id = :user_id AND pet_id = :pet_id');
+    $stmt->bindParam(':user_id', $new_owner_id);
+    $stmt->bindParam(':pet_id', $pet_id);
+    $stmt->bindParam(':state', $state2);
+    $stmt->execute();
+
+}
+
+function denyProposal($pet_id, $new_owner_id){
+    global $db;
+
+    $state = 'denied';
+    $stmt = $db->prepare('UPDATE ProposalsUser SET state = :state
+                                    WHERE user_id = :user_id AND pet_id = :pet_id');
+    $stmt->bindParam(':user_id', $new_owner_id);
+    $stmt->bindParam(':pet_id', $pet_id);
+    $stmt->bindParam(':state', $state);
+    $stmt->execute();
+
+}
+
+function deletePet($pet_id){
+    global $db;
+
+    $stmt = $db->prepare('DELETE FROM Pets
+                                    WHERE pet_id = :pet_id');
+    $stmt->bindParam(':pet_id', $pet_id);
+    $stmt->execute();
+}
+
 
