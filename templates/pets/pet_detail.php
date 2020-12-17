@@ -55,6 +55,7 @@
     <section id="options">
         <h2>Options</h2>
         <div class="buttons">
+            <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             <button id="pet_proposal_button" name="proposal" >Submit Proposal</button>
             <?php if (!isFavorite($_GET['id'])) { ?>
             <button id="pet_add_favorite_button" name="favorite" data-index="0" data-petid="<?= $_GET['id'] ?>">Add to Favorites</button>
@@ -121,6 +122,7 @@
             <div id="overlay">
                 <div>
                     <form id="add-reply">
+                        <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                         <label for="reply-text">Reply</label>
                         <textarea id="reply-text" name="reply-text" placeholder="Comment" required></textarea>
                         <label for="reply-user_id" hidden></label>

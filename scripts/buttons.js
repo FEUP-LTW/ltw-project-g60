@@ -24,10 +24,12 @@ document.querySelectorAll('#delete-pet-button').forEach(button => { //submit pro
 
 // Send message
 function addFavorite(event) {
+    let csrf = document.querySelector('#csrf_var').value;
     let request = new XMLHttpRequest();
 
-    request.open('get', 'action_add_favorite.php?' + encodeForAjax({'id': event.target.getAttribute("data-petid")}), true);
-    request.send();
+    request.open('post', 'action_add_favorite.php', true)
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    request.send(encodeForAjax({'csrf':csrf, 'id': event.target.getAttribute("data-petid")}))
 
     confirm("Pet added to favorites!");
 
@@ -49,9 +51,12 @@ function addFavorite(event) {
 }
 
 function removeFavorite(event) {
+    let csrf = document.querySelector('#csrf_var').value;
+
     let request = new XMLHttpRequest();
-    request.open('get', 'action_remove_favorite.php?' + encodeForAjax({'id': event.target.getAttribute("data-petid")}), true);
-    request.send();
+    request.open('post', 'action_remove_favorite.php', true)
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    request.send(encodeForAjax({'csrf':csrf, 'id': event.target.getAttribute("data-petid")}))
 
     confirm("Pet removed from favorites!");
 

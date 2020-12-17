@@ -6,9 +6,14 @@ include_once('database/users.php');      // loads the functions responsible for 
 include_once('database/pets.php');
 include_once('database/upload.php');
 
-console_log($_GET['id']);
-if(isset($_GET['id'])) {
-  addFavoritePet($_GET['id']);
+if (!isset($_SESSION['csrf']) || $_SESSION['csrf'] !== $_POST['csrf']){
+  echo '<script type="text/javascript">alert("Hacker Attack")</script>';
+  die();
+}
+
+console_log($_POST['id']);
+if(isset($_POST['id'])) {
+  addFavoritePet($_POST['id']);
 }
 
 die();
