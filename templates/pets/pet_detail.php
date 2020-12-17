@@ -51,10 +51,11 @@
         }
         ?>
     </div>
-    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username']) and !isOwner($_GET['id']) and getPetByID($_GET['id'])['state']!='adopted') { ?>
+    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username']) and getPetByID($_GET['id'])['state']!='adopted') { ?>
     <section id="options">
         <h2><i class="fas fa-cog"></i> Options</h2>
         <div class="buttons">
+            <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             <?php if (!hasProposal($_GET['id'])) {?>
             <button id="pet_proposal_button" name="proposal" >Submit Proposal</button>
             <?php } ?>
@@ -108,7 +109,8 @@
     <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
     <section id="make_proposal" style="display: none">
         <h2><i class="far fa-comment"></i> Submit Proposal</h2>
-        <form action="action_submit_proposal.php" method="get">
+        <form action="action_submit_proposal.php" method="post" enctype="multipart/form-data">
+            <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             <label>Description
                 <textarea id="info" name="info" placeholder="Describe your proposal" required></textarea>
             </label>
@@ -125,6 +127,7 @@
             <div id="overlay">
                 <div>
                     <form id="add-reply">
+                        <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                         <label for="reply-text">Reply</label>
                         <textarea id="reply-text" name="reply-text" placeholder="Comment" required></textarea>
                         <label for="reply-user_id" hidden></label>
@@ -145,6 +148,7 @@
     </section>
     <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
     <form id="add-comment">
+        <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
         <label for="text"><i class="fas fa-comment"></i> Add a Comment on This Pet</label>
         <textarea id="text" name="text" placeholder="Comment" required></textarea>
         <label for="user_id" hidden></label>

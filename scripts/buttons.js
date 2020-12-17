@@ -24,12 +24,12 @@ document.querySelectorAll('#delete-pet-button').forEach(button => { //submit pro
 
 // Send message
 function addFavorite(event) {
+    let csrf = document.querySelector('#csrf_var').value;
     let request = new XMLHttpRequest();
 
-    request.open('get', 'action_add_favorite.php?' + encodeForAjax({'id': event.target.getAttribute("data-petid")}), true);
-    request.send();
-
-    confirm("Pet added to favorites!");
+    request.open('post', 'action_add_favorite.php', true)
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    request.send(encodeForAjax({'csrf':csrf, 'id': event.target.getAttribute("data-petid")}))
 
     //removes add button and adds remove button
     let pet_index = event.target.getAttribute("data-index");
@@ -49,11 +49,12 @@ function addFavorite(event) {
 }
 
 function removeFavorite(event) {
-    let request = new XMLHttpRequest();
-    request.open('get', 'action_remove_favorite.php?' + encodeForAjax({'id': event.target.getAttribute("data-petid")}), true);
-    request.send();
+    let csrf = document.querySelector('#csrf_var').value;
 
-    confirm("Pet removed from favorites!");
+    let request = new XMLHttpRequest();
+    request.open('post', 'action_remove_favorite.php', true)
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    request.send(encodeForAjax({'csrf':csrf, 'id': event.target.getAttribute("data-petid")}))
 
     let pet_index = event.target.getAttribute("data-index");
     let pet_petid = event.target.getAttribute("data-petid");
@@ -134,10 +135,9 @@ function acceptProposal(event){
     let prop_id = event.target.getAttribute('data-userid');
 
     let request = new XMLHttpRequest();
-    request.open('get', 'acceptProposal.php?' + encodeForAjax({'prop_id': prop_id, 'pet_id': pet_id}), true);
+    request.open('get', 'action_accept_proposal.php?' + encodeForAjax({'prop_id': prop_id, 'pet_id': pet_id}), true);
     request.send();
 
-    confirm("Proposal accepted!");
 }
 
 function denyProposal(event){
@@ -148,7 +148,6 @@ function denyProposal(event){
     request.open('get', 'denyProposal.php?' + encodeForAjax({'prop_id': prop_id, 'pet_id': pet_id}), true);
     request.send();
 
-    confirm("Proposal denied!");
 }
 
 function deletePet(event){
@@ -158,6 +157,5 @@ function deletePet(event){
     request.open('get', 'deletePet.php?' + encodeForAjax({'pet_id': pet_id}), true);
     request.send();
 
-    confirm("Pet deleted!");
     window.location.href = "pets_list.php";
 }

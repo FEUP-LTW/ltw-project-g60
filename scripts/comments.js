@@ -21,23 +21,29 @@ if (inPetProfile != null) { //checks if we are in pet profile
 // Ask for new messages
 function refresh() {
     let pet_id = document.querySelector("#pet-comments" ).getAttribute('data-petid');
-        let request = new XMLHttpRequest();
-        request.open('get', 'action_add_comment.php?' + encodeForAjax({'last_id': last_comment_id, 'pet_id': pet_id}), true);
-        request.addEventListener('load', commentsReceived);
-        request.send();
+    let csrf = document.querySelector('#csrf_var').value;
+
+    let request = new XMLHttpRequest();
+    request.open('post', 'action_add_comment.php', true)
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    request.addEventListener('load', commentsReceived);
+    request.send(encodeForAjax({'csrf': csrf, 'last_id': last_comment_id, 'pet_id': pet_id}))
 }
 
 function addComment(event) {
     let user_id = document.querySelector('#add-comment #user_id').value;
     let pet_id = document.querySelector('#add-comment #pet_id').value;
     let text = document.querySelector('#add-comment #text').value;
+    let csrf = document.querySelector('#csrf_var').value;
+
     // Delete sent message
     document.querySelector('#add-comment #text').value='';
     // Send message
     let request = new XMLHttpRequest();
-    request.open('get', 'action_add_comment.php?' + encodeForAjax({'last_id': last_comment_id, 'pet_id': pet_id, 'user_id': user_id, 'text': text}), true);
+    request.open('post', 'action_add_comment.php', true)
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.addEventListener('load', commentsReceived);
-    request.send();
+    request.send(encodeForAjax({'csrf': csrf, 'last_id': last_comment_id, 'pet_id': pet_id, 'user_id': user_id, 'text': text}))
 
     event.preventDefault();
 }
@@ -46,14 +52,17 @@ function addReply(event) {
     let user_id = document.querySelector('#add-reply #reply-user_id').value;
     let text = document.querySelector('#add-reply #reply-text').value;
     let type = document.querySelector('#add-reply #reply-type').value;
+    let csrf = document.querySelector('#csrf_var').value;
 
     // Delete sent message
     document.querySelector('#add-reply #reply-text').value='';
     // Send message
     let request = new XMLHttpRequest();
-    request.open('get', 'action_add_reply.php?' + encodeForAjax({'last_id': last_reply_id, 'comment_id': event.target.getAttribute("data-comment-id"), 'text': text, 'user_id': user_id, 'type': type}), true);
+    request.open('post', 'action_add_reply.php', true)
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.addEventListener('load', repliesReceived);
-    request.send();
+    request.send(encodeForAjax({'csrf': csrf, 'last_id': last_reply_id, 'comment_id': event.target.getAttribute("data-comment-id"), 'text': text, 'user_id': user_id, 'type': type}))
+
 
     let el = document.getElementById("overlay");
     el.style.visibility = "hidden";
@@ -65,6 +74,7 @@ function addReply(event) {
 function commentsReceived() {
     let comments = document.getElementById("pet-comments");
     let session = document.querySelector("#pet-comments" ).getAttribute('data-session');
+    let csrf = document.querySelector('#csrf_var').value;
 
     let comment_ids = [];
     let lines = JSON.parse(this.responseText);
@@ -94,9 +104,10 @@ function commentsReceived() {
 
         comments.prepend(line);
 
-        request.open('get', 'action_add_reply.php?' + encodeForAjax({'last_id': last_reply_id, 'comment_id': data.id}), false);
+        request.open('post', 'action_add_reply.php', false)
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
         request.addEventListener('load', repliesReceived);
-        request.send();
+        request.send(encodeForAjax({'csrf': csrf, 'last_id': last_reply_id, 'comment_id': data.id}))
 
     });
 

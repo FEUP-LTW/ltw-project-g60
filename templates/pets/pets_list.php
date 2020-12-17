@@ -66,9 +66,10 @@
                     </div>
                 </div>
                 <div class="pet-links">
-                    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username']) and !isOwner($pet['pet_id'])) { ?>
+                    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) {?>
                     <div class="buttons" >
                         <?php if (!isFavorite($pet['pet_id']) ) { ?>
+                            <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                             <button id="pet_add_favorite_button" name="favorite" data-index="<?= $index ?>" data-petid="<?= $pet['pet_id'] ?>">Add to Favorites</button>
                         <?php } else { ?>
                             <button id="pet_remove_favorite_button" name="favorite" data-index="<?= $index ?>" data-petid="<?= $pet['pet_id'] ?>">Remove Favorite</button>

@@ -1,15 +1,21 @@
 <?php
 session_start();                         // starts the session
+
 include_once('database/connection.php'); // connects to the database
 include_once('database/pets.php');
 
-if (isset($_GET['text']) && isset($_GET['user_id'])) {
-    $pet_id = addPetComment($_GET['pet_id'], $_GET['user_id'], $_GET['text']);
+if (!isset($_SESSION['csrf']) || $_SESSION['csrf'] !== $_POST['csrf']){
+  echo '<script type="text/javascript">alert("Hacker Attack")</script>';
+  die();
+}
+
+if (isset($_POST['text']) && isset($_POST['user_id'])) {
+    $pet_id = addPetComment($_POST['pet_id'], $_POST['user_id'], $_POST['text']);
 }
 
 // Get last_id
-$last_id = $_GET['last_id'];
-$pet_id = $_GET['pet_id'];
+$last_id = $_POST['last_id'];
+$pet_id = $_POST['pet_id'];
 
 global $db;
 // Retrieve new messages
