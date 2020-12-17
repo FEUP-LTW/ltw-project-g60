@@ -847,7 +847,7 @@ body #shuffle-button {
   height: 36px;
   border-radius: 5px;
   outline: none;
-  color: #934B00;
+  color: #36393B;
 }
 .search form #search-wrap #search button {
   margin: 0;
@@ -876,9 +876,9 @@ body #shuffle-button {
 .search form select {
   width: 80%;
   margin: 0 auto;
-  border: 3px solid #934B00;
+  border: 3px solid #36393B;
   padding: 1em;
-  background-color: #934B00;
+  background-color: #36393B;
   border-radius: 7px;
   color: white;
 }
@@ -886,7 +886,7 @@ body #shuffle-button {
   width: 65%;
   margin: 0 auto;
   padding: 1em;
-  background-color: #934B00;
+  background-color: #36393B;
   border-radius: 7px;
   color: white;
 }
@@ -901,17 +901,16 @@ body #shuffle-button {
   width: 80%;
   margin: 0 auto;
 }
-.pets-list hr, .shelters-list hr {
-  margin: 0 auto;
-  width: 80%;
-}
 .pets-list .pet-card, .shelters-list .pet-card, .pets-list .shelter-card, .shelters-list .shelter-card {
+  border: 2px solid #36393B;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   padding: 1em;
-  margin: 0 auto;
+  margin: 0 auto 1em;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   grid-column-gap: 1em;
-  grid-template-rows: 1fr;
+  grid-template-rows: 12em;
   grid-template-areas: "image info links";
   -webkit-animation: fadeIn  2s forwards;
 }
@@ -2006,6 +2005,10 @@ body .user_profile .right .user_activity .activity-card:hover {
 }
 .shelters-list {
   width: 70%;
+}
+
+.shelter-image {
+  max-height: 10em;
 }
 
 .shelter-link a {

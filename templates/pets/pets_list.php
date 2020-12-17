@@ -7,7 +7,7 @@
         </div>
 
         <select id="choice" name="category">
-            <option value="" selected>--Breed--</option>
+            <option value="" selected>Breed</option>
             <?php
             foreach ($breeds as $breed){
             ?>
@@ -15,12 +15,12 @@
             <?php } ?>
         </select>
         <select id="choice" name="gender">
-            <option value="" selected>--Gender--</option>
+            <option value="" selected>Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select>
         <select id="choice" name="color">
-            <option value="" selected>--Color--</option>
+            <option value="" selected>Color</option>
             <?php
             foreach ($colors as $color){
             ?>
@@ -28,7 +28,7 @@
             <?php } ?>
         </select>
         <select id="choice" name="age">
-            <option value=""  selected>--Age--</option>
+            <option value=""  selected>Age</option>
             <?php
             for ($x = 0; $x <= 10; $x++) { ?>
                 <option value="<?=$x?>"><?=$x?> Years</option>
@@ -85,6 +85,5 @@
                     <a class="button" href="pet_detail.php?id=<?= $pet['pet_id'] ?>">Details</a>
                 </div>
             </article>
-            <hr>
         <?php } ?>
 </section>
