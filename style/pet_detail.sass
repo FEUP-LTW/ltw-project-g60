@@ -286,3 +286,60 @@
       padding: 1em
   .button
     background-color: black
+
+@media (max-width: 55em)
+  body
+    #pet-profile
+      .pet-bio
+        display: block
+        .pet-image
+          height: 200px
+          display: flex
+          width: auto
+          border-radius: 10px
+          margin: 5px
+        .pet-info
+          padding: 10px
+          margin: 10px
+          border-radius: 10px
+          display: block
+          #pet-details>*
+            margin-right: 20px
+          #edit-pet-button
+            width: 20%
+          #delete-pet-button
+            width: 30%
+        #owner-info
+          display: block
+          .img
+            display: none
+          p
+            border-radius: 10px
+            margin: 10px 18px 0 2px
+            position: relative
+          a
+            position: relative
+      #proposals
+        .grid-list
+          display: flex
+          .adoption-proposal
+            justify-self: center
+            max-width: 250px
+            display: block
+      #pet-comments
+        display: block
+        .pet-comment
+          display: block
+          padding: 5px
+          a
+            margin-right: 10px
+        .user-image
+          display: none
+      form
+        textarea
+          min-width: 90%
+    #options
+      .buttons
+        button
+          padding: 2px
+

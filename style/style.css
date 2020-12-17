@@ -1609,6 +1609,74 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   background-color: black;
 }
 
+@media (max-width: 55em) {
+  body #pet-profile .pet-bio {
+    display: block;
+  }
+  body #pet-profile .pet-bio .pet-image {
+    height: 200px;
+    display: flex;
+    width: auto;
+    border-radius: 10px;
+    margin: 5px;
+  }
+  body #pet-profile .pet-bio .pet-info {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    display: block;
+  }
+  body #pet-profile .pet-bio .pet-info #pet-details > * {
+    margin-right: 20px;
+  }
+  body #pet-profile .pet-bio .pet-info #edit-pet-button, body #pet-profile .pet-bio .pet-info #delete-pet-button {
+    width: 20%;
+  }
+  body #pet-profile .pet-bio .pet-info #delete-pet-button {
+    width: 30%;
+  }
+  body #pet-profile .pet-bio #owner-info {
+    display: block;
+  }
+  body #pet-profile .pet-bio #owner-info .img {
+    display: none;
+  }
+  body #pet-profile .pet-bio #owner-info p {
+    border-radius: 10px;
+    margin: 10px 18px 0 2px;
+    position: relative;
+  }
+  body #pet-profile .pet-bio #owner-info a {
+    position: relative;
+  }
+  body #pet-profile #proposals .grid-list {
+    display: flex;
+  }
+  body #pet-profile #proposals .grid-list .adoption-proposal {
+    justify-self: center;
+    max-width: 250px;
+    display: block;
+  }
+  body #pet-profile #pet-comments {
+    display: block;
+  }
+  body #pet-profile #pet-comments .pet-comment, body #pet-profile #pet-comments .pet-answer, body #pet-profile #pet-comments #make_proposal .pet-answer, body #pet-profile #make_proposal #pet-comments .pet-answer {
+    display: block;
+    padding: 5px;
+  }
+  body #pet-profile #pet-comments .pet-comment a, body #pet-profile #pet-comments .pet-answer a, body #pet-profile #pet-comments #make_proposal .pet-answer a, body #pet-profile #make_proposal #pet-comments .pet-answer a {
+    margin-right: 10px;
+  }
+  body #pet-profile #pet-comments .user-image {
+    display: none;
+  }
+  body #pet-profile form textarea {
+    min-width: 90%;
+  }
+  body #options .buttons button {
+    padding: 2px;
+  }
+}
 body .banner a {
   font-size: 4vw;
   margin-right: 15px;

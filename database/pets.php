@@ -359,6 +359,11 @@ function deletePet($pet_id){
                                     WHERE pet_id = :pet_id');
     $stmt->bindParam(':pet_id', $pet_id);
     $stmt->execute();
+
+    unlink("database/images/pets/originals/" . $pet_id . ".jpg");
+    unlink("database/images/pets/thumbs_medium/" . $pet_id . ".jpg");
+    unlink("database/images/pets/thumbs_small/" . $pet_id . ".jpg");
+
 }
 
 
