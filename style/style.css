@@ -1019,7 +1019,7 @@ body .shelter_profile .left .profile_pic {
 body .shelter_profile .left #about_me, body .shelter_profile .left #location, body .shelter_profile .left #contact {
   display: flex;
   border-radius: 10px;
-  background-color: #934B00;
+  background-color: #36393B;
   margin: 8% 12%;
   justify-content: center;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
@@ -1062,19 +1062,22 @@ body .shelter_profile .left .container-pet {
 body .shelter_profile .left .shelter_adoption, body .shelter_profile .left .edit_shelter_info {
   grid-area: adopt;
   border-radius: 10px;
-  background-color: #F1A66A;
+  background-color: #585D5F;
   margin: 3% 3%;
 }
 body .shelter_profile .left .shelter_adoption .adoption-card, body .shelter_profile .left .edit_shelter_info .adoption-card {
   display: flex;
   padding: 8px;
-  background-color: #934B00;
+  background-color: #F2F7F8;
+  border: 2px solid #36393B;
+  color: black;
   border-radius: 10px;
   width: fit-content;
   margin: 15px auto;
 }
 body .shelter_profile .left .shelter_adoption .adoption-card a, body .shelter_profile .left .edit_shelter_info .adoption-card a {
   width: fit-content;
+  color: black;
 }
 body .shelter_profile .left .shelter_adoption .adoption-card a .pet-img, body .shelter_profile .left .edit_shelter_info .adoption-card a .pet-img {
   float: left;
@@ -1139,13 +1142,14 @@ body .shelter_profile .right {
 }
 body .shelter_profile .right .shelter_adopted {
   border-radius: 15px;
-  background-color: #F1A66A;
+  background-color: #585D5F;
   margin: 3.5% 3% 4% 3%;
 }
 body .shelter_profile .right .shelter_adopted .adopted-card {
   display: flex;
   padding: 8px;
-  background-color: #934B00;
+  background-color: #F2F7F8;
+  border: 2px solid #36393B;
   border-radius: 15px;
   width: 85%;
   margin: 15px auto;
@@ -1161,6 +1165,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card .pet-img {
   background-position: center;
 }
 body .shelter_profile .right .shelter_adopted .adopted-card .container-pet {
+  color: black;
   width: 27vw;
   text-align: justify;
 }
