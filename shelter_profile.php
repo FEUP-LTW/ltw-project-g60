@@ -1,6 +1,6 @@
 <?php
-
 session_start();
+set_csrf();
 include_once('database/connection.php');
 include_once('database/shelters.php');
 include_once('database/users.php');
