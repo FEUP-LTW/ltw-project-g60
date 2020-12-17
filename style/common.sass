@@ -163,8 +163,9 @@ hr
     display: block
     width: 80%
     border: none
-    border-bottom: 1px solid $accent-color
-    color: white
+    background-color: inherit
+    border-bottom: 1px solid $dark-color
+    color: black
     margin: 0
     &:focus
       outline: none
@@ -184,7 +185,7 @@ hr
   input:focus ~ label, input:valid ~ label
     top: -20px
     font-size: 14px
-    color: $accent-color
+    color: white
   .bar
     position: relative
     display: block
@@ -199,7 +200,7 @@ hr
     width: 0
     bottom: 1px
     position: absolute
-    background: $accent-color
+    background: $dark-color
     transition: 0.2s ease all
     -moz-transition: 0.2s ease all
     -webkit-transition: 0.2s ease all

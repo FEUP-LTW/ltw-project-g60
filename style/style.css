@@ -367,8 +367,9 @@ hr {
   display: block;
   width: 80%;
   border: none;
-  border-bottom: 1px solid #934B00;
-  color: white;
+  background-color: inherit;
+  border-bottom: 1px solid #36393B;
+  color: black;
   margin: 0;
 }
 .group input:focus {
@@ -392,7 +393,7 @@ hr {
 .group input:focus ~ label, .group input:valid ~ label {
   top: -20px;
   font-size: 14px;
-  color: #934B00;
+  color: white;
 }
 .group .bar {
   position: relative;
@@ -411,7 +412,7 @@ hr {
   width: 0;
   bottom: 1px;
   position: absolute;
-  background: #934B00;
+  background: #36393B;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -1613,7 +1614,7 @@ body .user_profile {
   display: flex;
 }
 body .user_profile .title {
-  padding: 10px 0px 0px 15px;
+  padding: 10px 0 0 15px;
   font-size: 25px;
   font-weight: bold;
   color: white;
@@ -1653,7 +1654,7 @@ body .user_profile .left .profile_pic {
 body .user_profile .left #about_me, body .user_profile .left #favorites, body .user_profile .left #contact {
   display: flex;
   border-radius: 10px;
-  background-color: #934B00;
+  background-color: #36393B;
   margin: 8% 12%;
   justify-content: center;
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
@@ -1693,13 +1694,15 @@ body .user_profile .left #contact {
 body .user_profile .left .user_pets, body .user_profile .left .edit_user_info, body .user_profile .left .user_favorites {
   grid-area: pets;
   border-radius: 10px;
-  background-color: #F1A66A;
+  background-color: #585D5F;
   margin: 2% 3% 2% 3%;
 }
 body .user_profile .left .user_pets .pet, body .user_profile .left .edit_user_info .pet, body .user_profile .left .user_favorites .pet {
   display: flex;
   padding: 8px;
-  background-color: #934B00;
+  background-color: #F2F7F8;
+  border: 2px solid #36393B;
+  color: black;
   border-radius: 10px;
   width: fit-content;
   margin: 15px auto;
@@ -1719,6 +1722,7 @@ body .user_profile .left .user_pets .pet a .pet-img, body .user_profile .left .e
 }
 body .user_profile .left .user_pets .pet a .container-pet, body .user_profile .left .edit_user_info .pet a .container-pet, body .user_profile .left .user_favorites .pet a .container-pet {
   width: 54vw;
+  color: black;
   text-align: justify;
 }
 body .user_profile .left .user_pets .pet:hover, body .user_profile .left .edit_user_info .pet:hover, body .user_profile .left .user_favorites .pet:hover {
@@ -1795,7 +1799,7 @@ body .user_profile .left .edit_user_info form .new-collaboration .container:hove
   background-color: #ccc;
 }
 body .user_profile .left .edit_user_info form .new-collaboration .container input:checked ~ .checkmark {
-  background-color: #934B00;
+  background-color: #36393B;
 }
 body .user_profile .left .edit_user_info form .new-collaboration .checkmark:after {
   content: "";
@@ -1830,7 +1834,7 @@ body .user_profile .right {
 }
 body .user_profile .right .collaborations {
   border-radius: 10px;
-  background-color: #F1A66A;
+  background-color: #585D5F;
   margin: 3.5% 3%;
 }
 body .user_profile .right .collaborations #collaboration-imgs {
@@ -1857,13 +1861,14 @@ body .user_profile .right .collaborations #collaboration-imgs a .collaboration-i
 }
 body .user_profile .right .user_activity {
   border-radius: 10px;
-  background-color: #F1A66A;
+  background-color: #585D5F;
   margin: 2% 3% 4% 3%;
 }
 body .user_profile .right .user_activity .activity-card {
   display: flex;
   padding: 8px;
-  background-color: #934B00;
+  background-color: #F2F7F8;
+  border: 2px solid #36393B;
   border-radius: 10px;
   width: 85%;
   margin: 15px auto;
@@ -1879,10 +1884,12 @@ body .user_profile .right .user_activity .activity-card .activity-img {
   background-position: center;
 }
 body .user_profile .right .user_activity .activity-card .container-activity {
+  color: black;
   width: 28vw;
   text-align: justify;
 }
 body .user_profile .right .user_activity .activity-card .container-activity p {
+  color: black;
   padding: 8px;
 }
 body .user_profile .right .user_activity .activity-card:hover {
