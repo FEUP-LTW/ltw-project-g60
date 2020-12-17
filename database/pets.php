@@ -107,7 +107,7 @@ function getPetByID($petID) {
     }
 }
 
-function addPet($username, $name, $image, $species, $size, $color, $gender, $info, $age, $location, $statE) {
+function addPet($username, $name, $image, $species, $size, $color, $gender, $info, $age, $location, $state) {
     global $db;
 
     $user_id = getSessionId();
@@ -356,6 +356,11 @@ function deletePet($pet_id){
     global $db;
 
     $stmt = $db->prepare('DELETE FROM Pets
+                                    WHERE pet_id = :pet_id');
+    $stmt->bindParam(':pet_id', $pet_id);
+    $stmt->execute();
+
+    $stmt = $db->prepare('DELETE FROM Pets_Images
                                     WHERE pet_id = :pet_id');
     $stmt->bindParam(':pet_id', $pet_id);
     $stmt->execute();

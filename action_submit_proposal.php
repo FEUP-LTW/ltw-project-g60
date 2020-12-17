@@ -11,7 +11,7 @@ if (!isset($_SESSION['csrf']) || $_SESSION['csrf'] !== $_POST['csrf']){
   die();
 }
 
-addProposal($_GET['info'],$_GET['user_id'],$_GET['pet_id']);
+addProposal($_POST['info'],$_POST['user_id'],$_POST['pet_id']);
 
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 die();

@@ -56,7 +56,7 @@
     <section id="options">
         <h2><i class="fas fa-cog"></i> Options</h2>
         <div class="buttons">
-            <?php if (!hasProposal($_GET['id'])) {?>
+            <?php if (!hasProposal($_GET['id']) and !isOwner($_GET['id'])) {?>
             <button id="pet_proposal_button" name="proposal" >Submit Proposal</button>
             <?php } ?>
             <?php if (!isFavorite($_GET['id'])) { ?>
@@ -110,6 +110,7 @@
     <section id="make_proposal" style="display: none">
         <h2><i class="far fa-comment"></i> Submit Proposal</h2>
         <form action="action_submit_proposal.php" method="post" enctype="multipart/form-data">
+            <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             <label>Description
                 <textarea id="info" name="info" placeholder="Describe your proposal" required></textarea>
             </label>
