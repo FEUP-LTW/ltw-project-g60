@@ -32,7 +32,4 @@ foreach ($comments as $index => $comment) {
 // JSON encode
 echo json_encode($comments);
 
-
-
-
 die();

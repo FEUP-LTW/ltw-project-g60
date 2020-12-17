@@ -10,6 +10,14 @@ document.querySelectorAll('#pet_proposal_button').forEach(button => { //submit p
     button.addEventListener('click', petProposal);
 })
 
+document.querySelectorAll('#accept_proposal_button').forEach(button => { //submit proposal button on pet_detail
+    button.addEventListener('click', acceptProposal);
+})
+
+document.querySelectorAll('#deny_proposal_button').forEach(button => { //submit proposal button on pet_detail
+    button.addEventListener('click', denyProposal);
+})
+
 // Send message
 function addFavorite(event) {
     let request = new XMLHttpRequest();
@@ -115,6 +123,28 @@ function editShelterInfo() {
         pets.style.display = "block"
         aboutme.style.display = "none"
     }
+}
+
+function acceptProposal(event){
+    let pet_id = event.target.getAttribute('data-petid');
+    let prop_id = event.target.getAttribute('data-userid');
+
+    let request = new XMLHttpRequest();
+    request.open('get', 'acceptProposal.php?' + encodeForAjax({'prop_id': prop_id, 'pet_id': pet_id}), true);
+    request.send();
+
+    confirm("Proposal accepted!");
+}
+
+function denyProposal(event){
+    let pet_id = event.target.getAttribute('data-petid');
+    let prop_id = event.target.getAttribute('data-userid');
+
+    let request = new XMLHttpRequest();
+    request.open('get', 'denyProposal.php?' + encodeForAjax({'prop_id': prop_id, 'pet_id': pet_id}), true);
+    request.send();
+
+    confirm("Proposal denied!");
 }
 
 

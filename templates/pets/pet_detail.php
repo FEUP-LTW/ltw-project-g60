@@ -48,7 +48,7 @@
         }
         ?>
     </div>
-    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username']) and !isOwner($_GET['id'])) { ?>
+    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username']) and !isOwner($_GET['id']) and getPetByID($_GET['id'])['state']!='adopted') { ?>
     <section id="options">
         <h2>Options</h2>
         <div class="buttons">
@@ -73,6 +73,26 @@
                         <small><?= date("Y-m-d H:i", substr($proposal['date'], 0, 10)) ?></small>
                         <a href="user_profile.php?id=<?= $proposal['user_id'] ?>" class="button">View User</a>
                     </div>
+                    <?php if (isOwner($_GET['id']) and $proposal['state']== 'waiting') { ?>
+                        <button id="accept_proposal_button" name="accept" data-petid="<?= $_GET['id'] ?>" data-userid="<?= $proposal['user_id'] ?>">Accept</button>
+                        <button id="deny_proposal_button" name="deny" data-petid="<?= $_GET['id'] ?>" data-userid="<?= $proposal['user_id'] ?>">Deny</button>
+                    <?php } else { ?>
+                        <div id="proposal_states">
+                        <?php  if ($proposal['state'] == 'waiting'){ ?>
+                        <div id="waiting_state">
+                            <p><?= $proposal['state'] ?></p>
+                        </div>
+                            <?php  }else if ($proposal['state'] == 'accepted') { ?>
+                                <div id="accepted_state">
+                                    <p><?= $proposal['state'] ?></p>
+                                </div>
+                            <?php  }else {?>
+                                <div id="denied_state">
+                                    <p><?= $proposal['state'] ?></p>
+                                </div>
+                            <?php  } ?>
+                        </div>
+                    <?php } ?>
                 </article>
             <?php } ?>
         </div>

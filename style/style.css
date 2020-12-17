@@ -1394,7 +1394,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
   display: grid;
   grid-template-columns: 40% 60%;
-  grid-template-rows: 4fr 1fr;
+  grid-template-rows: 4fr 1fr 0.5fr;
   grid-column-gap: 1em;
 }
 #pet-profile #proposals .grid-list .adoption-proposal .img {
@@ -1434,6 +1434,25 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 }
 #pet-profile #proposals .grid-list .adoption-proposal .user-details small {
   text-align: right;
+}
+#pet-profile #proposals .grid-list .adoption-proposal #proposal_states {
+  grid-row: 3;
+  grid-column: 1/3;
+  margin-right: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+#pet-profile #proposals .grid-list .adoption-proposal #proposal_states #waiting_state {
+  border-radius: 5px;
+  background-color: yellow;
+}
+#pet-profile #proposals .grid-list .adoption-proposal #proposal_states #accepted_state {
+  border-radius: 5px;
+  background-color: green;
+}
+#pet-profile #proposals .grid-list .adoption-proposal #proposal_states #denied_state {
+  border-radius: 5px;
+  background-color: red;
 }
 #pet-profile #pet-comments, #pet-profile #make_proposal {
   margin-top: 1em;

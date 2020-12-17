@@ -336,10 +336,20 @@ function isOwner($pet_id){
     global $db;
     $session_id = getSessionId();
 
-    $stmt = $db->prepare('SELECT * FROM Users_Pets WHERE user_id = :user_id AND pet_id = :pet_id');
-    $stmt->bindParam(':pet_id', $pet_id);
-    $stmt->bindParam(':user_id', $session_id);
-    $stmt->execute();
-    if ($stmt->fetch()==false) return false;
-    return true;
+    if (isUser($_SESSION['username'])) {
+        $stmt = $db->prepare('SELECT * FROM Users_Pets WHERE user_id = :user_id AND pet_id = :pet_id');
+        $stmt->bindParam(':pet_id', $pet_id);
+        $stmt->bindParam(':user_id', $session_id);
+        $stmt->execute();
+        if ($stmt->fetch() == false) return false;
+        return true;
+    }else{
+        $stmt = $db->prepare('SELECT * FROM Shelters_Pets WHERE shelter_id = :user_id AND pet_id = :pet_id');
+        $stmt->bindParam(':pet_id', $pet_id);
+        $stmt->bindParam(':user_id', $session_id);
+        $stmt->execute();
+        if ($stmt->fetch() == false) return false;
+        return true;
+    }
 }
+
