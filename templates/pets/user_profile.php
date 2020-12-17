@@ -149,7 +149,7 @@
                         <div class="activity-img" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($act['pet_id']) ?>.jpg')"></div>
                         <div class="container-activity">
                             <h4><b>Proposal</b></h4>
-                            <p> Made a proposal to this dog.</p>
+                            <p><?= $act['text'] ?></p>
                         </div>
                     </a>
                 </div>
