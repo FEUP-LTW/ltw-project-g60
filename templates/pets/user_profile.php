@@ -24,12 +24,7 @@
                 <input id="user_fav" type="checkbox" name="favorites">
             </label>
         </div>
-        <div id="contact">
-            <label><i id="contact_icon" class="fas fa-mobile-alt"></i>
-                <span>Contacts</span>
-                <!--<input id="user_fav" type="checkbox" name="favorites" onclick="userFavorites()">-->
-            </label>
-        </div>
+
         <div class="user_pets">
             <div class="title"><i class="fas fa-paw"></i>
                 <span>My pets</span></div>

@@ -53,10 +53,12 @@
     </div>
     <?php if (isset($_SESSION['username']) and isUser($_SESSION['username']) and getPetByID($_GET['id'])['state']!='adopted') { ?>
     <section id="options">
-        <h2>Options</h2>
+        <h2><i class="fas fa-cog"></i> Options</h2>
         <div class="buttons">
             <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+            <?php if (!hasProposal($_GET['id'])) {?>
             <button id="pet_proposal_button" name="proposal" >Submit Proposal</button>
+            <?php } ?>
             <?php if (!isFavorite($_GET['id'])) { ?>
             <button id="pet_add_favorite_button" name="favorite" data-index="0" data-petid="<?= $_GET['id'] ?>">Add to Favorites</button>
             <?php } else { ?>
@@ -66,7 +68,7 @@
     </section>
     <?php } ?>
     <section id="proposals">
-        <h2>Proposals</h2>
+        <h2><i class="fas fa-hands"></i> Proposals</h2>
         <div class="grid-list">
             <?php foreach ($proposals as $proposal) { ?>
                 <article class="adoption-proposal">
@@ -106,7 +108,7 @@
     </section>
     <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
     <section id="make_proposal" style="display: none">
-        <h2>Submit Proposal</h2>
+        <h2><i class="far fa-comment"></i> Submit Proposal</h2>
         <form action="action_submit_proposal.php" method="post" enctype="multipart/form-data">
             <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             <label>Description
@@ -147,7 +149,7 @@
     <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
     <form id="add-comment">
         <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
-        <label for="text">Add a Comment on This Pet</label>
+        <label for="text"><i class="fas fa-comment"></i> Add a Comment on This Pet</label>
         <textarea id="text" name="text" placeholder="Comment" required></textarea>
         <label for="user_id" hidden></label>
         <input id="user_id" name="user_id" type="text" hidden value="<?= getUserByUsername($_SESSION['username'])['user_id'] ?>">
