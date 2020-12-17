@@ -7,6 +7,10 @@ $main-color: #F1A66A
 $background-color: #F2F7F8
 $dark-color: #36393B
 $dark-light-color: #585D5F
+$green: #143E33
+$red: #520003
+$yellow: #C2A83E
+
 
 *
   margin: 0
@@ -29,12 +33,12 @@ html, body
   /* Track */
   ::-webkit-scrollbar-track
     border-radius: 10px
-    background: $accent-color
+    background: $dark-color
 
   /* Handle */
   ::-webkit-scrollbar-thumb
     border-radius: 10px
-    background: $main-color
+    background: $dark-light-color
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover
@@ -225,7 +229,7 @@ hr
     a
       display: none
       margin: 2px
-      background-color: $main-color
+      background-color: $dark-light-color
       right: 0
       border-radius: 10px
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
@@ -246,7 +250,7 @@ hr
     color: white
 
 .hamburger_navbar
-  background-color: $main-color
+  background-color: $dark-light-color
   #myLinks
     display: none
     position: absolute
@@ -256,14 +260,14 @@ hr
       width: 10em
       display: block
       margin: 2px
-      background-color: $main-color
+      background-color: $dark-light-color
       right: 0
       border-radius: 10px
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
       @include animations.animation("rotateX 300ms ease-in-out forwards")
   a
     display: none
-    background-color: $main-color
+    background-color: $dark-light-color
     color: white
     padding: 14px 16px
     text-decoration: none
@@ -276,7 +280,7 @@ hr
     top: 0
   a:hover
     @include animations.animation("fadeIn 0.5s ease")
-    background-color: $main-color
+    background-color: $dark-light-color
 
 @media (max-width: 60em)
   .header

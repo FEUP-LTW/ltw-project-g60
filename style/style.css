@@ -217,11 +217,11 @@ html ::-webkit-scrollbar, body ::-webkit-scrollbar {
 }
 html ::-webkit-scrollbar-track, body ::-webkit-scrollbar-track {
   border-radius: 10px;
-  background: #934B00;
+  background: #36393B;
 }
 html ::-webkit-scrollbar-thumb, body ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: #F1A66A;
+  background: #585D5F;
 }
 html ::-webkit-scrollbar-thumb:hover, body ::-webkit-scrollbar-thumb:hover {
   background: white;
@@ -441,7 +441,7 @@ hr {
 .hamburger #myLinks a {
   display: none;
   margin: 2px;
-  background-color: #F1A66A;
+  background-color: #585D5F;
   right: 0;
   border-radius: 10px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -466,7 +466,7 @@ hr {
 }
 
 .hamburger_navbar {
-  background-color: #F1A66A;
+  background-color: #585D5F;
 }
 .hamburger_navbar #myLinks {
   display: none;
@@ -478,7 +478,7 @@ hr {
   width: 10em;
   display: block;
   margin: 2px;
-  background-color: #F1A66A;
+  background-color: #585D5F;
   right: 0;
   border-radius: 10px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -486,7 +486,7 @@ hr {
 }
 .hamburger_navbar a {
   display: none;
-  background-color: #F1A66A;
+  background-color: #585D5F;
   color: white;
   padding: 14px 16px;
   text-decoration: none;
@@ -501,7 +501,7 @@ hr {
 }
 .hamburger_navbar a:hover {
   -webkit-animation: fadeIn 0.5s ease;
-  background-color: #F1A66A;
+  background-color: #585D5F;
 }
 
 @media (max-width: 60em) {
@@ -908,7 +908,7 @@ body #shuffle-button {
   padding: 1em;
   margin: 0 auto 1em;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 3fr 2fr;
   grid-column-gap: 1em;
   grid-template-rows: 12em;
   grid-template-areas: "image info links";
@@ -945,7 +945,7 @@ body #shuffle-button {
   grid-template-rows: repeat(3, 1fr);
   display: grid;
   text-align: center;
-  margin: auto;
+  margin-left: auto;
 }
 
 body {
@@ -1460,23 +1460,23 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   text-align: right;
 }
 #pet-profile #proposals .grid-list .adoption-proposal #proposal_states {
-  grid-row: 3;
+  grid-row: 2;
   grid-column: 1/3;
   margin-right: 10px;
-  margin-top: 10px;
+  align-self: center;
   text-align: center;
 }
-#pet-profile #proposals .grid-list .adoption-proposal #proposal_states #waiting_state {
+#pet-profile #proposals .grid-list .adoption-proposal #proposal_states #waiting_state, #pet-profile #proposals .grid-list .adoption-proposal #proposal_states #denied_state, #pet-profile #proposals .grid-list .adoption-proposal #proposal_states #accepted_state {
+  color: white;
+  padding: 5px;
   border-radius: 5px;
-  background-color: yellow;
+  background-color: #C2A83E;
 }
 #pet-profile #proposals .grid-list .adoption-proposal #proposal_states #accepted_state {
-  border-radius: 5px;
-  background-color: green;
+  background-color: #143E33;
 }
 #pet-profile #proposals .grid-list .adoption-proposal #proposal_states #denied_state {
-  border-radius: 5px;
-  background-color: red;
+  background-color: #520003;
 }
 #pet-profile #proposals .grid-list .adoption-proposal .proposal-options {
   grid-column: 1/3;
@@ -2116,10 +2116,9 @@ body #pet_add #right form label .autocomplete .autocomplete-items, body #pet_edi
 }
 body #pet_add #right form label .autocomplete .autocomplete-items li, body #pet_edit #right form label .autocomplete .autocomplete-items li {
   padding: 5px;
-  border-radius: 10px;
   color: white;
   cursor: pointer;
-  background-color: #585D5F;
+  background-color: #36393B;
 }
 body #pet_add #right form label .autocomplete .autocomplete-items li:hover, body #pet_edit #right form label .autocomplete .autocomplete-items li:hover {
   /*when hovering an item:*/
@@ -2248,7 +2247,7 @@ body #pet_add #right form #gender-option label .checkmark:after, body #pet_edit 
     color: white;
     padding: 10px;
     width: 100%;
-    background-color: #934B00;
+    background-color: #585D5F;
   }
   body #pet_add #right {
     width: 100%;
@@ -2267,7 +2266,7 @@ body #pet_add #right form #gender-option label .checkmark:after, body #pet_edit 
     color: white;
     padding: 10px 0;
     width: 100%;
-    background-color: #934B00;
+    background-color: #36393B;
   }
   body #pet_add #right {
     width: 100%;

@@ -51,13 +51,10 @@ body
           align-items: center
           contain: content
           @extend .button
-
           span
             display: flex
             font-size: 2em
             margin-right: 5px
-
-
         label:nth-of-type(2) // Breed
           grid-column: 1
           grid-row: 2
@@ -93,10 +90,9 @@ body
               right: 0
               li
                 padding: 5px
-                border-radius: 10px
                 color: white
                 cursor: pointer
-                background-color: common.$dark-light-color
+                background-color: common.$dark-color
 
               li:hover
                 /*when hovering an item:*/
@@ -214,7 +210,7 @@ body
           color: white
           padding: 10px
           width: 100%
-          background-color: common.$accent-color
+          background-color: common.$dark-light-color
       #right
         width: 100%
 
@@ -230,7 +226,7 @@ body
           color: white
           padding: 10px 0
           width: 100%
-          background-color: common.$accent-color
+          background-color: common.$dark-color
       #right
         width: 100%
         form
