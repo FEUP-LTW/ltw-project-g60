@@ -104,6 +104,7 @@ function commentsReceived() {
 
         comments.prepend(line);
 
+        let request = new XMLHttpRequest();
         request.open('post', 'action_add_reply.php', false)
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
         request.addEventListener('load', repliesReceived);

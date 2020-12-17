@@ -16,10 +16,13 @@ document.querySelectorAll("#search_input_shelter").forEach(input=>{
 
 // AJAX para buscar favoritos do utilizador
 let username = document.querySelector("#signup").children[1].innerHTML
-let request = new XMLHttpRequest();
-request.addEventListener("load", saveFavorites)
-request.open("get", "action_get_favorites.php", true)
-request.send()
+if (username != "Login"){
+    let request = new XMLHttpRequest();
+    request.addEventListener("load", saveFavorites)
+    request.open("get", "action_get_favorites.php", true)
+    request.send()
+}
+
 
 function saveFavorites(){
     favorites = JSON.parse(this.responseText);
