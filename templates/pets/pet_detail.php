@@ -23,15 +23,18 @@
             <?php
             if (isset($_SESSION['username'])) {
                 if ($owner[1] == 'user') {
-                    if (getUserByID($owner[0])['username'] == $_SESSION['username'])
-                        echo '<a href="pet_edit.php?id=' . $pet['pet_id'] . '" class="button" id="edit-pet-button">Edit Post</a>';
-                } else {
-                    if (getShelterByID($owner[0])['username'] == $_SESSION['username'])
-                        echo '<a href="pet_edit.php?id=' . $pet['pet_id'] . '" class="button" id="edit-pet-button">Edit Post</a>';
+                    if (getUserByID($owner[0])['username'] == $_SESSION['username']) {
+                        echo '<a href="pet_edit.php?id=' . $pet['pet_id'] . '" class="button" id="edit-pet-button">Edit Post</a>'; ?>
+                        <button id="delete-pet-button" name="delete" data-petid="<?= $_GET['id'] ?>">Delete</button>
+                <?php }
+                    } else {
+                    if (getShelterByID($owner[0])['username'] == $_SESSION['username']) {
+                        echo '<a href="pet_edit.php?id=' . $pet['pet_id'] . '" class="button" id="edit-pet-button">Edit Post</a>'; ?>
+                        <button id="delete-pet-button" name="delete" data-petid="<?= $_GET['id'] ?>">Delete</button>
+                <?php }
                 }
             }
             ?>
-
         </section>
         <?php
         if ($owner[1] == 'user') {

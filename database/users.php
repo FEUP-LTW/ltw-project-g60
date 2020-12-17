@@ -232,14 +232,17 @@ function getSheltersWithoutUserCollaboration($userID) {
 
 function addProposal($text, $user_id, $pet_id){
     global $db;
+
+    $state = 'waiting';
     if ($stmt = $db->prepare('
         INSERT INTO 
-        ProposalsUser(pet_id, user_id, date, text) 
-        VALUES (:pet_id, :user_id, :date, :text)')) {
+        ProposalsUser(pet_id, user_id, date, text, state) 
+        VALUES (:pet_id, :user_id, :date, :text, :state)')) {
 
         $stmt->bindParam(':user_id', $user_id);
         $stmt->bindParam(':pet_id', $pet_id);
         $stmt->bindParam(':text', $text);
+        $stmt->bindParam(':state', $state);
         $time = time();
         $stmt->bindParam(':date', $time);
         $stmt->execute();

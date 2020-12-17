@@ -18,6 +18,10 @@ document.querySelectorAll('#deny_proposal_button').forEach(button => { //submit 
     button.addEventListener('click', denyProposal);
 })
 
+document.querySelectorAll('#delete-pet-button').forEach(button => { //submit proposal button on pet_detail
+    button.addEventListener('click', deletePet);
+})
+
 // Send message
 function addFavorite(event) {
     let request = new XMLHttpRequest();
@@ -147,6 +151,13 @@ function denyProposal(event){
     confirm("Proposal denied!");
 }
 
+function deletePet(event){
+    let pet_id = event.target.getAttribute('data-petid');
 
+    let request = new XMLHttpRequest();
+    request.open('get', 'deletePet.php?' + encodeForAjax({'pet_id': pet_id}), true);
+    request.send();
 
-
+    confirm("Pet deleted!");
+    window.location.href = "pets_list.php";
+}

@@ -352,5 +352,13 @@ function denyProposal($pet_id, $new_owner_id){
 
 }
 
+function deletePet($pet_id){
+    global $db;
+
+    $stmt = $db->prepare('DELETE FROM Pets
+                                    WHERE pet_id = :pet_id');
+    $stmt->bindParam(':pet_id', $pet_id);
+    $stmt->execute();
+}
 
 

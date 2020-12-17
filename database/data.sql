@@ -56,56 +56,56 @@ CREATE TABLE ProposalsUser (
     text        VARCHAR,
     date        VARCHAR,
     state       VARCHAR,
-    CONSTRAINT  prop_fk1 FOREIGN KEY (pet_id) REFERENCES Pets(pet_id),
-    CONSTRAINT  prop_fk2 FOREIGN KEY (user_id) REFERENCES Users(user_id)
+    FOREIGN KEY (pet_id) REFERENCES Pets(pet_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE
 );
 
 -- Users owners of pets
 CREATE TABLE Users_Pets (
   user_id   INTEGER,
   pet_id    INTEGER,
-  CONSTRAINT own_fk1 FOREIGN KEY (user_id) REFERENCES Users(user_id),
-	CONSTRAINT own_fk2 FOREIGN KEY (pet_id) REFERENCES Pets(pet_id),
-	CONSTRAINT own_pk PRIMARY KEY(user_id, pet_id)
+  FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE,
+FOREIGN KEY (pet_id) REFERENCES Pets(pet_id) ON DELETE CASCADE,
+	PRIMARY KEY(user_id, pet_id)
 );
 
 -- Shelters owners of pets
 CREATE TABLE Shelters_Pets (
   shelter_id  INTEGER,
   pet_id      INTEGER,
-  CONSTRAINT shel_pet_fk1 FOREIGN KEY (shelter_id) REFERENCES Shelters(shelter_id),
-	CONSTRAINT shel_pet_fk2 FOREIGN KEY (pet_id) REFERENCES Pets(pet_id),
-	CONSTRAINT shel_pet_pk PRIMARY KEY(shelter_id, pet_id)
+  FOREIGN KEY (shelter_id) REFERENCES Shelters(shelter_id) ON DELETE CASCADE,
+	FOREIGN KEY (pet_id) REFERENCES Pets(pet_id) ON DELETE CASCADE,
+	PRIMARY KEY(shelter_id, pet_id)
 );
 
 CREATE TABLE Collaborators (
   shelter_id    INTEGER,
   user_id       INTEGER,
-  CONSTRAINT collab_fk1 FOREIGN KEY (shelter_id) REFERENCES Shelters(shelter_id),
-  CONSTRAINT collab_fk2 FOREIGN KEY (user_id) REFERENCES Users(user_id),
-  CONSTRAINT collab_pk PRIMARY KEY(shelter_id, user_id)
+  FOREIGN KEY (shelter_id) REFERENCES Shelters(shelter_id) ON DELETE CASCADE,
+  FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE,
+  PRIMARY KEY(shelter_id, user_id)
 );
 
 CREATE TABLE Favorites (
   user_id   INTEGER,
   pet_id    INTEGER,
-  CONSTRAINT fav_fk1 FOREIGN KEY (user_id) REFERENCES Users(user_id),
-	CONSTRAINT fav_fk2 FOREIGN KEY (pet_id) REFERENCES Pets(pet_id),
-	CONSTRAINT fav_pk PRIMARY KEY(user_id, pet_id)
+  FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE,
+	FOREIGN KEY (pet_id) REFERENCES Pets(pet_id) ON DELETE CASCADE,
+	PRIMARY KEY(user_id, pet_id)
 );
 
 CREATE TABLE Pets_Adopted_Shelter(
     shelter_id  INTEGER,
     pet_id      INTEGER,
-    CONSTRAINT shel_pet_fk1 FOREIGN KEY (shelter_id) REFERENCES Shelters(shelter_id),
-    CONSTRAINT shel_pet_fk2 FOREIGN KEY (pet_id) REFERENCES Pets(pet_id),
-    CONSTRAINT shel_pet_pk PRIMARY KEY(shelter_id, pet_id)
+    FOREIGN KEY (shelter_id) REFERENCES Shelters(shelter_id) ON DELETE CASCADE,
+    FOREIGN KEY (pet_id) REFERENCES Pets(pet_id) ON DELETE CASCADE,
+    PRIMARY KEY(shelter_id, pet_id)
 );
 
 CREATE TABLE Pets_Images(
     img_id      INTEGER PRIMARY KEY,
     pet_id      INTEGER,
-    CONSTRAINT pet_img_fk1 FOREIGN KEY (pet_id) REFERENCES Pets(pet_id)
+    FOREIGN KEY (pet_id) REFERENCES Pets(pet_id) ON DELETE CASCADE
 );
 
 create table Comments (
@@ -114,8 +114,8 @@ create table Comments (
     pet_id INTEGER,
     date VARCHAR,
     text VARCHAR,
-    CONSTRAINT  comm_fk1 FOREIGN KEY (pet_id) REFERENCES Pets(pet_id),
-    CONSTRAINT  comm_fk2 FOREIGN KEY (user_id) REFERENCES Users(user_id)
+    FOREIGN KEY (pet_id) REFERENCES Pets(pet_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Breeds (
@@ -133,7 +133,7 @@ create table Answers(
     text VARCHAR,
     user_id INTEGER,
     type VARCHAR, -- user or shelter
-    constraint fk_comments FOREIGN KEY (comment_id) REFERENCES Comments
+    FOREIGN KEY (comment_id) REFERENCES Comments ON DELETE CASCADE
 );
 
 -- All passwords are 1234 in SHA-1 format

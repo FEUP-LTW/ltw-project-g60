@@ -1312,14 +1312,13 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   -webkit-animation: scale05 0.2s forwards;
 }
 #pet-profile .pet-bio .pet-info {
-  grid-column: 2;
   height: 100%;
   margin-left: -10px;
   display: grid;
   background-color: #934B00;
   color: white;
   border-radius: 0 10px 10px 0;
-  grid-template-rows: auto auto auto;
+  grid-template-columns: auto 20% 20%;
   grid-template-areas: "description" "details" "name";
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
 }
@@ -1341,20 +1340,31 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 }
 #pet-profile .pet-bio .pet-info #pet-details {
   grid-area: details;
+  grid-column: 1/4;
   padding: 1em;
 }
 #pet-profile .pet-bio .pet-info #pet-details > * {
   margin-right: 40px;
 }
 #pet-profile .pet-bio .pet-info p {
-  grid-area: description;
+  grid-column: 1/4;
   padding: 1em;
 }
 #pet-profile .pet-bio .pet-info #edit-pet-button {
+  padding: 5%;
+  grid-column: 3;
   grid-row: 3;
   background-color: #F1A66A;
   color: black;
-  justify-self: right;
+  margin: 1em;
+  font-weight: bold;
+}
+#pet-profile .pet-bio .pet-info #delete-pet-button {
+  padding: 5%;
+  grid-column: 2;
+  grid-row: 3;
+  background-color: #F1A66A;
+  color: black;
   margin: 1em;
   font-weight: bold;
 }
