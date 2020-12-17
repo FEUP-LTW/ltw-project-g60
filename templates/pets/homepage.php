@@ -38,7 +38,7 @@
         </div>
     </div>
     <div id="shuffle-button">
-        <a href="#" >
+        <a href="pet_detail.php?id=<?=$allpets[array_rand($allpets)]['pet_id']?>" >
             <div class="button">Adopt your future Pet</div>
         </a>
     </div>

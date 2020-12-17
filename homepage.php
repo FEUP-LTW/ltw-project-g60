@@ -10,6 +10,7 @@ include_once('database/users.php');
 
 $pets = getFeaturedPets();
 $shelter = getFeaturedShelter();
+$allpets = getAllPets();
 
 include('templates/common/header.php');
 include('templates/common/main_header.php');
