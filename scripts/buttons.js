@@ -31,8 +31,6 @@ function addFavorite(event) {
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.send(encodeForAjax({'csrf':csrf, 'id': event.target.getAttribute("data-petid")}))
 
-    confirm("Pet added to favorites!");
-
     //removes add button and adds remove button
     let pet_index = event.target.getAttribute("data-index");
     let pet_petid = event.target.getAttribute("data-petid");
@@ -57,8 +55,6 @@ function removeFavorite(event) {
     request.open('post', 'action_remove_favorite.php', true)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.send(encodeForAjax({'csrf':csrf, 'id': event.target.getAttribute("data-petid")}))
-
-    confirm("Pet removed from favorites!");
 
     let pet_index = event.target.getAttribute("data-index");
     let pet_petid = event.target.getAttribute("data-petid");
@@ -142,7 +138,6 @@ function acceptProposal(event){
     request.open('get', 'action_accept_proposal.php?' + encodeForAjax({'prop_id': prop_id, 'pet_id': pet_id}), true);
     request.send();
 
-    confirm("Proposal accepted!");
 }
 
 function denyProposal(event){
@@ -153,7 +148,6 @@ function denyProposal(event){
     request.open('get', 'denyProposal.php?' + encodeForAjax({'prop_id': prop_id, 'pet_id': pet_id}), true);
     request.send();
 
-    confirm("Proposal denied!");
 }
 
 function deletePet(event){
@@ -163,6 +157,5 @@ function deletePet(event){
     request.open('get', 'deletePet.php?' + encodeForAjax({'pet_id': pet_id}), true);
     request.send();
 
-    confirm("Pet deleted!");
     window.location.href = "pets_list.php";
 }

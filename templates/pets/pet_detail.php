@@ -51,7 +51,7 @@
         }
         ?>
     </div>
-    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username']) and !isOwner($_GET['id']) and getPetByID($_GET['id'])['state']!='adopted') { ?>
+    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username']) and getPetByID($_GET['id'])['state']!='adopted') { ?>
     <section id="options">
         <h2>Options</h2>
         <div class="buttons">
