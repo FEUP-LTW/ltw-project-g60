@@ -76,7 +76,7 @@
                         <small><?= date("Y-m-d H:i", substr($proposal['date'], 0, 10)) ?></small>
                         <a href="user_profile.php?id=<?= $proposal['user_id'] ?>" class="button">View User</a>
                     </div>
-                    <?php if (isOwner($_GET['id']) and $proposal['state']== 'waiting') { ?>
+                    <?php if (isset($_SESSION['username']) and isOwner($_GET['id']) and $proposal['state']== 'waiting') { ?>
                         <button id="accept_proposal_button" name="accept" data-petid="<?= $_GET['id'] ?>" data-userid="<?= $proposal['user_id'] ?>">Accept</button>
                         <button id="deny_proposal_button" name="deny" data-petid="<?= $_GET['id'] ?>" data-userid="<?= $proposal['user_id'] ?>">Deny</button>
                     <?php } else { ?>

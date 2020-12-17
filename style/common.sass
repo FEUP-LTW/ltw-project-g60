@@ -4,17 +4,19 @@ $font-stack: 'Open Sans', sans-serif
 $white: #faf0e6
 $accent-color: #934B00
 $main-color: #F1A66A
-$background-image: url("https://dogworldkennelclub.co.uk/wp-content/uploads/2017/11/banner-dog-field-2000x580.jpg")
+$background-color: #F2F7F8
+$dark-color: #36393B
+$dark-light-color: #585D5F
 
 *
   margin: 0
   padding: 0
   border: 0
-  background: transparent
   text-decoration: none
   font-family: $font-stack
 
 html, body
+  background-color: $background-color
   height: 100%
   position: relative
   min-height: 100%
@@ -84,7 +86,7 @@ html, body
 
 .footer
   flex-shrink: 0
-  background-color: $accent-color
+  background-color: $dark-color
   color: white
   position: absolute
   left: 0
@@ -101,7 +103,7 @@ html, body
     float: right
 
 .button, button
-  background-color: $accent-color
+  background-color: $dark-color
   border: none
   color: white
   margin: 5px
@@ -125,7 +127,7 @@ hr
   padding: 0
 
 .navigation_bar
-  background-color: $accent-color
+  background-color: $dark-color
   width: 100%
   a
     color: white
