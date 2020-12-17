@@ -139,7 +139,7 @@ function acceptProposal(event){
     let prop_id = event.target.getAttribute('data-userid');
 
     let request = new XMLHttpRequest();
-    request.open('get', 'acceptProposal.php?' + encodeForAjax({'prop_id': prop_id, 'pet_id': pet_id}), true);
+    request.open('get', 'action_accept_proposal.php?' + encodeForAjax({'prop_id': prop_id, 'pet_id': pet_id}), true);
     request.send();
 
     confirm("Proposal accepted!");
