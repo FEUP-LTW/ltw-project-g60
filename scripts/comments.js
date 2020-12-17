@@ -21,10 +21,11 @@ if (inPetProfile != null) { //checks if we are in pet profile
 // Ask for new messages
 function refresh() {
     let pet_id = document.querySelector("#pet-comments" ).getAttribute('data-petid');
-        let request = new XMLHttpRequest();
-        request.open('get', 'action_add_comment.php?' + encodeForAjax({'last_id': last_comment_id, 'pet_id': pet_id}), true);
-        request.addEventListener('load', commentsReceived);
-        request.send();
+
+    let request = new XMLHttpRequest();
+    request.open('get', 'action_add_comment.php?' + encodeForAjax({'last_id': last_comment_id, 'pet_id': pet_id}), true);
+    request.addEventListener('load', commentsReceived);
+    request.send();
 }
 
 function addComment(event) {

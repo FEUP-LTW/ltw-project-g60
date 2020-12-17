@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'csrf_set.php';
 set_csrf();
 
 include_once('database/users.php');

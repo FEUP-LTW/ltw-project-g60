@@ -1,6 +1,5 @@
 <?php
 session_start();
-set_csrf();
 
 include_once('database/connection.php'); // connects to the database
 include_once('database/users.php');      // loads the functions responsible for the users table

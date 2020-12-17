@@ -5,6 +5,7 @@
         </section>
         <section id="right">
             <form id="pet_add_form" action="action_add_pet.php" method="post" enctype="multipart/form-data" autocomplete="off" onsubmit='verify(<?= json_encode( $breeds ) ?>, <?= json_encode( $colors ) ?>);'>
+                <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                 <label>Name
                     <input type="text" name="name" placeholder="Pet's name" required>
                 </label>
