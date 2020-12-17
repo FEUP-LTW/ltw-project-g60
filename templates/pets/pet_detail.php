@@ -69,16 +69,19 @@
         <div class="grid-list">
             <?php foreach ($proposals as $proposal) { ?>
                 <article class="adoption-proposal">
-                    <div class="img" style="background-image: url('database/images/users/profile/thumbs_medium/<?= $proposal['user_id'] ?>.jpg"></div>
-                    <h3><?= $proposal['name'] ?></h3>
+                    <a href="user_profile.php?id=<?= $proposal['user_id'] ?>">
+                        <div class="img" style="background-image: url('database/images/users/profile/thumbs_medium/<?= $proposal['user_id'] ?>.jpg"></div>
+                        <h3><?= $proposal['name'] ?></h3>
+                    </a>
                     <div class="user-details">
                         <p><?= $proposal['text'] ?></p>
                         <small><?= date("Y-m-d H:i", substr($proposal['date'], 0, 10)) ?></small>
-                        <a href="user_profile.php?id=<?= $proposal['user_id'] ?>" class="button">View User</a>
                     </div>
                     <?php if (isset($_SESSION['username']) and isOwner($_GET['id']) and $proposal['state']== 'waiting') { ?>
-                        <button id="accept_proposal_button" name="accept" data-petid="<?= $_GET['id'] ?>" data-userid="<?= $proposal['user_id'] ?>">Accept</button>
-                        <button id="deny_proposal_button" name="deny" data-petid="<?= $_GET['id'] ?>" data-userid="<?= $proposal['user_id'] ?>">Deny</button>
+                        <div class="proposal-options">
+                            <button id="accept_proposal_button" name="accept" data-petid="<?= $_GET['id'] ?>" data-userid="<?= $proposal['user_id'] ?>">Accept</button>
+                            <button id="deny_proposal_button" name="deny" data-petid="<?= $_GET['id'] ?>" data-userid="<?= $proposal['user_id'] ?>">Deny</button>
+                        </div>
                     <?php } else { ?>
                         <div id="proposal_states">
                         <?php  if ($proposal['state'] == 'waiting'){ ?>

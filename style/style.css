@@ -1301,7 +1301,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 #pet-profile .pet-bio #owner-info p {
   padding: 5px;
   border-radius: 5px;
-  background-color: #934B00;
+  background-color: #36393B;
   position: absolute;
   bottom: 8px;
   left: 8px;
@@ -1314,7 +1314,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   height: 100%;
   margin-left: -10px;
   display: grid;
-  background-color: #934B00;
+  background-color: #36393B;
   color: white;
   border-radius: 0 10px 10px 0;
   grid-template-columns: auto 20% 20%;
@@ -1333,8 +1333,8 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   font-size: 150%;
 }
 #pet-profile .pet-bio .pet-info #title span {
-  background-color: red;
-  border-radius: 20px;
+  border: 2px solid red;
+  border-radius: 10px;
   padding: 0 10px;
 }
 #pet-profile .pet-bio .pet-info #pet-details {
@@ -1349,29 +1349,25 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   grid-column: 1/4;
   padding: 1em;
 }
-#pet-profile .pet-bio .pet-info #edit-pet-button {
+#pet-profile .pet-bio .pet-info #edit-pet-button, #pet-profile .pet-bio .pet-info #delete-pet-button {
   padding: 5%;
   grid-column: 3;
   grid-row: 3;
-  background-color: #F1A66A;
-  color: black;
+  background-color: #585D5F;
+  color: white;
   margin: 1em;
   font-weight: bold;
 }
 #pet-profile .pet-bio .pet-info #delete-pet-button {
-  padding: 5%;
   grid-column: 2;
   grid-row: 3;
-  background-color: #F1A66A;
-  color: black;
-  margin: 1em;
-  font-weight: bold;
 }
 #pet-profile #options {
   margin-top: 1em;
   padding: 1em;
-  background-color: #F1A66A;
+  background-color: #585D5F;
   border-radius: 10px;
+  color: white;
 }
 #pet-profile #options .buttons {
   text-align: center;
@@ -1385,61 +1381,75 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
 #pet-profile #proposals {
   margin-top: 1em;
   padding: 1em;
-  background-color: #F1A66A;
+  background-color: #585D5F;
+  color: white;
   border-radius: 10px;
 }
 #pet-profile #proposals h2 {
   margin-bottom: 1em;
 }
 #pet-profile #proposals .grid-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 #pet-profile #proposals .grid-list .adoption-proposal {
+  justify-self: center;
   padding: 1em;
-  background-color: #934B00;
+  max-width: 30em;
+  margin: 1em;
+  background-color: #F2F7F8;
   border-radius: 10px;
+  border: 2px solid #36393B;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
   display: grid;
+  color: black;
   grid-template-columns: 40% 60%;
-  grid-template-rows: 4fr 1fr 0.5fr;
+  grid-template-rows: 2fr 0.5fr;
   grid-column-gap: 1em;
 }
-#pet-profile #proposals .grid-list .adoption-proposal .img {
+#pet-profile #proposals .grid-list .adoption-proposal a {
+  border-radius: 10px;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+}
+#pet-profile #proposals .grid-list .adoption-proposal a:hover {
+  -webkit-animation: scale05 0.2s forwards;
+}
+#pet-profile #proposals .grid-list .adoption-proposal a .img {
   border-radius: 10px 10px 0 0;
   width: 100%;
   background-size: cover;
   background-position: center;
   grid-row: 1;
+  min-height: 10em;
   grid-column: 1;
 }
-#pet-profile #proposals .grid-list .adoption-proposal h3 {
+#pet-profile #proposals .grid-list .adoption-proposal a h3 {
   text-align: center;
   margin: 0;
   padding: 10px;
   border-radius: 0 0 10px 10px;
-  background-color: #F1A66A;
-  color: black;
+  background-color: #585D5F;
+  color: white;
   grid-row: 2;
   grid-column: 1;
 }
 #pet-profile #proposals .grid-list .adoption-proposal .user-details {
-  color: white;
+  color: black;
   margin-right: 15px;
   margin-bottom: 0;
   height: auto;
-  grid-row: 1/3;
+  grid-row: 1/2;
   grid-column: 2;
   display: grid;
-  grid-template-rows: 2fr 1fr 2fr;
+  grid-template-rows: 1fr 0.5fr;
 }
 #pet-profile #proposals .grid-list .adoption-proposal .user-details .button {
   font-size: 1.2rem;
   align-self: flex-end;
-  color: black;
+  color: white;
   font-weight: bold;
-  background-color: #F1A66A;
+  background-color: #36393B;
 }
 #pet-profile #proposals .grid-list .adoption-proposal .user-details small {
   text-align: right;
@@ -1463,27 +1473,43 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   border-radius: 5px;
   background-color: red;
 }
+#pet-profile #proposals .grid-list .adoption-proposal .proposal-options {
+  grid-column: 1/3;
+  display: flex;
+  margin: 10px 1em -1em 0;
+}
+#pet-profile #proposals .grid-list .adoption-proposal .proposal-options button {
+  width: 100%;
+}
+#pet-profile #proposals .grid-list .adoption-proposal .proposal-options button:nth-child(1) {
+  background-color: #143E33;
+}
+#pet-profile #proposals .grid-list .adoption-proposal .proposal-options button:nth-child(2) {
+  background-color: #520003;
+}
 #pet-profile #pet-comments, #pet-profile #make_proposal {
   margin-top: 1em;
   padding: 1em;
-  background-color: #F1A66A;
+  background-color: #585D5F;
   border-radius: 10px;
+  color: white;
 }
 #pet-profile #pet-comments h2, #pet-profile #make_proposal h2 {
   margin-bottom: 1em;
 }
-#pet-profile #pet-comments .pet-comment, #pet-profile #pet-comments .pet-answer, #pet-profile #make_proposal .pet-comment, #pet-profile #make_proposal .pet-answer {
+#pet-profile #pet-comments .pet-comment, #pet-profile #pet-comments .pet-answer, #pet-profile #pet-comments #make_proposal .pet-answer, #pet-profile #make_proposal #pet-comments .pet-answer, #pet-profile #make_proposal .pet-comment, #pet-profile #make_proposal .pet-answer {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
-  background-color: #934B00;
+  background-color: #F2F7F8;
+  border: 2px solid #36393B;
   margin-bottom: 1em;
   border-radius: 10px;
-  color: white;
+  color: black;
   display: grid;
   grid-template-columns: 1.3fr 8fr 2fr;
   grid-template-rows: 1fr 1.5fr 0.2fr;
   grid-column-gap: 1em;
 }
-#pet-profile #pet-comments .pet-comment p, #pet-profile #pet-comments .pet-answer p, #pet-profile #make_proposal .pet-comment p, #pet-profile #make_proposal .pet-answer p {
+#pet-profile #pet-comments .pet-comment p, #pet-profile #pet-comments .pet-answer p, #pet-profile #pet-comments #make_proposal .pet-answer p, #pet-profile #make_proposal #pet-comments .pet-answer p, #pet-profile #make_proposal .pet-comment p, #pet-profile #make_proposal .pet-answer p {
   grid-column: 2/4;
   grid-row: 2;
   font-style: italic;
@@ -1492,8 +1518,8 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   padding-bottom: 1em;
 }
 #pet-profile #pet-comments .pet-comment .user a, #pet-profile #pet-comments .pet-answer .user a, #pet-profile #make_proposal .pet-comment .user a, #pet-profile #make_proposal .pet-answer .user a {
-  border-bottom: 1px solid white;
-  color: white;
+  border-bottom: 1px solid black;
+  color: black;
   font-size: x-large;
 }
 #pet-profile #pet-comments .pet-comment .date, #pet-profile #pet-comments .pet-answer .date, #pet-profile #make_proposal .pet-comment .date, #pet-profile #make_proposal .pet-answer .date {
@@ -1516,21 +1542,18 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   height: 100%;
   border-radius: 10px 0 0 10px;
 }
-#pet-profile #pet-comments .pet-comment .user-image:hover, #pet-profile #pet-comments .pet-answer .user-image:hover, #pet-profile #make_proposal .pet-comment .user-image:hover, #pet-profile #make_proposal .pet-answer .user-image:hover {
-  -webkit-animation: scale05 0.2s forwards;
-}
 #pet-profile #pet-comments .pet-comment .reply-button, #pet-profile #pet-comments .pet-answer .reply-button, #pet-profile #make_proposal .pet-comment .reply-button, #pet-profile #make_proposal .pet-answer .reply-button {
   grid-column: 3;
   padding: 1em;
-  background-color: #F1A66A;
-  color: black;
+  background-color: #36393B;
+  color: white;
   font-weight: bold;
 }
 #pet-profile #pet-comments .pet-answer, #pet-profile #make_proposal .pet-answer {
   margin-left: 5em;
 }
 #pet-profile #pet-comments #overlay, #pet-profile #make_proposal #overlay {
-  background-color: #F1A66A;
+  background-color: #585D5F;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
   visibility: hidden;
   position: fixed;
@@ -1544,12 +1567,17 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   float: top;
 }
 #pet-profile #pet-comments #overlay form, #pet-profile #make_proposal #overlay form {
+  background-color: #585D5F;
   margin-top: 0;
+}
+#pet-profile #pet-comments #overlay form textarea, #pet-profile #make_proposal #overlay form textarea {
+  background-color: #F2F7F8;
+  color: black;
 }
 #pet-profile form {
   margin-top: 1em;
   padding: 1em;
-  background-color: #934B00;
+  background-color: #585D5F;
   border-radius: 10px;
 }
 #pet-profile form label {
@@ -1569,7 +1597,7 @@ body .shelter_profile .right .shelter_adopted .adopted-card:hover {
   font-size: large;
   color: black;
   overflow: auto;
-  background-color: #F1A66A;
+  background-color: #F2F7F8;
   padding: 1em;
 }
 #pet-profile .button {
