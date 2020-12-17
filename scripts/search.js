@@ -10,6 +10,10 @@ document.querySelectorAll("#search_input").forEach(input=>{
     input.addEventListener("keyup", filterSearch)
 })
 
+document.querySelectorAll("#search_input_shelter").forEach(input=>{
+    input.addEventListener("keyup", filterSearchShelter)
+})
+
 // AJAX para buscar favoritos do utilizador
 let username = document.querySelector("#signup").children[1].innerHTML
 let request = new XMLHttpRequest();
@@ -19,7 +23,6 @@ request.send()
 
 function saveFavorites(){
     favorites = JSON.parse(this.responseText);
-    console.log(favorites)
 }
 
 function filterSearch() {
@@ -30,6 +33,18 @@ function filterSearch() {
             pet.style.display = "grid"
         else
             pet.style.display = "none"
+    }
+}
+
+
+function filterSearchShelter() {
+    let search = document.getElementById("search_input_shelter").value.toLowerCase()
+    let shelters = document.getElementsByClassName("shelters-list")[0].getElementsByClassName("shelter-card")
+    for (let shelter of shelters){
+        if (shelter.querySelectorAll("h1")[0].innerHTML.toLowerCase().includes(search) )
+            shelter.style.display = "grid"
+        else
+            shelter.style.display = "none"
     }
 }
 

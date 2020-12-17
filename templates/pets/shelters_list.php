@@ -2,8 +2,7 @@
     <form action="shelters_list.php" method="GET">
         <div id="search-wrap">
             <div id="search">
-                <input type="text" autocomplete="off" name="search" placeholder="search for a shelter...">
-                <button type="submit"><i class="fas fa-search"></i></button>
+                <input id="search_input_shelter" type="text" autocomplete="off" name="search" placeholder="search for a shelter...">
             </div>
         </div>
     </form>
@@ -22,6 +21,5 @@
                 <a class="button" href="shelter_profile.php?id=<?= $shelter['shelter_id'] ?>">View Shelter</a>
             </div>
         </article>
-        <hr>
     <?php } ?>
 </section>

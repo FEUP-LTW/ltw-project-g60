@@ -56,14 +56,14 @@ function getShelterPets($id) {
     }
 }
 
-function getShelterPetsForAdoption($id) {
+function getShelterPetsAdopted($id) {
     global $db;
     if ($stmt = $db->prepare('
         SELECT * 
-        FROM Shelters, Pets_Adoption_Shelter, Pets
+        FROM Shelters, Pets_Adopted_Shelter, Pets
         WHERE Shelters.shelter_id = :id
-        AND Pets_Adoption_Shelter.shelter_id = :id
-        AND Pets_Adoption_Shelter.pet_id = Pets.pet_id')) {
+        AND Pets_Adopted_Shelter.shelter_id = :id
+        AND Pets_Adopted_Shelter.pet_id = Pets.pet_id')) {
         $stmt->bindParam(':id', $id);
         $stmt->execute();
         return $stmt->fetchAll();

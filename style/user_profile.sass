@@ -10,7 +10,7 @@ body
   .user_profile
     display: flex
     .title
-      padding: 10px 0px 0px 15px
+      padding: 10px 0 0 15px
       font-size: 25px
       font-weight: bold
       color: white
@@ -45,7 +45,7 @@ body
       #about_me, #favorites, #contact
         display: flex
         border-radius: 10px
-        background-color: common.$accent-color
+        background-color: common.$dark-color
         margin: 8% 12%
         justify-content: center
         box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2)
@@ -76,12 +76,14 @@ body
       .user_pets, .user_favorites
         grid-area: pets
         border-radius: 10px
-        background-color: common.$main-color
+        background-color: common.$dark-light-color
         margin: 2% 3% 2% 3%
         .pet
           display: flex
           padding: 8px
-          background-color: common.$accent-color
+          background-color: common.$background-color
+          border: 2px solid common.$dark-color
+          color: black
           border-radius: 10px
           width: fit-content
           margin: 15px auto
@@ -98,6 +100,7 @@ body
               background-position: center
             .container-pet
               width: 54vw
+              color: black
               text-align: justify
         .pet:hover
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
@@ -165,7 +168,7 @@ body
               &:hover input ~ .checkmark
                 background-color: #ccc
               input:checked ~ .checkmark
-                background-color: common.$accent-color
+                background-color: common.$dark-color
             .checkmark:after
               content: ""
               position: absolute
@@ -183,13 +186,10 @@ body
                 -webkit-transform: rotate(45deg)
                 -ms-transform: rotate(45deg)
                 transform: rotate(45deg)
-
       input[type=submit]
             grid-column: 2
             justify-self: center
             align-self: center
-
-
     .right
       margin: 10px 10px 27px 0
       width: 35%
@@ -198,7 +198,7 @@ body
       grid-auto-rows: fit-content(0%)
       .collaborations
         border-radius: 10px
-        background-color: common.$main-color
+        background-color: common.$dark-light-color
         margin: 3.5% 3%
         #collaboration-imgs
           display: flex
@@ -220,12 +220,13 @@ body
                 @include animations.animation("scale05 0.2s forwards")
       .user_activity
         border-radius: 10px
-        background-color: common.$main-color
+        background-color: common.$dark-light-color
         margin: 2% 3% 4% 3%
         .activity-card
           display: flex
           padding: 8px
-          background-color: common.$accent-color
+          background-color: common.$background-color
+          border: 2px solid common.$dark-color
           border-radius: 10px
           width: 85%
           margin: 15px auto
@@ -239,9 +240,11 @@ body
             background-size: cover
             background-position: center
           .container-activity
+            color: black
             width: 28vw
             text-align: justify
             p
+              color: black
               padding: 8px
         .activity-card:hover
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)

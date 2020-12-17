@@ -5,6 +5,11 @@ include_once('database/users.php');      // loads the functions responsible for 
 include_once('database/pets.php');
 include_once('database/upload.php');
 
+if (!isset($_SESSION['csrf']) || $_SESSION['csrf'] !== $_POST['csrf']){
+  echo '<script type="text/javascript">alert("Hacker Attack")</script>';
+  die();
+}
+
 $colors = getPetColors();
 $breeds = getBreeds();
 

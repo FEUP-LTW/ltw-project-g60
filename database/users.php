@@ -232,14 +232,17 @@ function getSheltersWithoutUserCollaboration($userID) {
 
 function addProposal($text, $user_id, $pet_id){
     global $db;
+
+    $state = 'waiting';
     if ($stmt = $db->prepare('
         INSERT INTO 
-        ProposalsUser(pet_id, user_id, date, text) 
-        VALUES (:pet_id, :user_id, :date, :text)')) {
+        ProposalsUser(pet_id, user_id, date, text, state) 
+        VALUES (:pet_id, :user_id, :date, :text, :state)')) {
 
         $stmt->bindParam(':user_id', $user_id);
         $stmt->bindParam(':pet_id', $pet_id);
         $stmt->bindParam(':text', $text);
+        $stmt->bindParam(':state', $state);
         $time = time();
         $stmt->bindParam(':date', $time);
         $stmt->execute();
@@ -336,10 +339,20 @@ function isOwner($pet_id){
     global $db;
     $session_id = getSessionId();
 
-    $stmt = $db->prepare('SELECT * FROM Users_Pets WHERE user_id = :user_id AND pet_id = :pet_id');
-    $stmt->bindParam(':pet_id', $pet_id);
-    $stmt->bindParam(':user_id', $session_id);
-    $stmt->execute();
-    if ($stmt->fetch()==false) return false;
-    return true;
+    if (isUser($_SESSION['username'])) {
+        $stmt = $db->prepare('SELECT * FROM Users_Pets WHERE user_id = :user_id AND pet_id = :pet_id');
+        $stmt->bindParam(':pet_id', $pet_id);
+        $stmt->bindParam(':user_id', $session_id);
+        $stmt->execute();
+        if ($stmt->fetch() == false) return false;
+        return true;
+    }else{
+        $stmt = $db->prepare('SELECT * FROM Shelters_Pets WHERE shelter_id = :user_id AND pet_id = :pet_id');
+        $stmt->bindParam(':pet_id', $pet_id);
+        $stmt->bindParam(':user_id', $session_id);
+        $stmt->execute();
+        if ($stmt->fetch() == false) return false;
+        return true;
+    }
 }
+

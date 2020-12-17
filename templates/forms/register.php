@@ -2,6 +2,7 @@
     <section id="register">
         <h2>Register</h2>
         <form action="action_register.php" method="post" enctype="multipart/form-data">
+            <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             <div class="group">
                 <input id="name" name="name" type="text" required>
                 <span class="highlight"></span>

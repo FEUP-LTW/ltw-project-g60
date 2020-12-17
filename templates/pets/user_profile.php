@@ -69,6 +69,7 @@
                 <i class="fas fa-file"></i>
                 <span>Edit Info</span>
                 <form action="action_edit_user.php" method="post" enctype="multipart/form-data">
+                    <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                     <div class="group">
                         <input id="name" name="name" type="text" value="<?= $user['name'] ?>" required>
                         <span class="highlight"></span>
@@ -148,7 +149,7 @@
                         <div class="activity-img" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($act['pet_id']) ?>.jpg')"></div>
                         <div class="container-activity">
                             <h4><b>Proposal</b></h4>
-                            <p> Made a proposal to this dog.</p>
+                            <p><?= $act['text'] ?></p>
                         </div>
                     </a>
                 </div>

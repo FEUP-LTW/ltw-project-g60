@@ -31,7 +31,7 @@
           height: 36px
           border-radius: 5px
           outline: none
-          color: common.$accent-color
+          color: common.$dark-color
         button
           margin: 0
           padding: 0 20px
@@ -56,19 +56,18 @@
     select
       width: 80%
       margin: 0 auto
-      border: 3px solid common.$accent-color
+      border: 3px solid common.$dark-color
       padding: 1em
-      background-color: common.$accent-color
+      background-color: common.$dark-color
       border-radius: 7px
       color: white
     label
       width: 65%
       margin: 0 auto
       padding: 1em
-      background-color: common.$accent-color
+      background-color: common.$dark-color
       border-radius: 7px
       color: white
-
     #favorites
       opacity: 0
       width: 0
@@ -78,21 +77,18 @@
   padding: 1em
   width: 80%
   margin: 0 auto
-
-  hr
-    margin: 0 auto
-    width: 80%
-
   .pet-card
+    border: 2px solid common.$dark-color
+    border-radius: 10px
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
     padding: 1em
-    margin: 0 auto
+    margin: 0 auto 1em
     display: grid
-    grid-template-columns: 1fr 3fr 1fr
+    grid-template-columns: 1fr 3fr 2fr
     grid-column-gap: 1em
-    grid-template-rows: 1fr
+    grid-template-rows: 12em
     grid-template-areas: "image info links"
     @include animations.animation('fadeIn  2s forwards')
-
     .pet-image
       grid-area: image
       border-radius: 10px
@@ -118,4 +114,4 @@
       grid-template-rows: repeat(3, 1fr)
       display: grid
       text-align: center
-      margin: auto
+      margin-left: auto

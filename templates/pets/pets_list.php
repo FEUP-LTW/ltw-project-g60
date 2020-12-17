@@ -7,7 +7,7 @@
         </div>
 
         <select id="choice" name="category">
-            <option value="" selected>--Breed--</option>
+            <option value="" selected>Breed</option>
             <?php
             foreach ($breeds as $breed){
             ?>
@@ -15,12 +15,12 @@
             <?php } ?>
         </select>
         <select id="choice" name="gender">
-            <option value="" selected>--Gender--</option>
+            <option value="" selected>Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select>
         <select id="choice" name="color">
-            <option value="" selected>--Color--</option>
+            <option value="" selected>Color</option>
             <?php
             foreach ($colors as $color){
             ?>
@@ -28,7 +28,7 @@
             <?php } ?>
         </select>
         <select id="choice" name="age">
-            <option value=""  selected>--Age--</option>
+            <option value=""  selected>Age</option>
             <?php
             for ($x = 0; $x <= 10; $x++) { ?>
                 <option value="<?=$x?>"><?=$x?> Years</option>
@@ -66,9 +66,10 @@
                     </div>
                 </div>
                 <div class="pet-links">
-                    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username']) and !isOwner($pet['pet_id'])) { ?>
+                    <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) {?>
                     <div class="buttons" >
                         <?php if (!isFavorite($pet['pet_id']) ) { ?>
+                            <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                             <button id="pet_add_favorite_button" name="favorite" data-index="<?= $index ?>" data-petid="<?= $pet['pet_id'] ?>">Add to Favorites</button>
                         <?php } else { ?>
                             <button id="pet_remove_favorite_button" name="favorite" data-index="<?= $index ?>" data-petid="<?= $pet['pet_id'] ?>">Remove Favorite</button>
@@ -85,6 +86,5 @@
                     <a class="button" href="pet_detail.php?id=<?= $pet['pet_id'] ?>">Details</a>
                 </div>
             </article>
-            <hr>
         <?php } ?>
 </section>

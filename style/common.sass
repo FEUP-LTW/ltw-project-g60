@@ -4,17 +4,23 @@ $font-stack: 'Open Sans', sans-serif
 $white: #faf0e6
 $accent-color: #934B00
 $main-color: #F1A66A
-$background-image: url("https://dogworldkennelclub.co.uk/wp-content/uploads/2017/11/banner-dog-field-2000x580.jpg")
+$background-color: #F2F7F8
+$dark-color: #36393B
+$dark-light-color: #585D5F
+$green: #143E33
+$red: #520003
+$yellow: #C2A83E
+
 
 *
   margin: 0
   padding: 0
   border: 0
-  background: transparent
   text-decoration: none
   font-family: $font-stack
 
 html, body
+  background-color: $background-color
   height: 100%
   position: relative
   min-height: 100%
@@ -27,12 +33,12 @@ html, body
   /* Track */
   ::-webkit-scrollbar-track
     border-radius: 10px
-    background: $accent-color
+    background: $dark-color
 
   /* Handle */
   ::-webkit-scrollbar-thumb
     border-radius: 10px
-    background: $main-color
+    background: $dark-light-color
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover
@@ -84,7 +90,7 @@ html, body
 
 .footer
   flex-shrink: 0
-  background-color: $accent-color
+  background-color: $dark-color
   color: white
   position: absolute
   left: 0
@@ -101,7 +107,7 @@ html, body
     float: right
 
 .button, button
-  background-color: $accent-color
+  background-color: $dark-color
   border: none
   color: white
   margin: 5px
@@ -125,7 +131,7 @@ hr
   padding: 0
 
 .navigation_bar
-  background-color: $accent-color
+  background-color: $dark-color
   width: 100%
   a
     color: white
@@ -161,8 +167,9 @@ hr
     display: block
     width: 80%
     border: none
-    border-bottom: 1px solid $accent-color
-    color: white
+    background-color: inherit
+    border-bottom: 1px solid $dark-color
+    color: black
     margin: 0
     &:focus
       outline: none
@@ -182,7 +189,7 @@ hr
   input:focus ~ label, input:valid ~ label
     top: -20px
     font-size: 14px
-    color: $accent-color
+    color: white
   .bar
     position: relative
     display: block
@@ -197,7 +204,7 @@ hr
     width: 0
     bottom: 1px
     position: absolute
-    background: $accent-color
+    background: $dark-color
     transition: 0.2s ease all
     -moz-transition: 0.2s ease all
     -webkit-transition: 0.2s ease all
@@ -222,7 +229,7 @@ hr
     a
       display: none
       margin: 2px
-      background-color: $main-color
+      background-color: $dark-light-color
       right: 0
       border-radius: 10px
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
@@ -243,7 +250,7 @@ hr
     color: white
 
 .hamburger_navbar
-  background-color: $main-color
+  background-color: $dark-light-color
   #myLinks
     display: none
     position: absolute
@@ -253,14 +260,14 @@ hr
       width: 10em
       display: block
       margin: 2px
-      background-color: $main-color
+      background-color: $dark-light-color
       right: 0
       border-radius: 10px
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
       @include animations.animation("rotateX 300ms ease-in-out forwards")
   a
     display: none
-    background-color: $main-color
+    background-color: $dark-light-color
     color: white
     padding: 14px 16px
     text-decoration: none
@@ -273,7 +280,7 @@ hr
     top: 0
   a:hover
     @include animations.animation("fadeIn 0.5s ease")
-    background-color: $main-color
+    background-color: $dark-light-color
 
 @media (max-width: 60em)
   .header
