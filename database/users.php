@@ -1,4 +1,5 @@
 <?php
+include_once('connection.php');
 
 function console_log( $data ){
     echo '<script>';

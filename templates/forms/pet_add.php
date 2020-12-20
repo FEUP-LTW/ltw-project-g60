@@ -1,10 +1,10 @@
 <div class="content">
     <section id="pet_add">
-        <section id="left" style="background-image: url('database/images/defaults/addDog.jpg')">
+        <section id="left" style="background-image: url('../database/images/defaults/addDog.jpg')">
             <h2>Give us the details about your pet!</h2>
         </section>
         <section id="right">
-            <form id="pet_add_form" action="action_add_pet.php" method="post" enctype="multipart/form-data" autocomplete="off" onsubmit='verify(<?= json_encode( $breeds ) ?>, <?= json_encode( $colors ) ?>);'>
+            <form id="pet_add_form" action="../actions/action_add_pet.php" method="post" enctype="multipart/form-data" autocomplete="off" onsubmit='verify(<?= json_encode( $breeds ) ?>, <?= json_encode( $colors ) ?>);'>
                 <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                 <label>Name
                     <input type="text" name="name" placeholder="Pet's name" required>

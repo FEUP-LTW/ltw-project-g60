@@ -1,4 +1,4 @@
-<section class="search" style="background-image: url('res/banner.jpg')">
+<section class="search" style="background-image: url('../res/banner.jpg')">
     <form>
         <div id="search-wrap">
             <div id="search">
@@ -46,7 +46,7 @@
         $index=-1;
         foreach ($pets as $pet) { $index++; ?>
             <article class="pet-card" data-petid="<?=$pet['pet_id'] ?>" >
-                <a class="pet-image" href="pet_detail.php?id=<?= $pet['pet_id'] ?>" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg')"></a>
+                <a class="pet-image" href="pet_detail.php?id=<?= $pet['pet_id'] ?>" style="background-image: url('../database/images/pets/thumbs_medium/<?= getImageByPetId($pet['pet_id']) ?>.jpg')"></a>
                 <div class="pet-information">
                     <h1><?= $pet['name'] ?></h1>
                     <div class="pet-details">

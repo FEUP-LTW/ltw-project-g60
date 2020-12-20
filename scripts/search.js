@@ -19,7 +19,7 @@ let username = document.querySelector("#signup").children[1].innerHTML
 if (username != "Login"){
     let request = new XMLHttpRequest();
     request.addEventListener("load", saveFavorites)
-    request.open("get", "action_get_favorites.php", true)
+    request.open("get", "../actions/action_get_favorites.php", true)
     request.send()
 }
 

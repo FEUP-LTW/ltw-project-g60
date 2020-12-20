@@ -1,9 +1,8 @@
 <?php
 session_start();                         // starts the session
-include_once('database/connection.php'); // connects to the database
-include_once('database/users.php');      // loads the functions responsible for the users table
-include_once('database/pets.php');
-include_once('database/upload.php');
+include_once('../database/users.php');      // loads the functions responsible for the users table
+include_once('../database/pets.php');
+include_once('../database/upload.php');
 
 if (!isset($_SESSION['csrf']) || $_SESSION['csrf'] !== $_POST['csrf']){
   echo '<script type="text/javascript">alert("Hacker Attack")</script>';
@@ -29,9 +28,9 @@ if( in_array($_POST['breed'], $breeds) and in_array($_POST['color'], $colors) ){
     editPet($_POST['pet_id'],$name, $_FILES['photo'], $breed, $size, $color, $gender,
         $information,$age,$location, $_POST['state']);
 
-    header('Location: ' . 'pet_detail.php?id=' . $_POST['pet_id']);
+    header('Location: ' . '../adoptionCenter/pet_detail.php?id=' . $_POST['pet_id']);
     die();
 } else {
-    header('Location: ' . 'pet_edit.php');
+    header('Location: ' . '../adoptionCenter/pet_edit.php');
     die();
 }
