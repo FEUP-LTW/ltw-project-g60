@@ -1,7 +1,7 @@
 <div class="content">
     <section id="login">
         <h2>Login</h2>
-        <form action="action_login.php" method="post">
+        <form action="actions/action_login.php" method="post">
             <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             <div class="group">
                 <input id="username" name="username" type="text" required>

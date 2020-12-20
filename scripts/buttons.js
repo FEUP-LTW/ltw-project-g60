@@ -27,7 +27,7 @@ function addFavorite(event) {
     let csrf = document.querySelector('#csrf_var').value;
     let request = new XMLHttpRequest();
 
-    request.open('post', 'action_add_favorite.php', true)
+    request.open('post', 'actions/action_add_favorite.php', true)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.send(encodeForAjax({'csrf':csrf, 'id': event.target.getAttribute("data-petid")}))
 
@@ -52,7 +52,7 @@ function removeFavorite(event) {
     let csrf = document.querySelector('#csrf_var').value;
 
     let request = new XMLHttpRequest();
-    request.open('post', 'action_remove_favorite.php', true)
+    request.open('post', 'actions/action_remove_favorite.php', true)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.send(encodeForAjax({'csrf':csrf, 'id': event.target.getAttribute("data-petid")}))
 
@@ -135,7 +135,7 @@ function acceptProposal(event){
     let prop_id = event.target.getAttribute('data-userid');
 
     let request = new XMLHttpRequest();
-    request.open('get', 'action_accept_proposal.php?' + encodeForAjax({'prop_id': prop_id, 'pet_id': pet_id}), true);
+    request.open('get', 'actions/action_accept_proposal.php?' + encodeForAjax({'prop_id': prop_id, 'pet_id': pet_id}), true);
     request.send();
 
 }
@@ -145,7 +145,7 @@ function denyProposal(event){
     let prop_id = event.target.getAttribute('data-userid');
 
     let request = new XMLHttpRequest();
-    request.open('get', 'denyProposal.php?' + encodeForAjax({'prop_id': prop_id, 'pet_id': pet_id}), true);
+    request.open('get', 'actions/denyProposal.php?' + encodeForAjax({'prop_id': prop_id, 'pet_id': pet_id}), true);
     request.send();
 
 }
@@ -154,7 +154,7 @@ function deletePet(event){
     let pet_id = event.target.getAttribute('data-petid');
 
     let request = new XMLHttpRequest();
-    request.open('get', 'deletePet.php?' + encodeForAjax({'pet_id': pet_id}), true);
+    request.open('get', 'actions/deletePet.php?' + encodeForAjax({'pet_id': pet_id}), true);
     request.send();
 
     window.location.href = "pets_list.php";
