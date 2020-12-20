@@ -24,7 +24,7 @@ function refresh() {
     let csrf = document.querySelector('#csrf_var').value;
 
     let request = new XMLHttpRequest();
-    request.open('post', 'action_add_comment.php', true)
+    request.open('post', '../actions/action_add_comment.php', true)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.addEventListener('load', commentsReceived);
     request.send(encodeForAjax({'csrf': csrf, 'last_id': last_comment_id, 'pet_id': pet_id}))
@@ -40,7 +40,7 @@ function addComment(event) {
     document.querySelector('#add-comment #text').value='';
     // Send message
     let request = new XMLHttpRequest();
-    request.open('post', 'action_add_comment.php', true)
+    request.open('post', '../actions/action_add_comment.php', true)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.addEventListener('load', commentsReceived);
     request.send(encodeForAjax({'csrf': csrf, 'last_id': last_comment_id, 'pet_id': pet_id, 'user_id': user_id, 'text': text}))
@@ -58,7 +58,7 @@ function addReply(event) {
     document.querySelector('#add-reply #reply-text').value='';
     // Send message
     let request = new XMLHttpRequest();
-    request.open('post', 'action_add_reply.php', true)
+    request.open('post', '../actions/action_add_reply.php', true)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.addEventListener('load', repliesReceived);
     request.send(encodeForAjax({'csrf': csrf, 'last_id': last_reply_id, 'comment_id': event.target.getAttribute("data-comment-id"), 'text': text, 'user_id': user_id, 'type': type}))
@@ -90,7 +90,7 @@ function commentsReceived() {
 
         line.innerHTML = "<a href=\"user_profile.php?id=" + data.user_id +
             " \" class=\"user-image\"" +
-            "style=\"background-image: url('database/images/users/profile/thumbs_medium/" +
+            "style=\"background-image: url('../database/images/users/profile/thumbs_medium/" +
             data.user_id + ".jpg')\"></a>" +
             "<span class=\"user\"><a href=\"user_profile.php?id=" + data.user_id + "\">" + data.name +
             "</a></span>" +
@@ -105,7 +105,7 @@ function commentsReceived() {
         comments.prepend(line);
 
         let request = new XMLHttpRequest();
-        request.open('post', 'action_add_reply.php', false)
+        request.open('post', '../actions/action_add_reply.php', false)
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
         request.addEventListener('load', repliesReceived);
         request.send(encodeForAjax({'csrf': csrf, 'last_id': last_reply_id, 'comment_id': data.id}))
@@ -131,20 +131,20 @@ function repliesReceived() {
         replies_ids.push(data.id);
 
         if (data.type === "user") {
-            line.innerHTML = "<a href=\"user_profile.php?id=" + data.user_id +
+            line.innerHTML = "<a href=\"../adoptionCenter/user_profile.php?id=" + data.user_id +
                 " \" class=\"user-image\"" +
-                "style=\"background-image: url('database/images/users/profile/thumbs_medium/" +
+                "style=\"background-image: url('../database/images/users/profile/thumbs_medium/" +
                 data.user_id + ".jpg')\"></a>" +
-                "<span class=\"user\"><a href=\"user_profile.php?id=" + data.user_id + "\">" + data.name +
+                "<span class=\"user\"><a href=\"../adoptionCenter/user_profile.php?id=" + data.user_id + "\">" + data.name +
                 "</a></span>" +
                 "<span class=\"date\">" + data.time + "</span>" +
                 "<p>" + data.text + "</p>";
         }else{
             line.innerHTML = "<a href=\"shelter_profile.php?id=" + data.user_id +
                 " \" class=\"user-image\"" +
-                "style=\"background-image: url('database/images/shelters/profile/thumbs_medium/" +
+                "style=\"background-image: url('../database/images/shelters/profile/thumbs_medium/" +
                 data.user_id + ".jpg')\"></a>" +
-                "<span class=\"user\"><a href=\"shelter_profile.php?id=" + data.user_id + "\">" + data.name +
+                "<span class=\"user\"><a href=\"../adoptionCenter/shelter_profile.php?id=" + data.user_id + "\">" + data.name +
                 "</a></span>" +
                 "<span class=\"date\">" + data.time + "</span>" +
                 "<p>" + data.text + "</p>";

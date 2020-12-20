@@ -1,7 +1,7 @@
 <div class="page-content" id="pet-profile" >
     <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
     <div class="pet-bio">
-        <a class="pet-image" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($_GET['id']) ?>.jpg')">
+        <a class="pet-image" style="background-image: url('../database/images/pets/thumbs_medium/<?= getImageByPetId($_GET['id']) ?>.jpg')">
         </a>
         <section class="pet-info">
             <div id="title">
@@ -40,13 +40,13 @@
         <?php
         if ($owner[1] == 'user') {
             echo '<a id="owner-info" href="user_profile.php?id=' . $owner[0] . '">';
-            echo "<div class=\"img\" style=\"background-image: url('database/images/users/profile/thumbs_medium/" . $owner[0] . ".jpg')\"> </div>
+            echo "<div class=\"img\" style=\"background-image: url('../database/images/users/profile/thumbs_medium/" . $owner[0] . ".jpg')\"> </div>
                   <p>" . getUserByID($owner[0])['name'] . '</p>
                   </a>';
         }
         else {
             echo '<a id="owner-info" href="shelter_profile.php?id=' . $owner[0] . '">';
-            echo "<div class=\"img\" style=\"background-image: url('database/images/shelters/profile/thumbs_medium/" . $owner[0] . ".jpg')\"></div>
+            echo "<div class=\"img\" style=\"background-image: url('../database/images/shelters/profile/thumbs_medium/" . $owner[0] . ".jpg')\"></div>
                   <p>" . getShelterByID($owner[0])['name'] . '</p>
                   </a>';
         }
@@ -73,7 +73,7 @@
             <?php foreach ($proposals as $proposal) { ?>
                 <article class="adoption-proposal">
                     <a href="user_profile.php?id=<?= $proposal['user_id'] ?>">
-                        <div class="img" style="background-image: url('database/images/users/profile/thumbs_medium/<?= $proposal['user_id'] ?>.jpg"></div>
+                        <div class="img" style="background-image: url('../database/images/users/profile/thumbs_medium/<?= $proposal['user_id'] ?>.jpg"></div>
                         <h3><?= $proposal['name'] ?></h3>
                     </a>
                     <div class="user-details">
@@ -109,7 +109,7 @@
     <?php if (isset($_SESSION['username']) and isUser($_SESSION['username'])) { ?>
     <section id="make_proposal" style="display: none">
         <h2><i class="far fa-comment"></i> Submit Proposal</h2>
-        <form action="actions/action_submit_proposal.php" method="post" enctype="multipart/form-data">
+        <form action="../actions/action_submit_proposal.php" method="post" enctype="multipart/form-data">
             <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             <label>Description
                 <textarea id="info" name="info" placeholder="Describe your proposal" required></textarea>

@@ -1,4 +1,5 @@
 <?php
+include_once('connection.php');
   // Insert image data into database
 function uploadImage($image, $id, $path)
 {
@@ -7,6 +8,7 @@ function uploadImage($image, $id, $path)
   $smallFileName = "database/$path/thumbs_small/$id.jpg";
   $mediumFileName = "database/$path/thumbs_medium/$id.jpg";
 
+  chdir('..');
   $destination_path = getcwd().DIRECTORY_SEPARATOR;
   // Move the uploaded file to its final destination
   move_uploaded_file($image['tmp_name'],$destination_path . $originalFileName);

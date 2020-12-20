@@ -1,4 +1,4 @@
-<section class="search" style="background-image: url('res/banner.jpg')">
+<section class="search" style="background-image: url('../res/banner.jpg')">
     <form action="shelters_list.php" method="GET">
         <div id="search-wrap">
             <div id="search">
@@ -10,7 +10,7 @@
 <section class="shelters-list">
     <?php foreach ($shelters as $shelter) { ?>
         <article class="shelter-card">
-            <a class="shelter-image" href="shelter_profile.php?id=<?= $shelter['shelter_id'] ?>" style="background-image: url('database/images/shelters/profile/thumbs_medium/<?= $shelter['shelter_id'] ?>.jpg')"></a>
+            <a class="shelter-image" href="shelter_profile.php?id=<?= $shelter['shelter_id'] ?>" style="background-image: url('../database/images/shelters/profile/thumbs_medium/<?= $shelter['shelter_id'] ?>.jpg')"></a>
             <div class="pet-information">
                 <h1><?= $shelter['name'] ?></h1>
                 <div class="no-pets pet-proposals">

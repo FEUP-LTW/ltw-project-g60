@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-include_once('database/connection.php'); // connects to the database
-include_once('database/users.php');      // loads the functions responsible for the users table
+include_once('../database/users.php');      // loads the functions responsible for the users table
 
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];

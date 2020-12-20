@@ -1,5 +1,5 @@
 <section class="banner"
-         style="background-image: url('database/images/users/header/originals/<?= $user['user_id'] ?>.jpg');">
+         style="background-image: url('../database/images/users/header/originals/<?= $user['user_id'] ?>.jpg');">
     <a><?= $user['name'] ?></a>
 </section>
 
@@ -7,7 +7,7 @@
 
     <section class="left">
         <div class="profile_pic"
-             style="background-image: url('database/images/users/profile/thumbs_medium/<?= $user['user_id'] ?>.jpg') ">
+             style="background-image: url('../database/images/users/profile/thumbs_medium/<?= $user['user_id'] ?>.jpg') ">
         </div>
         <?php if (isset($_SESSION['username']) and getUserByID($_GET['id'])['username'] == $_SESSION['username']) { ?>
         <div id="about_me">
@@ -32,7 +32,7 @@
                 <?php foreach ($pets as $pet) { ?>
                     <div class="pet">
                         <a href="pet_detail.php?id=<?= $pet['PetID'] ?>">
-                            <div class="pet-img" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($pet['PetID']) ?>.jpg')"></div>
+                            <div class="pet-img" style="background-image: url('../database/images/pets/thumbs_medium/<?= getImageByPetId($pet['PetID']) ?>.jpg')"></div>
                             <div class="container-pet">
                                 <h4><b><?= $pet['PetName'] ?></b></h4>
                                 <p><?= $pet['PetInfo'] ?></p>
@@ -49,7 +49,7 @@
                 <?php foreach ($favorites as $pet) { ?>
                       <div class="pet">
                           <a href="pet_detail.php?id=<?= $pet['PetID'] ?>">
-                              <div class="pet-img" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($pet['PetID']) ?>.jpg')"></div>
+                              <div class="pet-img" style="background-image: url('../database/images/pets/thumbs_medium/<?= getImageByPetId($pet['PetID']) ?>.jpg')"></div>
                               <div class="container-pet">
                                   <h4><b><?= $pet['PetName'] ?></b></h4>
                                   <p><?= $pet['PetInfo'] ?></p>
@@ -63,7 +63,7 @@
             <div class="title">
                 <i class="fas fa-file"></i>
                 <span>Edit Info</span>
-                <form action="actions/action_edit_user.php" method="post" enctype="multipart/form-data">
+                <form action="../actions/action_edit_user.php" method="post" enctype="multipart/form-data">
                     <input id="csrf_var" type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                     <div class="group">
                         <input id="name" name="name" type="text" value="<?= $user['name'] ?>" required>
@@ -128,7 +128,7 @@
             <div id="collaboration-imgs">
                 <?php foreach ($collaborations as $collab) { ?>
                     <a href="shelter_profile.php?id=<?= $collab['shelter_id'] ?>">
-                        <div class="collaboration-img" style="background-image: url('database/images/shelters/profile/thumbs_medium/<?= $collab['shelter_id'] ?>.jpg') ">
+                        <div class="collaboration-img" style="background-image: url('../database/images/shelters/profile/thumbs_medium/<?= $collab['shelter_id'] ?>.jpg') ">
                         </div>
                     </a>
 
@@ -141,7 +141,7 @@
             <?php $count = 0; foreach ($activity as $act) { ?>
                 <div class="activity-card">
                     <a href="pet_detail.php?id=<?= $act['pet_id'] ?>">
-                        <div class="activity-img" style="background-image: url('database/images/pets/thumbs_medium/<?= getImageByPetId($act['pet_id']) ?>.jpg')"></div>
+                        <div class="activity-img" style="background-image: url('../database/images/pets/thumbs_medium/<?= getImageByPetId($act['pet_id']) ?>.jpg')"></div>
                         <div class="container-activity">
                             <h4><b>Proposal</b></h4>
                             <p><?= $act['text'] ?></p>
